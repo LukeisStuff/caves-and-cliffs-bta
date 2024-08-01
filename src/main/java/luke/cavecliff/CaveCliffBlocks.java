@@ -13,7 +13,10 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.sound.BlockSound;
+import net.minecraft.core.world.World;
 import turniplabs.halplibe.helper.BlockBuilder;
+
+import java.util.Random;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
@@ -62,6 +65,10 @@ public class CaveCliffBlocks {
 	public static Block lichen;
 
 	public static Block flowerSpore;
+	public static Block dripleafBig;
+	public static Block dripleafSmall;
+
+	public static Block roots;
 
 
 	public void initializeBlockDetails() {
@@ -136,6 +143,26 @@ public class CaveCliffBlocks {
 		oreCopperGranite = ore
 			.setTextures("cavecliff:block/ore_copper_granite")
 			.build(new BlockOreCopper("ore.copper.granite", blockID("oreCopperGranite")));
+
+
+		blockIronRaw = metal
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("cavecliff:block/block_iron_raw"))
+			.build(new Block("block.raw.iron", blockID("blockRawIron"), Material.metal));
+		blockGoldRaw = metal
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("cavecliff:block/block_gold_raw"))
+			.build(new Block("block.raw.gold", blockID("blockRawGold"), Material.metal));
+		blockCopperRaw = metal
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("cavecliff:block/block_copper_raw"))
+			.build(new Block("block.raw.copper", blockID("blockRawCopper"), Material.metal));
+
+
+		dirtRooted = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.8f))
+			.setHardness(0.6f)
+			.setResistance(0.6f)
+			.setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.GROWS_FLOWERS, BlockTags.GROWS_SUGAR_CANE, BlockTags.GROWS_TREES, BlockTags.CAVES_CUT_THROUGH)
+			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("cavecliff:block/dirt_rooted"))
+			.build(new Block("dirt.rooted", blockID("dirtRooted"), Material.dirt));
 
 
 	}
