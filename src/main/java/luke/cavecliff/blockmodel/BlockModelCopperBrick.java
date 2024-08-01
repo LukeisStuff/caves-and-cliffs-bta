@@ -9,15 +9,15 @@ import net.minecraft.core.util.helper.Side;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
-public class BlockModelCopperBlock<T extends Block> extends BlockModelStandard<T> {
+public class BlockModelCopperBrick<T extends Block> extends BlockModelStandard<T> {
 	public final IconCoordinate[] oxidizeStageTextures = new IconCoordinate[]{
-		TextureRegistry.getTexture(MOD_ID + ":block/block_copper"),
-		TextureRegistry.getTexture(MOD_ID + ":block/block_copper_exposed"),
-		TextureRegistry.getTexture(MOD_ID + ":block/block_copper_weathered"),
-		TextureRegistry.getTexture(MOD_ID + ":block/block_copper_oxidized"),
+		TextureRegistry.getTexture(MOD_ID + ":block/brick_copper"),
+		TextureRegistry.getTexture(MOD_ID + ":block/brick_copper_exposed"),
+		TextureRegistry.getTexture(MOD_ID + ":block/brick_copper_weathered"),
+		TextureRegistry.getTexture(MOD_ID + ":block/brick_copper_oxidized"),
 	};
 
-	public BlockModelCopperBlock(Block block) {
+	public BlockModelCopperBrick(Block block) {
 		super(block);
 	}
 
