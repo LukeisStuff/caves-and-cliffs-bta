@@ -1,22 +1,17 @@
 package luke.cavecliff;
 
-import luke.cavecliff.block.BlockAmethystCluster;
-import luke.cavecliff.block.BlockBuddingAmethyst;
-import luke.cavecliff.block.BlockCopper;
-import luke.cavecliff.block.BlockOreCopper;
-import luke.cavecliff.blockmodel.BlockModelAmethystCluster;
-import luke.cavecliff.blockmodel.BlockModelCopperBlock;
-import luke.cavecliff.blockmodel.BlockModelCopperBrick;
-import luke.cavecliff.blockmodel.ItemBlockCopper;
-import net.minecraft.client.render.block.model.BlockModelStandard;
+import luke.cavecliff.block.*;
+import luke.cavecliff.blockmodel.*;
+import net.minecraft.client.render.block.model.*;
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLayerLeaves;
+import net.minecraft.core.block.BlockLeavesBase;
+import net.minecraft.core.block.BlockLog;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
+import net.minecraft.core.item.block.ItemBlockLeaves;
 import net.minecraft.core.sound.BlockSound;
-import net.minecraft.core.world.World;
 import turniplabs.halplibe.helper.BlockBuilder;
-
-import java.util.Random;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
@@ -48,12 +43,15 @@ public class CaveCliffBlocks {
 	public static Block dripstone;
 	public static Block dripstonePointed;
 
-	public static Block azaleaBush;
 	public static Block leavesAzalea;
+	public static Block leavesAzaleaFlowering;
 	public static Block saplingAzalea;
+	public static Block saplingAzaleaFlowering;
 	public static Block logAzalea;
 
 	public static Block moss;
+	public static Block mossLayer;
+
 	public static Block dirtRooted;
 
 	public static Block blockIronRaw;
@@ -96,7 +94,71 @@ public class CaveCliffBlocks {
 			.setResistance(10.0f)
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE);
 
+		BlockBuilder grass = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.1f)
+			.setResistance(0.1f)
+			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.GROWS_FLOWERS, BlockTags.GROWS_SUGAR_CANE, BlockTags.GROWS_TREES, BlockTags.PASSIVE_MOBS_SPAWN, BlockTags.FIREFLIES_CAN_SPAWN, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.CAVES_CUT_THROUGH);
 
+
+		logAzalea = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.wood", "step.wood", 1.0f, 1.0f))
+			.setHardness(2.0F)
+			.setResistance(1.0f)
+			.setFlammability(5, 5)
+			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.FENCES_CONNECT)
+			.setBlockModel(block -> new BlockModelAxisAligned<>(block).withTextures("cavecliff:block/log_azalea_top", "cavecliff:block/log_azalea"))
+			.build(new BlockLog("log.azalea", blockID("logAzalea")));
+
+		leavesAzalea = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.2F)
+			.setResistance(0.2F)
+			.setFlammability(30, 60)
+			.setTickOnLoad()
+			.setVisualUpdateOnMetadata()
+			.setItemBlock(ItemBlockLeaves::new)
+			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_HOE, BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH)
+			.setBlockModel(block -> new BlockModelLeaves<>(block, "cavecliff:block/leaves_azalea"))
+			.build(new BlockLeavesBase("leaves.azalea", blockID("leavesAzalea"), Material.leaves) {
+				@Override
+				protected Block getSapling() {
+					return CaveCliffBlocks.saplingAzalea;
+				}
+			});
+
+		saplingAzalea = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLANTABLE_IN_JAR)
+			.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("cavecliff:block/sapling_azalea"))
+			.build(new BlockSaplingAzalea("sapling.azalea", blockID("saplingAzalea")));
+
+		leavesAzaleaFlowering = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.2F)
+			.setResistance(0.2F)
+			.setFlammability(30, 60)
+			.setTickOnLoad()
+			.setVisualUpdateOnMetadata()
+			.setItemBlock(ItemBlockLeaves::new)
+			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_HOE, BlockTags.MINEABLE_BY_SWORD, BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH)
+			.setBlockModel(block -> new BlockModelLeaves<>(block, "cavecliff:block/leaves_azalea_flowering"))
+			.build(new BlockLeavesBase("leaves.azalea.flowering", blockID("leavesAzaleaFlowering"), Material.leaves) {
+				@Override
+				protected Block getSapling() {
+					return CaveCliffBlocks.saplingAzaleaFlowering;
+				}
+			});
+
+		saplingAzaleaFlowering = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLANTABLE_IN_JAR)
+			.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("cavecliff:block/sapling_azalea_flowering"))
+			.build(new BlockSaplingAzaleaFlowering("sapling.azalea.flowering", blockID("saplingAzaleaFlowering")));
 
 
 		amethyst = stone
@@ -146,23 +208,68 @@ public class CaveCliffBlocks {
 
 
 		blockIronRaw = metal
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("cavecliff:block/block_iron_raw"))
-			.build(new Block("block.raw.iron", blockID("blockRawIron"), Material.metal));
+			.setTextures("cavecliff:block/block_iron_raw")
+			.build(new Block("block.raw.iron", blockID("blockIronRaw"), Material.metal));
 		blockGoldRaw = metal
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("cavecliff:block/block_gold_raw"))
-			.build(new Block("block.raw.gold", blockID("blockRawGold"), Material.metal));
+			.setTextures("cavecliff:block/block_gold_raw")
+			.build(new Block("block.raw.gold", blockID("blockGoldRaw"), Material.metal));
 		blockCopperRaw = metal
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("cavecliff:block/block_copper_raw"))
-			.build(new Block("block.raw.copper", blockID("blockRawCopper"), Material.metal));
+			.setTextures("cavecliff:block/block_copper_raw")
+			.build(new Block("block.raw.copper", blockID("blockCopperRaw"), Material.metal));
 
 
 		dirtRooted = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.gravel", "step.gravel", 1.0f, 0.8f))
-			.setHardness(0.6f)
-			.setResistance(0.6f)
+			.setHardness(0.5f)
+			.setResistance(0.5f)
 			.setTags(BlockTags.MINEABLE_BY_SHOVEL, BlockTags.GROWS_FLOWERS, BlockTags.GROWS_SUGAR_CANE, BlockTags.GROWS_TREES, BlockTags.CAVES_CUT_THROUGH)
-			.setBlockModel(block -> new BlockModelStandard<>(block).withTextures("cavecliff:block/dirt_rooted"))
-			.build(new Block("dirt.rooted", blockID("dirtRooted"), Material.dirt));
+			.setTextures("cavecliff:block/dirt_rooted")
+			.build(new BlockDirtRooted("dirt.rooted", blockID("dirtRooted")));
+
+
+		dripstone = stone
+			.setTopBottomTextures("cavecliff:block/dripstone_topbottom")
+			.setSideTextures("cavecliff:block/dripstone_side")
+			.build(new Block("dripstone", blockID("dripstone"), Material.stone));
+
+		blockSnowPowder = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.cloth", "step.cloth", 1.0f, 1.0f))
+			.setHardness(0.2f)
+			.setResistance(0.2f)
+			.setTextures("cavecliff:block/powder_snow")
+			.build(new BlockPowderSnow("block.snow.powder", blockID("blockSnowPowder")));
+
+
+		moss = grass
+			.setTextures("cavecliff:block/moss")
+			.setFlammability(100, 30)
+			.build(new BlockMossy("moss", blockID("moss")));
+
+		mossLayer = grass
+			.setBlockModel(block -> new BlockModelLayer<>(block).withTextures("cavecliff:block/moss"))
+			.setFlammability(100, 30)
+			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.PASSIVE_MOBS_SPAWN, BlockTags.FIREFLIES_CAN_SPAWN, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.CAVES_CUT_THROUGH)
+			.build(new BlockLayerLeaves("moss.layer", blockID("mossLayer"), Material.moss));
+
+		roots = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("cavecliff:block/roots"))
+			.setVisualUpdateOnMetadata()
+			.setUseInternalLight()
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
+			.build(new BlockRoots("roots", blockID("roots")));
+
+		vines = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setBlockModel(BlockModelCaveVine::new)
+			.setVisualUpdateOnMetadata()
+			.setUseInternalLight()
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.CAN_HANG_OFF, BlockTags.BROKEN_BY_FLUIDS)
+			.build(new BlockVines("vines", blockID("vines"), Material.leaves));
 
 
 	}
