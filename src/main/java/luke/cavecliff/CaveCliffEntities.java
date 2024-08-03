@@ -1,8 +1,6 @@
 package luke.cavecliff;
 
-import luke.cavecliff.entity.EntityGlowSquid;
-import luke.cavecliff.entity.GlowSquidRenderer;
-import luke.cavecliff.entity.ModelGlowSquid;
+import luke.cavecliff.entity.*;
 import turniplabs.halplibe.helper.EntityHelper;
 
 public class CaveCliffEntities {
@@ -10,5 +8,7 @@ public class CaveCliffEntities {
 
 	public void initializeEntities() {
 		EntityHelper.createEntity(EntityGlowSquid.class, entityID++, "Glowsquid", () -> new GlowSquidRenderer(new ModelGlowSquid(), 0.7f));
+		EntityHelper.createEntity(EntityGoat.class, entityID++, "Goat", () -> new GoatRenderer(new ModelGoat(), 0.7f));
+
 	}
 }

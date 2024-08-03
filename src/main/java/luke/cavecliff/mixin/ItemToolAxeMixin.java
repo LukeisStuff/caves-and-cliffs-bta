@@ -17,7 +17,7 @@ import org.spongepowered.asm.mixin.Mixin;
 public class ItemToolAxeMixin extends ItemTool {
 
 
-	protected ItemToolAxeMixin(String name, int id, int damageDealt, ToolMaterial toolMaterial, Tag<Block> tagEffectiveAgainst) {
+	public ItemToolAxeMixin(String name, int id, int damageDealt, ToolMaterial toolMaterial, Tag<Block> tagEffectiveAgainst) {
 		super(name, id, damageDealt, toolMaterial, tagEffectiveAgainst);
 	}
 
