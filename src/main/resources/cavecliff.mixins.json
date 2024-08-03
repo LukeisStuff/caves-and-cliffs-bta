@@ -4,7 +4,7 @@
   "package": "luke.cavecliff.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "BiomeMixin"
+    "ItemToolAxeMixin"
   ],
   "client": [
   ],
