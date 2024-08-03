@@ -19,7 +19,7 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 	public void beforeGameStart() {
 		new CaveCliffBlocks().initializeBlocks();
 		new CaveCliffItems().initilizeItems();
-//		new CaveCliffEntities().initializeEntities();
+		new CaveCliffEntities().initializeEntities();
 	}
 
 	@Override

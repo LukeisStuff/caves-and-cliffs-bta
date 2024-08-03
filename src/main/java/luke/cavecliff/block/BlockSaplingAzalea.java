@@ -17,6 +17,7 @@ public class BlockSaplingAzalea extends BlockSaplingBase {
 	public void growTree(World world, int x, int y, int z, Random random) {
 		WorldFeature treeFeature;
 		world.setBlock(x, y, z, 0);
+		world.setBlock(x, y - 1, z, CaveCliffBlocks.dirtRooted.id);
 		treeFeature = new WorldFeatureTreeFancy(CaveCliffBlocks.leavesAzalea.id, CaveCliffBlocks.logAzalea.id, 0);
 		if (!treeFeature.generate(world, random, x, y, z)) {
 			world.setBlock(x, y, z, this.id);

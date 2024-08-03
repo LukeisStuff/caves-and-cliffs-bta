@@ -24,9 +24,6 @@ public class CaveCliffBlocks {
 	public static Block amethystBudding;
 	public static Block amethystCluster;
 
-	public static Block calcite;
-	public static Block tuff;
-
 	public static Block oreCopperStone;
 	public static Block oreCopperBasalt;
 	public static Block oreCopperLimestone;
