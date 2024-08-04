@@ -37,22 +37,22 @@ public class ModelGoat extends ModelQuadruped {
 
 		// Right Back Leg
 		this.leg1 = new Cube(2, 23);
-		this.leg1.addBox(-2.0F, 0.0F, -2.0F, 3, 6, 3);
+		this.leg1.addBox(-2.0F, 6.0F, -2.0F, 3, 6, 3);
 		this.leg1.setRotationPoint(-3.0F, 12.0F, 7.0F);
 
 		// Left Back Leg
 		this.leg2 = new Cube(2, 23);
-		this.leg2.addBox(-2.0F, 0.0F, -2.0F, 3, 6, 3);
+		this.leg2.addBox(-2.0F, 6.0F, -2.0F, 3, 6, 3);
 		this.leg2.setRotationPoint(3.0F, 12.0F, 7.0F);
 
 		// Right Front Leg
-		this.leg3 = new Cube(52, 0);
-		this.leg3.addBox(-2.0F, 0.0F, -2.0F, 3, 6, 3);
+		this.leg3 = new Cube(2, 23);
+		this.leg3.addBox(1.0F, 6.0F, -2.0F, 3, 6, 3);
 		this.leg3.setRotationPoint(-3.0F, 12.0F, -5.0F);
 
 		// Left Front Leg
-		this.leg4 = new Cube(52, 0);
-		this.leg4.addBox(-2.0F, 0.0F, -2.0F, 3, 6, 3);
+		this.leg4 = new Cube(2, 23);
+		this.leg4.addBox(0.0f, 6.0F, -2.0F, 3, 6, 3);
 		this.leg4.setRotationPoint(3.0F, 12.0F, -5.0F);
 
 		--this.leg1.rotationPointX;

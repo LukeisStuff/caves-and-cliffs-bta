@@ -16,7 +16,7 @@ import turniplabs.halplibe.helper.BlockBuilder;
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
 public class CaveCliffBlocks {
-	private int blockID(String blockName) {
+	public int blockID(String blockName) {
 		return CaveCliffConfig.cfg.getInt("Block IDs." + blockName);
 	}
 
@@ -119,7 +119,7 @@ public class CaveCliffBlocks {
 			.setBlockModel(block -> new BlockModelLeaves<>(block, "cavecliff:block/leaves_azalea"))
 			.build(new BlockLeavesBase("leaves.azalea", blockID("leavesAzalea"), Material.leaves) {
 				@Override
-				protected Block getSapling() {
+				public Block getSapling() {
 					return CaveCliffBlocks.saplingAzalea;
 				}
 			});
@@ -144,7 +144,7 @@ public class CaveCliffBlocks {
 			.setBlockModel(block -> new BlockModelLeaves<>(block, "cavecliff:block/leaves_azalea_flowering"))
 			.build(new BlockLeavesBase("leaves.azalea.flowering", blockID("leavesAzaleaFlowering"), Material.leaves) {
 				@Override
-				protected Block getSapling() {
+				public Block getSapling() {
 					return CaveCliffBlocks.saplingAzaleaFlowering;
 				}
 			});

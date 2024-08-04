@@ -17,7 +17,7 @@ import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
 
 public class BlockPowderSnow extends Block {
-	private int ticks;
+	public int ticks;
 	public BlockPowderSnow(String key, int id) {
 		super(key, id, Material.snow);
 	}

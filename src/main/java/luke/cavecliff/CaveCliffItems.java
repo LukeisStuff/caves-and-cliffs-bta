@@ -9,7 +9,7 @@ import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
 public class CaveCliffItems {
 
-	private int itemID(String blockName) {
+	public int itemID(String blockName) {
 		return CaveCliffConfig.cfg.getInt("Item IDs." + blockName);
 	}
 

@@ -34,7 +34,7 @@ public class GlowSquidRenderer extends LivingRenderer<EntityGlowSquid> {
 		GL11.glPopMatrix();
 	}
 
-	protected boolean setGlowSquidBrightness(EntityGlowSquid glowsquid, int renderPass) {
+	public boolean setGlowSquidBrightness(EntityGlowSquid glowsquid, int renderPass) {
 		if (renderPass == 0) {
 			boolean useVariants = Minecraft.getMinecraft(this).gameSettings.mobVariants.value;
 			this.loadTexture("/assets/cavecliff/textures/entity/glowsquid/" + (useVariants ? glowsquid.getSkinVariant() : 0) + ".png");
@@ -54,7 +54,7 @@ public class GlowSquidRenderer extends LivingRenderer<EntityGlowSquid> {
 		}
 	}
 
-	protected boolean shouldRenderPass(EntityGlowSquid entity, int renderPass, float partialTick) {
+	public boolean shouldRenderPass(EntityGlowSquid entity, int renderPass, float partialTick) {
 		return this.setGlowSquidBrightness(entity, renderPass);
 	}
 

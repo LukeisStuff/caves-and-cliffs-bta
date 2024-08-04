@@ -15,11 +15,11 @@ import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
 public class CaveCliffConfig {
 	public static ConfigUpdater updater = ConfigUpdater.fromProperties();
-	private static final Toml properties = new Toml("Caves and Cliffs TOML Config");
+	public static final Toml properties = new Toml("Caves and Cliffs TOML Config");
 	public static TomlConfigHandler cfg;
 
-	private static int blockIDs = 1700;
-	private static int itemIDs = 17800;
+	public static int blockIDs = 1700;
+	public static int itemIDs = 17800;
 
 	static {
 		properties.addCategory("Caves and Cliffs")

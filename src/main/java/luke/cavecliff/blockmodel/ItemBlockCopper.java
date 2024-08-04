@@ -9,7 +9,7 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.block.ItemBlock;
 
 public class ItemBlockCopper extends ItemBlock {
-	private final boolean upperMetadata;
+	public final boolean upperMetadata;
 
 	public ItemBlockCopper(Block block, boolean upperMetadata) {
 		super(block);

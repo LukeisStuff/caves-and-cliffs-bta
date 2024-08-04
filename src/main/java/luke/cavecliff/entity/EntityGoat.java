@@ -21,7 +21,7 @@ public class EntityGoat extends EntityAnimal {
 		this.mobDrops.add(new WeightedRandomLootObject(Block.wool.getDefaultStack(), 1, 5));
 	}
 
-	protected void dropFewItems() {
+	public void dropFewItems() {
 		super.dropFewItems();
 		if (!this.getSheared()) {
 			this.spawnAtLocation(Block.wool.id, 1, 0.0F);
