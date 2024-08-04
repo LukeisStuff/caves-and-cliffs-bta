@@ -7,20 +7,54 @@ public class ModelGoat extends ModelQuadruped {
 	Cube horn1;
 	Cube horn2;
 
+	Cube ear1;
+	Cube ear2;
+
+
 	public ModelGoat() {
 		super(12, 0.0F);
 		this.head = new Cube(0, 0);
-		this.head.addBox(-4.0F, -4.0F, -6.0F, 8, 8, 6, 0.0F);
+		this.head.addBox(-4.0F, -4.0F, -6.0F, 5, 7, 10, 0.0F);
 		this.head.setRotationPoint(0.0F, 4.0F, -8.0F);
-		this.horn1 = new Cube(22, 0);
-		this.horn1.addBox(-5.0F, -5.0F, -4.0F, 1, 3, 1, 0.0F);
+
+		this.horn1 = new Cube(0, 0);
+		this.horn1.addBox(-5.0F, -5.0F, -4.0F, 2, 7, 2, 0.0F);
 		this.horn1.setRotationPoint(0.0F, 4.0F, -8.0F);
-		this.horn2 = new Cube(22, 0);
-		this.horn2.addBox(4.0F, -5.0F, -4.0F, 1, 3, 1, 0.0F);
+		this.horn2 = new Cube(0, 0);
+		this.horn2.addBox(4.0F, -5.0F, -4.0F, 2, 7, 2, 0.0F);
 		this.horn2.setRotationPoint(0.0F, 4.0F, -8.0F);
-		this.body = new Cube(18, 4);
-		this.body.addBox(-6.0F, -10.0F, -7.0F, 12, 18, 10, 0.0F);
+
+		this.ear1 = new Cube(0, 17);
+		this.ear1.addBox(-5.0F, -5.0F, -4.0F, 2, 7, 2, 0.0F);
+		this.ear1.setRotationPoint(0.0F, 4.0F, -8.0F);
+		this.ear2 = new Cube(0, 17);
+		this.ear2.addBox(4.0F, -5.0F, -4.0F, 2, 7, 2, 0.0F);
+		this.ear2.setRotationPoint(0.0F, 4.0F, -8.0F);
+
+		this.body = new Cube(23, 5);
+		this.body.addBox(-6.0F, -6.0F, -7.0F, 9, 16, 11, 0.0F);
 		this.body.setRotationPoint(0.0F, 5.0F, 2.0F);
+
+		// Right Back Leg
+		this.leg1 = new Cube(2, 23);
+		this.leg1.addBox(-2.0F, 0.0F, -2.0F, 3, 6, 3);
+		this.leg1.setRotationPoint(-3.0F, 12.0F, 7.0F);
+
+		// Left Back Leg
+		this.leg2 = new Cube(2, 23);
+		this.leg2.addBox(-2.0F, 0.0F, -2.0F, 3, 6, 3);
+		this.leg2.setRotationPoint(3.0F, 12.0F, 7.0F);
+
+		// Right Front Leg
+		this.leg3 = new Cube(52, 0);
+		this.leg3.addBox(-2.0F, 0.0F, -2.0F, 3, 6, 3);
+		this.leg3.setRotationPoint(-3.0F, 12.0F, -5.0F);
+
+		// Left Front Leg
+		this.leg4 = new Cube(52, 0);
+		this.leg4.addBox(-2.0F, 0.0F, -2.0F, 3, 6, 3);
+		this.leg4.setRotationPoint(3.0F, 12.0F, -5.0F);
+
 		--this.leg1.rotationPointX;
 		++this.leg2.rotationPointX;
 		Cube var10000 = this.leg1;
