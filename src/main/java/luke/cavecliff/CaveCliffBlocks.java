@@ -11,6 +11,7 @@ import net.minecraft.core.block.BlockLog;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.block.ItemBlockLeaves;
+import net.minecraft.core.item.block.ItemBlockPainted;
 import net.minecraft.core.sound.BlockSound;
 import org.useless.dragonfly.model.block.DFBlockModelBuilder;
 import turniplabs.halplibe.helper.BlockBuilder;
@@ -188,6 +189,27 @@ public class CaveCliffBlocks {
 			.setVisualUpdateOnMetadata()
 			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
 			.build(new BlockCandle("candle.lit", blockID("candleLit"), true));
+
+		candleColored = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setBlockModel(BlockModelCandlePainted::new)
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.BROKEN_BY_FLUIDS)
+			.build(new BlockCandleColored("candle.colored", blockID("candleColored"), false).setBlockItem(block -> new ItemBlockPainted(block, false)));
+
+		candleColoredLit = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setLuminance(8)
+			.setUseInternalLight()
+			.setVisualUpdateOnMetadata()
+			.setBlockModel(BlockModelCandlePainted::new)
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
+			.build(new BlockCandleColored("candle.colored.lit", blockID("candleColoredLit"), true).setBlockItem(block -> new ItemBlockPainted(block, false)));
 
 
 		amethyst = stone

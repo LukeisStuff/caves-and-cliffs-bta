@@ -15,10 +15,10 @@ import net.minecraft.core.world.World;
 
 import java.util.Random;
 
-public class BlockCandle extends Block {
+public class BlockCandleColored extends Block {
 	public boolean burning;
 
-	public BlockCandle(String key, int id, boolean flag) {
+	public BlockCandleColored(String key, int id, boolean flag) {
 		super(key, id, Material.decoration);
 		this.setTicking(true);
 		this.burning = flag;
@@ -43,9 +43,10 @@ public class BlockCandle extends Block {
 
 	public boolean onBlockRightClicked(World world, int x, int y, int z, EntityPlayer player, Side side, double xPlaced, double yPlaced) {
 		ItemStack heldItem = player.getHeldItem();
+		int meta = world.getBlockMetadata(x, y, z);
 		if (heldItem != null && heldItem.getItem() instanceof ItemFirestriker && !this.burning) {
 			if (!(world.getBlock(x + 1, y, z) instanceof BlockFluid) && !(world.getBlock(x - 1, y, z) instanceof BlockFluid) && !(world.getBlock(x, y, z + 1) instanceof BlockFluid) && !(world.getBlock(x, y, z - 1) instanceof BlockFluid)) {
-				world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.candleLit.id, 0);
+				world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.candleColoredLit.id, meta);
 				heldItem.damageItem(1, player);
 				world.playSoundEffect(null, SoundCategory.WORLD_SOUNDS, (double)x + 0.5, (double)y + 0.5, (double)z + 0.5, "fire.ignite", 1.0F, world.rand.nextFloat() * 0.4F + 0.8F);
 				return true;
@@ -53,7 +54,7 @@ public class BlockCandle extends Block {
 				return false;
 			}
 		} else if (heldItem == null && this.burning) {
-			world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.candle.id, 0);
+			world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.candleColored.id, meta);
 			return true;
 		} else {
 			return false;
@@ -82,6 +83,11 @@ public class BlockCandle extends Block {
 	}
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
-		return new ItemStack[]{new ItemStack(CaveCliffBlocks.candle)};
+		return new ItemStack[]{new ItemStack(this, 1, meta)};
 	}
+
+	public static int getMetadataForColour(int i) {
+		return ~i & 15;
+	}
+
 }
