@@ -2,6 +2,7 @@ package luke.cavecliff;
 
 import luke.cavecliff.block.*;
 import luke.cavecliff.blockmodel.*;
+import luke.cavecliff.blockmodel.BlockModelCandle;
 import net.minecraft.client.render.block.model.*;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLayerLeaves;
@@ -11,6 +12,7 @@ import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.block.ItemBlockLeaves;
 import net.minecraft.core.sound.BlockSound;
+import org.useless.dragonfly.model.block.DFBlockModelBuilder;
 import turniplabs.halplibe.helper.BlockBuilder;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
@@ -35,7 +37,9 @@ public class CaveCliffBlocks {
 	public static Block blockSnowPowder;
 
 	public static Block candle;
+	public static Block candleLit;
 	public static Block candleColored;
+	public static Block candleColoredLit;
 
 	public static Block dripstone;
 	public static Block dripstonePointed;
@@ -129,7 +133,8 @@ public class CaveCliffBlocks {
 			.setHardness(0.0f)
 			.setResistance(0.0f)
 			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLANTABLE_IN_JAR)
-			.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("cavecliff:block/sapling_azalea"))
+			.setIcon("cavecliff:block/sapling_azalea")
+			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/azalea.json").setRender3D(false).build(saplingAzalea))
 			.build(new BlockSaplingAzalea("sapling.azalea", blockID("saplingAzalea")));
 
 		leavesAzaleaFlowering = new BlockBuilder(MOD_ID)
@@ -153,9 +158,36 @@ public class CaveCliffBlocks {
 			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
 			.setHardness(0.0f)
 			.setResistance(0.0f)
+			.setIcon("cavecliff:block/sapling_azalea_flowering")
 			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLANTABLE_IN_JAR)
-			.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("cavecliff:block/sapling_azalea_flowering"))
+			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/azalea_flowering.json").setRender3D(false).build(saplingAzaleaFlowering))
 			.build(new BlockSaplingAzaleaFlowering("sapling.azalea.flowering", blockID("saplingAzaleaFlowering")));
+
+
+		candle = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
+			.setIcon("cavecliff:item/candle")
+			.setTextures("cavecliff:block/candle")
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setBlockModel(BlockModelCandle::new)
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.BROKEN_BY_FLUIDS)
+			.build(new BlockCandle("candle", blockID("candle"), false));
+
+		candleLit = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
+			.setIcon("cavecliff:item/candle")
+			.setTextures("cavecliff:block/candle")
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setLuminance(8)
+			.setUseInternalLight()
+			.setVisualUpdateOnMetadata()
+			.setBlockModel(BlockModelCandle::new)
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
+			.build(new BlockCandle("candle.lit", blockID("candleLit"), true));
 
 
 		amethyst = stone
