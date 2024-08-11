@@ -1,0 +1,46 @@
+{
+	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
+	"textures": {
+		"4": "cavecliff:block/dripleaf_large",
+		"5": "cavecliff:block/dripleaf_large_stem",
+		"particle": "cavecliff:block/dripleaf_large"
+	},
+	"elements": [
+		{
+			"from": [0, 15, 0],
+			"to": [16, 15, 16],
+		        "shade": false,
+			"faces": {
+				"up": {"uv": [0, 0, 16, 16], "texture": "#4"},
+				"down": {"uv": [0, 16, 16, 0], "texture": "#4"}
+			}
+		},
+		{
+			"from": [8, 0, 4],
+			"to": [8, 15, 20],
+		        "shade": false,
+			"faces": {
+				"north": {"uv": [0, 0, 0, 15], "texture": "#missing"},
+				"east": {"uv": [0, 0, 16, 15], "texture": "#5"},
+				"south": {"uv": [0, 0, 0, 15], "texture": "#missing"},
+				"west": {"uv": [0, 1, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 0, 0, 16], "texture": "#missing"},
+				"down": {"uv": [0, 0, 0, 16], "texture": "#missing"}
+			}
+		},
+		{
+			"from": [0, 0, 12],
+			"to": [16, 15, 12],
+		        "shade": false,
+			"faces": {
+				"north": {"uv": [0, 1, 16, 16], "texture": "#5"},
+				"east": {"uv": [0, 1, 16, 16], "texture": "#5"},
+				"south": {"uv": [0, 1, 16, 16], "texture": "#5"},
+				"west": {"uv": [0, 1, 16, 16], "texture": "#5"},
+				"up": {"uv": [0, 1, 16, 16], "texture": "#5"},
+				"down": {"uv": [0, 1, 16, 16], "texture": "#5"}
+			}
+		}
+	]
+}

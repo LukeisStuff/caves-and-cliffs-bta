@@ -8,10 +8,10 @@ import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
 
-public class BlockRoots extends Block {
-	public BlockRoots(String key, int id) {
+public class BlockSpore extends Block {
+	public BlockSpore(String key, int id) {
 		super(key, id, Material.grass);
-		this.setBlockBounds(0.0625f, 0.25f, 0.0625f, 0.9375f, 1.0f, 0.9375f);
+		this.setBlockBounds(0.0625f, 0.75f, 0.0625f, 0.9375f, 1.0f, 0.9375f);
 	}
 
 	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {

@@ -1,13 +1,11 @@
 package luke.cavecliff;
 
 import luke.cavecliff.block.*;
+import luke.cavecliff.block.BlockCandle;
 import luke.cavecliff.blockmodel.*;
 import luke.cavecliff.blockmodel.BlockModelCandle;
 import net.minecraft.client.render.block.model.*;
-import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockLayerLeaves;
-import net.minecraft.core.block.BlockLeavesBase;
-import net.minecraft.core.block.BlockLog;
+import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.item.block.ItemBlockLeaves;
@@ -308,7 +306,6 @@ public class CaveCliffBlocks {
 			.setResistance(0.0f)
 			.setBlockModel(block -> new BlockModelCrossedSquares<>(block).withTextures("cavecliff:block/roots"))
 			.setVisualUpdateOnMetadata()
-			.setUseInternalLight()
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
 			.build(new BlockRoots("roots", blockID("roots")));
 
@@ -321,6 +318,34 @@ public class CaveCliffBlocks {
 			.setUseInternalLight()
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.CAN_HANG_OFF, BlockTags.BROKEN_BY_FLUIDS)
 			.build(new BlockVines("vines", blockID("vines"), Material.leaves));
+
+		flowerSpore = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/spore.json").setRender3D(false).build(flowerSpore))
+			.setVisualUpdateOnMetadata()
+			.setIcon("cavecliff:block/spore_blossom_flower")
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
+			.build(new BlockSpore("flower.spore", blockID("flowerSpore")));
+
+		dripleafSmall = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/dripleaf_small.json").setRender3D(false).build(dripleafSmall))
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
+			.build(new BlockFlower("dripleaf.small", blockID("dripleafSmall")));
+
+		dripleafBig = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/dripleaf_large.json").setRender3D(false).build(dripleafBig))
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
+			.build(new BlockFlower("dripleaf.large", blockID("dripleafBig")));
 
 
 	}

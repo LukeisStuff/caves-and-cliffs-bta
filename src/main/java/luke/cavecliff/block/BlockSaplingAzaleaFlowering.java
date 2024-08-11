@@ -12,6 +12,7 @@ public class BlockSaplingAzaleaFlowering extends BlockSaplingBase {
 
 	public BlockSaplingAzaleaFlowering(String key, int id) {
 		super(key, id);
+		this.setBlockBounds(0.0f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f);
 	}
 
 	public void growTree(World world, int x, int y, int z, Random random) {
