@@ -1,9 +1,9 @@
 package luke.cavecliff;
 
-import luke.cavecliff.block.*;
 import luke.cavecliff.block.BlockCandle;
-import luke.cavecliff.blockmodel.*;
+import luke.cavecliff.block.*;
 import luke.cavecliff.blockmodel.BlockModelCandle;
+import luke.cavecliff.blockmodel.*;
 import net.minecraft.client.render.block.model.*;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
@@ -335,6 +335,7 @@ public class CaveCliffBlocks {
 			.setResistance(0.0f)
 			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/dripleaf_small.json").setRender3D(false).build(dripleafSmall))
 			.setVisualUpdateOnMetadata()
+			.setIcon("cavecliff:block/dripleaf_small")
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
 			.build(new BlockFlower("dripleaf.small", blockID("dripleafSmall")));
 
@@ -342,11 +343,23 @@ public class CaveCliffBlocks {
 			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
 			.setHardness(0.0f)
 			.setResistance(0.0f)
-			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/dripleaf_large.json").setRender3D(false).build(dripleafBig))
+			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/dripleaf_large.json").setBlockState(MOD_ID, "dripleaf_large_states.json").setMetaStateInterpreter(new DripleafLargeMetaStateInterpreter()).setRender3D(false).build(dripleafBig))
 			.setVisualUpdateOnMetadata()
+			.setIcon("cavecliff:block/dripleaf_large")
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
-			.build(new BlockFlower("dripleaf.large", blockID("dripleafBig")));
+			.build(new BlockDripleafLarge("dripleaf.large", blockID("dripleafBig")));
 
+		lichen = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setVisualUpdateOnMetadata()
+			.setBlockModel(block -> new BlockModelLadder<>(block).withTextures("cavecliff:block/lichen").withOverbrightTexture("cavecliff:block/lichen_overlay"))
+			.setItemBlock((b) -> new ItemBlockLichen((BlockLichen)b))
+			.setLuminance(7)
+			.setUseInternalLight()
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
+			.build(new BlockLichen("lichen", blockID("lichen")));
 
 	}
 

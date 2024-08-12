@@ -29,6 +29,9 @@
 		],
 		"recipesReady": [
 			"luke.cavecliff.CaveCliffRecipes"
+		],
+		"terrain-api": [
+			"luke.cavecliff.CaveCliffTerrainAPI"
 		]
 	},
 	"mixins": [

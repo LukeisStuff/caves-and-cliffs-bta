@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "cavecliff:block/dripleaf_large",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "cavecliff:block/dripleaf_large",
+      "y": 180
+    },
+    "facing=south": {
+      "model": "cavecliff:block/dripleaf_large",
+      "y": 0
+    },
+    "facing=west": {
+      "model": "cavecliff:block/dripleaf_large",
+      "y": 270
+    }
+  }
+}
