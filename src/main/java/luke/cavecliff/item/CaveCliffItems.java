@@ -1,5 +1,6 @@
-package luke.cavecliff;
+package luke.cavecliff.item;
 
+import luke.cavecliff.CaveCliffConfig;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemFood;
 import net.minecraft.core.item.ItemRecord;

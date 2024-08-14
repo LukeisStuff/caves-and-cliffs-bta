@@ -213,11 +213,14 @@ public class CaveCliffBlocks {
 		amethyst = stone
 			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
 			.setTextures("cavecliff:block/amethyst")
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
 			.build(new Block("amethyst", blockID("amethyst"), Material.stone));
 
 		amethystBudding = stone
+			.setBlockDrop(null)
 			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
 			.setTextures("cavecliff:block/amethyst_budding")
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
 			.build(new BlockBuddingAmethyst("amethyst.budding", blockID("amethystBudding"), Material.stone));
 
 		amethystCluster = stone
@@ -226,6 +229,8 @@ public class CaveCliffBlocks {
 			.setLuminance(3)
 			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
 			.setBlockModel(BlockModelAmethystCluster::new)
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
+			.setIcon("cavecliff:block/amehtyst_cluster")
 			.build(new BlockAmethystCluster("amethyst.cluster", blockID("amethystCluster"), Material.stone));
 
 		blockCopper = metal

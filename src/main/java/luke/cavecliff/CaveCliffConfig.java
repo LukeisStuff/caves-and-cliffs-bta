@@ -1,5 +1,6 @@
 package luke.cavecliff;
 
+import luke.cavecliff.item.CaveCliffItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.item.Item;
 import turniplabs.halplibe.util.ConfigUpdater;

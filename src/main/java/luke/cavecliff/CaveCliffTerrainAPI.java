@@ -14,5 +14,8 @@ public class CaveCliffTerrainAPI implements TerrainAPI {
 	@Override
 	public void onInitialize() {
 		ChunkDecoratorOverworldAPI.oreFeatures.addManagedOreFeature(getModID(), CaveCliffBlocks.oreCopperStone, 10, 16, 0.0f, 0.5f, true);
+
+		ChunkDecoratorOverworldAPI.randomFeatures.addFeature(new WorldFeatureGeode(), 24, 0.25f);
+
 	}
 }
