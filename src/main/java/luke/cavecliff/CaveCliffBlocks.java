@@ -193,9 +193,10 @@ public class CaveCliffBlocks {
 			.setHardness(0.0f)
 			.setResistance(0.0f)
 			.setBlockModel(BlockModelCandlePainted::new)
+			.setItemBlock(block -> new ItemBlockPainted(block, false))
 			.setVisualUpdateOnMetadata()
 			.setTags(BlockTags.BROKEN_BY_FLUIDS)
-			.build(new BlockCandleColored("candle.colored", blockID("candleColored"), false).setBlockItem(block -> new ItemBlockPainted(block, false)));
+			.build(new BlockCandleColored("candle.colored", blockID("candleColored"), false));
 
 		candleColoredLit = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
@@ -205,9 +206,10 @@ public class CaveCliffBlocks {
 			.setUseInternalLight()
 			.setVisualUpdateOnMetadata()
 			.setBlockModel(BlockModelCandlePainted::new)
+			.setItemBlock(block -> new ItemBlockPainted(block, false))
 			.setVisualUpdateOnMetadata()
 			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
-			.build(new BlockCandleColored("candle.colored.lit", blockID("candleColoredLit"), true).setBlockItem(block -> new ItemBlockPainted(block, false)));
+			.build(new BlockCandleColored("candle.colored.lit", blockID("candleColoredLit"), true));
 
 
 		amethyst = stone
@@ -230,7 +232,7 @@ public class CaveCliffBlocks {
 			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
 			.setBlockModel(BlockModelAmethystCluster::new)
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
-			.setIcon("cavecliff:block/amehtyst_cluster")
+			.setIcon("cavecliff:block/amethyst_cluster")
 			.build(new BlockAmethystCluster("amethyst.cluster", blockID("amethystCluster"), Material.stone));
 
 		blockCopper = metal
@@ -340,7 +342,7 @@ public class CaveCliffBlocks {
 			.setResistance(0.0f)
 			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/dripleaf_small.json").setRender3D(false).build(dripleafSmall))
 			.setVisualUpdateOnMetadata()
-			.setIcon("cavecliff:block/dripleaf_small")
+			.setIcon("cavecliff:block/dripleaf_small_icon")
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
 			.build(new BlockFlower("dripleaf.small", blockID("dripleafSmall")));
 

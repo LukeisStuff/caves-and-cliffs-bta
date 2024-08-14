@@ -13,8 +13,6 @@ public class BlockModelCaveVine<T extends Block> extends BlockModelCrossedSquare
 	public final IconCoordinate[] growthStageTextures = new IconCoordinate[]{
 		TextureRegistry.getTexture(MOD_ID + ":block/cave_vine"),
 		TextureRegistry.getTexture(MOD_ID + ":block/cave_vine_flowering"),
-		TextureRegistry.getTexture(MOD_ID + ":block/cave_vine_short"),
-		TextureRegistry.getTexture(MOD_ID + ":block/cave_vine_short_flowering"),
 	};
 
 	public BlockModelCaveVine(Block block) {
@@ -22,6 +20,6 @@ public class BlockModelCaveVine<T extends Block> extends BlockModelCrossedSquare
 	}
 
 	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
-		return this.growthStageTextures[MathHelper.clamp(data, 0, 3)];
+		return this.growthStageTextures[MathHelper.clamp(data, 0, 1)];
 	}
 }

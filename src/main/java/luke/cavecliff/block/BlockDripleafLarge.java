@@ -1,6 +1,7 @@
 package luke.cavecliff.block;
 
 import net.minecraft.core.block.BlockFlower;
+import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.EntityLiving;
 import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.util.helper.Side;
@@ -13,6 +14,10 @@ public class BlockDripleafLarge extends BlockFlower {
 	public BlockDripleafLarge(String key, int id) {
 		super(key, id);
 		this.setBlockBounds(0.1f, 0.9f, 0.1f, 0.9f, 1.0f, 0.9f);
+	}
+
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+		super.onEntityWalking(world, x, y, z, entity);
 	}
 
 	@Override

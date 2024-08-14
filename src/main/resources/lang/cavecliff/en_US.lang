@@ -1,0 +1,72 @@
+tile.cavecliff.amethyst.name=Block of Amethyst
+
+tile.cavecliff.amethyst.budding.name=Budding Amethyst
+
+tile.cavecliff.amethyst.cluster.name=Amethyst Cluster
+
+tile.cavecliff.ore.copper.stone.name=Stone Copper Ore
+
+tile.cavecliff.ore.copper.basalt.name=Basalt Copper Ore
+
+tile.cavecliff.ore.copper.limestone.name=Limestone Copper Ore
+
+tile.cavecliff.ore.copper.granite.name=Granite Copper Ore
+
+tile.cavecliff.block.copper.clean.name=Block of Copper
+tile.cavecliff.block.copper.exposed.name=Block of Exposed Copper
+tile.cavecliff.block.copper.weathered.name=Block of Weathered Copper
+tile.cavecliff.block.copper.oxidized.name=Block of Oxidized Copper
+
+tile.cavecliff.brick.copper.clean.name=Copper Brick
+
+tile.cavecliff.block.snow.powder.name=Powder Snow
+
+tile.cavecliff.candle.name=Candle
+
+tile.cavecliff.candle.colored.name=Colored Candle
+
+tile.cavecliff.dripstone.name=Dripstone
+
+tile.cavecliff.leaves.azalea.name=Azalea Leaves
+
+tile.cavecliff.leaves.azalea.flowering.name=Flowering Azalea Leaves
+
+tile.cavecliff.sapling.azalea.name=Azalea Sapling
+
+tile.cavecliff.sapling.azalea.flowering.name=Flowering Azalea Sapling
+
+tile.cavecliff.log.azalea.name=Azalea Log
+
+tile.cavecliff.moss.name=Moss
+
+tile.cavecliff.moss.layer.name=Moss Layer
+
+tile.cavecliff.dirt.rooted.name=Rooted Dirt
+
+tile.cavecliff.block.raw.iron.name=Block of Raw Iron
+
+tile.cavecliff.block.raw.gold.name=Block of Raw Gold
+
+tile.cavecliff.block.raw.copper.name=Block of Raw Copper
+
+tile.cavecliff.vines.name=Vines
+
+tile.cavecliff.lichen.name=Lichen
+
+tile.cavecliff.flower.spore.name=Spore Blossom
+
+tile.cavecliff.dripleaf.large.name=Big Dripleaf
+
+tile.cavecliff.dripleaf.small.name=Small Dripleaf
+
+tile.cavecliff.roots.name=Hanging Roots
+
+item.cavecliff.amethyst.name=Amethyst
+
+item.cavecliff.ingot.copper.name=Copper Ingot
+
+item.cavecliff.ore.raw.copper.name=Raw Copper Ore
+
+item.cavecliff.food.berries.name=Glow Berries
+
+item.cavecliff.record.otherside.name=Music Disc

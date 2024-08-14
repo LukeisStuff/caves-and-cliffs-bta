@@ -1,6 +1,7 @@
 package luke.cavecliff.block;
 
 import luke.cavecliff.CaveCliffBlocks;
+import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockSaplingBase;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.generate.feature.WorldFeature;
@@ -13,6 +14,14 @@ public class BlockSaplingAzaleaFlowering extends BlockSaplingBase {
 	public BlockSaplingAzaleaFlowering(String key, int id) {
 		super(key, id);
 		this.setBlockBounds(0.0f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f);
+	}
+
+	public void updateTick(World world, int x, int y, int z, Random rand) {
+		if (!world.isClientSide) {
+			if (!this.canGrowOnSand && world.getBlockId(x, y - 1, z) == Block.sand.id) {
+				world.setBlockWithNotify(x, y, z, Block.deadbush.id);
+			}
+		}
 	}
 
 	public void growTree(World world, int x, int y, int z, Random random) {

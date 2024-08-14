@@ -1,7 +1,6 @@
 package luke.cavecliff;
 
 import luke.cavecliff.entity.EntityGlowSquid;
-import luke.cavecliff.item.CaveCliffItems;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.data.registry.Registries;
 import net.minecraft.core.entity.SpawnListEntry;

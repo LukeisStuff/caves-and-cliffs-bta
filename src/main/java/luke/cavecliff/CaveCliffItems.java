@@ -1,6 +1,5 @@
-package luke.cavecliff.item;
+package luke.cavecliff;
 
-import luke.cavecliff.CaveCliffConfig;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemFood;
 import net.minecraft.core.item.ItemRecord;
@@ -41,7 +40,7 @@ public class CaveCliffItems {
 
 		foodGlowBerries = new ItemBuilder(MOD_ID)
 			.setIcon("cavecliff:item/glowberries")
-			.build(new ItemFood("food.berries", itemID("foodGlowBerries"), 4, 4, false, 8));
+			.build(new ItemFood("food.berries", itemID("foodGlowBerries"), 3, 4, false, 6));
 
 		recordOtherside = new ItemBuilder(MOD_ID)
 			.setIcon(MOD_ID + ":item/otherside")

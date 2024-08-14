@@ -12,16 +12,11 @@ import net.minecraft.core.util.helper.Side;
 
 public class BlockModelCandlePainted<T extends BlockCandleColored> extends BlockModelStandard<T> {
 	public static final IconCoordinate[] texCoords = new IconCoordinate[16];
+
 	public BlockModelCandlePainted(Block block) {
 		super(block);
 	}
 
-	@Override
-	public IconCoordinate getBlockOverbrightTextureFromSideAndMeta(Side side, int data) {
-		return getBlockTextureFromSideAndMetadata(side, data);
-	}
-
-	@Override
 	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int meta) {
 		return texCoords[meta & 15];
 	}
