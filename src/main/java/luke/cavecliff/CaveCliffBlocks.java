@@ -33,6 +33,9 @@ public class CaveCliffBlocks {
 	public static Block blockCopper;
 	public static Block brickCopper;
 
+	public static Block slabBrickCopper;
+	public static Block stairsBrickCopper;
+
 	public static Block blockSnowPowder;
 
 	public static Block candle;
@@ -248,6 +251,18 @@ public class CaveCliffBlocks {
 			.build(new BlockCopper("brick.copper", blockID("brickCopper"), Material.metal));
 
 
+		stairsBrickCopper = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.stone", "step.stone", 1.0f, 1.5f))
+			.setUseInternalLight()
+			.setVisualUpdateOnMetadata()
+			.setBlockModel(BlockModelStairs::new)
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(5.0f)
+			.setResistance(10.0f)
+			.setTicking(true)
+			.build(new BlockStairs(brickCopper, blockID("stairsCopper")));
+
+
 		// Copper Ores
 		oreCopperStone = ore
 			.setTextures("cavecliff:block/ore_copper_stone")
@@ -286,7 +301,9 @@ public class CaveCliffBlocks {
 		dripstone = stone
 			.setTopBottomTextures("cavecliff:block/dripstone_topbottom")
 			.setSideTextures("cavecliff:block/dripstone_side")
-			.build(new Block("dripstone", blockID("dripstone"), Material.stone));
+			.setTicking(true)
+			.setTickOnLoad()
+			.build(new BlockDripstone("dripstone", blockID("dripstone"), Material.stone));
 
 		blockSnowPowder = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.cloth", "step.cloth", 1.0f, 1.0f))

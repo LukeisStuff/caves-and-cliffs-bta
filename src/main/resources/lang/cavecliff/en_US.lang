@@ -18,6 +18,9 @@ tile.cavecliff.block.copper.weathered.name=Block of Weathered Copper
 tile.cavecliff.block.copper.oxidized.name=Block of Oxidized Copper
 
 tile.cavecliff.brick.copper.clean.name=Copper Brick
+tile.cavecliff.brick.copper.exposed.name=Exposed Copper Brick
+tile.cavecliff.brick.copper.weathered.name=Weathered Copper Brick
+tile.cavecliff.brick.copper.oxidized.name=Oxidized Copper Brick
 
 tile.cavecliff.block.snow.powder.name=Powder Snow
 
