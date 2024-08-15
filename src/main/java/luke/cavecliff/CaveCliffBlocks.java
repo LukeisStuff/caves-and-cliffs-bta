@@ -250,17 +250,29 @@ public class CaveCliffBlocks {
 			.setItemBlock(block -> new ItemBlockCopper(block, false))
 			.build(new BlockCopper("brick.copper", blockID("brickCopper"), Material.metal));
 
+		slabBrickCopper = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.stone", "step.stone", 1.0f, 1.5f))
+			.setUseInternalLight()
+			.setVisualUpdateOnMetadata()
+			.setBlockModel(BlockModelSlabCopper::new)
+			.setItemBlock(ItemBlockSlabCopper::new)
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
+			.setHardness(5.0f)
+			.setResistance(10.0f)
+			.setTicking(true)
+			.build(new BlockSlabCopper(brickCopper, blockID("slabBrickCopper")));
 
 		stairsBrickCopper = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.stone", "step.stone", 1.0f, 1.5f))
 			.setUseInternalLight()
 			.setVisualUpdateOnMetadata()
-			.setBlockModel(BlockModelStairs::new)
+			.setBlockModel(BlockModelStairsCopper::new)
+			.setItemBlock(ItemBlockStairsCopper::new)
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE)
 			.setHardness(5.0f)
 			.setResistance(10.0f)
 			.setTicking(true)
-			.build(new BlockStairs(brickCopper, blockID("stairsCopper")));
+			.build(new BlockStairsCopper(brickCopper, blockID("stairsBrickCopper")));
 
 
 		// Copper Ores
