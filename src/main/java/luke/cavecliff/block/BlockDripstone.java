@@ -53,7 +53,7 @@ public class BlockDripstone extends BlockSand {
 
 			if (bottomCanFall) {
 				for(i = lowest; i <= highest; ++i) {
-					EntityFallingSand entityfallingsand = new EntityFallingSand(world, (double)((float)x + 0.5F), (double)((float)i + 0.5F), (double)((float)z + 0.5F), this.id);
+					EntityFallingSand entityfallingsand = new EntityFallingSand(world, (float)x + 0.5F, (float)i + 0.5F, (float)z + 0.5F, this.id);
 					world.entityJoinedWorld(entityfallingsand);
 				}
 			}

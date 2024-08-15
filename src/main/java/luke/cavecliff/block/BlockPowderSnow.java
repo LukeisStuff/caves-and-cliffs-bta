@@ -1,6 +1,5 @@
 package luke.cavecliff.block;
 
-import luke.cavecliff.CaveCliffItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
@@ -24,9 +23,9 @@ public class BlockPowderSnow extends Block {
 
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		entity.fallDistance = 0.0F;
-		entity.xd *= 0.6;
-		entity.yd *= 0.6;
-		entity.zd *= 0.6;
+		entity.xd *= 0.5;
+		entity.yd *= 0.2;
+		entity.zd *= 0.5;
 		if (entity instanceof EntitySnowman) {
 		} else if (entity instanceof EntityLiving || entity instanceof EntityMinecart || entity instanceof EntityBoat) {
 			++this.ticks;
@@ -52,10 +51,9 @@ public class BlockPowderSnow extends Block {
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
 		switch (dropCause) {
 			case PICK_BLOCK:
-				return new ItemStack[]{new ItemStack(CaveCliffItems.bucketPowderSnow)};
-			case SILK_TOUCH:
-				return new ItemStack[]{new ItemStack(this)};
-			default:
+            case SILK_TOUCH:
+                return new ItemStack[]{new ItemStack(this)};
+            default:
 				return null;
 		}
 	}

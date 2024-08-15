@@ -18,8 +18,6 @@ public class CaveCliffItems {
 	public static Item ingotCopper;
 	public static Item oreRawCopper;
 
-	public static Item bucketPowderSnow;
-
 	public static Item foodGlowBerries;
 
 	public static Item recordOtherside;
