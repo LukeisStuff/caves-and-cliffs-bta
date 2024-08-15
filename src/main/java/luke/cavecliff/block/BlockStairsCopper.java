@@ -189,13 +189,6 @@ public class BlockStairsCopper extends BlockStairs {
 		}
 
 
-		if (world.getBlockMetadata(x, y, z) == 32) {
-			if (rand.nextInt(200) == 0) {
-				if (world.getBlockMaterial(x, y, z - 1) == Material.water || world.getBlockMaterial(x, y, z + 1) == Material.water || world.getBlockMaterial(x - 1, y, z) == Material.water || world.getBlockMaterial(x + 1, y, z) == Material.water || world.getBlockMaterial(x, y + 1, z) == Material.water || (world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
-					world.setBlockAndMetadataWithNotify(x, y, z, this.id, meta + 16);
-				}
-			}
-		}
 		if (world.getBlockMetadata(x, y, z) == 48) {
 			if (rand.nextInt(200) == 0) {
 				if (world.getBlockMaterial(x, y, z - 1) == Material.water || world.getBlockMaterial(x, y, z + 1) == Material.water || world.getBlockMaterial(x - 1, y, z) == Material.water || world.getBlockMaterial(x + 1, y, z) == Material.water || world.getBlockMaterial(x, y + 1, z) == Material.water || (world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
@@ -218,6 +211,13 @@ public class BlockStairsCopper extends BlockStairs {
 			}
 		}
 		if (world.getBlockMetadata(x, y, z) == 51) {
+			if (rand.nextInt(200) == 0) {
+				if (world.getBlockMaterial(x, y, z - 1) == Material.water || world.getBlockMaterial(x, y, z + 1) == Material.water || world.getBlockMaterial(x - 1, y, z) == Material.water || world.getBlockMaterial(x + 1, y, z) == Material.water || world.getBlockMaterial(x, y + 1, z) == Material.water || (world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
+					world.setBlockAndMetadataWithNotify(x, y, z, this.id, meta + 16);
+				}
+			}
+		}
+		if (world.getBlockMetadata(x, y, z) == 56) {
 			if (rand.nextInt(200) == 0) {
 				if (world.getBlockMaterial(x, y, z - 1) == Material.water || world.getBlockMaterial(x, y, z + 1) == Material.water || world.getBlockMaterial(x - 1, y, z) == Material.water || world.getBlockMaterial(x + 1, y, z) == Material.water || world.getBlockMaterial(x, y + 1, z) == Material.water || (world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
 					world.setBlockAndMetadataWithNotify(x, y, z, this.id, meta + 16);
