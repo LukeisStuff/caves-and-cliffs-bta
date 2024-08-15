@@ -37,16 +37,16 @@ public class BlockPowderSnow extends Block {
 	}
 
 	public boolean isSolidRender() {
-		return true;
-	}
-
-	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
-		return null;
+		return false;
 	}
 
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
+
+	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
+        return null;
+    }
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
 		switch (dropCause) {

@@ -17,5 +17,7 @@ public class CaveCliffTerrainAPI implements TerrainAPI {
 
 		ChunkDecoratorOverworldAPI.randomFeatures.addFeature(new WorldFeatureGeode(), 24, 0.25f);
 
+		ChunkDecoratorOverworldAPI.randomFeatures.addFeature(new WorldFeaturePowderSnow(), 12, 1.0f);
+
 	}
 }

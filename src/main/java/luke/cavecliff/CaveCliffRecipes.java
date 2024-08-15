@@ -74,6 +74,9 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 		Registries.ITEM_GROUPS.getItem("minecraft:leaves").add(CaveCliffBlocks.leavesAzaleaFlowering.getDefaultStack());
 
 		Registries.ITEM_GROUPS.getItem("minecraft:dirt").add(CaveCliffBlocks.dirtRooted.getDefaultStack());
+		Registries.ITEM_GROUPS.getItem("minecraft:trommel_dirt").add(CaveCliffBlocks.dirtRooted.getDefaultStack());
+
+		Registries.ITEM_GROUPS.getItem("minecraft:moss_stones").add(CaveCliffBlocks.moss.getDefaultStack());
 
 		Registries.ITEM_GROUPS.register("cavecliff:block/copper_ores", Registries.stackListOf(CaveCliffBlocks.oreCopperStone, CaveCliffBlocks.oreCopperBasalt, CaveCliffBlocks.oreCopperGranite, CaveCliffBlocks.oreCopperLimestone));
 
