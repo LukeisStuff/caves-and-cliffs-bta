@@ -80,11 +80,11 @@ public class CaveCliffBlocks {
 			CreativeHelper.setParent(candleColored, color - 1, candle, 0);
 		}
 
-		for (int color = 1; color < 5; color++) {
+		for (int color = 2; color < 5; color++) {
 			CreativeHelper.setParent(blockCopper, color - 1, blockCopper, 0);
 		}
 
-		for (int color = 1; color < 5; color++) {
+		for (int color = 2; color < 5; color++) {
 			CreativeHelper.setParent(brickCopper, color - 1, brickCopper, 0);
 		}
 
@@ -206,7 +206,7 @@ public class CaveCliffBlocks {
 			.setTextures("cavecliff:block/candle")
 			.setHardness(0.0f)
 			.setResistance(0.0f)
-			.setLuminance(8)
+			.setLuminance(10)
 			.setUseInternalLight()
 			.setVisualUpdateOnMetadata()
 			.setBlockModel(BlockModelCandle::new)
@@ -230,7 +230,7 @@ public class CaveCliffBlocks {
 			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
 			.setHardness(0.0f)
 			.setResistance(0.0f)
-			.setLuminance(8)
+			.setLuminance(10)
 			.setUseInternalLight()
 			.setVisualUpdateOnMetadata()
 			.setBlockModel(BlockModelCandlePainted::new)
