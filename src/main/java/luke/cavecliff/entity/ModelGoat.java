@@ -12,7 +12,7 @@ public class ModelGoat extends ModelQuadruped {
 
 
 	public ModelGoat() {
-		super(12, 0.0F);
+		super(0, 0.0F);
 		this.head = new Cube(0, 0);
 		this.head.addBox(-4.0F, -4.0F, -6.0F, 5, 7, 10, 0.0F);
 		this.head.setRotationPoint(0.0F, 4.0F, -8.0F);
@@ -32,39 +32,28 @@ public class ModelGoat extends ModelQuadruped {
 		this.ear2.setRotationPoint(0.0F, 4.0F, -8.0F);
 
 		this.body = new Cube(23, 5);
-		this.body.addBox(-6.0F, -6.0F, -7.0F, 9, 16, 11, 0.0F);
-		this.body.setRotationPoint(0.0F, 5.0F, 2.0F);
+		this.body.addBox(-6.0f, -10.0f, -7.0f, 9, 16, 11, 0.0F);
+		this.body.setRotationPoint(0.0f, 5.0f, 2.0f);
 
 		// Right Back Leg
 		this.leg1 = new Cube(2, 23);
-		this.leg1.addBox(-2.0F, 6.0F, -2.0F, 3, 6, 3);
-		this.leg1.setRotationPoint(-3.0F, 12.0F, 7.0F);
+		this.leg1.addBox(-2.0F, 0.0F, 1.0F, 3, 6, 3);
+		this.leg1.setRotationPoint(-3.0F, 18.0f, 7.0F);
 
 		// Left Back Leg
 		this.leg2 = new Cube(2, 23);
-		this.leg2.addBox(-2.0F, 6.0F, -2.0F, 3, 6, 3);
-		this.leg2.setRotationPoint(3.0F, 12.0F, 7.0F);
+		this.leg2.addBox(-4.0F, 0.0F, 1.0F, 3, 6, 3);
+		this.leg2.setRotationPoint(3.0F, 18.0f, 7.0F);
 
 		// Right Front Leg
 		this.leg3 = new Cube(2, 23);
-		this.leg3.addBox(1.0F, 6.0F, -2.0F, 3, 6, 3);
-		this.leg3.setRotationPoint(-3.0F, 12.0F, -5.0F);
+		this.leg3.addBox(-2.0F, 0.0F, 3.0F, 3, 6, 3);
+		this.leg3.setRotationPoint(-3.0F, 18.0f, -5.0F);
 
 		// Left Front Leg
 		this.leg4 = new Cube(2, 23);
-		this.leg4.addBox(0.0f, 6.0F, -2.0F, 3, 6, 3);
-		this.leg4.setRotationPoint(3.0F, 12.0F, -5.0F);
-
-		--this.leg1.rotationPointX;
-		++this.leg2.rotationPointX;
-		Cube var10000 = this.leg1;
-		var10000.rotationPointZ += 0.0F;
-		var10000 = this.leg2;
-		var10000.rotationPointZ += 0.0F;
-		--this.leg3.rotationPointX;
-		++this.leg4.rotationPointX;
-		--this.leg3.rotationPointZ;
-		--this.leg4.rotationPointZ;
+		this.leg4.addBox(-4.0f, 0.0F, 3.0F, 3, 6, 3);
+		this.leg4.setRotationPoint(3.0F, 18.0f, -5.0F);
 	}
 
 	public void render(float limbSwing, float limbYaw, float limbPitch, float headYaw, float headPitch, float scale) {
