@@ -13,6 +13,7 @@ import net.minecraft.core.item.block.ItemBlockPainted;
 import net.minecraft.core.sound.BlockSound;
 import org.useless.dragonfly.model.block.DFBlockModelBuilder;
 import turniplabs.halplibe.helper.BlockBuilder;
+import turniplabs.halplibe.helper.CreativeHelper;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
@@ -73,6 +74,28 @@ public class CaveCliffBlocks {
 
 
 	public void initializeBlockDetails() {
+
+
+		for (int color = 1; color < 17; color++) {
+			CreativeHelper.setParent(candleColored, color - 1, candle, 0);
+		}
+
+		for (int color = 1; color < 5; color++) {
+			CreativeHelper.setParent(blockCopper, color - 1, blockCopper, 0);
+		}
+
+		for (int color = 1; color < 5; color++) {
+			CreativeHelper.setParent(brickCopper, color - 1, brickCopper, 0);
+		}
+
+		CreativeHelper.setParent(slabBrickCopper, 16, slabBrickCopper, 0);
+		CreativeHelper.setParent(slabBrickCopper, 32, slabBrickCopper, 0);
+		CreativeHelper.setParent(slabBrickCopper, 48, slabBrickCopper, 0);
+
+		CreativeHelper.setParent(stairsBrickCopper, 16, stairsBrickCopper, 0);
+		CreativeHelper.setParent(stairsBrickCopper, 32, stairsBrickCopper, 0);
+		CreativeHelper.setParent(stairsBrickCopper, 48, stairsBrickCopper, 0);
+
 
 	}
 
@@ -191,8 +214,10 @@ public class CaveCliffBlocks {
 			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
 			.build(new BlockCandle("candle.lit", blockID("candleLit"), true));
 
+
 		candleColored = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
+			.setItemModel(ItemModelCandleColored::new)
 			.setHardness(0.0f)
 			.setResistance(0.0f)
 			.setBlockModel(BlockModelCandlePainted::new)

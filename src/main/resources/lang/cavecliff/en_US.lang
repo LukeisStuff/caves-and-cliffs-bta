@@ -1,56 +1,79 @@
 tile.cavecliff.amethyst.name=Block of Amethyst
+tile.cavecliff.amethyst.desc=A solid block of amethyst.
 
 tile.cavecliff.amethyst.budding.name=Budding Amethyst
 
 tile.cavecliff.amethyst.cluster.name=Amethyst Cluster
 
 tile.cavecliff.ore.copper.stone.name=Stone Copper Ore
+tile.cavecliff.ore.copper.stone.desc=Copper nuggets embedded in stone.
 
 tile.cavecliff.ore.copper.basalt.name=Basalt Copper Ore
+tile.cavecliff.ore.copper.basalt.desc=Copper nuggets embedded in basalt.
 
 tile.cavecliff.ore.copper.limestone.name=Limestone Copper Ore
+tile.cavecliff.ore.copper.limestone.desc=Copper nuggets embedded in limestone.
 
 tile.cavecliff.ore.copper.granite.name=Granite Copper Ore
+tile.cavecliff.ore.copper.granite.desc=Copper nuggets embedded in granite.
 
 tile.cavecliff.block.copper.clean.name=Block of Copper
+tile.cavecliff.block.copper.clean.desc=A solid block of copper.
 tile.cavecliff.block.copper.exposed.name=Block of Exposed Copper
+tile.cavecliff.block.copper.exposed.desc=A solid block of exposed copper.
 tile.cavecliff.block.copper.weathered.name=Block of Weathered Copper
+tile.cavecliff.block.copper.weathered.desc=A solid block of weathered copper.
 tile.cavecliff.block.copper.oxidized.name=Block of Oxidized Copper
+tile.cavecliff.block.copper.oxidized.desc=A solid block of oxidized copper.
 
 tile.cavecliff.brick.copper.clean.name=Copper Brick
+tile.cavecliff.brick.copper.clean.desc=Stacked bricks of copper.
 tile.cavecliff.brick.copper.exposed.name=Exposed Copper Brick
+tile.cavecliff.brick.copper.exposed.desc=Stacked bricks of exposed copper.
 tile.cavecliff.brick.copper.weathered.name=Weathered Copper Brick
+tile.cavecliff.brick.copper.weathered.desc=Stacked bricks of weathered copper.
 tile.cavecliff.brick.copper.oxidized.name=Oxidized Copper Brick
+tile.cavecliff.brick.copper.oxidized.desc=Stacked bricks of oxidized copper.
 
 tile.cavecliff.block.snow.powder.name=Powder Snow
+tile.cavecliff.block.snow.powder.desc=Loose snow packed into a bitterly cold block.
 
 tile.cavecliff.candle.name=Candle
-
-tile.cavecliff.candle.colored.name=Colored Candle
 
 tile.cavecliff.dripstone.name=Dripstone
 
 tile.cavecliff.leaves.azalea.name=Azalea Leaves
+tile.cavecliff.leaves.azalea.desc=Leaves from an azalea tree.
 
 tile.cavecliff.leaves.azalea.flowering.name=Flowering Azalea Leaves
+tile.cavecliff.leaves.azalea.flowering.desc=Leaves from an azalea tree that are budding with flowers.
 
 tile.cavecliff.sapling.azalea.name=Azalea Sapling
+tile.cavecliff.sapling.azalea.desc=Plant to grow an azalea tree.
 
 tile.cavecliff.sapling.azalea.flowering.name=Flowering Azalea Sapling
+tile.cavecliff.sapling.azalea.flowering.desc=Plant to grow a flowering azalea tree.
 
 tile.cavecliff.log.azalea.name=Azalea Log
+tile.cavecliff.log.azalea.desc=A log from an azalea tree.
 
 tile.cavecliff.moss.name=Moss
+tile.cavecliff.moss.desc=Large lump of greenery.
 
 tile.cavecliff.moss.layer.name=Moss Layer
+tile.cavecliff.moss.layer.desc=A flat bedding of moss.
 
 tile.cavecliff.dirt.rooted.name=Rooted Dirt
+tile.cavecliff.dirt.rooted.desc=Dirt that has been overgrown with roots.
 
 tile.cavecliff.block.raw.iron.name=Block of Raw Iron
+tile.cavecliff.block.raw.iron.desc=A solid block of raw iron.
 
 tile.cavecliff.block.raw.gold.name=Block of Raw Gold
+tile.cavecliff.block.raw.gold.desc=A solid block of raw gold.
 
 tile.cavecliff.block.raw.copper.name=Block of Raw Copper
+tile.cavecliff.block.raw.copper.desc=A solid block of raw copper.
 
 tile.cavecliff.vines.name=Vines
 
@@ -73,3 +96,89 @@ item.cavecliff.ore.raw.copper.name=Raw Copper Ore
 item.cavecliff.food.berries.name=Glow Berries
 
 item.cavecliff.record.otherside.name=Music Disc
+item.cavecliff.record.otherside.desc=§9other§5side
+
+tile.cavecliff.candle.colored.white.name=White Candle
+tile.cavecliff.candle.colored.white.desc=
+tile.cavecliff.candle.colored.orange.name=Orange Candle
+tile.cavecliff.candle.colored.orange.desc=
+tile.cavecliff.candle.colored.magenta.name=Magenta Candle
+tile.cavecliff.candle.colored.magenta.desc=
+tile.cavecliff.candle.colored.red.name=Red Candle
+tile.cavecliff.candle.colored.red.desc=
+tile.cavecliff.candle.colored.yellow.name=Yellow Candle
+tile.cavecliff.candle.colored.yellow.desc=
+tile.cavecliff.candle.colored.lime.name=Lime Candle
+tile.cavecliff.candle.colored.lime.desc=
+tile.cavecliff.candle.colored.green.name=Green Candle
+tile.cavecliff.candle.colored.green.desc=
+tile.cavecliff.candle.colored.cyan.name=Cyan Candle
+tile.cavecliff.candle.colored.cyan.desc=
+tile.cavecliff.candle.colored.lightblue.name=Light Blue Candle
+tile.cavecliff.candle.colored.lightblue.desc=
+tile.cavecliff.candle.colored.blue.name=Blue Candle
+tile.cavecliff.candle.colored.blue.desc=
+tile.cavecliff.candle.colored.purple.name=Purple Candle
+tile.cavecliff.candle.colored.purple.desc=
+tile.cavecliff.candle.colored.pink.name=Pink Candle
+tile.cavecliff.candle.colored.pink.desc=
+tile.cavecliff.candle.colored.brown.name=Brown Candle
+tile.cavecliff.candle.colored.brown.desc=
+tile.cavecliff.candle.colored.gray.name=Gray Candle
+tile.cavecliff.candle.colored.gray.desc=
+tile.cavecliff.candle.colored.silver.name=Light Gray Candle
+tile.cavecliff.candle.colored.silver.desc=
+tile.cavecliff.candle.colored.black.name=Black Candle
+tile.cavecliff.candle.colored.black.desc=
+
+tile.cavecliff.candle.colored.lit.white.name=Lit White Candle
+tile.cavecliff.candle.colored.lit.white.desc=
+tile.cavecliff.candle.colored.lit.orange.name=Lit Orange Candle
+tile.cavecliff.candle.colored.lit.orange.desc=
+tile.cavecliff.candle.colored.lit.magenta.name=Lit Magenta Candle
+tile.cavecliff.candle.colored.lit.magenta.desc=
+tile.cavecliff.candle.colored.lit.red.name=Lit Red Candle
+tile.cavecliff.candle.colored.lit.red.desc=
+tile.cavecliff.candle.colored.lit.yellow.name=Lit Yellow Candle
+tile.cavecliff.candle.colored.lit.yellow.desc=
+tile.cavecliff.candle.colored.lit.lime.name=Lit Lime Candle
+tile.cavecliff.candle.colored.lit.lime.desc=
+tile.cavecliff.candle.colored.lit.green.name=Lit Green Candle
+tile.cavecliff.candle.colored.lit.green.desc=
+tile.cavecliff.candle.colored.lit.cyan.name=Lit Cyan Candle
+tile.cavecliff.candle.colored.lit.cyan.desc=
+tile.cavecliff.candle.colored.lit.lightblue.name=Lit Light Blue Candle
+tile.cavecliff.candle.colored.lit.lightblue.desc=
+tile.cavecliff.candle.colored.lit.blue.name=Lit Blue Candle
+tile.cavecliff.candle.colored.lit.blue.desc=
+tile.cavecliff.candle.colored.lit.purple.name=Lit Purple Candle
+tile.cavecliff.candle.colored.lit.purple.desc=
+tile.cavecliff.candle.colored.lit.pink.name=Lit Pink Candle
+tile.cavecliff.candle.colored.lit.pink.desc=
+tile.cavecliff.candle.colored.lit.brown.name=Lit Brown Candle
+tile.cavecliff.candle.colored.lit.brown.desc=
+tile.cavecliff.candle.colored.lit.gray.name=Lit Gray Candle
+tile.cavecliff.candle.colored.lit.gray.desc=
+tile.cavecliff.candle.colored.lit.silver.name=Lit Light Gray Candle
+tile.cavecliff.candle.colored.lit.silver.desc=
+tile.cavecliff.candle.colored.lit.black.name=Lit Black Candle
+tile.cavecliff.candle.colored.lit.black.desc=
+
+
+tile.cavecliff.slab.brick.copper.clean.name=Copper Brick Slab
+
+tile.cavecliff.slab.brick.copper.oxidized.name=Oxidized Copper Brick Slab
+
+tile.cavecliff.slab.brick.copper.weathered.name=Weathered Copper Brick Slab
+
+tile.cavecliff.slab.brick.copper.exposed.name=Exposed Copper Brick Slab
+
+tile.cavecliff.stairs.brick.copper.clean.name=Copper Brick Stairs
+
+tile.cavecliff.stairs.brick.copper.exposed.name=Oxidized Copper Brick Stairs
+
+tile.cavecliff.stairs.brick.copper.weathered.name=Weathered Copper Brick Stairs
+
+tile.cavecliff.stairs.brick.copper.oxidized.name=Exposed Copper Brick Stairs
+
+

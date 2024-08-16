@@ -17,17 +17,6 @@ public class BlockModelCandlePainted<T extends BlockCandleColored> extends Block
 		super(block);
 	}
 
-	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int meta) {
-		return texCoords[meta & 15];
-	}
-
-	static {
-		for(int i = 0; i < 16; ++i) {
-			texCoords[i] = TextureRegistry.getTexture("cavecliff:block/candle_" + ItemDye.dyeColors[15 - i]);
-		}
-
-	}
-
 	public boolean render(Tessellator tessellator, int x, int y, int z) {
 		this.block.setBlockBoundsBasedOnState(renderBlocks.blockAccess, x, y, z);
 
@@ -48,9 +37,10 @@ public class BlockModelCandlePainted<T extends BlockCandleColored> extends Block
 			}
 		}
 		tessellator.setColorOpaque_F(brightness, brightness, brightness);
-		IconCoordinate texIndex = this.getParticleTexture(Side.TOP, 0);
-		if (renderBlocks.overrideBlockTexture != null) {
-			texIndex = renderBlocks.overrideBlockTexture;
+		int metadata = BlockModelCandlePainted.renderBlocks.blockAccess.getBlockMetadata(x, y, z);
+		IconCoordinate texIndex = this.getBlockTextureFromSideAndMetadata(Side.BOTTOM, metadata);
+		if (BlockModelCandlePainted.renderBlocks.overrideBlockTexture != null) {
+			texIndex = BlockModelCandlePainted.renderBlocks.overrideBlockTexture;
 		}
 
 		double texV = texIndex.getIconVMin();
@@ -112,6 +102,17 @@ public class BlockModelCandlePainted<T extends BlockCandleColored> extends Block
 		tessellator.addVertexWithUV(maxX, maxY, minZ, wickMinU, wickMaxV);
 		tessellator.addVertexWithUV(minX, maxY, maxZ, wickMaxU, wickMaxV);
 		return true;
+	}
+
+	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int meta) {
+		return texCoords[meta & 15];
+	}
+
+	static {
+		for(int i = 0; i < 16; ++i) {
+			texCoords[i] = TextureRegistry.getTexture("cavecliff:block/candle_" + ItemDye.dyeColors[15 - i]);
+		}
+
 	}
 
 	public boolean shouldItemRender3d() {
