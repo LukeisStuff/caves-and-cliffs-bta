@@ -75,9 +75,9 @@ public class BlockCandleColored extends Block {
 
 	public void randomDisplayTick(World world, int x, int y, int z, Random rand) {
 		if (this.burning) {
+			world.spawnParticle("flame", x + 0.5, y + 0.7, z + 0.5, 0.0, 0.0, 0.0, 0);
 			if (rand.nextInt(2) == 0) {
 				world.spawnParticle("smoke", x + 0.5, y + 0.7, z + 0.5, 0.0, 0.0, 0.0, 0);
-				world.spawnParticle("flame", x + 0.5, y + 0.7, z + 0.5, 0.0, 0.0, 0.0, 0);
 			}
 		}
 	}
