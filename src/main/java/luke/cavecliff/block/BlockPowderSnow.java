@@ -18,14 +18,14 @@ import net.minecraft.core.world.WorldSource;
 public class BlockPowderSnow extends Block {
 	public int ticks;
 	public BlockPowderSnow(String key, int id) {
-		super(key, id, Material.snow);
+		super(key, id, Material.topSnow);
 	}
 
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		entity.fallDistance = 0.0F;
-		entity.xd *= 0.5;
-		entity.yd *= 0.2;
-		entity.zd *= 0.5;
+		entity.xd *= 0.6;
+		entity.yd *= 0.6;
+		entity.zd *= 0.6;
 		if (entity instanceof EntitySnowman) {
 		} else if (entity instanceof EntityLiving || entity instanceof EntityMinecart || entity instanceof EntityBoat) {
 			++this.ticks;
@@ -40,13 +40,13 @@ public class BlockPowderSnow extends Block {
 		return false;
 	}
 
+	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
+		return null;
+	}
+
 	public boolean renderAsNormalBlock() {
 		return false;
 	}
-
-	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
-        return null;
-    }
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
 		switch (dropCause) {

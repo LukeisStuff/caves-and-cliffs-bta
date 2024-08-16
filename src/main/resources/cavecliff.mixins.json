@@ -4,6 +4,8 @@
   "package": "luke.cavecliff.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "FogManagerMixin",
+    "GuiIngameMixin",
     "ItemToolAxeMixin"
   ],
   "client": [
