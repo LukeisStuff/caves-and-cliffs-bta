@@ -37,6 +37,9 @@ tile.cavecliff.brick.copper.weathered.desc=Stacked bricks of weathered copper.
 tile.cavecliff.brick.copper.oxidized.name=Oxidized Copper Brick
 tile.cavecliff.brick.copper.oxidized.desc=Stacked bricks of oxidized copper.
 
+tile.cavecliff.lightning.rod.name=Lightning Rod
+tile.cavecliff.lightning.rod.desc=A copper pole used to attract lightning.
+
 tile.cavecliff.block.snow.powder.name=Powder Snow
 tile.cavecliff.block.snow.powder.desc=Loose snow packed into a bitterly cold block.
 

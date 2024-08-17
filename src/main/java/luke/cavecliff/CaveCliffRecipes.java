@@ -39,6 +39,9 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 2)).create("weathered_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 32));
 		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 3)).create("oxidized_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 48));
 
+		RecipeBuilder.Shaped(MOD_ID, "C", "C", "C")
+			.addInput('C', CaveCliffItems.ingotCopper)
+			.create("lightning_rod", new ItemStack(CaveCliffBlocks.lightningRod, 2));
 
 		RecipeBuilder.Shaped(MOD_ID, "S", "P", "E")
 			.addInput('S', Item.string)

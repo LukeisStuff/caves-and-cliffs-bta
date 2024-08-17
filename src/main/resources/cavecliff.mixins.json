@@ -4,6 +4,7 @@
   "package": "luke.cavecliff.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "EntityLightningBoltMixin",
     "FogManagerMixin",
     "GuiIngameMixin",
     "ItemToolAxeMixin"

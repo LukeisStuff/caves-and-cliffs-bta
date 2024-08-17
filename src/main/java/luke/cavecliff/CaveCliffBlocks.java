@@ -72,6 +72,8 @@ public class CaveCliffBlocks {
 
 	public static Block roots;
 
+	public static Block lightningRod;
+
 
 	public void initializeBlockDetails() {
 
@@ -421,6 +423,11 @@ public class CaveCliffBlocks {
 			.setUseInternalLight()
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
 			.build(new BlockLichen("lichen", blockID("lichen")));
+
+		lightningRod = metal
+			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/lightning_rod.json").setRender3D(true).build(lightningRod))
+			.setVisualUpdateOnMetadata()
+			.build(new BlockLightningRod("lightning.rod", blockID("lightningRod"), Material.metal));
 
 	}
 
