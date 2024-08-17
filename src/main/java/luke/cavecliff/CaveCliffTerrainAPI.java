@@ -1,5 +1,7 @@
 package luke.cavecliff;
 
+import luke.cavecliff.world.WorldFeatureGeode;
+import luke.cavecliff.world.WorldFeaturePowderSnow;
 import useless.terrainapi.api.TerrainAPI;
 import useless.terrainapi.generation.overworld.api.ChunkDecoratorOverworldAPI;
 

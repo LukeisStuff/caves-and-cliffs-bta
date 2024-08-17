@@ -16,6 +16,7 @@ import turniplabs.halplibe.helper.BlockBuilder;
 import turniplabs.halplibe.helper.CreativeHelper;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
+import static net.minecraft.core.item.tool.ItemToolPickaxe.miningLevels;
 
 public class CaveCliffBlocks {
 	public int blockID(String blockName) {
@@ -76,6 +77,22 @@ public class CaveCliffBlocks {
 
 
 	public void initializeBlockDetails() {
+
+		miningLevels.put(dripstone, 0);
+
+		miningLevels.put(blockCopper, 1);
+		miningLevels.put(brickCopper, 1);
+		miningLevels.put(blockCopperRaw, 1);
+		miningLevels.put(blockIronRaw, 1);
+		miningLevels.put(stairsBrickCopper, 1);
+		miningLevels.put(slabBrickCopper, 1);
+		miningLevels.put(lightningRod, 1);
+		miningLevels.put(oreCopperStone, 1);
+		miningLevels.put(oreCopperBasalt, 1);
+		miningLevels.put(oreCopperGranite, 1);
+		miningLevels.put(oreCopperLimestone, 1);
+
+		miningLevels.put(blockGoldRaw, 2);
 
 
 		for (int color = 1; color < 17; color++) {
@@ -349,6 +366,7 @@ public class CaveCliffBlocks {
 			.setHardness(0.2f)
 			.setResistance(0.2f)
 			.setTextures("cavecliff:block/powder_snow")
+			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PREVENT_MOB_SPAWNS)
 			.build(new BlockPowderSnow("block.snow.powder", blockID("blockSnowPowder")));
 
 

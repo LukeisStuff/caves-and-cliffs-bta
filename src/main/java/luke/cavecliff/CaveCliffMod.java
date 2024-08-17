@@ -1,6 +1,7 @@
 package luke.cavecliff;
 
 import luke.cavecliff.entity.EntityGlowSquid;
+import luke.cavecliff.world.CaveCliffBiomes;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.data.registry.Registries;
 import net.minecraft.core.entity.SpawnListEntry;
@@ -34,6 +35,7 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 		new CaveCliffBlocks().initializeBlocks();
 		new CaveCliffItems().initilizeItems();
 		new CaveCliffEntities().initializeEntities();
+		new CaveCliffBiomes().initializeBiomes();
 	}
 
 	@Override

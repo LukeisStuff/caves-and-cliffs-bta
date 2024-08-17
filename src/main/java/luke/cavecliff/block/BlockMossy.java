@@ -26,11 +26,11 @@ public class BlockMossy extends BlockMoss {
 
 				for(int j2 = 0; j2 < j1 / 32; ++j2) {
 					k1 += world.rand.nextInt(5) - 1;
-					l1 += (world.rand.nextInt(5) - 1) * world.rand.nextInt(3) / 2;
+					l1 += world.rand.nextInt(5) - 1;
 					i2 += world.rand.nextInt(5) - 1;
 				}
 
-				if (!Block.isBuried(world, k1, l1, i2) && world.getBlockLightValue(k1, l1 + 1, i2) <= 5 && world.getBlockLightValue(k1, l1 - 1, i2) <= 5 && world.getBlockLightValue(k1 + 1, l1, i2) <= 5 && world.getBlockLightValue(k1 - 1, l1, i2) <= 5 && world.getBlockLightValue(k1, l1, i2 - 1) <= 5 && world.getBlockLightValue(k1, l1, i2 + 1) <= 5) {
+				if (world.getBlockLightValue(k1, l1 + 1, i2) <= 5 && world.getBlockLightValue(k1, l1 - 1, i2) <= 5 && world.getBlockLightValue(k1 + 1, l1, i2) <= 5 && world.getBlockLightValue(k1 - 1, l1, i2) <= 5 && world.getBlockLightValue(k1, l1, i2 - 1) <= 5 && world.getBlockLightValue(k1, l1, i2 + 1) <= 5) {
 					if (world.getBlockId(k1, l1, i2) == Block.stone.id) {
 						world.setBlockWithNotify(k1, l1, i2, Block.mossStone.id);
 					} else if (world.getBlockId(k1, l1, i2) == Block.limestone.id) {

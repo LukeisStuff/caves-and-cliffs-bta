@@ -1,5 +1,6 @@
-package luke.cavecliff;
+package luke.cavecliff.world;
 
+import luke.cavecliff.CaveCliffBlocks;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.generate.feature.WorldFeature;

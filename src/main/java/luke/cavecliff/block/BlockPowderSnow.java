@@ -9,11 +9,14 @@ import net.minecraft.core.entity.monster.EntitySnowman;
 import net.minecraft.core.entity.vehicle.EntityBoat;
 import net.minecraft.core.entity.vehicle.EntityMinecart;
 import net.minecraft.core.enums.EnumDropCause;
+import net.minecraft.core.enums.LightLayer;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
+
+import java.util.Random;
 
 public class BlockPowderSnow extends Block {
 	public int ticks;
@@ -33,6 +36,13 @@ public class BlockPowderSnow extends Block {
 				entity.hurt(null, 1, DamageType.GENERIC);
 				this.ticks = 0;
 			}
+		}
+	}
+
+	@Override
+	public void updateTick(World world, int x, int y, int z, Random rand) {
+		if (world.getSavedLightValue(LightLayer.Block, x, y, z) > 11) {
+			world.setBlockWithNotify(x, y, z, 0);
 		}
 	}
 
