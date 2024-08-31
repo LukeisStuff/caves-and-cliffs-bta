@@ -27,7 +27,7 @@ public class EntityGoat extends EntityAnimal {
 
 	@Override
 	public int getSkinVariant() {
-		int skinVariantCount = 1;
+		int skinVariantCount = 4;
 		return this.entityData.getByte(1) % skinVariantCount;
 	}
 
