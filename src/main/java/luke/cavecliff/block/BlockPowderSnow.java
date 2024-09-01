@@ -6,10 +6,12 @@ import net.minecraft.core.block.material.Material;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.EntityLiving;
 import net.minecraft.core.entity.monster.EntitySnowman;
+import net.minecraft.core.entity.player.EntityPlayer;
 import net.minecraft.core.entity.vehicle.EntityBoat;
 import net.minecraft.core.entity.vehicle.EntityMinecart;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.enums.LightLayer;
+import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.util.phys.AABB;
@@ -50,9 +52,24 @@ public class BlockPowderSnow extends Block {
 		return false;
 	}
 
-	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
-		return null;
+	boolean walking;
+	@Override
+	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
+			if (((EntityPlayer)entity).inventory.armorInventory[0] != null && ((EntityPlayer)entity).inventory.armorInventory[0].getItem() == Item.armorBootsLeather) {
+				AABB.getBoundingBoxFromPool(0.0f, 0.0f , 0.0f , 1.0f, 1.0f, 1.0f);
+				walking = true;
+			} else {
+				AABB.getBoundingBoxFromPool(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+				walking = false;
+			}
 	}
+
+	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
+		if (walking) {
+			return AABB.getBoundingBoxFromPool(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+		}
+        return null;
+    }
 
 	public boolean renderAsNormalBlock() {
 		return false;

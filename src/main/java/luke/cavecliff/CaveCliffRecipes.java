@@ -14,6 +14,9 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 
 	public void initializeRecipes() {
 
+		RecipeBuilderShaped templateLogtoPlank = new RecipeBuilderShaped(MOD_ID, "X");
+		templateLogtoPlank.addInput('X', CaveCliffBlocks.logAzalea).create("logIronwoodtoPlanks", new ItemStack(Block.planksOakPainted, 4, 5));
+
 		RecipeBuilderShaped templateItemtoBlock = new RecipeBuilderShaped(MOD_ID, "XXX", "XXX", "XXX");
 		templateItemtoBlock.addInput('X', CaveCliffItems.amethyst).create("block_of_amethyst", new ItemStack(CaveCliffBlocks.amethyst, 1));
 		templateItemtoBlock.addInput('X', CaveCliffItems.ingotCopper).create("block_of_copper", new ItemStack(CaveCliffBlocks.blockCopper, 1));
@@ -38,6 +41,10 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 1)).create("exposed_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 16));
 		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 2)).create("weathered_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 32));
 		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 3)).create("oxidized_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 48));
+
+		RecipeBuilder.Shapeless(MOD_ID)
+			.addInput(new ItemStack(CaveCliffItems.inkSacGlow, 1))
+			.create("glow_sac_to_cyan_dye", new ItemStack(Item.dye, 2, 6));
 
 		RecipeBuilder.Shaped(MOD_ID, "C", "C", "C")
 			.addInput('C', CaveCliffItems.ingotCopper)

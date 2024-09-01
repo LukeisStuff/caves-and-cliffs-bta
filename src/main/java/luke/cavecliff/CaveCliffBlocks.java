@@ -425,10 +425,9 @@ public class CaveCliffBlocks {
 			.setHardness(0.0f)
 			.setResistance(0.0f)
 			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/dripleaf_small.json").setRender3D(false).build(dripleafSmall))
-			.setVisualUpdateOnMetadata()
 			.setIcon("cavecliff:block/dripleaf_small_icon")
-			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
-			.build(new BlockFlower("dripleaf.small", blockID("dripleafSmall")));
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLANTABLE_IN_JAR)
+			.build(new BlockFlower("dripleaf.small", blockID("dripleafSmall")).setBonemealable());
 
 		dripleafBig = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))

@@ -23,6 +23,8 @@ public class CaveCliffItems {
 
 	public static Item hornGoat;
 
+	public static Item inkSacGlow;
+
 	public static Item recordOtherside;
 
 	public void initilizeItems() {
@@ -46,6 +48,10 @@ public class CaveCliffItems {
 		hornGoat = new ItemBuilder(MOD_ID)
 			.setIcon("cavecliff:item/goat_horn")
 			.build(new ItemHorn("horn.goat", itemID("hornGoat")).setMaxStackSize(1));
+
+		inkSacGlow = new ItemBuilder(MOD_ID)
+			.setIcon("cavecliff:item/inksak_glow")
+			.build(new Item("inksac.glow", itemID("inkSacGlow")));
 
 		recordOtherside = new ItemBuilder(MOD_ID)
 			.setIcon(MOD_ID + ":item/otherside")

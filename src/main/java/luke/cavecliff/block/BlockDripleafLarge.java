@@ -18,6 +18,11 @@ public class BlockDripleafLarge extends BlockFlower {
 
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
 		super.onEntityWalking(world, x, y, z, entity);
+		AABB.getBoundingBoxFromPool(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+	}
+
+	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
+		this.isCollidable();
 	}
 
 	@Override
