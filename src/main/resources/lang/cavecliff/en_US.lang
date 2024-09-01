@@ -115,6 +115,9 @@ item.cavecliff.food.berries.desc=Yellow glowing berries that come in pairs.
 item.cavecliff.record.otherside.name=Music Disc
 item.cavecliff.record.otherside.desc=§9other§5side
 
+item.cavecliff.horn.goat.name=Goat Horn
+item.cavecliff.horn.goat.desc=Use it to play a strange sound, has a short cooldown.
+
 tile.cavecliff.candle.colored.white.name=White Candle
 tile.cavecliff.candle.colored.white.desc=A candle, dyed white.
 tile.cavecliff.candle.colored.orange.name=Orange Candle
@@ -199,4 +202,13 @@ tile.cavecliff.stairs.brick.copper.weathered.name=Weathered Copper Brick Stairs
 tile.cavecliff.stairs.brick.copper.weathered.desc=Weathered copper brick block used for rapid vertical movement.
 tile.cavecliff.stairs.brick.copper.oxidized.name=Exposed Copper Brick Stairs
 tile.cavecliff.stairs.brick.copper.oxidized.desc=Exposed copper brick block used for rapid vertical movement.
+
+
+
+
+guidebook.section.mob.goat.name=Goat
+guidebook.section.mob.goat.desc=Goats are the only source of horns, which can be used to create sounds.\nThey can be found in mountain biomes.
+
+guidebook.section.mob.squid.glow.name=Glow Squid
+guidebook.section.mob.squid.glow.desc=Glow squids are a source of ink sacs, which can be used to dye wool.\nThey can be found in lakes and oceans.
 

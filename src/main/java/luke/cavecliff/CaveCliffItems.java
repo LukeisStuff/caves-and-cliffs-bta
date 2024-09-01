@@ -1,5 +1,6 @@
 package luke.cavecliff;
 
+import luke.cavecliff.item.ItemHorn;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemFood;
 import net.minecraft.core.item.ItemRecord;
@@ -20,6 +21,8 @@ public class CaveCliffItems {
 
 	public static Item foodGlowBerries;
 
+	public static Item hornGoat;
+
 	public static Item recordOtherside;
 
 	public void initilizeItems() {
@@ -39,6 +42,10 @@ public class CaveCliffItems {
 		foodGlowBerries = new ItemBuilder(MOD_ID)
 			.setIcon("cavecliff:item/glowberries")
 			.build(new ItemFood("food.berries", itemID("foodGlowBerries"), 3, 4, false, 6));
+
+		hornGoat = new ItemBuilder(MOD_ID)
+			.setIcon("cavecliff:item/goat_horn")
+			.build(new ItemHorn("horn.goat", itemID("hornGoat")).setMaxStackSize(1));
 
 		recordOtherside = new ItemBuilder(MOD_ID)
 			.setIcon(MOD_ID + ":item/otherside")
