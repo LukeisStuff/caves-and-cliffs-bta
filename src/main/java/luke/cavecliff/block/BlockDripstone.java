@@ -19,7 +19,7 @@ public class BlockDripstone extends BlockSand {
 		this.tryToFall(world, x, y, z);
 	}
 
-	private void tryToFall(World world, int x, int y, int z) {
+	public void tryToFall(World world, int x, int y, int z) {
 		boolean topCanFall = false;
 		boolean bottomCanFall = false;
 		int highest = -1;

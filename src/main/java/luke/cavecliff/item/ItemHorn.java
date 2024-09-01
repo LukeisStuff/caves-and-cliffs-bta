@@ -11,7 +11,7 @@ public class ItemHorn extends Item {
 	public ItemHorn(String name, int id) {
 		super(name, id);
 		this.maxStackSize = 1;
-		this.setMaxDamage(384);
+		this.setMaxDamage(256);
 	}
 
 	public void inventoryTick(ItemStack itemstack, World world, Entity entity, int i, boolean flag) {
@@ -21,15 +21,12 @@ public class ItemHorn extends Item {
 	}
 
 	public ItemStack onUseItem(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		this.useItemRightClick(world, entityplayer);
+		if (entityplayer.getHeldItem().getMetadata() <= 0) {
+			world.playSoundAtEntity(entityplayer, entityplayer, "cavecliff.goathorn", 1.0F, 1.0F);
+			entityplayer.swingItem();
+			entityplayer.getHeldItem().damageItem(256, entityplayer);
+		}
         return itemstack;
     }
-
-	public void useItemRightClick(World world, EntityPlayer entityplayer) {
-		if (entityplayer.getHeldItem().getMetadata() <= 0) {
-			world.playSoundAtEntity(entityplayer, entityplayer, "cavecliff.goathorn1", 1.0F, 1.0F);
-			entityplayer.getHeldItem().damageItem(384, entityplayer);
-		}
-	}
 
 }

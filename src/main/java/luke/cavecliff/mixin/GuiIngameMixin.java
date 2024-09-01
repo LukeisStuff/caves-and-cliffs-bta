@@ -24,14 +24,14 @@ public abstract class GuiIngameMixin extends Gui {
 
 	@Inject(method = "renderGameOverlay(FZII)V",
 		at = @At(value = "TAIL"))
-	private void renderGameOverlay(float partialTicks, boolean flag, int mouseX, int mouseY, CallbackInfo ci) {
+	public void renderGameOverlay(float partialTicks, boolean flag, int mouseX, int mouseY, CallbackInfo ci) {
 		World world = this.mc.theWorld;
 		if (CameraUtil.isUnderLiquid(this.mc.activeCamera, world, Material.topSnow, partialTicks)) {
 			this.renderSnowOverlay(mc.resolution.scaledWidth, mc.resolution.scaledHeight);
 		}
 	}
 	@Unique
-	protected void renderSnowOverlay(int xSize, int ySize) {
+	public void renderSnowOverlay(int xSize, int ySize) {
 		GL11.glDisable(2929);
 		GL11.glDepthMask(false);
 		GL11.glBlendFunc(770, 771);

@@ -13,7 +13,6 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.biome.Biome;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import turniplabs.halplibe.helper.SoundHelper;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 
@@ -22,19 +21,13 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 	public static final String MOD_ID = "cavecliff";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	public static void init() {
-		SoundHelper.addStreaming(MOD_ID, "otherside.ogg");
-		SoundHelper.addSound(MOD_ID, "goathorn1.ogg");
-		SoundHelper.addSound(MOD_ID, "goathorn2.ogg");
-	}
-
 	@Override
 	public void onInitialize() {
 		for (Biome b : Registries.BIOMES) {
 			b.getSpawnableList(EnumCreatureType.waterCreature).add(new SpawnListEntry(EntityGlowSquid.class, 5));
 			b.getSpawnableList(EnumCreatureType.creature).add(new SpawnListEntry(EntityGoat.class, 102));
 		}
-		CaveCliffMod.init();
+		CaveCliffSounds.init();
 		LOGGER.info("Caves and Cliffs initialized.");
 	}
 

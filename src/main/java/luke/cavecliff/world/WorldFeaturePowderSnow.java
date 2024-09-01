@@ -9,7 +9,7 @@ import net.minecraft.core.world.noise.ImprovedNoise;
 import java.util.Random;
 
 public class WorldFeaturePowderSnow extends WorldFeature {
-	private static final ImprovedNoise noise = new ImprovedNoise(new Random(0L));
+	public static final ImprovedNoise noise = new ImprovedNoise(new Random(0L));
 
 	public WorldFeaturePowderSnow() {
 	}

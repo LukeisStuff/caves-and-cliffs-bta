@@ -20,7 +20,7 @@ public class EntityGoat extends EntityAnimal {
 	}
 
 	@Override
-	protected void init() {
+	public void init() {
 		this.entityData.define(16, (byte)0);
 	}
 
@@ -42,32 +42,17 @@ public class EntityGoat extends EntityAnimal {
 
 	@Override
 	public String getLivingSound() {
-		return "mob.sheep";
+		return "cavecliff.goatidle";
 	}
 
 	@Override
-	protected String getHurtSound() {
-		return "mob.sheep";
+	public String getHurtSound() {
+		return "cavecliff.goatidle";
 	}
 
 	@Override
-	protected String getDeathSound() {
-		return "mob.sheep";
-	}
-
-	public void playLivingSound() {
-		String s = this.getLivingSound();
-		if (s != null) {
-			this.world.playSoundAtEntity(null, this, this.getDeathSound(), this.getSoundVolume(), (this.getSoundVolume() * 1.5F));
-		}
-	}
-
-	public void playHurtSound() {
-		this.world.playSoundAtEntity(null, this, this.getDeathSound(), this.getSoundVolume(), (this.getSoundVolume() * 1.5F));
-	}
-
-	public void playDeathSound() {
-		this.world.playSoundAtEntity(null, this, this.getDeathSound(), this.getSoundVolume(), (this.getSoundVolume() * 1.5F));
+	public String getDeathSound() {
+		return "cavecliff.goatdeath";
 	}
 
 	@Override

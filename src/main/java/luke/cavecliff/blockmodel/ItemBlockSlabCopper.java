@@ -6,7 +6,7 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.block.ItemBlockSlab;
 
 public class ItemBlockSlabCopper extends ItemBlockSlab {
-	private final boolean upperMetadata;
+	public final boolean upperMetadata;
 
 	public ItemBlockSlabCopper(Block block) {
 		super(block);

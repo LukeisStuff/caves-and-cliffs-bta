@@ -18,10 +18,10 @@ public class ModelGoat extends ModelQuadruped {
 		this.head.setRotationPoint(0.0F, 4.0F, -8.0F);
 
 		this.horn1 = new Cube(0, 0);
-		this.horn1.addBox(-1.999F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
+		this.horn1.addBox(-1.99F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
 		this.horn1.setRotationPoint(0.0F, 4.0F, -8.0F);
 		this.horn2 = new Cube(0, 0);
-		this.horn2.addBox(0.999F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
+		this.horn2.addBox(0.99F, -6.0F, -1.0F, 2, 7, 2, 0.0F);
 		this.horn2.setRotationPoint(0.0F, 4.0F, -8.0F);
 
 		// Left Ear
