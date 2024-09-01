@@ -104,6 +104,10 @@ public class CaveCliffBlocks {
 		}
 
 		for (int color = 2; color < 5; color++) {
+			CreativeHelper.setParent(amethystCluster, color - 1, amethystCluster, 0);
+		}
+
+		for (int color = 2; color < 5; color++) {
 			CreativeHelper.setParent(brickCopper, color - 1, brickCopper, 0);
 		}
 
@@ -269,6 +273,8 @@ public class CaveCliffBlocks {
 			.setBlockDrop(null)
 			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
 			.setTextures("cavecliff:block/amethyst_budding")
+			.setTicking(true)
+			.setTickOnLoad()
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
 			.build(new BlockBuddingAmethyst("amethyst.budding", blockID("amethystBudding"), Material.stone));
 
@@ -278,8 +284,12 @@ public class CaveCliffBlocks {
 			.setLuminance(3)
 			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
 			.setBlockModel(BlockModelAmethystCluster::new)
+			.setItemBlock(block -> new ItemBlockAmethystCluster(block, false))
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
-			.setIcon("cavecliff:block/amethyst_cluster")
+			.setItemModel(ItemModelAmethystCluster::new)
+			.setIcon("cavecliff:block/amethyst_small")
+			.setTicking(true)
+			.setTickOnLoad()
 			.build(new BlockAmethystCluster("amethyst.cluster", blockID("amethystCluster"), Material.stone));
 
 		blockCopper = metal

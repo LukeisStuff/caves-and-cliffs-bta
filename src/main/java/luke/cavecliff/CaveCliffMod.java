@@ -22,7 +22,7 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 	public static final String MOD_ID = "cavecliff";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-	static {
+	public static void init() {
 		SoundHelper.addStreaming(MOD_ID, "otherside.ogg");
 		SoundHelper.addSound(MOD_ID, "goathorn1.ogg");
 		SoundHelper.addSound(MOD_ID, "goathorn2.ogg");
@@ -32,7 +32,9 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 	public void onInitialize() {
 		for (Biome b : Registries.BIOMES) {
 			b.getSpawnableList(EnumCreatureType.waterCreature).add(new SpawnListEntry(EntityGlowSquid.class, 5));
+			b.getSpawnableList(EnumCreatureType.creature).add(new SpawnListEntry(EntityGoat.class, 102));
 		}
+		CaveCliffMod.init();
 		LOGGER.info("Caves and Cliffs initialized.");
 	}
 

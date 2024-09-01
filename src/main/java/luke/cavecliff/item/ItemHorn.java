@@ -21,11 +21,15 @@ public class ItemHorn extends Item {
 	}
 
 	public ItemStack onUseItem(ItemStack itemstack, World world, EntityPlayer entityplayer) {
-		if (itemstack.getMetadata() <= 0) {
-			world.playSoundAtEntity(entityplayer, entityplayer, "ambient.cave.cave", 1.0F, 1.0F);
-			itemstack.damageItem(384, entityplayer);
-		}
+		this.useItemRightClick(world, entityplayer);
         return itemstack;
     }
+
+	public void useItemRightClick(World world, EntityPlayer entityplayer) {
+		if (entityplayer.getHeldItem().getMetadata() <= 0) {
+			world.playSoundAtEntity(entityplayer, entityplayer, "cavecliff.goathorn1", 1.0F, 1.0F);
+			entityplayer.getHeldItem().damageItem(384, entityplayer);
+		}
+	}
 
 }

@@ -24,6 +24,14 @@ public class BlockModelAmethystCluster<T extends Block> extends BlockModelStanda
 		super(block);
 	}
 
+	public boolean shouldItemRender3d() {
+		return false;
+	}
+
+	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
+		return this.growthStageTextures[MathHelper.clamp(data, 0, 3)];
+	}
+
 	public boolean render(Tessellator tessellator, int x, int y, int z) {
 		this.block.setBlockBoundsBasedOnState(renderBlocks.blockAccess, x, y, z);
 		float brightness = 1.0F;
@@ -71,13 +79,5 @@ public class BlockModelAmethystCluster<T extends Block> extends BlockModelStanda
 		tessellator.addVertexWithUV(minX, yd + 0.0, maxZ, maxU, maxV);
 		tessellator.addVertexWithUV(minX, yd + 1.0 + 0.0, maxZ, maxU, minV);
 		return true;
-	}
-
-	public boolean shouldItemRender3d() {
-		return false;
-	}
-
-	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
-		return this.growthStageTextures[MathHelper.clamp(data, 0, 3)];
 	}
 }
