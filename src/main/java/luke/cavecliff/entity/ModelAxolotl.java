@@ -20,11 +20,11 @@ public class ModelAxolotl extends ModelBase {
 		super();
 		this.axolotlHead = new Cube(0, 0);
 		this.axolotlHead.addBox(-4.0f, 4.0f, -8.0f, 8, 5, 5, 0.0F);
-		this.axolotlHead.setRotationPoint(0.0f, 15.0f, 0.0f);
+		this.axolotlHead.setRotationPoint(0.0f, 15.0F, 0.0f);
 
 		this.axolotlBody = new Cube(0, 10);
-		this.axolotlBody.addBox(-4.0f, 5.0f, -6.0f, 8, 4, 10, 0.0F);
-		this.axolotlBody.setRotationPoint(0.0F, 15.0F, 0.0F);
+		this.axolotlBody.addBox(-4.0f, 13.0f, -6.0f, 8, 4, 10, 0.0F);
+		this.axolotlBody.setRotationPoint(0.0F, -5.0f, 0.0F);
 
 		// Right Arm
 		this.axolotlArm1 = new Cube(2, 13);

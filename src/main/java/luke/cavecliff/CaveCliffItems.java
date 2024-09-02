@@ -50,7 +50,7 @@ public class CaveCliffItems {
 			.build(new ItemHorn("horn.goat", itemID("hornGoat")).setMaxStackSize(1));
 
 		inkSacGlow = new ItemBuilder(MOD_ID)
-			.setIcon("cavecliff:item/inksak_glow")
+			.setIcon("cavecliff:item/inksac_glow")
 			.build(new Item("inksac.glow", itemID("inkSacGlow")));
 
 		recordOtherside = new ItemBuilder(MOD_ID)

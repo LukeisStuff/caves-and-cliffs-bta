@@ -4,8 +4,14 @@ tile.cavecliff.amethyst.desc=A solid block of amethyst.
 tile.cavecliff.amethyst.budding.name=Budding Amethyst
 tile.cavecliff.amethyst.budding.desc=A unique type of amethyst that grows more from itself.
 
-tile.cavecliff.amethyst.cluster.name=Amethyst Cluster
-tile.cavecliff.amethyst.cluster.desc=Sprouting chunks of amethyst crystals.
+tile.cavecliff.amethyst.cluster.small.name=Small Amethyst Cluster
+tile.cavecliff.amethyst.cluster.small.desc=Small sprouting chunks of amethyst crystals.
+tile.cavecliff.amethyst.cluster.medium.name=Medium Amethyst Cluster
+tile.cavecliff.amethyst.cluster.medium.desc=Medium sprouting chunks of amethyst crystals.
+tile.cavecliff.amethyst.cluster.large.name=Large Amethyst Cluster
+tile.cavecliff.amethyst.cluster.large.desc=Large sprouting chunks of amethyst crystals.
+tile.cavecliff.amethyst.cluster.cluster.name=Amethyst Cluster
+tile.cavecliff.amethyst.cluster.cluster.desc=Sprouting chunks of amethyst crystals.
 
 tile.cavecliff.ore.copper.stone.name=Stone Copper Ore
 tile.cavecliff.ore.copper.stone.desc=Copper nuggets embedded in stone.
