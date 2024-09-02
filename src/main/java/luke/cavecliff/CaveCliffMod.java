@@ -1,5 +1,6 @@
 package luke.cavecliff;
 
+import luke.cavecliff.entity.EntityAxolotl;
 import luke.cavecliff.entity.EntityGlowSquid;
 import luke.cavecliff.entity.EntityGoat;
 import luke.cavecliff.world.CaveCliffBiomes;
@@ -47,6 +48,9 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 
 		MobInfoRegistry.register(EntityGlowSquid.class, "guidebook.section.mob.squid.glow.name", "guidebook.section.mob.squid.glow.desc",
 			10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(CaveCliffItems.inkSacGlow, 1, 0), 1.0f, 1, 3)});
+
+		MobInfoRegistry.register(EntityAxolotl.class, "guidebook.section.mob.axolotl.name", "guidebook.section.mob.axolotl.desc",
+			8, 500, null);
 
 	}
 
