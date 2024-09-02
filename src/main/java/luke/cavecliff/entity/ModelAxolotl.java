@@ -19,12 +19,12 @@ public class ModelAxolotl extends ModelBase {
 	public ModelAxolotl() {
 		super();
 		this.axolotlHead = new Cube(0, 0);
-		this.axolotlHead.addBox(-4.0f, 4.0f, -8.0f, 8, 5, 5, 0.0F);
-		this.axolotlHead.setRotationPoint(0.0f, 15.0F, 0.0f);
+		this.axolotlHead.addBox(-4.0f, -2.5f, -5.0f, 8, 5, 5, 0.0F);
+		this.axolotlHead.setRotationPoint(0.0f, 21.5f, -5.0f);
 
 		this.axolotlBody = new Cube(0, 10);
-		this.axolotlBody.addBox(-4.0f, 13.0f, -6.0f, 8, 4, 10, 0.0F);
-		this.axolotlBody.setRotationPoint(0.0F, -5.0f, 0.0F);
+		this.axolotlBody.addBox(-4.0f, -2.0f, -5.0f, 8, 4, 10, 0.0F);
+		this.axolotlBody.setRotationPoint(0.0F, 22.0f, 0.0F);
 
 		// Right Arm
 		this.axolotlArm1 = new Cube(2, 13);
@@ -47,20 +47,20 @@ public class ModelAxolotl extends ModelBase {
 		this.axolotlLeg2.setRotationPoint(0.0F, 15.0F, 0.0F);
 
 		this.axolotlTail1 = new Cube(2, 17);
-		this.axolotlTail1.addBox(0.0f, 4.0f, -6F, 0, 5, 9);
-		this.axolotlTail1.setRotationPoint(0.0F, 15.0F, 0.0F);
+		this.axolotlTail1.addBox(0.0f, -3.0f, -5.0F, 0, 5, 9);
+		this.axolotlTail1.setRotationPoint(0.0F, 22.0f, 0.0F);
 
 		this.axolotlTail2 = new Cube(16, 12);
-		this.axolotlTail2.addBox(0.0f, 4.0f, 3.0F, 0, 5, 13);
-		this.axolotlTail2.setRotationPoint(0.0F, 15.0F, 0.0F);
+		this.axolotlTail2.addBox(0.0f, -3.0f, 4.0F, 0, 5, 13);
+		this.axolotlTail2.setRotationPoint(0.0F, 22.0f, 0.0F);
 
 		this.axolotlGills1 = new Cube(27, 0);
-		this.axolotlGills1.addBox(-4.0f, 1.0f, -6.0F, 8, 3, 0);
-		this.axolotlGills1.setRotationPoint(0.0F, 15.0F, 0.0F);
+		this.axolotlGills1.addBox(-4.0f, -5.5f, -6.0F, 8, 3, 0);
+		this.axolotlGills1.setRotationPoint(0.0f, 21.5f, -5.0f);
 
 		this.axolotlGills2 = new Cube(32, 3);
-		this.axolotlGills2.addBox(-7.0f, 2.0f, -6.0F, 14, 7, 0);
-		this.axolotlGills2.setRotationPoint(0.0F, 15.0F, 0.0F);
+		this.axolotlGills2.addBox(-7.0f, -6.5f, -6.0F, 14, 7, 0);
+		this.axolotlGills2.setRotationPoint(0.0f, 21.5f, -5.0f);
 
 	}
 
@@ -99,13 +99,13 @@ public class ModelAxolotl extends ModelBase {
 		float pair1Z = Math.abs(MathHelper.sin(limbSwing * 0.6662f + 0.0f) * 0.4f) * limbYaw;
 		float pair2Z = Math.abs(MathHelper.sin(limbSwing * 0.6662f + 3.141593f) * 0.4f) * limbYaw;
 		this.axolotlArm1.rotateAngleY += pair1Y;
-		this.axolotlArm2.rotateAngleY += -pair1Y;
+        this.axolotlArm2.rotateAngleY -= pair1Y;
 		this.axolotlLeg1.rotateAngleY += pair2Y;
-		this.axolotlLeg2.rotateAngleY += -pair2Y;
+        this.axolotlLeg2.rotateAngleY -= pair2Y;
 		this.axolotlArm1.rotateAngleZ += pair1Z;
-		this.axolotlArm2.rotateAngleZ += -pair1Z;
+        this.axolotlArm2.rotateAngleZ -= pair1Z;
 		this.axolotlLeg1.rotateAngleZ += pair2Z;
-		this.axolotlLeg2.rotateAngleZ += -pair2Z;
+        this.axolotlLeg2.rotateAngleZ -= pair2Z;
 
 		this.axolotlGills1.rotateAngleY = this.axolotlHead.rotateAngleY;
 		this.axolotlGills1.rotateAngleX = this.axolotlHead.rotateAngleX;
