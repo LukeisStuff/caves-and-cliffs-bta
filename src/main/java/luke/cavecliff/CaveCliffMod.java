@@ -25,6 +25,7 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 	public void onInitialize() {
 		for (Biome b : Registries.BIOMES) {
 			b.getSpawnableList(EnumCreatureType.waterCreature).add(new SpawnListEntry(EntityGlowSquid.class, 5));
+			b.getSpawnableList(EnumCreatureType.waterCreature).add(new SpawnListEntry(EntityAxolotl.class, 25));
 			b.getSpawnableList(EnumCreatureType.creature).add(new SpawnListEntry(EntityGoat.class, 102));
 		}
 		CaveCliffSounds.init();
