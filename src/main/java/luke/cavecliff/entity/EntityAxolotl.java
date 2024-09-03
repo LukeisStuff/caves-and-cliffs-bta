@@ -12,7 +12,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 		this.setSize(0.5F, 0.5F);
 	}
 
-	@Override
+    @Override
 	public void init() {
 		this.entityData.define(16, (byte)0);
 	}
@@ -23,12 +23,10 @@ public class EntityAxolotl extends EntityWaterAnimal {
 		return this.entityData.getByte(1) % skinVariantCount;
 	}
 
-	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
 	}
 
-	@Override
 	public void readAdditionalSaveData(CompoundTag tag) {
 		super.readAdditionalSaveData(tag);
 	}
