@@ -11,6 +11,7 @@ import net.minecraft.core.entity.SpawnListEntry;
 import net.minecraft.core.enums.EnumCreatureType;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.biome.Biome;
+import net.minecraft.server.entity.ServerSkinVariantList;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
@@ -23,6 +24,10 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 
 	@Override
 	public void onInitialize() {
+		ServerSkinVariantList.registerSkinCount(EntityGoat.class, 4);
+		ServerSkinVariantList.registerSkinCount(EntityGlowSquid.class, 4);
+		ServerSkinVariantList.registerSkinCount(EntityAxolotl.class, 5);
+
 		for (Biome b : Registries.BIOMES) {
 			b.getSpawnableList(EnumCreatureType.waterCreature).add(new SpawnListEntry(EntityGlowSquid.class, 5));
 			b.getSpawnableList(EnumCreatureType.waterCreature).add(new SpawnListEntry(EntityAxolotl.class, 25));
