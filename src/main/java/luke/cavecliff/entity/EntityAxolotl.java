@@ -23,9 +23,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EntityAxolotl extends EntityWaterAnimal {
-	private boolean looksWithInterest = false;
-	private float field_25048_b;
-	private boolean field_25052_g;
+	public boolean looksWithInterest = false;
+	public float field_25048_b;
+	public boolean field_25052_g;
 	public EntityAxolotl(World world) {
 		super(world);
 		this.textureIdentifier = new NamespaceID("cavecliff", "axolotl");
@@ -35,7 +35,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	protected void init() {
+	public void init() {
 		super.init();
 		this.entityData.define(15, ItemStack.NO_ITEM);
 		this.entityData.define(16, (byte)0);
@@ -99,7 +99,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	protected boolean canDespawn() {
+	public boolean canDespawn() {
 		return !this.isAxolotlTamed() && super.canDespawn();
 	}
 
@@ -115,22 +115,22 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	protected String getHurtSound() {
+	public String getHurtSound() {
 		return "cavecliff.axolotlhurt";
 	}
 
 	@Override
-	protected String getDeathSound() {
+	public String getDeathSound() {
 		return "cavecliff.axolotldeath";
 	}
 
 	@Override
-	protected float getSoundVolume() {
+	public float getSoundVolume() {
 		return 0.8f;
 	}
 
 	@Override
-	protected void dropFewItems() {
+	public void dropFewItems() {
 		if (this.getHeldItem() != null && this.getHeldItem().stackSize > 0) {
 			this.spawnAtLocation(this.getHeldItem(), 0.0f);
 			this.setAxolotlHeldItem(null);
@@ -139,7 +139,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	protected void updatePlayerActionState() {
+	public void updatePlayerActionState() {
 		List<Entity> nearbySheep;
 		super.updatePlayerActionState();
 		if (this.getTarget() instanceof EntityItem && (this.getTarget().isInWater() || this.getTarget().isInLava() || this.getTarget().isInWall() || !this.getTarget().onGround || this.getTarget().isRemoved())) {
@@ -236,14 +236,14 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	protected int func_25026_x() {
+	public int func_25026_x() {
 		if (this.isAxolotlSitting()) {
 			return 20;
 		}
 		return super.func_25026_x();
 	}
 
-	private void getPathOrWalkableBlock(Entity entity, float f) {
+	public void getPathOrWalkableBlock(Entity entity, float f) {
 		Path pathentity = this.world.getPathToEntity(this, entity, 16.0f);
 		if (pathentity == null && f > 12.0f) {
 			int i = MathHelper.floor_double(entity.x) - 2;
@@ -296,7 +296,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	protected void attackEntity(Entity entity, float distance) {
+	public void attackEntity(Entity entity, float distance) {
 		if (entity instanceof EntityItem) {
 			return;
 		}
