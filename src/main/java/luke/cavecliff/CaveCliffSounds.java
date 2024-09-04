@@ -18,5 +18,14 @@ public class CaveCliffSounds {
 		SoundHelper.addSound(CaveCliffMod.MOD_ID, "goatdeath1.ogg");
 		SoundHelper.addSound(CaveCliffMod.MOD_ID, "goatdeath2.ogg");
 		SoundHelper.addSound(CaveCliffMod.MOD_ID, "goatdeath3.ogg");
+
+		SoundHelper.addSound(CaveCliffMod.MOD_ID, "axolotlidle1.ogg");
+		SoundHelper.addSound(CaveCliffMod.MOD_ID, "axolotlidle2.ogg");
+
+		SoundHelper.addSound(CaveCliffMod.MOD_ID, "axolotlhurt1.ogg");
+		SoundHelper.addSound(CaveCliffMod.MOD_ID, "axolotlhurt2.ogg");
+
+		SoundHelper.addSound(CaveCliffMod.MOD_ID, "axolotldeath1.ogg");
+		SoundHelper.addSound(CaveCliffMod.MOD_ID, "axolotldeath2.ogg");
 	}
 }

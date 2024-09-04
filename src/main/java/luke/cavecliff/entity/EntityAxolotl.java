@@ -107,26 +107,26 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	public String getLivingSound() {
 		if (this.random.nextInt(3) == 0) {
 			if (this.isAxolotlTamed() && this.getHealth() < this.getMaxHealth() / 2) {
-				return "mob.axolotl.whine";
+				return "cavecliff.axolotlhurt";
 			}
-			return "mob.axolotl.panting";
+			return "cavecliff.axolotlidle";
 		}
-		return "mob.axolotl.bark";
+		return "cavecliff.axolotlidle";
 	}
 
 	@Override
 	protected String getHurtSound() {
-		return "mob.axolotl.hurt";
+		return "cavecliff.axolotlhurt";
 	}
 
 	@Override
 	protected String getDeathSound() {
-		return "mob.axolotl.death";
+		return "cavecliff.axolotldeath";
 	}
 
 	@Override
 	protected float getSoundVolume() {
-		return 0.4f;
+		return 0.8f;
 	}
 
 	@Override
