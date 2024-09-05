@@ -124,6 +124,9 @@ item.cavecliff.record.otherside.desc=§9other§5side
 item.cavecliff.horn.goat.name=Goat Horn
 item.cavecliff.horn.goat.desc=Use it to play a strange sound, has a short cooldown.
 
+item.cavecliff.inksac.glow.name=Glow Sac
+item.cavecliff.inksac.glow.desc=Can be used to create cyan dye.
+
 tile.cavecliff.candle.colored.white.name=White Candle
 tile.cavecliff.candle.colored.white.desc=A candle, dyed white.
 tile.cavecliff.candle.colored.orange.name=Orange Candle

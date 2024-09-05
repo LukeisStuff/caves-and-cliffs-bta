@@ -50,7 +50,7 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 		new CaveCliffBlocks().initializeBlockDetails();
 
 		MobInfoRegistry.register(EntityGoat.class, "guidebook.section.mob.goat.name", "guidebook.section.mob.goat.desc",
-			10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(CaveCliffItems.hornGoat), 1.0f, 1, 1)});
+			10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(CaveCliffItems.hornGoat), 1.0f, 0, 2)});
 
 		MobInfoRegistry.register(EntityGlowSquid.class, "guidebook.section.mob.squid.glow.name", "guidebook.section.mob.squid.glow.desc",
 			10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(CaveCliffItems.inkSacGlow, 1, 0), 1.0f, 1, 3)});

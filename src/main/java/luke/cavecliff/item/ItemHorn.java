@@ -22,7 +22,7 @@ public class ItemHorn extends Item {
 
 	public ItemStack onUseItem(ItemStack itemstack, World world, EntityPlayer entityplayer) {
 		if (entityplayer.getHeldItem().getMetadata() <= 0) {
-			world.playSoundAtEntity(entityplayer, entityplayer, "cavecliff.goathorn", 1.0F, 1.0F);
+			world.playSoundAtEntity(entityplayer, entityplayer, "cavecliff.goathorn", 1.0F, 1.0f / (itemRand.nextFloat() * 0.4f + 0.8f));
 			entityplayer.swingItem();
 			entityplayer.getHeldItem().damageItem(256, entityplayer);
 		}
