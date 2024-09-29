@@ -1,7 +1,6 @@
 package luke.cavecliff.world;
 
 import luke.cavecliff.CaveCliffBlocks;
-import net.minecraft.core.block.Block;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.generate.feature.WorldFeature;
 
@@ -18,8 +17,8 @@ public class WorldFeatureGeode extends WorldFeature {
 		if (world.getBlockId(x, y - 9, z) == 0) {
 			return false;
 		} else {
-			makeSphere(Block.basalt.id, rand + 2, true, world, x, y, z);
-			makeSphere(Block.marble.id, rand + 1, true, world, x, y, z);
+			makeSphere(CaveCliffBlocks.tuff.id, rand + 2, true, world, x, y, z);
+			makeSphere(CaveCliffBlocks.calcite.id, rand + 1, true, world, x, y, z);
 			makeSphereRandom(CaveCliffBlocks.amethyst.id, CaveCliffBlocks.amethystBudding.id, rand, true, random, world, x, y, z);
 			makeSphere(0, rand - 1, true, world, x, y, z);
 			return true;

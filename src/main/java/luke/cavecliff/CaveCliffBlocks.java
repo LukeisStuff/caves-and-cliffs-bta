@@ -75,6 +75,9 @@ public class CaveCliffBlocks {
 
 	public static Block lightningRod;
 
+	public static Block tuff;
+	public static Block calcite;
+
 
 	public void initializeBlockDetails() {
 
@@ -455,6 +458,18 @@ public class CaveCliffBlocks {
 			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/lightning_rod.json").setRender3D(true).build(lightningRod))
 			.setVisualUpdateOnMetadata()
 			.build(new BlockLightningRod("lightning.rod", blockID("lightningRod"), Material.metal));
+
+
+		tuff = stone
+			.setTextures("cavecliff:block/tuff")
+			.setResistance(6.0f)
+			.build(new Block("tuff", blockID("tuff"), Material.stone));
+
+		calcite = stone
+			.setTextures("cavecliff:block/calcite")
+			.setHardness(0.75f)
+			.setResistance(0.75f)
+			.build(new Block("calcite", blockID("calcite"), Material.stone));
 
 	}
 

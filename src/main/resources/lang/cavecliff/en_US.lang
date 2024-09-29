@@ -13,6 +13,12 @@ tile.cavecliff.amethyst.cluster.large.desc=Large sprouting chunks of amethyst cr
 tile.cavecliff.amethyst.cluster.cluster.name=Amethyst Cluster
 tile.cavecliff.amethyst.cluster.cluster.desc=Sprouting chunks of amethyst crystals.
 
+tile.cavecliff.tuff.name=Tuff
+tile.cavecliff.tuff.desc=A block of solid tuff.
+
+tile.cavecliff.calcite.name=Calcite
+tile.cavecliff.calcite.desc=A block of solid calcite.
+
 tile.cavecliff.ore.copper.stone.name=Stone Copper Ore
 tile.cavecliff.ore.copper.stone.desc=Copper nuggets embedded in stone.
 

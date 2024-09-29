@@ -19,7 +19,7 @@ public class CaveCliffConfig {
 	public static TomlConfigHandler cfg;
 
 	public static int blockIDs = 1700;
-	public static int itemIDs = 17800;
+	public static int itemIDs = 31670;
 
 	static {
 		properties.addCategory("Caves and Cliffs")
