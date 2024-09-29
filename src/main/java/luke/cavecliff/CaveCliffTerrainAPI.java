@@ -19,7 +19,12 @@ public class CaveCliffTerrainAPI implements TerrainAPI {
 
 		ChunkDecoratorOverworldAPI.randomFeatures.addFeature(new WorldFeatureGeode(), 24, 0.25f);
 
+		ChunkDecoratorOverworldAPI.oreFeatures.addManagedOreFeature(getModID(), CaveCliffBlocks.dripstone, 32, 1, 0.0f, 0.5f, false);
+
+		ChunkDecoratorOverworldAPI.oreFeatures.addManagedOreFeature(getModID(), CaveCliffBlocks.moss, 32, 1, 0.5f, false);
+
 		ChunkDecoratorOverworldAPI.randomFeatures.addFeature(new WorldFeaturePowderSnow(), 12, 1.0f);
+
 
 	}
 }
