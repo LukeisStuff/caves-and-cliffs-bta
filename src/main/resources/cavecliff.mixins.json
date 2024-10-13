@@ -7,7 +7,8 @@
     "EntityLightningBoltMixin",
     "FogManagerMixin",
     "GuiIngameMixin",
-    "ItemToolAxeMixin"
+    "ItemToolAxeMixin",
+    "SwampBiomeVinesMixin"
   ],
   "client": [
   ],

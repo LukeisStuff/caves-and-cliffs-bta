@@ -3,7 +3,6 @@ package luke.cavecliff;
 import luke.cavecliff.entity.EntityAxolotl;
 import luke.cavecliff.entity.EntityGlowSquid;
 import luke.cavecliff.entity.EntityGoat;
-import luke.cavecliff.world.CaveCliffBiomes;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.gui.guidebook.mobs.MobInfoRegistry;
 import net.minecraft.core.data.registry.Registries;
@@ -42,7 +41,6 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 		new CaveCliffBlocks().initializeBlocks();
 		new CaveCliffItems().initilizeItems();
 		new CaveCliffEntities().initializeEntities();
-		new CaveCliffBiomes().initializeBiomes();
 	}
 
 	@Override

@@ -9,13 +9,13 @@ import net.minecraft.core.util.helper.Side;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
-public class BlockModelCaveVine<T extends Block> extends BlockModelCrossedSquares<T> {
+public class BlockModelCaveVineGlowing<T extends Block> extends BlockModelCrossedSquares<T> {
 	public final IconCoordinate[] growthStageTextures = new IconCoordinate[]{
-		TextureRegistry.getTexture(MOD_ID + ":block/cave_vine"),
-		TextureRegistry.getTexture(MOD_ID + ":block/cave_vine_short"),
+		TextureRegistry.getTexture(MOD_ID + ":block/cave_vine_flowering"),
+		TextureRegistry.getTexture(MOD_ID + ":block/cave_vine_short_flowering"),
 	};
 
-	public BlockModelCaveVine(Block block) {
+	public BlockModelCaveVineGlowing(Block block) {
 		super(block);
 	}
 

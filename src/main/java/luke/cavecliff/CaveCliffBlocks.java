@@ -64,6 +64,7 @@ public class CaveCliffBlocks {
 	public static Block blockCopperRaw;
 
 	public static Block vines;
+	public static Block vinesGlowing;
 
 	public static Block lichen;
 
@@ -410,8 +411,21 @@ public class CaveCliffBlocks {
 			.setBlockModel(BlockModelCaveVine::new)
 			.setVisualUpdateOnMetadata()
 			.setUseInternalLight()
+			.setTicking(true)
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.CAN_HANG_OFF, BlockTags.BROKEN_BY_FLUIDS)
-			.build(new BlockVines("vines", blockID("vines"), Material.leaves));
+			.build(new BlockVines("vines", blockID("vines"), Material.leaves, false));
+
+		vinesGlowing = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setBlockModel(BlockModelCaveVineGlowing::new)
+			.setVisualUpdateOnMetadata()
+			.setUseInternalLight()
+			.setTicking(true)
+			.setLuminance(14)
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.CAN_HANG_OFF, BlockTags.BROKEN_BY_FLUIDS, BlockTags.NOT_IN_CREATIVE_MENU)
+			.build(new BlockVines("vines.glowing", blockID("vinesGlowing"), Material.leaves, true));
 
 		flowerSpore = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
