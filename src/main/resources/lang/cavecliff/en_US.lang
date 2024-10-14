@@ -97,6 +97,9 @@ tile.cavecliff.block.raw.copper.desc=A solid block of raw copper.
 tile.cavecliff.vines.name=Vines
 tile.cavecliff.vines.desc=A long, creeping vine that can be climbed, grows glowing berries.
 
+tile.cavecliff.vines.name=Flowering Vines
+tile.cavecliff.vines.desc=A long, creeping vine that can be climbed, growing glowing berries.
+
 tile.cavecliff.lichen.name=Lichen
 tile.cavecliff.lichen.desc=A glowing pale green algae.
 

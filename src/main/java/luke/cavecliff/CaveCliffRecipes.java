@@ -52,6 +52,11 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 			.addInput(new ItemStack(CaveCliffItems.inkSacGlow, 1))
 			.create("glow_sac_to_cyan_dye", new ItemStack(Item.dye, 2, 6));
 
+		RecipeBuilder.Shapeless(MOD_ID)
+			.addInput(new ItemStack(CaveCliffItems.inkSacGlow, 1))
+			.addInput(new ItemStack(Block.algae, 1))
+			.create("glow_lichen", new ItemStack(CaveCliffBlocks.lichen, 1));
+
 		RecipeBuilder.Shaped(MOD_ID, "C", "C", "C")
 			.addInput('C', CaveCliffItems.ingotCopper)
 			.create("lightning_rod", new ItemStack(CaveCliffBlocks.lightningRod, 2));
