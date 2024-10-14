@@ -19,12 +19,12 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 
 		RecipeBuilderShaped templateItemtoBlock = new RecipeBuilderShaped(MOD_ID, "XXX", "XXX", "XXX");
 		templateItemtoBlock.addInput('X', CaveCliffItems.amethyst).create("block_of_amethyst", new ItemStack(CaveCliffBlocks.amethyst, 1));
-		templateItemtoBlock.addInput('X', CaveCliffItems.ingotCopper).create("block_of_copper", new ItemStack(CaveCliffBlocks.blockCopper, 1));
 		templateItemtoBlock.addInput('X', CaveCliffItems.oreRawCopper).create("block_of_raw_copper", new ItemStack(CaveCliffBlocks.blockCopperRaw, 1));
 		templateItemtoBlock.addInput('X', Item.oreRawGold).create("block_of_raw_gold", new ItemStack(CaveCliffBlocks.blockGoldRaw, 1));
 		templateItemtoBlock.addInput('X', Item.oreRawIron).create("block_of_raw_iron", new ItemStack(CaveCliffBlocks.blockIronRaw, 1));
 
 		RecipeBuilderShaped templateBricks = new RecipeBuilderShaped(MOD_ID, "XX", "XX");
+		templateBricks.addInput('X', CaveCliffItems.ingotCopper).create("block_of_copper", new ItemStack(CaveCliffBlocks.blockCopper, 1));
 		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1, 0)).create("copper_bricks", new ItemStack(CaveCliffBlocks.brickCopper, 4, 0));
 		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1, 1)).create("exposed_copper_bricks", new ItemStack(CaveCliffBlocks.brickCopper, 4, 1));
 		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1, 2)).create("weathered_copper_bricks", new ItemStack(CaveCliffBlocks.brickCopper, 4, 2));
@@ -41,6 +41,12 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 1)).create("exposed_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 16));
 		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 2)).create("weathered_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 32));
 		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 3)).create("oxidized_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 48));
+
+		RecipeBuilderShaped templateBlockToItem = new RecipeBuilderShaped(MOD_ID, "X");
+		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1)).create("copper_block_to_ingot", new ItemStack(CaveCliffItems.ingotCopper, 4));
+		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.blockCopperRaw, 1)).create("copper_block_to_ingot", new ItemStack(CaveCliffItems.oreRawCopper, 9));
+		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.blockGoldRaw, 1)).create("copper_block_to_ingot", new ItemStack(Item.oreRawGold, 9));
+		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.blockIronRaw, 1)).create("copper_block_to_ingot", new ItemStack(Item.oreRawIron, 9));
 
 		RecipeBuilder.Shapeless(MOD_ID)
 			.addInput(new ItemStack(CaveCliffItems.inkSacGlow, 1))
