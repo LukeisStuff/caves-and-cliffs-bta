@@ -1,6 +1,6 @@
 # Caves and Cliffs BTA!
 
-A full port of the 1.17/1.18 updates of Minecraft to BTA!
+A port of the 1.17/1.18 updates of Minecraft to BTA!
 Parts of the update have been altered to help fit into BTA better.
 
 
