@@ -30,7 +30,7 @@ public abstract class EntityLightningBoltMixin extends Entity {
 				if (this.world.getBlockId(i, k = MathHelper.floor_double(this.y), i1 = MathHelper.floor_double(this.z)) == 0 && Block.fire.canPlaceBlockAt(this.world, i, k, i1)) {
 					int blockToStrike = world.getBlockId(i, j, i1);
 					if (blockToStrike == CaveCliffBlocks.lightningRod.id) {
-					this.world.setBlockWithNotify(i, k, i1, Block.fire.id);
+					this.world.setBlockWithNotify(i, k + 1, i1, Block.fire.id);
 				}
 				for (j = 0; j < 4; ++j) {
 					int k1;

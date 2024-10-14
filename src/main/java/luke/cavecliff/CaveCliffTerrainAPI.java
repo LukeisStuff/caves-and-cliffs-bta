@@ -34,6 +34,7 @@ public class CaveCliffTerrainAPI implements TerrainAPI {
 
 		ChunkDecoratorOverworldAPI.randomFeatures.addFeature(new WorldFeatureFlowers(CaveCliffBlocks.dripleafSmall.id), 4, -1f);
 
+		ChunkDecoratorOverworldAPI.randomFeatures.addFeature(new WorldFeatureFlowers(CaveCliffBlocks.flowerSpore.id), 1, 1.0f);
 
 
 	}

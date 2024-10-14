@@ -434,6 +434,7 @@ public class CaveCliffBlocks {
 			.setResistance(0.0f)
 			.setBlockModel(block -> new DFBlockModelBuilder(MOD_ID).setBlockModel("block/spore.json").setRender3D(false).build(flowerSpore))
 			.setVisualUpdateOnMetadata()
+			.setUseInternalLight()
 			.setIcon("cavecliff:block/spore_blossom_flower")
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
 			.build(new BlockSpore("flower.spore", blockID("flowerSpore")));
