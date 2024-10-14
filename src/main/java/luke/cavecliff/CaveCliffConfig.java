@@ -18,7 +18,7 @@ public class CaveCliffConfig {
 	public static final Toml properties = new Toml("Caves and Cliffs TOML Config");
 	public static TomlConfigHandler cfg;
 
-	public static int blockIDs = 1700;
+	public static int blockIDs = 1780;
 	public static int itemIDs = 31670;
 
 	static {
