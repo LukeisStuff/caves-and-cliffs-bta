@@ -42,8 +42,12 @@ public class EntityGoat extends EntityAnimal {
 
 	@Override
 	public String getLivingSound() {
+		if (this.random.nextInt(10) == 0) {
+			return "cavecliff.goatscream";
+		}
 		return "cavecliff.goatidle";
 	}
+
 
 	@Override
 	public String getHurtSound() {
