@@ -19,7 +19,7 @@ import net.minecraft.core.world.WorldSource;
 import java.util.Random;
 
 public class BlockVines extends Block implements IBonemealable {
-	protected final boolean glowing;
+	public final boolean glowing;
 
 	public BlockVines(String key, int id, Material material, boolean glowing) {
 		super(key, id, material);
@@ -65,22 +65,15 @@ public class BlockVines extends Block implements IBonemealable {
 			case WORLD:
 			case EXPLOSION:
 			case PROPER_TOOL:
-				if (this.glowing) {
-					if (meta == 1) {
-						world.setBlockMetadataWithNotify(x, y, z, 0);
-						return new ItemStack[]{new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(1) + 1)};
-					}
+				if (glowing) {
+					return new ItemStack[]{new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(2) + 1)};
 				}
-				if (this.glowing) {
-					if (meta == 0) {
-						world.setBlockMetadataWithNotify(x, y, z, 0);
-						return new ItemStack[]{new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(2) + 1)};
-					}
-				}
-				return null;
 			case PICK_BLOCK:
 			case SILK_TOUCH:
-					return new ItemStack[]{new ItemStack(CaveCliffBlocks.vines)};
+				if (glowing) {
+					return new ItemStack[]{new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(2) + 1)};
+				}
+				return new ItemStack[]{new ItemStack(CaveCliffBlocks.vines)};
 			default:
 				return null;
 		}
@@ -88,67 +81,44 @@ public class BlockVines extends Block implements IBonemealable {
 
 
 	public boolean onBlockRightClicked(World world, int x, int y, int z, EntityPlayer player, Side side, double xHit, double yHit) {
-		int meta = world.getBlockMetadata(x, y, z);
-		if (this.glowing) {
-			if (meta == 1) {
-				world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.vines.id, 1);
-				world.playSoundAtEntity(player, player, "random.pop", 0.2F, 0.5F);
-				world.dropItem(x, y, z, new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(1) + 1));
-				player.swingItem();
-			}
-		}
-		if (this.glowing) {
-			if (meta == 0) {
-				world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.vines.id, 0);
-				world.playSoundAtEntity(player, player, "random.pop", 0.2F, 0.5F);
-				world.dropItem(x, y, z, new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(2) + 1));
-				player.swingItem();
-			}
+		if (glowing) {
+			world.setBlockWithNotify(x, y, z, CaveCliffBlocks.vines.id);
+			world.playSoundAtEntity(player, player, "random.pop", 0.2F, 0.5F);
+			world.dropItem(x, y, z, new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(2) + 1));
+			player.swingItem();
 		}
 		return false;
 	}
 
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		super.updateTick(world, x, y, z, rand);
-		int meta = world.getBlockMetadata(x, y, z);
 		int blockBelow = world.getBlockId(x, y - 1, z);
-		if (rand.nextInt(4) == 0) {
-			if (meta == 0) {
-				if (blockBelow == 0) {
-					world.setBlockAndMetadataWithNotify(x, y - 1, z, CaveCliffBlocks.vines.id, 1);
+		if (!glowing) {
+			if (rand.nextInt(20) == 0) {
+				if (rand.nextInt(4) == 0) {
+					world.setBlockWithNotify(x, y, z, CaveCliffBlocks.vinesGlowing.id);
+				} else {
+					if (blockBelow == 0) {
+						world.setBlockAndMetadataWithNotify(x, y - 1, z, CaveCliffBlocks.vines.id, 0);
+					}
 				}
-			}
-		} else if (rand.nextInt(4) == 0) {
-			if (meta == 1) {
-				world.setBlockMetadataWithNotify(x, y - 1, z, 0);
 			}
 		}
 	}
 
 	public boolean onBonemealUsed(ItemStack itemstack, EntityPlayer entityplayer, World world, int blockX, int blockY, int blockZ, Side side, double xPlaced, double yPlaced) {
-		int meta = world.getBlockMetadata(blockX, blockY, blockZ);
-		if (!this.glowing) {
-			if (meta == 1) {
-				if (!world.isClientSide) {
-					world.setBlockMetadataWithNotify(blockX, blockY, blockZ, 1);
-					if (entityplayer.getGamemode().consumeBlocks()) {
-						--itemstack.stackSize;
-					}
-					entityplayer.swingItem();
+		if (!glowing) {
+			if (!world.isClientSide) {
+				world.setBlockWithNotify(blockX, blockY, blockZ, CaveCliffBlocks.vinesGlowing.id);
+				if (entityplayer.getGamemode().consumeBlocks()) {
+					--itemstack.stackSize;
 				}
+				entityplayer.swingItem();
 			}
+			return true;
+		} else {
+			return false;
 		}
-		if (!this.glowing) {
-			if (meta == 0) {
-				if (!world.isClientSide) {
-					world.setBlockAndMetadataWithNotify(blockX, blockY, blockZ, CaveCliffBlocks.vinesGlowing.id, 0);
-					if (entityplayer.getGamemode().consumeBlocks()) {
-						--itemstack.stackSize;
-					}
-					entityplayer.swingItem();
-				}
-			}
-		}
-		return false;
 	}
+
 }

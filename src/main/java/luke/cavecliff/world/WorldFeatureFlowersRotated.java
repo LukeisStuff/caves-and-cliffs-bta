@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class WorldFeatureFlowersRotated
 	extends WorldFeature {
-	private final int plantBlockId;
+	public final int plantBlockId;
 
 	@MethodParametersAnnotation(names={"plantBlockId"})
 	public WorldFeatureFlowersRotated(int plantBlockId) {

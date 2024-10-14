@@ -43,7 +43,7 @@ public class CaveCliffItems {
 
 		foodGlowBerries = new ItemBuilder(MOD_ID)
 			.setIcon("cavecliff:item/glowberries")
-			.build(new ItemFood("food.berries", itemID("foodGlowBerries"), 3, 4, false, 6));
+			.build(new ItemFood("food.berries", itemID("foodGlowBerries"), 2, 4, false, 6));
 
 		hornGoat = new ItemBuilder(MOD_ID)
 			.setIcon("cavecliff:item/goat_horn")

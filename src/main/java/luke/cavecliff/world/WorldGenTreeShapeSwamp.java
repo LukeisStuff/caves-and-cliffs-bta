@@ -11,10 +11,10 @@ import net.minecraft.core.world.generate.feature.tree.WorldFeatureTree;
 import java.util.Random;
 
 public class WorldGenTreeShapeSwamp extends WorldFeature {
-	protected int leavesID;
-	protected int logID;
-	protected int heightMod;
-	protected Random treeRand = new Random();
+	public int leavesID;
+	public int logID;
+	public int heightMod;
+	public Random treeRand = new Random();
 
 	public WorldGenTreeShapeSwamp(int leavesID, int logID, int heightMod) {
 		this.leavesID = leavesID;
