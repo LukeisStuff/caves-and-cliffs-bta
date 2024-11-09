@@ -64,6 +64,5 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 
 	@Override
 	public void afterClientStart() {
-
 	}
 }

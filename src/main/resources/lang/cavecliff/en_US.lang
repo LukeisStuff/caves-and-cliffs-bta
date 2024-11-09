@@ -100,7 +100,7 @@ tile.cavecliff.vines.desc=A long, creeping vine that can be climbed, grows glowi
 tile.cavecliff.vines.name=Flowering Vines
 tile.cavecliff.vines.desc=A long, creeping vine that can be climbed, growing glowing berries.
 
-tile.cavecliff.lichen.name=Lichen
+tile.cavecliff.lichen.name=Glow Lichen
 tile.cavecliff.lichen.desc=A glowing pale green algae.
 
 tile.cavecliff.flower.spore.name=Spore Blossom
@@ -134,7 +134,7 @@ item.cavecliff.horn.goat.name=Goat Horn
 item.cavecliff.horn.goat.desc=Use it to play a strange sound, has a short cooldown.
 
 item.cavecliff.inksac.glow.name=Glow Sac
-item.cavecliff.inksac.glow.desc=Can be used to create cyan dye.
+item.cavecliff.inksac.glow.desc=Can be used to create cyan dye and glow lichen.
 
 tile.cavecliff.candle.colored.white.name=White Candle
 tile.cavecliff.candle.colored.white.desc=A candle, dyed white.
