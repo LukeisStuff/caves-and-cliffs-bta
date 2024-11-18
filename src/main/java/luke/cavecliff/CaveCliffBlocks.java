@@ -151,7 +151,7 @@ public class CaveCliffBlocks {
 			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
 			.setHardness(0.1f)
 			.setResistance(0.1f)
-			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.GROWS_FLOWERS, BlockTags.GROWS_SUGAR_CANE, BlockTags.GROWS_TREES, BlockTags.PASSIVE_MOBS_SPAWN, BlockTags.FIREFLIES_CAN_SPAWN, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.CAVES_CUT_THROUGH);
+			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_SHOVEL, BlockTags.GROWS_FLOWERS, BlockTags.GROWS_SUGAR_CANE, BlockTags.GROWS_TREES, BlockTags.PASSIVE_MOBS_SPAWN, BlockTags.FIREFLIES_CAN_SPAWN, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.CAVES_CUT_THROUGH);
 
 
 		logAzalea = new BlockBuilder(MOD_ID)
@@ -392,7 +392,7 @@ public class CaveCliffBlocks {
 		mossLayer = grass
 			.setBlockModel(block -> new BlockModelLayer<>(block).withTextures("cavecliff:block/moss"))
 			.setFlammability(100, 30)
-			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.BROKEN_BY_FLUIDS, BlockTags.PASSIVE_MOBS_SPAWN, BlockTags.FIREFLIES_CAN_SPAWN, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.CAVES_CUT_THROUGH)
+			.setTags(BlockTags.MINEABLE_BY_AXE, BlockTags.MINEABLE_BY_SHOVEL, BlockTags.BROKEN_BY_FLUIDS, BlockTags.PASSIVE_MOBS_SPAWN, BlockTags.FIREFLIES_CAN_SPAWN, BlockTags.CAVE_GEN_REPLACES_SURFACE, BlockTags.CAVES_CUT_THROUGH)
 			.build(new BlockLayerLeaves("moss.layer", blockID("mossLayer"), Material.moss));
 
 		roots = new BlockBuilder(MOD_ID)

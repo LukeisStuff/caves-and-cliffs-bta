@@ -52,22 +52,16 @@ public class BlockPowderSnow extends Block {
 		return false;
 	}
 
-	boolean walking;
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
 			if (((EntityPlayer)entity).inventory.armorInventory[0] != null && ((EntityPlayer)entity).inventory.armorInventory[0].getItem() == Item.armorBootsLeather) {
 				AABB.getBoundingBoxFromPool(0.0f, 0.0f , 0.0f , 1.0f, 1.0f, 1.0f);
-				walking = true;
 			} else {
 				AABB.getBoundingBoxFromPool(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-				walking = false;
 			}
 	}
 
 	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
-		if (walking) {
-			return AABB.getBoundingBoxFromPool(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-		}
         return null;
     }
 
