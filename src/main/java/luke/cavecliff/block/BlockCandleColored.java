@@ -83,11 +83,7 @@ public class BlockCandleColored extends Block {
 	}
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
-		return new ItemStack[]{new ItemStack(this, 1, meta)};
-	}
-
-	public static int getMetadataForColour(int i) {
-		return ~i & 15;
+		return new ItemStack[]{new ItemStack(CaveCliffBlocks.candleColored.id, 1, meta)};
 	}
 
 }
