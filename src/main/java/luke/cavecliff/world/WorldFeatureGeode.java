@@ -11,15 +11,15 @@ public class WorldFeatureGeode extends WorldFeature {
 	public WorldFeatureGeode() {
 	}
 
-	public boolean generate(World world, Random random, int x, int y, int z) {
+	public boolean place(World world, Random random, int x, int y, int z) {
 		int number = random.nextInt(2) + 1;
 		int rand = number * 2 + 2;
 		if (world.getBlockId(x, y - 9, z) == 0) {
 			return false;
 		} else {
-			makeSphere(CaveCliffBlocks.tuff.id, rand + 2, true, world, x, y, z);
-			makeSphere(CaveCliffBlocks.calcite.id, rand + 1, true, world, x, y, z);
-			makeSphereRandom(CaveCliffBlocks.amethyst.id, CaveCliffBlocks.amethystBudding.id, rand, true, random, world, x, y, z);
+			makeSphere(CaveCliffBlocks.TUFF.id(), rand + 2, true, world, x, y, z);
+			makeSphere(CaveCliffBlocks.CALCITE.id(), rand + 1, true, world, x, y, z);
+			makeSphereRandom(CaveCliffBlocks.AMETHYST.id(), CaveCliffBlocks.AMETHYST_BUDDING.id(), rand, true, random, world, x, y, z);
 			makeSphere(0, rand - 1, true, world, x, y, z);
 			return true;
 		}

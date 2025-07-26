@@ -3,13 +3,14 @@ package luke.cavecliff.entity;
 import net.minecraft.client.render.block.model.BlockModel;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.entity.LivingRenderer;
+import net.minecraft.client.render.entity.MobRenderer;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
 import net.minecraft.client.render.tessellator.Tessellator;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.item.ItemStack;
 import org.lwjgl.opengl.GL11;
 
-public class AxolotlRenderer extends LivingRenderer<EntityAxolotl> {
+public class AxolotlRenderer extends MobRenderer<EntityAxolotl> {
 	public ModelAxolotl modelAxolotlMain;
 	public AxolotlRenderer(ModelAxolotl modelAxolotl, float shadowSize) {
 		super(modelAxolotl, shadowSize);

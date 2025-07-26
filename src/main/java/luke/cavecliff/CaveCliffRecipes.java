@@ -1,9 +1,9 @@
 package luke.cavecliff;
 
-import net.minecraft.core.block.Block;
+import net.minecraft.core.block.Blocks;
 import net.minecraft.core.data.registry.Registries;
-import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.item.Items;
 import turniplabs.halplibe.helper.RecipeBuilder;
 import turniplabs.halplibe.helper.recipeBuilders.RecipeBuilderShaped;
 import turniplabs.halplibe.util.RecipeEntrypoint;
@@ -15,81 +15,81 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 	public void initializeRecipes() {
 
 		RecipeBuilderShaped templateLogtoPlank = new RecipeBuilderShaped(MOD_ID, "X");
-		templateLogtoPlank.addInput('X', CaveCliffBlocks.logAzalea).create("logIronwoodtoPlanks", new ItemStack(Block.planksOakPainted, 4, 5));
+		templateLogtoPlank.addInput('X', CaveCliffBlocks.LOG_AZALEA).create("logIronwoodtoPlanks", new ItemStack(Blocks.PLANKS_OAK_PAINTED, 4, 5));
 
 		RecipeBuilderShaped templateItemtoBlock = new RecipeBuilderShaped(MOD_ID, "XXX", "XXX", "XXX");
-		templateItemtoBlock.addInput('X', CaveCliffItems.amethyst).create("block_of_amethyst", new ItemStack(CaveCliffBlocks.amethyst, 1));
-		templateItemtoBlock.addInput('X', CaveCliffItems.oreRawCopper).create("block_of_raw_copper", new ItemStack(CaveCliffBlocks.blockCopperRaw, 1));
-		templateItemtoBlock.addInput('X', Item.oreRawGold).create("block_of_raw_gold", new ItemStack(CaveCliffBlocks.blockGoldRaw, 1));
-		templateItemtoBlock.addInput('X', Item.oreRawIron).create("block_of_raw_iron", new ItemStack(CaveCliffBlocks.blockIronRaw, 1));
+		templateItemtoBlock.addInput('X', CaveCliffItems.AMETHYST).create("block_of_AMETHYST", new ItemStack(CaveCliffBlocks.AMETHYST, 1));
+		templateItemtoBlock.addInput('X', CaveCliffItems.ORE_RAW_COPPER).create("block_of_raw_copper", new ItemStack(CaveCliffBlocks.BLOCK_COPPER_RAW, 1));
+		templateItemtoBlock.addInput('X', Items.ORE_RAW_GOLD).create("block_of_raw_gold", new ItemStack(CaveCliffBlocks.BLOCK_GOLD_RAW, 1));
+		templateItemtoBlock.addInput('X', Items.ORE_RAW_IRON).create("block_of_raw_iron", new ItemStack(CaveCliffBlocks.BLOCK_IRON_RAW, 1));
 
 		RecipeBuilderShaped templateBricks = new RecipeBuilderShaped(MOD_ID, "XX", "XX");
-		templateBricks.addInput('X', CaveCliffItems.ingotCopper).create("block_of_copper", new ItemStack(CaveCliffBlocks.blockCopper, 1));
-		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1, 0)).create("copper_bricks", new ItemStack(CaveCliffBlocks.brickCopper, 4, 0));
-		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1, 1)).create("exposed_copper_bricks", new ItemStack(CaveCliffBlocks.brickCopper, 4, 1));
-		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1, 2)).create("weathered_copper_bricks", new ItemStack(CaveCliffBlocks.brickCopper, 4, 2));
-		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1, 3)).create("oxidized_copper_bricks", new ItemStack(CaveCliffBlocks.brickCopper, 4, 3));
+		templateBricks.addInput('X', CaveCliffItems.INGOT_COPPER).create("block_of_copper", new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1));
+		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1, 0)).create("copper_bricks", new ItemStack(CaveCliffBlocks.BRICK_COPPER, 4, 0));
+		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1, 1)).create("exposed_copper_bricks", new ItemStack(CaveCliffBlocks.BRICK_COPPER, 4, 1));
+		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1, 2)).create("weathered_copper_bricks", new ItemStack(CaveCliffBlocks.BRICK_COPPER, 4, 2));
+		templateBricks.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1, 3)).create("oxidized_copper_bricks", new ItemStack(CaveCliffBlocks.BRICK_COPPER, 4, 3));
 
 		RecipeBuilderShaped templateStairs = new RecipeBuilderShaped(MOD_ID, "X ", "XX ", "XXX");
-		templateStairs.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 0)).create("copper_brick_stairs", new ItemStack(CaveCliffBlocks.stairsBrickCopper, 6, 0));
-		templateStairs.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 1)).create("exposed_copper_brick_stairs", new ItemStack(CaveCliffBlocks.stairsBrickCopper, 6, 16));
-		templateStairs.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 2)).create("weathered_copper_brick_stairs", new ItemStack(CaveCliffBlocks.stairsBrickCopper, 6, 32));
-		templateStairs.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 3)).create("oxidized_copper_brick_stairs", new ItemStack(CaveCliffBlocks.stairsBrickCopper, 6, 48));
+		templateStairs.addInput('X', new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, 0)).create("copper_brick_stairs", new ItemStack(CaveCliffBlocks.STAIRS_BRICK_COPPER, 6, 0));
+		templateStairs.addInput('X', new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, 1)).create("exposed_copper_brick_stairs", new ItemStack(CaveCliffBlocks.STAIRS_BRICK_COPPER, 6, 16));
+		templateStairs.addInput('X', new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, 2)).create("weathered_copper_brick_stairs", new ItemStack(CaveCliffBlocks.STAIRS_BRICK_COPPER, 6, 32));
+		templateStairs.addInput('X', new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, 3)).create("oxidized_copper_brick_stairs", new ItemStack(CaveCliffBlocks.STAIRS_BRICK_COPPER, 6, 48));
 
 		RecipeBuilderShaped templateSlab = new RecipeBuilderShaped(MOD_ID, "XXX");
-		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 0)).create("copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 0));
-		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 1)).create("exposed_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 16));
-		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 2)).create("weathered_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 32));
-		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.brickCopper, 1, 3)).create("oxidized_copper_brick_slab", new ItemStack(CaveCliffBlocks.slabBrickCopper, 6, 48));
+		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, 0)).create("copper_brick_slab", new ItemStack(CaveCliffBlocks.SLAB_BRICK_COPPER, 6, 0));
+		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, 1)).create("exposed_copper_brick_slab", new ItemStack(CaveCliffBlocks.SLAB_BRICK_COPPER, 6, 16));
+		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, 2)).create("weathered_copper_brick_slab", new ItemStack(CaveCliffBlocks.SLAB_BRICK_COPPER, 6, 32));
+		templateSlab.addInput('X', new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, 3)).create("oxidized_copper_brick_slab", new ItemStack(CaveCliffBlocks.SLAB_BRICK_COPPER, 6, 48));
 
 		RecipeBuilderShaped templateBlockToItem = new RecipeBuilderShaped(MOD_ID, "X");
-		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.blockCopper, 1)).create("copper_block_to_ingot", new ItemStack(CaveCliffItems.ingotCopper, 4));
-		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.blockCopperRaw, 1)).create("copper_block_to_ingot", new ItemStack(CaveCliffItems.oreRawCopper, 9));
-		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.blockGoldRaw, 1)).create("copper_block_to_ingot", new ItemStack(Item.oreRawGold, 9));
-		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.blockIronRaw, 1)).create("copper_block_to_ingot", new ItemStack(Item.oreRawIron, 9));
+		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1)).create("copper_block_to_ingot", new ItemStack(CaveCliffItems.INGOT_COPPER, 4));
+		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER_RAW, 1)).create("copper_block_to_ingot", new ItemStack(CaveCliffItems.ORE_RAW_COPPER, 9));
+		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_GOLD_RAW, 1)).create("copper_block_to_ingot", new ItemStack(Items.ORE_RAW_GOLD, 9));
+		templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_IRON_RAW, 1)).create("copper_block_to_ingot", new ItemStack(Items.ORE_RAW_IRON, 9));
 
 		RecipeBuilder.Shapeless(MOD_ID)
-			.addInput(new ItemStack(CaveCliffItems.inkSacGlow, 1))
-			.create("glow_sac_to_cyan_dye", new ItemStack(Item.dye, 2, 6));
+			.addInput(new ItemStack(CaveCliffItems.INKSAC_GLOW, 1))
+			.create("glow_sac_to_cyan_dye", new ItemStack(Items.DYE, 2, 6));
 
 		RecipeBuilder.Shapeless(MOD_ID)
-			.addInput(new ItemStack(CaveCliffItems.inkSacGlow, 1))
-			.addInput(new ItemStack(Block.algae, 1))
-			.create("glow_lichen", new ItemStack(CaveCliffBlocks.lichen, 1));
+			.addInput(new ItemStack(CaveCliffItems.INKSAC_GLOW, 1))
+			.addInput(new ItemStack(Blocks.ALGAE, 1))
+			.create("glow_lichen", new ItemStack(CaveCliffBlocks.LICHEN, 1));
 
 		RecipeBuilder.Shaped(MOD_ID, "C", "C", "C")
-			.addInput('C', CaveCliffItems.ingotCopper)
-			.create("lightning_rod", new ItemStack(CaveCliffBlocks.lightningRod, 2));
+			.addInput('C', CaveCliffItems.INGOT_COPPER)
+			.create("lightning_rod", new ItemStack(CaveCliffBlocks.LIGHTNING_ROD, 2));
 
 		RecipeBuilder.Shaped(MOD_ID, "S", "P", "E")
-			.addInput('S', Item.string)
-			.addInput('P', Item.paper)
-			.addInput('E', Block.logEucalyptus)
-			.create("candle", new ItemStack(CaveCliffBlocks.candle, 4));
+			.addInput('S', Items.STRING)
+			.addInput('P', Items.PAPER)
+			.addInput('E', Blocks.LOG_EUCALYPTUS)
+			.create("candle", new ItemStack(CaveCliffBlocks.CANDLE, 4));
 
 		for (int color = 0; color < 16; color++) {
 			RecipeBuilder.Shaped(MOD_ID, "CCC", "CDC", "CCC")
 				.addInput('C', "cavecliff:block/candles")
-				.addInput('D', new ItemStack(Item.dye, 1, 15 - color))
-				.create("dyed_candle_dye", new ItemStack(CaveCliffBlocks.candleColored, 8, color));
+				.addInput('D', new ItemStack(Items.DYE, 1, 15 - color))
+				.create("dyed_candle_dye", new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 8, color));
 		}
 
 
 		RecipeBuilder.Furnace(MOD_ID)
-			.setInput(CaveCliffItems.oreRawCopper)
-			.create("copper_ingot", CaveCliffItems.ingotCopper.getDefaultStack());
+			.setInput(CaveCliffItems.ORE_RAW_COPPER)
+			.create("copper_ingot", CaveCliffItems.INGOT_COPPER.getDefaultStack());
 
 		RecipeBuilder.Furnace(MOD_ID)
 			.setInput("cavecliff:block/copper_ores")
-			.create("copper_ores_to_copper", CaveCliffItems.ingotCopper.getDefaultStack());
+			.create("copper_ores_to_copper", CaveCliffItems.INGOT_COPPER.getDefaultStack());
 
 		RecipeBuilder.BlastFurnace(MOD_ID)
-			.setInput(CaveCliffItems.oreRawCopper)
-			.create("copper_ingot_blast", CaveCliffItems.ingotCopper.getDefaultStack());
+			.setInput(CaveCliffItems.ORE_RAW_COPPER)
+			.create("copper_ingot_blast", CaveCliffItems.INGOT_COPPER.getDefaultStack());
 
 		RecipeBuilder.BlastFurnace(MOD_ID)
 			.setInput("cavecliff:block/copper_ores")
-			.create("copper_ores_to_copper_blast", CaveCliffItems.ingotCopper.getDefaultStack());
+			.create("copper_ores_to_copper_blast", CaveCliffItems.INGOT_COPPER.getDefaultStack());
 
 		RecipeBuilder.initNameSpace(MOD_ID);
 	}
@@ -103,36 +103,37 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 		RecipeBuilder.initNameSpace(MOD_ID);
 		RecipeBuilder.getRecipeNamespace(MOD_ID);
 
-		Registries.ITEM_GROUPS.getItem("minecraft:logs").add(CaveCliffBlocks.logAzalea.getDefaultStack());
+		Registries.ITEM_GROUPS.getItem("minecraft:logs").add(CaveCliffBlocks.LOG_AZALEA.getDefaultStack());
 
-		Registries.ITEM_GROUPS.getItem("minecraft:leaves").add(CaveCliffBlocks.leavesAzalea.getDefaultStack());
-		Registries.ITEM_GROUPS.getItem("minecraft:leaves").add(CaveCliffBlocks.leavesAzaleaFlowering.getDefaultStack());
+		Registries.ITEM_GROUPS.getItem("minecraft:leaves").add(CaveCliffBlocks.LEAVES_AZALEA.getDefaultStack());
+		Registries.ITEM_GROUPS.getItem("minecraft:leaves").add(CaveCliffBlocks.LEAVES_AZALEA_FLOWERING.getDefaultStack());
 
-		Registries.ITEM_GROUPS.getItem("minecraft:dirt").add(CaveCliffBlocks.dirtRooted.getDefaultStack());
-		Registries.ITEM_GROUPS.getItem("minecraft:trommel_dirt").add(CaveCliffBlocks.dirtRooted.getDefaultStack());
+		Registries.ITEM_GROUPS.getItem("minecraft:dirt").add(CaveCliffBlocks.DIRT_ROOTED.getDefaultStack());
+		Registries.ITEM_GROUPS.getItem("minecraft:trommel_dirt").add(CaveCliffBlocks.DIRT_ROOTED.getDefaultStack());
 
-		Registries.ITEM_GROUPS.getItem("minecraft:moss_stones").add(CaveCliffBlocks.moss.getDefaultStack());
+		Registries.ITEM_GROUPS.getItem("minecraft:moss_stones").add(CaveCliffBlocks.BLOCK_MOSS.getDefaultStack());
 
-		Registries.ITEM_GROUPS.register("cavecliff:block/copper_ores", Registries.stackListOf(CaveCliffBlocks.oreCopperStone, CaveCliffBlocks.oreCopperBasalt, CaveCliffBlocks.oreCopperGranite, CaveCliffBlocks.oreCopperLimestone));
+		Registries.ITEM_GROUPS.register("cavecliff:block/copper_ores",
+			Registries.stackListOf(CaveCliffBlocks.ORE_COPPER_STONE, CaveCliffBlocks.ORE_COPPER_BASALT, CaveCliffBlocks.ORE_COPPER_GRANITE, CaveCliffBlocks.ORE_COPPER_LIMESTONE, CaveCliffBlocks.ORE_COPPER_PERMAFROST));
 
 		Registries.ITEM_GROUPS.register("cavecliff:block/candles", Registries.stackListOf
-			(CaveCliffBlocks.candle,
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 0),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 1),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 2),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 3),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 4),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 5),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 6),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 7),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 8),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 9),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 10),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 11),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 12),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 13),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 14),
-			new ItemStack(CaveCliffBlocks.candleColored, 1, 15)));
+			(CaveCliffBlocks.CANDLE,
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 0),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 1),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 2),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 3),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 4),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 5),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 6),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 7),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 8),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 9),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 10),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 11),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 12),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 13),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 14),
+			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 15)));
 
 
 	}

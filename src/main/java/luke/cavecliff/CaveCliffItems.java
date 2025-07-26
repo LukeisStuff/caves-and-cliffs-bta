@@ -2,61 +2,60 @@ package luke.cavecliff;
 
 import luke.cavecliff.item.ItemHorn;
 import net.minecraft.core.item.Item;
+import net.minecraft.core.item.ItemDiscMusic;
 import net.minecraft.core.item.ItemFood;
-import net.minecraft.core.item.ItemRecord;
 import turniplabs.halplibe.helper.ItemBuilder;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
 public class CaveCliffItems {
 
-	public int itemID(String blockName) {
-		return CaveCliffConfig.cfg.getInt("Item IDs." + blockName);
+	public static int itemID =  CaveCliffConfig.blockIDs;
+
+	public static int itemID(String itemName) {
+		try {
+			return CaveCliffConfig.cfg.getInt(CaveCliffConfig.ItemIDs+"."+ itemName);
+		}catch (NullPointerException e) {
+			CaveCliffConfig.properties.addEntry(CaveCliffConfig.ItemIDs+"."+ itemName, itemID);
+			return itemID++;
+		}
 	}
+	public static Item AMETHYST;
 
-	public static Item amethyst;
+	public static Item INGOT_COPPER;
+	public static Item ORE_RAW_COPPER;
 
-	public static Item ingotCopper;
-	public static Item oreRawCopper;
+	public static Item FOOD_GLOW_BERRIES;
 
-	public static Item foodGlowBerries;
+	public static Item HORN_GOAT;
 
-	public static Item hornGoat;
+	public static Item INKSAC_GLOW;
 
-	public static Item inkSacGlow;
-
-	public static Item recordOtherside;
+	public static Item RECORD_OTHERSIDE;
 
 	public void initilizeItems() {
 
-		amethyst = new ItemBuilder(MOD_ID)
-			.setIcon("cavecliff:item/amethyst")
-			.build(new Item("amethyst", itemID("amethyst")));
+		AMETHYST = new ItemBuilder(MOD_ID)
+			.build(new Item("amethyst", "cavecliff:item/amethyst", itemID("AMETHYST")));
 
-		oreRawCopper = new ItemBuilder(MOD_ID)
-			.setIcon("cavecliff:item/ore_raw_copper")
-			.build(new Item("ore.raw.copper", itemID("oreRawCopper")));
+		ORE_RAW_COPPER = new ItemBuilder(MOD_ID)
+			.build(new Item("ore.raw.copper", "cavecliff:item/ore_raw_copper", itemID("ORE_RAW_COPPER")));
 
-		ingotCopper = new ItemBuilder(MOD_ID)
-			.setIcon("cavecliff:item/ingot_copper")
-			.build(new Item("ingot.copper", itemID("ingotCopper")));
+		INGOT_COPPER = new ItemBuilder(MOD_ID)
+			.build(new Item("ingot.copper", "cavecliff:item/ingot_copper", itemID("INGOT_COPPER")));
 
-		foodGlowBerries = new ItemBuilder(MOD_ID)
-			.setIcon("cavecliff:item/glowberries")
-			.build(new ItemFood("food.berries", itemID("foodGlowBerries"), 2, 4, false, 6));
+		FOOD_GLOW_BERRIES = new ItemBuilder(MOD_ID)
+			.build(new ItemFood("food.berries", "cavecliff:item/food_glow_berries", itemID("FOOD_GLOW_BERRIES"), 2, 4, false, 6));
 
-		hornGoat = new ItemBuilder(MOD_ID)
-			.setIcon("cavecliff:item/goat_horn")
-			.build(new ItemHorn("horn.goat", itemID("hornGoat")).setMaxStackSize(1));
+		HORN_GOAT = new ItemBuilder(MOD_ID)
+			.build(new ItemHorn("horn.goat", "cavecliff:item/horn_goat", itemID("HORN_GOAT")).setMaxStackSize(1));
 
-		inkSacGlow = new ItemBuilder(MOD_ID)
-			.setIcon("cavecliff:item/inksac_glow")
-			.build(new Item("inksac.glow", itemID("inkSacGlow")));
+		INKSAC_GLOW = new ItemBuilder(MOD_ID)
+			.build(new Item("inksac.glow", "cavecliff:item/inksac_glow", itemID("INKSAC_GLOW")));
 
-		recordOtherside = new ItemBuilder(MOD_ID)
-			.setIcon(MOD_ID + ":item/otherside")
+		RECORD_OTHERSIDE = new ItemBuilder(MOD_ID)
 			.setStackSize(1)
-			.build(new ItemRecord("record.otherside", itemID("recordOtherside"), "otherside", "Lena Raine"));
+			.build(new ItemDiscMusic("record.otherside", "cavecliff:item/record_otherside", itemID("RECORD_OTHERSIDE"), "otherside", "Lena Raine"));
 
 	}
 }

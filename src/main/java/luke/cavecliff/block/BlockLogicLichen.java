@@ -1,6 +1,7 @@
 package luke.cavecliff.block;
 
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.util.helper.Side;
@@ -8,39 +9,35 @@ import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
 
-public class BlockLichen extends Block {
-	public BlockLichen(String key, int id) {
-		super(key, id, Material.grass);
+public class BlockLogicLichen extends BlockLogic {
+
+	public BlockLogicLichen(Block<?> block) {
+		super(block, Material.grass);
 	}
 
 	public boolean isSolidRender() {
 		return false;
 	}
 
-	public boolean renderAsNormalBlock() {
+	public boolean isCubeShaped() {
 		return false;
 	}
 
-	public boolean isClimbable(World world, int x, int y, int z) {
-		return false;
-	}
-
-	public void setBlockBoundsBasedOnState(WorldSource world, int x, int y, int z) {
-		this.setBlockBounds(world.getBlockMetadata(x, y, z));
-	}
-
-	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
-		return null;
-	}
-
-	public AABB getSelectedBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
-		this.setBlockBounds(world.getBlockMetadata(x, y, z));
-		return super.getSelectedBoundingBoxFromPool(world, x, y, z);
+	public AABB getBlockBoundsFromState(WorldSource world, int x, int y, int z) {
+		Side side = this.getSideFromMeta(world.getBlockMetadata(x, y, z));
+		float width = 0.1875F;
+		if (side == Side.SOUTH) {
+			return AABB.getTemporaryBB(0.0, 0.0, 0.0, 1.0, 1.0, width);
+		} else if (side == Side.WEST) {
+			return AABB.getTemporaryBB(1.0F - width, 0.0, 0.0, 1.0, 1.0, 1.0);
+		} else {
+			return side == Side.EAST ? AABB.getTemporaryBB(0.0, 0.0, 0.0, width, 1.0, 1.0) : AABB.getTemporaryBB(0.0, 0.0, 1.0F - width, 1.0, 1.0, 1.0);
+		}
 	}
 
 	public void onNeighborBlockChange(World world, int x, int y, int z, int blockId) {
 		if (!this.canExistAt(world, x, y, z, world.getBlockMetadata(x, y, z))) {
-			this.dropBlockWithCause(world, EnumDropCause.WORLD, x, y, z, blockId, null);
+			this.dropBlockWithCause(world, EnumDropCause.WORLD, x, y, z, blockId, null, null);
 			world.setBlockWithNotify(x, y, z, 0);
 		}
 
@@ -50,7 +47,7 @@ public class BlockLichen extends Block {
 		return true;
 	}
 
-	public final boolean canPlaceBlockOnSide(World world, int x, int y, int z, int side) {
+	public final boolean canPlaceBlockOnSide(World world, int x, int y, int z, Side side) {
 		return true;
 	}
 
@@ -80,21 +77,6 @@ public class BlockLichen extends Block {
 		y += side.getOffsetY();
 		z += side.getOffsetZ();
 		return world.isBlockNormalCube(x, y, z);
-	}
-
-	public void setBlockBounds(int meta) {
-		Side side = this.getSideFromMeta(meta);
-		float width = 0.1875F;
-		if (side == Side.SOUTH) {
-			this.setBlockBounds(0.0, 0.0, 0.0, 1.0, 1.0, (double)width);
-		} else if (side == Side.WEST) {
-			this.setBlockBounds((double)(1.0F - width), 0.0, 0.0, 1.0, 1.0, 1.0);
-		} else if (side == Side.EAST) {
-			this.setBlockBounds(0.0, 0.0, 0.0, (double)width, 1.0, 1.0);
-		} else {
-			this.setBlockBounds(0.0, 0.0, (double)(1.0F - width), 1.0, 1.0, 1.0);
-		}
-
 	}
 
 	public Side getSideFromMeta(int meta) {

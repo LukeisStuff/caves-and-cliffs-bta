@@ -1,18 +1,18 @@
 package luke.cavecliff.block;
 
 import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockSand;
+import net.minecraft.core.block.BlockLogicSand;
 import net.minecraft.core.block.material.Material;
-import net.minecraft.core.block.tag.BlockTags;
-import net.minecraft.core.entity.EntityFallingSand;
+import net.minecraft.core.entity.EntityFallingBlock;
 import net.minecraft.core.world.World;
 
 import java.util.Random;
 
-public class BlockDripstone extends BlockSand {
+public class BlockLogicDripstone extends BlockLogicSand {
 
-	public BlockDripstone(String key, int id, Material material) {
-		super(key, id);
+
+	public BlockLogicDripstone(Block<?> block, Material material) {
+		super(block);
 	}
 
 	public void updateTick(World world, int x, int y, int z, Random rand) {
@@ -33,7 +33,7 @@ public class BlockDripstone extends BlockSand {
 				break;
 			}
 
-			if (world.getBlockId(x, i + 1, z) != this.id) {
+			if (world.getBlockId(x, i + 1, z) != this.id()) {
 				return;
 			}
 		}
@@ -46,28 +46,17 @@ public class BlockDripstone extends BlockSand {
 					break;
 				}
 
-				if (world.getBlockId(x, i - 1, z) != this.id) {
+				if (world.getBlockId(x, i - 1, z) != this.id()) {
 					return;
 				}
 			}
 
 			if (bottomCanFall) {
 				for(i = lowest; i <= highest; ++i) {
-					EntityFallingSand entityfallingsand = new EntityFallingSand(world, (float)x + 0.5F, (float)i + 0.5F, (float)z + 0.5F, this.id);
+					EntityFallingBlock entityfallingsand = new EntityFallingBlock(world);
 					world.entityJoinedWorld(entityfallingsand);
 				}
 			}
-		}
-	}
-
-	public static boolean canFallBelow(World world, int x, int y, int z) {
-		int blockId = world.getBlockId(x, y, z);
-		if (blockId == 0) {
-			return true;
-		} else if (blockId == Block.fire.id) {
-			return true;
-		} else {
-			return Block.hasTag(blockId, BlockTags.IS_WATER) || Block.hasTag(blockId, BlockTags.IS_LAVA);
 		}
 	}
 

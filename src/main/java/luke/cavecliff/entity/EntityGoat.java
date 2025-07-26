@@ -4,7 +4,7 @@ import com.mojang.nbt.CompoundTag;
 import luke.cavecliff.CaveCliffItems;
 import net.minecraft.core.WeightedRandomLootObject;
 import net.minecraft.core.entity.animal.EntityAnimal;
-import net.minecraft.core.entity.player.EntityPlayer;
+import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemBucketEmpty;
 import net.minecraft.core.item.ItemStack;
@@ -31,13 +31,13 @@ public class EntityGoat extends EntityAnimal {
 	}
 
 	@Override
-	public boolean interact(EntityPlayer entityplayer) {
-		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
+	public boolean interact(Player Player) {
+		ItemStack itemstack = Player.inventory.getCurrentItem();
 		if (itemstack != null && itemstack.itemID == Item.bucket.id) {
-			ItemBucketEmpty.useBucket(entityplayer, new ItemStack(Item.bucketMilk));
+			ItemBucketEmpty.useBucket(Player, new ItemStack(Item.bucketMilk));
 			return true;
 		}
-		return super.interact(entityplayer);
+		return super.interact(Player);
 	}
 
 	@Override

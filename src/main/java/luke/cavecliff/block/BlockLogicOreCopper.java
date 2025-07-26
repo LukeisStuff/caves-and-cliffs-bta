@@ -2,15 +2,20 @@ package luke.cavecliff.block;
 
 import luke.cavecliff.CaveCliffItems;
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.generate.feature.WorldFeatureOre;
 
-public class BlockOreCopper extends Block {
-	public BlockOreCopper(String key, int id) {
-		super(key, id, Material.stone);
+public class BlockLogicOreCopper extends BlockLogic {
+	public static WorldFeatureOre.OreMap variantMap = new WorldFeatureOre.OreMap();
+
+	public BlockLogicOreCopper(Block<?> block, Block<?> parentBlock, Material material) {
+		super(block, material);
+		variantMap.put(parentBlock.id(), block.id());
 	}
 
 	@Override

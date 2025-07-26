@@ -2,6 +2,7 @@ package luke.cavecliff.block;
 
 import luke.cavecliff.CaveCliffBlocks;
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.enums.EnumDropCause;
@@ -10,10 +11,11 @@ import net.minecraft.core.world.World;
 
 import java.util.Random;
 
-public class BlockBuddingAmethyst extends Block {
+public class BlockLogicBuddingAmethyst extends BlockLogic {
 
-	public BlockBuddingAmethyst(String key, int id, Material material) {
-		super(key, id, material);
+
+	public BlockLogicBuddingAmethyst(Block<?> block, Material material) {
+		super(block, material);
 	}
 
 	@Override
@@ -36,7 +38,7 @@ public class BlockBuddingAmethyst extends Block {
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		if ((world.getBlockId(x, y + 1, z)) == 0) {
 			if (rand.nextInt(5) == 0) {
-				world.setBlockAndMetadataWithNotify(x, y + 1, z, CaveCliffBlocks.amethystCluster.id, 0);
+				world.setBlockAndMetadataWithNotify(x, y + 1, z, CaveCliffBlocks.AMETHYST_CLUSTER.id(), 0);
 			}
 		}
 	}

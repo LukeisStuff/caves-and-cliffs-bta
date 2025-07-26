@@ -1,18 +1,19 @@
 package luke.cavecliff.block;
 
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.entity.Entity;
-import net.minecraft.core.entity.EntityLiving;
-import net.minecraft.core.entity.monster.EntitySnowman;
-import net.minecraft.core.entity.player.EntityPlayer;
+import net.minecraft.core.entity.Mob;
+import net.minecraft.core.entity.monster.MobSnowman;
+import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.entity.vehicle.EntityBoat;
 import net.minecraft.core.entity.vehicle.EntityMinecart;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.enums.LightLayer;
-import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.item.Items;
 import net.minecraft.core.util.helper.DamageType;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
@@ -20,19 +21,21 @@ import net.minecraft.core.world.WorldSource;
 
 import java.util.Random;
 
-public class BlockPowderSnow extends Block {
+public class BlockLogicPowderSnow extends BlockLogic {
 	public int ticks;
-	public BlockPowderSnow(String key, int id) {
-		super(key, id, Material.topSnow);
+
+	public BlockLogicPowderSnow(Block<?> block) {
+		super(block, Material.topSnow);
 	}
+
 
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		entity.fallDistance = 0.0F;
 		entity.xd *= 0.6;
 		entity.yd *= 0.6;
 		entity.zd *= 0.6;
-		if (entity instanceof EntitySnowman) {
-		} else if (entity instanceof EntityLiving || entity instanceof EntityMinecart || entity instanceof EntityBoat) {
+		if (entity instanceof MobSnowman) {
+		} else if (entity instanceof Mob || entity instanceof EntityMinecart || entity instanceof EntityBoat) {
 			++this.ticks;
 			if (this.ticks >= 40) {
 				entity.hurt(null, 1, DamageType.GENERIC);
@@ -54,10 +57,10 @@ public class BlockPowderSnow extends Block {
 
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
-			if (((EntityPlayer)entity).inventory.armorInventory[0] != null && ((EntityPlayer)entity).inventory.armorInventory[0].getItem() == Item.armorBootsLeather) {
-				AABB.getBoundingBoxFromPool(0.0f, 0.0f , 0.0f , 1.0f, 1.0f, 1.0f);
+			if (((Player)entity).inventory.armorInventory[0] != null && ((Player) entity).inventory.armorInventory[0].getItem().equals(Items.ARMOR_BOOTS_LEATHER)) {
+				AABB.getTemporaryBB(0.0f, 0.0f , 0.0f , 1.0f, 1.0f, 1.0f);
 			} else {
-				AABB.getBoundingBoxFromPool(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+				AABB.getTemporaryBB(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
 			}
 	}
 
@@ -65,7 +68,7 @@ public class BlockPowderSnow extends Block {
         return null;
     }
 
-	public boolean renderAsNormalBlock() {
+	public boolean isCubeShaped() {
 		return false;
 	}
 

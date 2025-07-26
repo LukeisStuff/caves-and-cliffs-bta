@@ -1,10 +1,8 @@
 package luke.cavecliff.blockmodel;
 
-import luke.cavecliff.block.BlockCopper;
+import luke.cavecliff.block.BlockLogicCopper;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockWool;
-import net.minecraft.core.item.Item;
-import net.minecraft.core.item.ItemDye;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.block.ItemBlock;
 
@@ -23,6 +21,6 @@ public class ItemBlockCopper extends ItemBlock {
 	}
 
 	public String getLanguageKey(ItemStack itemstack) {
-		return this.upperMetadata ? super.getKey() + "." + BlockCopper.oxidizeStages[BlockCopper.getMetadataForOxidation((itemstack.getMetadata() & 9) >> 3)] : super.getKey() + "." + BlockCopper.oxidizeStages[BlockCopper.getMetadataForOxidation(itemstack.getMetadata())];
+		return this.upperMetadata ? super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((itemstack.getMetadata() & 9) >> 3)] : super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation(itemstack.getMetadata())];
 	}
 }

@@ -2,10 +2,12 @@ package luke.cavecliff;
 
 import net.minecraft.core.block.Block;
 import net.minecraft.core.item.Item;
-import turniplabs.halplibe.util.ConfigUpdater;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.util.TomlConfigHandler;
 import turniplabs.halplibe.util.toml.Toml;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 import java.util.List;
@@ -14,32 +16,46 @@ import java.util.stream.Collectors;
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
 public class CaveCliffConfig {
-	public static ConfigUpdater updater = ConfigUpdater.fromProperties();
 	public static final Toml properties = new Toml("Caves and Cliffs TOML Config");
 	public static TomlConfigHandler cfg;
 
 	public static int blockIDs = 1780;
 	public static int itemIDs = 31670;
 
-	static {
-		properties.addCategory("Caves and Cliffs")
-			.addEntry("cfgVersion", 5);
+	public static String BlockIDs = "Block IDs";
+	public static String ItemIDs = "Item IDs";
+	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
-		properties.addCategory("Block IDs");
-		properties.addEntry("Block IDs.startingID", blockIDs);
-		properties.addCategory("Item IDs");
-		properties.addEntry("Item IDs.startingID", itemIDs);
 
+	static void Setup() {
+		LOGGER.info("Initializing config..");
+
+		properties.addCategory("General")
+			.addEntry("cfgVersion", 6);
+
+		//BLOCK ID
+		properties.addCategory(BlockIDs);
+		properties.addEntry(BlockIDs+".startingFrom", blockIDs);
 		List<Field> blockFields = Arrays.stream(CaveCliffBlocks.class.getDeclaredFields()).filter((F)-> Block.class.isAssignableFrom(F.getType())).collect(Collectors.toList());
 		for (Field blockField : blockFields) {
-			properties.addEntry("Block IDs." + blockField.getName(), blockIDs++);
+			properties.addEntry(BlockIDs + "." + blockField.getName(), blockIDs++);
 		}
+		//ITEM ID
+		properties.addCategory(ItemIDs);
+		properties.addEntry(ItemIDs+".startingFrom", itemIDs);
 		List<Field> itemFields = Arrays.stream(CaveCliffItems.class.getDeclaredFields()).filter((F)-> Item.class.isAssignableFrom(F.getType())).collect(Collectors.toList());
 		for (Field itemField : itemFields) {
-			properties.addEntry("Item IDs." + itemField.getName(), itemIDs++);
+			properties.addEntry(ItemIDs+ "." + itemField.getName(), itemIDs++);
 		}
 
-		cfg = new TomlConfigHandler(updater, MOD_ID, properties);
+		cfg = new TomlConfigHandler(MOD_ID, properties);
+
+		if (cfg.getConfigFile().exists()) {
+			cfg.loadConfig();
+		} else {
+			try {cfg.getConfigFile().createNewFile();} catch (IOException e) {throw new RuntimeException(e);}
+			cfg.writeConfig();
+		}
 
 	}
 }

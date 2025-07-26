@@ -1,0 +1,52 @@
+package luke.cavecliff.block;
+
+import luke.cavecliff.CaveCliffBlocks;
+import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogicFluid;
+import net.minecraft.core.block.entity.TileEntity;
+import net.minecraft.core.block.material.Material;
+import net.minecraft.core.entity.player.Player;
+import net.minecraft.core.enums.EnumDropCause;
+import net.minecraft.core.item.ItemFireStriker;
+import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.sound.SoundCategory;
+import net.minecraft.core.util.helper.Side;
+import net.minecraft.core.world.World;
+
+public class BlockLogicCandleWaxColored extends BlockLogicCandleWax {
+	public boolean burning;
+
+	public BlockLogicCandleWaxColored(Block<?> block, Material material, boolean burning) {
+		super(block, material, burning);
+		this.burning = burning;
+		this.setBlockBounds(0.40625F, 0.0F, 0.40625F, 0.59375F, 0.5F, 0.59375F);
+	}
+
+
+	public boolean onBlockRightClicked(World world, int x, int y, int z, Player player, Side side, double xPlaced, double yPlaced) {
+		ItemStack heldItem = player.getHeldItem();
+		int meta = world.getBlockMetadata(x, y, z);
+
+		if (heldItem != null && heldItem.getItem() instanceof ItemFireStriker && !this.burning) {
+			Block<?> b;
+			if (((b = world.getBlock(x + 1, y, z)) == null || !(b.getLogic() instanceof BlockLogicFluid)) && ((b = world.getBlock(x - 1, y, z)) == null || !(b.getLogic() instanceof BlockLogicFluid)) && ((b = world.getBlock(x, y, z + 1)) == null || !(b.getLogic() instanceof BlockLogicFluid)) && ((b = world.getBlock(x, y, z - 1)) == null || !(b.getLogic() instanceof BlockLogicFluid))) {
+				world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.CANDLE_COLORED_LIT.id(), meta);
+				heldItem.damageItem(1, player);
+				world.playSoundEffect(null, SoundCategory.WORLD_SOUNDS, (double)x + 0.5, (double)y + 0.5, (double)z + 0.5, "fire.ignite", 1.0F, world.rand.nextFloat() * 0.4F + 0.8F);
+				return true;
+			} else {
+				return false;
+			}
+		} else if (heldItem == null && this.burning) {
+			world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.CANDLE_COLORED.id(), meta);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+    public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+		return new ItemStack[]{new ItemStack(CaveCliffBlocks.CANDLE_COLORED.id(), 1, meta)};
+	}
+
+}

@@ -1,14 +1,18 @@
 package luke.cavecliff.entity;
 
 import com.mojang.nbt.CompoundTag;
+import com.mojang.nbt.tags.CompoundTag;
 import luke.cavecliff.CaveCliffItems;
 import net.minecraft.core.entity.Entity;
 import net.minecraft.core.entity.EntityItem;
 import net.minecraft.core.entity.EntityLiving;
+import net.minecraft.core.entity.Mob;
 import net.minecraft.core.entity.animal.EntitySheep;
 import net.minecraft.core.entity.animal.EntityWaterAnimal;
-import net.minecraft.core.entity.player.EntityPlayer;
+import net.minecraft.core.entity.animal.MobWaterAnimal;
+import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.entity.projectile.EntityArrow;
+import net.minecraft.core.entity.projectile.ProjectileArrow;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemFood;
 import net.minecraft.core.item.ItemStack;
@@ -18,11 +22,12 @@ import net.minecraft.core.util.helper.MathHelper;
 import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.pathfinder.Path;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EntityAxolotl extends EntityWaterAnimal {
+public class EntityAxolotl extends MobWaterAnimal {
 	public boolean looksWithInterest = false;
 	public float field_25048_b;
 	public boolean field_25052_g;
@@ -53,8 +58,8 @@ public class EntityAxolotl extends EntityWaterAnimal {
 
 	@Override
 	public boolean collidesWith(Entity entity) {
-		if (entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer)entity;
+		if (entity instanceof Player) {
+			Player player = (Player)entity;
 			return !player.username.equalsIgnoreCase(this.getAxolotlOwner()) || this.isAxolotlSitting();
 		}
 		return true;
@@ -67,7 +72,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	public void addAdditionalSaveData(CompoundTag tag) {
+	public void addAdditionalSaveData(@NotNull CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
 		tag.putBoolean("Sitting", this.isAxolotlSitting());
 		if (this.getAxolotlHeldItem() != null) {
@@ -83,7 +88,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	public void readAdditionalSaveData(CompoundTag tag) {
+	public void readAdditionalSaveData(@NotNull CompoundTag tag) {
 		String s;
 		ItemStack stack;
 		super.readAdditionalSaveData(tag);
@@ -146,11 +151,11 @@ public class EntityAxolotl extends EntityWaterAnimal {
 			this.setTarget(null);
 		}
 		if (!this.hasAttacked && !this.hasPath() && this.isAxolotlTamed() && this.vehicle == null) {
-			EntityPlayer entityplayer = this.world.getPlayerEntityByName(this.getAxolotlOwner());
-			if (entityplayer != null) {
-				float f = entityplayer.distanceTo(this);
+			Player Player = this.world.getPlayerEntityByName(this.getAxolotlOwner());
+			if (Player != null) {
+				float f = Player.distanceTo(this);
 				if (f > 5.0f) {
-					this.getPathOrWalkableBlock(entityplayer, f);
+					this.getPathOrWalkableBlock(Player, f);
 				}
 			} else if (!this.isInWater()) {
 				this.setAxolotlSitting(true);
@@ -185,9 +190,9 @@ public class EntityAxolotl extends EntityWaterAnimal {
 		Entity entity;
 		super.onLivingUpdate();
 		this.looksWithInterest = false;
-		if (this.hasCurrentTarget() && !this.hasPath() && (entity = this.getCurrentTarget()) instanceof EntityPlayer) {
-			EntityPlayer entityplayer = (EntityPlayer)entity;
-			ItemStack itemstack = entityplayer.inventory.getCurrentItem();
+		if (this.hasCurrentTarget() && !this.hasPath() && (entity = this.getCurrentTarget()) instanceof Player) {
+			Player Player = (Player)entity;
+			ItemStack itemstack = Player.inventory.getCurrentItem();
 			if (itemstack != null) {
 				if (!this.isAxolotlTamed() && itemstack.itemID == Item.bone.id) {
 					this.looksWithInterest = true;
@@ -246,9 +251,9 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	public void getPathOrWalkableBlock(Entity entity, float f) {
 		Path pathentity = this.world.getPathToEntity(this, entity, 16.0f);
 		if (pathentity == null && f > 12.0f) {
-			int i = MathHelper.floor_double(entity.x) - 2;
-			int j = MathHelper.floor_double(entity.z) - 2;
-			int k = MathHelper.floor_double(entity.bb.minY);
+			int i = MathHelper.floor(entity.x) - 2;
+			int j = MathHelper.floor(entity.z) - 2;
+			int k = MathHelper.floor(entity.bb.minY);
 			for (int l = 0; l <= 4; ++l) {
 				for (int i1 = 0; i1 <= 4; ++i1) {
 					if (l >= 1 && i1 >= 1 && l <= 3 && i1 <= 3 || !this.world.isBlockNormalCube(i + l, k - 1, j + i1) || this.world.isBlockNormalCube(i + l, k, j + i1) || this.world.isBlockNormalCube(i + l, k + 1, j + i1)) continue;
@@ -265,18 +270,18 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	@Override
 	public boolean hurt(Entity attacker, int i, DamageType type) {
 		this.setAxolotlSitting(false);
-		if (attacker != null && !(attacker instanceof EntityPlayer) && !(attacker instanceof EntityArrow)) {
+		if (attacker != null && !(attacker instanceof Player) && !(attacker instanceof EntityArrow)) {
 			i = (i + 1) / 2;
 		}
 		if (super.hurt(attacker, i, type)) {
 			if (!this.isAxolotlTamed()) {
-				if (attacker instanceof EntityPlayer) {
+				if (attacker instanceof Player) {
 					this.entityToAttack = attacker;
 				}
-				if (attacker instanceof EntityArrow && ((EntityArrow)attacker).owner != null) {
-					attacker = ((EntityArrow)attacker).owner;
+				if (attacker instanceof ProjectileArrow && ((ProjectileArrow)attacker).owner != null) {
+					attacker = ((ProjectileArrow)attacker).owner;
 				}
-				if (attacker instanceof EntityLiving) {
+				if (attacker instanceof Mob) {
 					List<Entity> list = this.world.getEntitiesWithinAABB(EntityAxolotl.class, AABB.getBoundingBoxFromPool(this.x, this.y, this.z, this.x + 1.0, this.y + 1.0, this.z + 1.0).expand(16.0, 4.0, 16.0));
 					for (Entity entity1 : list) {
 						EntityAxolotl entityaxolotl = (EntityAxolotl)entity1;
@@ -285,7 +290,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 					}
 				}
 			} else if (attacker != this && attacker != null) {
-				if (this.isAxolotlTamed() && attacker instanceof EntityPlayer && ((EntityPlayer)attacker).username.equalsIgnoreCase(this.getAxolotlOwner())) {
+				if (this.isAxolotlTamed() && attacker instanceof Player && ((Player)attacker).username.equalsIgnoreCase(this.getAxolotlOwner())) {
 					return true;
 				}
 				this.entityToAttack = attacker;
@@ -304,7 +309,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 			if (this.onGround) {
 				double d = entity.x - this.x;
 				double d1 = entity.z - this.z;
-				float f1 = MathHelper.sqrt_double(d * d + d1 * d1);
+				float f1 = MathHelper.round(d * d + d1 * d1);
 				this.xd = d / (double)f1 * 0.5 * (double)0.8f + this.xd * (double)0.2f;
 				this.zd = d1 / (double)f1 * 0.5 * (double)0.8f + this.zd * (double)0.2f;
 				this.yd = 0.4f;
@@ -320,16 +325,16 @@ public class EntityAxolotl extends EntityWaterAnimal {
 	}
 
 	@Override
-	public boolean interact(EntityPlayer entityplayer) {
-		if (super.interact(entityplayer)) {
+	public boolean interact(@NotNull Player Player) {
+		if (super.interact(Player)) {
 			return true;
 		}
-		ItemStack itemstack = entityplayer.inventory.getCurrentItem();
+		ItemStack itemstack = Player.inventory.getCurrentItem();
 		if (!this.isAxolotlTamed()) {
 			if (itemstack != null && itemstack.itemID == Item.foodFishRaw.id) {
-				itemstack.consumeItem(entityplayer);
+				itemstack.consumeItem(Player);
 				if (itemstack.stackSize <= 0) {
-					entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, null);
+					Player.inventory.setInventorySlotContents(Player.inventory.currentItem, null);
 				}
 				if (!this.world.isClientSide) {
 					if (this.random.nextInt(3) == 0) {
@@ -337,7 +342,7 @@ public class EntityAxolotl extends EntityWaterAnimal {
 						this.setPathToEntity(null);
 						this.setAxolotlSitting(true);
 						this.setHealthRaw(this.getMaxHealth());
-						this.setAxolotlOwner(entityplayer.username);
+						this.setAxolotlOwner(Player.username);
 						this.showHeartsOrSmokeFX(true);
 						this.world.sendTrackedEntityStatusUpdatePacket(this, (byte)7);
 					} else {
@@ -349,20 +354,20 @@ public class EntityAxolotl extends EntityWaterAnimal {
 			}
 		} else {
 			if (itemstack != null && Item.itemsList[itemstack.itemID] instanceof ItemFood && ((ItemFood)Item.itemsList[itemstack.itemID]).getIsWolfsFavoriteMeat() && this.getHealth() < this.getMaxHealth()) {
-				if (entityplayer.getGamemode().consumeBlocks()) {
+				if (Player.getGamemode().consumeBlocks()) {
 					--itemstack.stackSize;
 					if (itemstack.stackSize <= 0) {
-						entityplayer.inventory.setInventorySlotContents(entityplayer.inventory.currentItem, null);
+						Player.inventory.setInventorySlotContents(Player.inventory.currentItem, null);
 					}
 				}
 				this.heal(((ItemFood)Item.foodPorkchopRaw).getHealAmount());
 				return true;
 			}
-			if (entityplayer.username.equalsIgnoreCase(this.getAxolotlOwner())) {
+			if (Player.username.equalsIgnoreCase(this.getAxolotlOwner())) {
 				if (!this.world.isClientSide) {
 					ItemStack heldItemSlot = this.getAxolotlHeldItem();
-					if (this.isAxolotlSitting() && heldItemSlot != null && heldItemSlot.getItem() != null && heldItemSlot.itemID > 0 && !entityplayer.isSneaking()) {
-						entityplayer.inventory.insertItem(heldItemSlot, true);
+					if (this.isAxolotlSitting() && heldItemSlot != null && heldItemSlot.getItem() != null && heldItemSlot.itemID > 0 && !Player.isSneaking()) {
+						Player.inventory.insertItem(heldItemSlot, true);
 						if (heldItemSlot.stackSize <= 0) {
 							this.setAxolotlHeldItem(null);
 						}

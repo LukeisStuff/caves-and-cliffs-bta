@@ -79,48 +79,47 @@ public class ModelAxolotl extends ModelBase {
 		this.axolotlTail2.render(scale);
 	}
 
-	@Override
 	public void setRotationAngles(float limbSwing, float limbYaw, float limbPitch, float headYaw, float headPitch, float scale) {
-		this.axolotlHead.rotateAngleY = headYaw / 57.29578f;
-		this.axolotlHead.rotateAngleX = headPitch / 57.29578f;
+		this.axolotlHead.yRot = headYaw / 57.29578f;
+		this.axolotlHead.xRot = headPitch / 57.29578f;
 
-		this.axolotlGills1.rotateAngleY = this.axolotlHead.rotateAngleY;
-		this.axolotlGills1.rotateAngleX = this.axolotlHead.rotateAngleX;
-		this.axolotlGills2.rotateAngleY = this.axolotlHead.rotateAngleY;
-		this.axolotlGills2.rotateAngleX = this.axolotlHead.rotateAngleX;
+		this.axolotlGills1.yRot = this.axolotlHead.yRot;
+		this.axolotlGills1.xRot = this.axolotlHead.xRot;
+		this.axolotlGills2.yRot = this.axolotlHead.yRot;
+		this.axolotlGills2.xRot = this.axolotlHead.xRot;
 
-		this.axolotlTail1.rotateAngleY = this.axolotlBody.rotateAngleY;
-		this.axolotlTail1.rotateAngleX = this.axolotlBody.rotateAngleX;
-		this.axolotlTail2.rotateAngleY = this.axolotlBody.rotateAngleY;
-		this.axolotlTail2.rotateAngleX = this.axolotlBody.rotateAngleX;
+		this.axolotlTail1.yRot = this.axolotlBody.yRot;
+		this.axolotlTail1.xRot = this.axolotlBody.xRot;
+		this.axolotlTail2.yRot = this.axolotlBody.yRot;
+		this.axolotlTail2.xRot = this.axolotlBody.xRot;
 
 
-		this.axolotlLeg2.rotateAngleZ = -0.75f * 0.74f;
-		this.axolotlLeg1.rotateAngleZ = 0.75f * 0.74f;
+		this.axolotlLeg2.zRot = -0.75f * 0.74f;
+		this.axolotlLeg1.zRot = 0.75f * 0.74f;
 
-		this.axolotlArm2.rotateAngleZ = -0.75f * 0.74f;
-		this.axolotlArm1.rotateAngleZ = 0.75f * 0.74f;
+		this.axolotlArm2.zRot = -0.75f * 0.74f;
+		this.axolotlArm1.zRot = 0.75f * 0.74f;
 
-		this.axolotlLeg2.rotateAngleY = 0.375f - 0.0f;
-		this.axolotlLeg1.rotateAngleY = -0.375f + 0.0f;
+		this.axolotlLeg2.yRot = 0.375f - 0.0f;
+		this.axolotlLeg1.yRot = -0.375f + 0.0f;
 
-		this.axolotlArm2.rotateAngleY = -0.375f - 0.0f;
-		this.axolotlArm1.rotateAngleY = 0.375f + 0.0f;
+		this.axolotlArm2.yRot = -0.375f - 0.0f;
+		this.axolotlArm1.yRot = 0.375f + 0.0f;
 
 		float pair2Y = -(MathHelper.cos(limbSwing * 0.6662f * 2.0f + 3.141593f) * 0.4f) * limbYaw;
 		float pair3Y = -(MathHelper.cos(limbSwing * 0.6662f * 2.0f + 1.570796f) * 0.4f) * limbYaw;
 		float pair2Z = Math.abs(MathHelper.sin(limbSwing * 0.6662f + 3.141593f) * 0.4f) * limbYaw;
 		float pair3Z = Math.abs(MathHelper.sin(limbSwing * 0.6662f + 1.570796f) * 0.4f) * limbYaw;
-		this.axolotlLeg2.rotateAngleY += pair2Y;
-        this.axolotlLeg1.rotateAngleY -= pair2Y;
+		this.axolotlLeg2.yRot += pair2Y;
+        this.axolotlLeg1.yRot -= pair2Y;
 
-		this.axolotlArm2.rotateAngleY += pair3Y;
-        this.axolotlArm1.rotateAngleY -= pair3Y;
+		this.axolotlArm2.yRot += pair3Y;
+        this.axolotlArm1.yRot -= pair3Y;
 
-		this.axolotlLeg2.rotateAngleZ += pair2Z;
-        this.axolotlLeg1.rotateAngleZ -= pair2Z;
+		this.axolotlLeg2.zRot += pair2Z;
+        this.axolotlLeg1.zRot -= pair2Z;
 
-		this.axolotlArm2.rotateAngleZ += pair3Z;
-        this.axolotlArm1.rotateAngleZ -= pair3Z;
+		this.axolotlArm2.zRot += pair3Z;
+        this.axolotlArm1.zRot -= pair3Z;
 	}
 }

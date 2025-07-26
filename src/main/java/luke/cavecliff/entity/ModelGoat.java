@@ -68,14 +68,14 @@ public class ModelGoat extends ModelQuadruped {
 
 	public void setRotationAngles(float limbSwing, float limbYaw, float limbPitch, float headYaw, float headPitch, float scale) {
 		super.setRotationAngles(limbSwing, limbYaw, limbPitch, headYaw, headPitch, scale);
-		this.horn1.rotateAngleY = this.head.rotateAngleY;
-		this.horn1.rotateAngleX = this.head.rotateAngleX;
-		this.horn2.rotateAngleY = this.head.rotateAngleY;
-		this.horn2.rotateAngleX = this.head.rotateAngleX;
+		this.horn1.yRot = this.head.yRot;
+		this.horn1.xRot = this.head.xRot;
+		this.horn2.yRot = this.head.yRot;
+		this.horn2.xRot = this.head.xRot;
 
-		this.ear1.rotateAngleY = this.head.rotateAngleY;
-		this.ear1.rotateAngleX = this.head.rotateAngleX;
-		this.ear2.rotateAngleY = this.head.rotateAngleY;
-		this.ear2.rotateAngleX = this.head.rotateAngleX;
+		this.ear1.yRot = this.head.yRot;
+		this.ear1.xRot = this.head.xRot;
+		this.ear2.yRot = this.head.yRot;
+		this.ear2.xRot = this.head.xRot;
 	}
 }

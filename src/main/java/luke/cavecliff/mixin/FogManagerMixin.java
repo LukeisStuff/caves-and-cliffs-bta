@@ -31,7 +31,7 @@ public class FogManagerMixin {
 
 	@Inject(method = "updateFogColor", at = @At(value = "TAIL", target = "Lnet/minecraft/client/render/FogManager;updateFogColor(F)V"), cancellable = true)
 	public void updateFogColor(float partialTick, CallbackInfo ci) {
-		World world = this.mc.theWorld;
+		World world = this.mc.currentWorld;
 		if (CameraUtil.isUnderLiquid(this.mc.activeCamera, world, Material.topSnow, partialTick)) {
 			this.fogRed = 0.9f;
 			this.fogGreen = 0.9f;

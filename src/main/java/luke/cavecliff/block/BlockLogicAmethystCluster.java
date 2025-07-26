@@ -3,6 +3,7 @@ package luke.cavecliff.block;
 import luke.cavecliff.CaveCliffBlocks;
 import luke.cavecliff.CaveCliffItems;
 import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.enums.EnumDropCause;
@@ -13,15 +14,15 @@ import net.minecraft.core.world.WorldSource;
 
 import java.util.Random;
 
-public class BlockAmethystCluster extends Block {
+public class BlockLogicAmethystCluster extends BlockLogic {
 	public static final String[] growthStages = new String[]{"cluster", "large", "medium", "small"};
 
-	public BlockAmethystCluster(String key, int id, Material material) {
-		super(key, id, material);
-		this.setTicking(true);
+	public BlockLogicAmethystCluster(Block<?> block) {
+		super(block, Material.glass);
 		float f = 0.2F;
 		this.setBlockBounds(0.5F - f, 0.0, 0.5F - f, 0.5F + f, f * 3.0F, 0.5F + f);
 	}
+
 
 	public static int getMetadataForGrowth(int i) {
 		return ~i & 3;
@@ -71,13 +72,13 @@ public class BlockAmethystCluster extends Block {
 		return false;
 	}
 
-	public boolean renderAsNormalBlock() {
+	public boolean isCubeShaped() {
 		return false;
 	}
 
 	@Override
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return world.canPlaceOnSurfaceOfBlock(x, y - 1, z) || world.getBlockId(x, y - 1, z) == Block.mobspawner.id;
+		return world.canPlaceOnSurfaceOfBlock(x, y - 1, z);
 	}
 
 	@Override
@@ -93,7 +94,7 @@ public class BlockAmethystCluster extends Block {
 			for (int dz = z - 1; dz <= z + 1; ++dz) {
 				int id = world.getBlockId(dx, y - 1, dz);
 				float growthRateMod = 0.0F;
-				if (id == CaveCliffBlocks.amethystBudding.id) {
+				if (id == CaveCliffBlocks.AMETHYST_BUDDING.id()) {
 					growthRateMod = 1.0F;
 					if (world.getBlockMetadata(dx, y - 1, dz) > 0) {
 						growthRateMod = 3.0F;
