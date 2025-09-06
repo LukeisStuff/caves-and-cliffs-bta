@@ -32,7 +32,7 @@ public class BlockLogicCandleWaxColored extends BlockLogicCandleWax {
 			if (((b = world.getBlock(x + 1, y, z)) == null || !(b.getLogic() instanceof BlockLogicFluid)) && ((b = world.getBlock(x - 1, y, z)) == null || !(b.getLogic() instanceof BlockLogicFluid)) && ((b = world.getBlock(x, y, z + 1)) == null || !(b.getLogic() instanceof BlockLogicFluid)) && ((b = world.getBlock(x, y, z - 1)) == null || !(b.getLogic() instanceof BlockLogicFluid))) {
 				world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.CANDLE_COLORED_LIT.id(), meta);
 				heldItem.damageItem(1, player);
-				world.playSoundEffect(null, SoundCategory.WORLD_SOUNDS, (double)x + 0.5, (double)y + 0.5, (double)z + 0.5, "fire.ignite", 1.0F, world.rand.nextFloat() * 0.4F + 0.8F);
+				world.playSoundEffect(null, SoundCategory.WORLD_SOUNDS, (double) x + 0.5, (double) y + 0.5, (double) z + 0.5, "fire.ignite", 1.0F, world.rand.nextFloat() * 0.4F + 0.8F);
 				return true;
 			} else {
 				return false;
@@ -45,7 +45,7 @@ public class BlockLogicCandleWaxColored extends BlockLogicCandleWax {
 		}
 	}
 
-    public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
+	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
 		return new ItemStack[]{new ItemStack(CaveCliffBlocks.CANDLE_COLORED.id(), 1, meta)};
 	}
 

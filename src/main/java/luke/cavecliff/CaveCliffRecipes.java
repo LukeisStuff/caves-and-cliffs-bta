@@ -15,10 +15,10 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 	public void initializeRecipes() {
 
 		RecipeBuilderShaped templateLogtoPlank = new RecipeBuilderShaped(MOD_ID, "X");
-		templateLogtoPlank.addInput('X', CaveCliffBlocks.LOG_AZALEA).create("logIronwoodtoPlanks", new ItemStack(Blocks.PLANKS_OAK_PAINTED, 4, 5));
+		templateLogtoPlank.addInput('X', CaveCliffBlocks.LOG_AZALEA).create("logAzaleaToPlanks", new ItemStack(Blocks.PLANKS_OAK_PAINTED, 4, 5));
 
 		RecipeBuilderShaped templateItemtoBlock = new RecipeBuilderShaped(MOD_ID, "XXX", "XXX", "XXX");
-		templateItemtoBlock.addInput('X', CaveCliffItems.AMETHYST).create("block_of_AMETHYST", new ItemStack(CaveCliffBlocks.AMETHYST, 1));
+		templateItemtoBlock.addInput('X', CaveCliffItems.AMETHYST).create("block_of_amethyst", new ItemStack(CaveCliffBlocks.AMETHYST, 1));
 		templateItemtoBlock.addInput('X', CaveCliffItems.ORE_RAW_COPPER).create("block_of_raw_copper", new ItemStack(CaveCliffBlocks.BLOCK_COPPER_RAW, 1));
 		templateItemtoBlock.addInput('X', Items.ORE_RAW_GOLD).create("block_of_raw_gold", new ItemStack(CaveCliffBlocks.BLOCK_GOLD_RAW, 1));
 		templateItemtoBlock.addInput('X', Items.ORE_RAW_IRON).create("block_of_raw_iron", new ItemStack(CaveCliffBlocks.BLOCK_IRON_RAW, 1));

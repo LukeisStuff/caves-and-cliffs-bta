@@ -2,25 +2,27 @@ package luke.cavecliff.blockmodel;
 
 import luke.cavecliff.block.BlockLogicCopper;
 import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockWool;
+import net.minecraft.core.block.BlockLogic;
+import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.block.ItemBlock;
+import net.minecraft.core.util.helper.Side;
+import net.minecraft.core.world.World;
+import org.jetbrains.annotations.Nullable;
 
-public class ItemBlockCopper extends ItemBlock {
-	public final boolean upperMetadata;
+public class ItemBlockCopper<T extends BlockLogic> extends ItemBlock<T> {
 
-	public ItemBlockCopper(Block block, boolean upperMetadata) {
+	public ItemBlockCopper(Block<T> block) {
 		super(block);
 		this.setMaxDamage(0);
 		this.setHasSubtypes(true);
-		this.upperMetadata = upperMetadata;
-	}
+    }
 
-	public int getPlacedBlockMetadata(int i) {
-		return i;
+	public int getPlacedBlockMetadata(@Nullable Player player, ItemStack stack, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
+		return stack.getMetadata();
 	}
 
 	public String getLanguageKey(ItemStack itemstack) {
-		return this.upperMetadata ? super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((itemstack.getMetadata() & 9) >> 3)] : super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation(itemstack.getMetadata())];
+		return super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((itemstack.getMetadata() & 9) >> 3)];
 	}
 }

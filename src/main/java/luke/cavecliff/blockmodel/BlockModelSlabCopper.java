@@ -1,14 +1,14 @@
 package luke.cavecliff.blockmodel;
 
 import net.minecraft.client.render.block.model.BlockModelSlab;
-import net.minecraft.client.render.stitcher.IconCoordinate;
+import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockSlab;
+import net.minecraft.core.block.BlockLogicSlab;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.WorldSource;
 
-public class BlockModelSlabCopper<T extends BlockSlab> extends BlockModelSlab<T> {
-	public BlockModelSlabCopper(Block block) {
+public class BlockModelSlabCopper<T extends BlockLogicSlab> extends BlockModelSlab<T> {
+	public BlockModelSlabCopper(Block<T> block) {
 		super(block);
 	}
 

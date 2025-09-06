@@ -1,6 +1,10 @@
 package luke.cavecliff;
 
 import luke.cavecliff.block.*;
+import luke.cavecliff.blockmodel.ItemBlockAmethystCluster;
+import luke.cavecliff.blockmodel.ItemBlockCopper;
+import luke.cavecliff.blockmodel.ItemBlockSlabCopper;
+import luke.cavecliff.blockmodel.ItemBlockStairsCopper;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
@@ -11,7 +15,7 @@ import static luke.cavecliff.CaveCliffMod.MOD_ID;
 import static net.minecraft.core.item.tool.ItemToolPickaxe.miningLevels;
 
 public class CaveCliffBlocks {
-	public static int blockID =  CaveCliffConfig.blockIDs;
+	public static int blockID = CaveCliffConfig.blockIDs;
 
 	public static int blockID(String blockName) {
 		try {
@@ -24,6 +28,9 @@ public class CaveCliffBlocks {
 
 	public static Block<?> AMETHYST;
 	public static Block<?> AMETHYST_BUDDING;
+	public static Block<?> AMETHYST_CLUSTER_SMALL;
+	public static Block<?> AMETHYST_CLUSTER_MEDIUM;
+	public static Block<?> AMETHYST_CLUSTER_LARGE;
 	public static Block<?> AMETHYST_CLUSTER;
 
 	public static Block<?> ORE_COPPER_STONE;
@@ -81,7 +88,6 @@ public class CaveCliffBlocks {
 
 
 	public void initializeBlockDetails() {
-
 		miningLevels.put(DRIPSTONE, 0);
 		miningLevels.put(DRIPSTONE_POINTED, 0);
 
@@ -125,6 +131,11 @@ public class CaveCliffBlocks {
 			.setHardness(1.5f)
 			.setResistance(10.0f)
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE);
+
+		BlockBuilder amethyst = stone
+			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
+			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
+			.setResistance(1.5f);
 
 		BlockBuilder ore = stone
 			.setHardness(3.0f)
@@ -185,7 +196,6 @@ public class CaveCliffBlocks {
 			.build("candle.lit", "candle_lit", blockID("CANDLE_LIT"), b -> new BlockLogicCandleWax(b, Material.decoration, true));
 
 
-
 		CANDLE_COLORED = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.sand", "step.sand", 1.0f, 0.8f))
 			.setHardness(0.0f)
@@ -207,48 +217,65 @@ public class CaveCliffBlocks {
 			.build("candle.colored.lit", "candle_colored_lit", blockID("CANDLE_COLORED_LIT"), b -> new BlockLogicCandleWaxColored(b, Material.decoration, true));
 
 
-		AMETHYST = stone
-			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
+		AMETHYST = amethyst
 			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
 			.build("amethyst", "amethyst", blockID("AMETHYST"), b -> new BlockLogic(b, Material.glass));
 
-		AMETHYST_BUDDING = stone
-			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
+		AMETHYST_BUDDING = amethyst
 			.setTicking(true)
 			.setTickOnLoad()
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
 			.build("amethyst.budding", "amethyst_budding", blockID("AMETHYST_BUDDING"), b -> new BlockLogicBuddingAmethyst(b, Material.glass));
 
 
-		AMETHYST_CLUSTER = stone
-			.setHardness(1.5f)
-			.setResistance(1.5f)
-			.setLuminance(3)
-			.setBlockSound(new BlockSound("random.glass", "random.glass", 1.0f, 2.0f))
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
+		AMETHYST_CLUSTER_SMALL = amethyst
+			.setLuminance(1)
 			.setTicking(true)
 			.setTickOnLoad()
-			.build("amethyst.cluster", "amethyst_cluster", blockID("AMETHYST_CLUSTER"), BlockLogicAmethystCluster::new);
+			.setBlockItem(ItemBlockAmethystCluster::new)
+			.build("amethyst.cluster.small", "amethyst_cluster_small", blockID("AMETHYST_CLUSTER_SMALL"), block -> new BlockLogicAmethystCluster(block, 0.2f, AMETHYST_CLUSTER_MEDIUM));
+		AMETHYST_CLUSTER_MEDIUM = amethyst
+			.setLuminance(2)
+			.setTicking(true)
+			.setTickOnLoad()
+			.setBlockItem(ItemBlockAmethystCluster::new)
+			.build("amethyst.cluster.medium", "amethyst_cluster_medium", blockID("AMETHYST_CLUSTER_MEDIUM"), block -> new BlockLogicAmethystCluster(block, 0.25f, AMETHYST_CLUSTER_LARGE));
+		AMETHYST_CLUSTER_LARGE = amethyst
+			.setLuminance(4)
+			.setTicking(true)
+			.setTickOnLoad()
+			.setBlockItem(ItemBlockAmethystCluster::new)
+			.build("amethyst.cluster.large", "amethyst_cluster_large", blockID("AMETHYST_CLUSTER_LARGE"), block -> new BlockLogicAmethystCluster(block, 0.3f, AMETHYST_CLUSTER));
+		AMETHYST_CLUSTER = amethyst
+			.setLuminance(5)
+			.setTicking(true)
+			.setTickOnLoad()
+			.setBlockItem(ItemBlockAmethystCluster::new)
+			.build("amethyst.cluster", "amethyst_cluster", blockID("AMETHYST_CLUSTER"), block -> new BlockLogicAmethystCluster(block, 0.35f, null));
 
 		BLOCK_COPPER = metal
 			.setTicking(true)
+			.setBlockItem(ItemBlockCopper::new)
 			.build("block.copper", "block_copper", blockID("BLOCK_COPPER"), BlockLogicCopper::new);
 
 
 		BRICK_COPPER = metal
 			.setTicking(true)
+			.setBlockItem(ItemBlockCopper::new)
 			.build("brick.copper", "brick_copper", blockID("BRICK_COPPER"), BlockLogicCopper::new);
 
 		SLAB_BRICK_COPPER = metal
 			.setUseInternalLight()
 			.setVisualUpdateOnMetadata()
 			.setTicking(true)
+			.setBlockItem(ItemBlockSlabCopper::new)
 			.build("slab.brick.copper", "slab_brick_copper", blockID("SLAB_BRICK_COPPER"), b -> new BlockLogicSlabCopper(b, BRICK_COPPER));
 
 		STAIRS_BRICK_COPPER = metal
 			.setUseInternalLight()
 			.setVisualUpdateOnMetadata()
-			.build("slab.brick.skyroot", "slab_brick_copper", blockID("STAIRS_BRICK_COPPER"), b -> new BlockLogicStairsCopper(b, BRICK_COPPER));
+			.setTicking(true)
+			.setBlockItem(ItemBlockStairsCopper::new)
+			.build("stairs.brick.copper", "stairs_brick_copper", blockID("STAIRS_BRICK_COPPER"), b -> new BlockLogicStairsCopper(b, BRICK_COPPER));
 
 
 		// Copper Ores
@@ -291,7 +318,6 @@ public class CaveCliffBlocks {
 			.setResistance(0.2f)
 			.setTags(BlockTags.BROKEN_BY_FLUIDS, BlockTags.PREVENT_MOB_SPAWNS)
 			.build("block.snow.powder", "block_snow_powder", blockID("BLOCK_SNOW_POWDER"), BlockLogicPowderSnow::new);
-
 
 
 		BLOCK_MOSS = grass

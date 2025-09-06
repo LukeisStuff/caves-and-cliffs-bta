@@ -31,7 +31,7 @@ public class BlockLogicDirtRooted extends BlockLogic implements IBonemealable {
 	}
 
 	public boolean onBlockRightClicked(World world, int x, int y, int z, Player player, Side side, double xHit, double yHit) {
-		if  (player.getHeldItem() != null && player.getHeldItem().getItem().equals(Items.TOOL_SHEARS) || player.getHeldItem().getItem().equals(Items.TOOL_SHEARS_STEEL)) {
+		if (player.getHeldItem() != null && player.getHeldItem().getItem().equals(Items.TOOL_SHEARS) || player.getHeldItem().getItem().equals(Items.TOOL_SHEARS_STEEL)) {
 			player.getHeldItem().damageItem(1, player);
 			world.setBlockWithNotify(x, y, z, Blocks.DIRT.id());
 			world.playSoundAtEntity(player, player, "random.pop", 0.2F, 0.5F);

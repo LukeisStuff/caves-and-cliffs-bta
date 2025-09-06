@@ -1,4 +1,4 @@
-package luke.cavecliff.entity;
+package luke.cavecliff.entity.axolotl;
 
 import net.minecraft.client.render.model.Cube;
 import net.minecraft.client.render.model.ModelBase;
@@ -111,15 +111,15 @@ public class ModelAxolotl extends ModelBase {
 		float pair2Z = Math.abs(MathHelper.sin(limbSwing * 0.6662f + 3.141593f) * 0.4f) * limbYaw;
 		float pair3Z = Math.abs(MathHelper.sin(limbSwing * 0.6662f + 1.570796f) * 0.4f) * limbYaw;
 		this.axolotlLeg2.yRot += pair2Y;
-        this.axolotlLeg1.yRot -= pair2Y;
+		this.axolotlLeg1.yRot -= pair2Y;
 
 		this.axolotlArm2.yRot += pair3Y;
-        this.axolotlArm1.yRot -= pair3Y;
+		this.axolotlArm1.yRot -= pair3Y;
 
 		this.axolotlLeg2.zRot += pair2Z;
-        this.axolotlLeg1.zRot -= pair2Z;
+		this.axolotlLeg1.zRot -= pair2Z;
 
 		this.axolotlArm2.zRot += pair3Z;
-        this.axolotlArm1.zRot -= pair3Z;
+		this.axolotlArm1.zRot -= pair3Z;
 	}
 }

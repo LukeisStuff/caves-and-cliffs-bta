@@ -20,16 +20,16 @@ public class BlockLogicLightningRod extends BlockLogic {
 	public void onEntityCollidedWithBlock(World world, int x, int y, int z, Entity entity) {
 		if (entity instanceof EntityLightning) {
 			world.setBlockMetadataWithNotify(x, y, z, 1);
-			}
 		}
+	}
 
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		if (world.getBlockMetadata(x, y, z) == 1) {
 			if (rand.nextInt(20) == 0) {
-					world.setBlockAndMetadataWithNotify(x, y, z, this.id(), 0);
-				}
+				world.setBlockAndMetadataWithNotify(x, y, z, this.id(), 0);
 			}
 		}
+	}
 
 	@Override
 	public boolean isSolidRender() {

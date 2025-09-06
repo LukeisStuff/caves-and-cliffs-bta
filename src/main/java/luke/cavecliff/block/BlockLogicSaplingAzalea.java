@@ -23,7 +23,7 @@ public class BlockLogicSaplingAzalea extends BlockLogicSaplingBase {
 		world.setBlock(x, y - 1, z, CaveCliffBlocks.DIRT_ROOTED.id());
 		treeFeature = new WorldFeatureTreeFancy(leafBlock.id(), CaveCliffBlocks.LOG_AZALEA.id(), 0);
 		if (!treeFeature.place(world, random, x, y, z)) {
-			world.setBlock(x, y, z, this.id()());
+			world.setBlock(x, y, z, this.id());
 		}
 
 	}

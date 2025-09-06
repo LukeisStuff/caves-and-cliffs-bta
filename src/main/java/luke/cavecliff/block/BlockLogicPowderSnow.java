@@ -57,16 +57,16 @@ public class BlockLogicPowderSnow extends BlockLogic {
 
 	@Override
 	public void onEntityWalking(World world, int x, int y, int z, Entity entity) {
-			if (((Player)entity).inventory.armorInventory[0] != null && ((Player) entity).inventory.armorInventory[0].getItem().equals(Items.ARMOR_BOOTS_LEATHER)) {
-				AABB.getTemporaryBB(0.0f, 0.0f , 0.0f , 1.0f, 1.0f, 1.0f);
-			} else {
-				AABB.getTemporaryBB(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
-			}
+		if (((Player) entity).inventory.armorInventory[0] != null && ((Player) entity).inventory.armorInventory[0].getItem().equals(Items.ARMOR_BOOTS_LEATHER)) {
+			AABB.getTemporaryBB(0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f);
+		} else {
+			AABB.getTemporaryBB(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+		}
 	}
 
 	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
-        return null;
-    }
+		return null;
+	}
 
 	public boolean isCubeShaped() {
 		return false;
@@ -75,9 +75,9 @@ public class BlockLogicPowderSnow extends BlockLogic {
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {
 		switch (dropCause) {
 			case PICK_BLOCK:
-            case SILK_TOUCH:
-                return new ItemStack[]{new ItemStack(this)};
-            default:
+			case SILK_TOUCH:
+				return new ItemStack[]{new ItemStack(this)};
+			default:
 				return null;
 		}
 	}

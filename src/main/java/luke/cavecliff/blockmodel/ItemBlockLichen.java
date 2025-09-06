@@ -2,32 +2,30 @@ package luke.cavecliff.blockmodel;
 
 import luke.cavecliff.block.BlockLogicLichen;
 import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockFluid;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.enums.EnumBlockSoundEffectType;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.block.ItemBlock;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
+import org.jetbrains.annotations.Nullable;
 
-public class ItemBlockLichen extends ItemBlock {
-	public final BlockLogicLichen blockLogicLichen;
-
-	public ItemBlockLichen(BlockLogicLichen block) {
+public class ItemBlockLichen<T extends BlockLogicLichen> extends ItemBlock<T> {
+	public ItemBlockLichen(Block<T> block) {
 		super(block);
-		this.blockLogicLichen = block;
 	}
 
-	public boolean onUseItemOnBlock(ItemStack stack, Player player, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
-		Block clickedBlock = world.getBlock(x, y, z);
+	public boolean onUseItemOnBlock(ItemStack stack, @Nullable Player player, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
+		Block<?> clickedBlock = world.getBlock(x, y, z);
+		BlockLogicLichen ladder = this.block.getLogic();
 		Side sideForPlacement;
 		int meta;
-		if (clickedBlock == this.blockLogicLichen && !player.isSneaking()) {
-			for(sideForPlacement = this.blockLogicLichen.getSideFromMeta(world.getBlockMetadata(x, y, z)); world.getBlock(x, y, z) == this.blockLogicLichen && this.blockLogicLichen.getSideFromMeta(world.getBlockMetadata(x, y, z)) == sideForPlacement; --y) {
+		if (clickedBlock == this.block && player != null && !player.isSneaking()) {
+			for(sideForPlacement = ladder.getSideFromMeta(world.getBlockMetadata(x, y, z)); world.getBlock(x, y, z) == this.block && ladder.getSideFromMeta(world.getBlockMetadata(x, y, z)) == sideForPlacement; --y) {
 			}
 
-			meta = this.blockLogicLichen.getMetaForSide(sideForPlacement);
-			return this.blockLogicLichen.canExistAt(world, x, y, z, meta) && this.placeBlock(world, x, y, z, meta, player, stack, sideForPlacement, 0.5);
+			meta = ladder.getMetaForSide(sideForPlacement);
+			return ladder.canExistAt(world, x, y, z, meta) && this.placeBlock(world, x, y, z, meta, player, stack, sideForPlacement, 0.5, 0.5);
 		} else {
 			if (!world.canPlaceInsideBlock(x, y, z)) {
 				x += side.getOffsetX();
@@ -35,30 +33,23 @@ public class ItemBlockLichen extends ItemBlock {
 				z += side.getOffsetZ();
 			}
 
-			sideForPlacement = this.blockLogicLichen.getSideForPlacement(world, x, y, z, side);
+			sideForPlacement = ladder.getSideForPlacement(world, x, y, z, side);
 			if (sideForPlacement == null) {
 				return false;
 			} else {
-				meta = this.blockLogicLichen.getMetaForSide(sideForPlacement);
-				return this.blockLogicLichen.canExistAt(world, x, y, z, meta) && this.placeBlock(world, x, y, z, meta, player, stack, sideForPlacement, yPlaced);
+				meta = ladder.getMetaForSide(sideForPlacement);
+				return ladder.canExistAt(world, x, y, z, meta) && this.placeBlock(world, x, y, z, meta, player, stack, sideForPlacement, xPlaced, yPlaced);
 			}
 		}
 	}
 
-	public boolean placeBlock(World world, int x, int y, int z, int meta, Player player, ItemStack stack, Side side, double sideHeight) {
-		Block currentBlock = world.getBlock(x, y, z);
-		if (world.canPlaceInsideBlock(x, y, z) && world.canBlockBePlacedAt(this.blockID, x, y, z, false, side) && stack.consumeItem(player)) {
-			if (currentBlock != null && !(currentBlock instanceof BlockFluid) && !world.isClientSide) {
-				world.playSoundEffect(2001, x, y, z, world.getBlockId(x, y, z));
-			}
-
-			if (world.setBlockAndMetadataWithNotify(x, y, z, this.blockID, meta)) {
-				Block.getBlock(this.blockID).onBlockPlaced(world, x, y, z, side, player, sideHeight);
-				world.playBlockSoundEffect(player, (double)((float)x + 0.5F), (double)((float)y + 0.5F), (double)((float)z + 0.5F), this.blockLogicLichen, EnumBlockSoundEffectType.PLACE);
-				return true;
-			}
+	public boolean placeBlock(World world, int x, int y, int z, int meta, @Nullable Player player, ItemStack stack, Side side, double xPlaced, double yPlaced) {
+		if (world.canPlaceInsideBlock(x, y, z) && world.canBlockBePlacedAt(this.block.id(), x, y, z, false, side) && stack.consumeItem(player) && world.setBlockAndMetadataWithNotify(x, y, z, this.block.id(), meta)) {
+			this.block.onBlockPlacedByMob(world, x, y, z, side, player, xPlaced, yPlaced);
+			world.playBlockSoundEffect(player, (float)x + 0.5F, (float)y + 0.5F, (float)z + 0.5F, this.block, EnumBlockSoundEffectType.PLACE);
+			return true;
+		} else {
+			return false;
 		}
-
-		return false;
 	}
 }

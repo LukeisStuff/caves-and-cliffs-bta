@@ -1,4 +1,4 @@
-package luke.cavecliff.entity;
+package luke.cavecliff.entity.goat;
 
 import net.minecraft.client.render.model.Cube;
 import net.minecraft.client.render.model.ModelQuadruped;
@@ -66,8 +66,8 @@ public class ModelGoat extends ModelQuadruped {
 		this.ear2.render(scale);
 	}
 
-	public void setRotationAngles(float limbSwing, float limbYaw, float limbPitch, float headYaw, float headPitch, float scale) {
-		super.setRotationAngles(limbSwing, limbYaw, limbPitch, headYaw, headPitch, scale);
+	public void setupAnimation(float limbSwing, float limbYaw, float limbPitch, float headYaw, float headPitch, float scale) {
+		super.setupAnimation(limbSwing, limbYaw, limbPitch, headYaw, headPitch, scale);
 		this.horn1.yRot = this.head.yRot;
 		this.horn1.xRot = this.head.xRot;
 		this.horn2.yRot = this.head.yRot;

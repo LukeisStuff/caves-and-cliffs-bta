@@ -1,14 +1,30 @@
 package luke.cavecliff;
 
-import luke.cavecliff.entity.*;
+import luke.cavecliff.entity.axolotl.MobAxolotl;
+import luke.cavecliff.entity.glowsquid.MobGlowSquid;
+import luke.cavecliff.entity.goat.MobGoat;
+import net.minecraft.core.util.collection.NamespaceID;
 import turniplabs.halplibe.helper.EntityHelper;
 
-public class CaveCliffEntities {
-	public static int entityID = 160;
+import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
-	public void initializeEntities() {
-		EntityHelper.createEntity(EntityGlowSquid.class, entityID++, "Glowsquid", () -> new GlowSquidRenderer(new ModelGlowSquid(), 0.7f));
-		EntityHelper.createEntity(EntityGoat.class, entityID++, "Goat", () -> new GoatRenderer(new ModelGoat(), 0.7f));
-		EntityHelper.createEntity(EntityAxolotl.class, entityID++, "Axolotl", () -> new AxolotlRenderer(new ModelAxolotl(), 0.5f));
+public class CaveCliffEntities {
+	public static boolean hasInit = false;
+
+	public static void init() {
+		if(!hasInit){
+			hasInit = true;
+			initializeEntities();
+		}
+
+	}
+	public static String entityKey(String string) {
+		return MOD_ID + ".entity." + string;
+	}
+
+	public static void initializeEntities() {
+		EntityHelper.createEntity(MobGlowSquid.class, NamespaceID.getPermanent(MOD_ID, "glowsquid"), entityKey("glowsquid"));
+		EntityHelper.createEntity(MobGoat.class, NamespaceID.getPermanent(MOD_ID, "goat"), entityKey("goat"));
+		EntityHelper.createEntity(MobAxolotl.class, NamespaceID.getPermanent(MOD_ID, "axolotl"), entityKey("axolotl"));
 	}
 }

@@ -27,25 +27,16 @@ public class BlockLogicCopper extends BlockLogic {
 	}
 
 	public void updateTick(World world, int x, int y, int z, Random rand) {
-		if (world.getBlockMetadata(x, y, z) == 0) {
-			if (rand.nextInt(200) == 0) {
-				if (world.getBlockMaterial(x, y, z - 1) == Material.water || world.getBlockMaterial(x, y, z + 1) == Material.water || world.getBlockMaterial(x - 1, y, z) == Material.water || world.getBlockMaterial(x + 1, y, z) == Material.water || world.getBlockMaterial(x, y + 1, z) == Material.water || (world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
-					world.setBlockAndMetadataWithNotify(x, y, z, this.id(), 1);
-				}
-			}
-		}
-		if (world.getBlockMetadata(x, y, z) == 1) {
-			if (rand.nextInt(200) == 0) {
-				if (world.getBlockMaterial(x, y, z - 1) == Material.water || world.getBlockMaterial(x, y, z + 1) == Material.water || world.getBlockMaterial(x - 1, y, z) == Material.water || world.getBlockMaterial(x + 1, y, z) == Material.water || world.getBlockMaterial(x, y + 1, z) == Material.water || (world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
-					world.setBlockAndMetadataWithNotify(x, y, z, this.id(), 2);
-				}
-			}
-		}
-		if (world.getBlockMetadata(x, y, z) == 2) {
-			if (rand.nextInt(200) == 0) {
-				if (world.getBlockMaterial(x, y, z - 1) == Material.water || world.getBlockMaterial(x, y, z + 1) == Material.water || world.getBlockMaterial(x - 1, y, z) == Material.water || world.getBlockMaterial(x + 1, y, z) == Material.water || world.getBlockMaterial(x, y + 1, z) == Material.water || (world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
-					world.setBlockAndMetadataWithNotify(x, y, z, this.id(), 3);
-				}
+		int meta = world.getBlockMetadata(x, y, z);
+
+		if (rand.nextInt(200) == 0) {
+			if (world.getBlockMaterial(x, y, z - 1) == Material.water ||
+				world.getBlockMaterial(x, y, z + 1) == Material.water ||
+				world.getBlockMaterial(x - 1, y, z) == Material.water ||
+				world.getBlockMaterial(x + 1, y, z) == Material.water ||
+				world.getBlockMaterial(x, y + 1, z) == Material.water ||
+				(world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
+				world.setBlockAndMetadataWithNotify(x, y, z, this.id(), meta + 1);
 			}
 		}
 	}

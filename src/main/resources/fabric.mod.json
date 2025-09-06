@@ -5,35 +5,28 @@
 
 	"name": "Caves and Cliffs",
 	"description": "Remaking the 1.17 and 1.18 release updates of minecraft in BTA!",
+	"icon": "icon.png",
+
 	"authors": [
 		"LukeisStuff"
 	],
+
 	"contact": {
 		"homepage": "",
 		"sources": ""
 	},
 
-	"icon": "icon.png",
 	"license": "CC0-1.0",
-
 	"environment": "*",
+
 	"entrypoints": {
-		"main": [
-			"luke.cavecliff.CaveCliffMod"
-		],
-		"beforeGameStart": [
-			"luke.cavecliff.CaveCliffMod"
-		],
-		"afterGameStart": [
-			"luke.cavecliff.CaveCliffMod"
-		],
-		"recipesReady": [
-			"luke.cavecliff.CaveCliffRecipes"
-		],
-		"terrain-api": [
-			"luke.cavecliff.CaveCliffTerrainAPI"
-		]
+		"main": ["luke.cavecliff.CaveCliffMod"],
+		"beforeGameStart": ["luke.cavecliff.CaveCliffMod"],
+		"afterGameStart": ["luke.cavecliff.CaveCliffMod"],
+		"recipesReady": ["luke.cavecliff.CaveCliffRecipes"],
+		"initModels": ["luke.cavecliff.CaveCliffModels"]
 	},
+
 	"mixins": [
 		"cavecliff.mixins.json"
 	],
@@ -41,6 +34,6 @@
 	"depends": {
 		"fabricloader": ">=0.15.5"
 	},
-	"suggests": {
-	}
+
+	"suggests": {}
 }

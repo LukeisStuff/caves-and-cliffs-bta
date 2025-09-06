@@ -26,7 +26,7 @@ public class BlockLogicOreCopper extends BlockLogic {
 				return new ItemStack[]{new ItemStack(this)};
 			case EXPLOSION:
 			case PROPER_TOOL:
-				return new ItemStack[]{new ItemStack(CaveCliffItems.oreRawCopper, 2 + world.rand.nextInt(4))};
+				return new ItemStack[]{new ItemStack(CaveCliffItems.ORE_RAW_COPPER, 2 + world.rand.nextInt(4))};
 			default:
 				return null;
 		}

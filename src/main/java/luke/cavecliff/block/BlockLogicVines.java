@@ -66,12 +66,12 @@ public class BlockLogicVines extends BlockLogic implements IBonemealable {
 			case EXPLOSION:
 			case PROPER_TOOL:
 				if (glowing) {
-					return new ItemStack[]{new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(2) + 1)};
+					return new ItemStack[]{new ItemStack(CaveCliffItems.FOOD_GLOW_BERRIES, world.rand.nextInt(2) + 1)};
 				}
 			case PICK_BLOCK:
 			case SILK_TOUCH:
 				if (glowing) {
-					return new ItemStack[]{new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(2) + 1)};
+					return new ItemStack[]{new ItemStack(CaveCliffItems.FOOD_GLOW_BERRIES, world.rand.nextInt(2) + 1)};
 				}
 				return new ItemStack[]{new ItemStack(CaveCliffBlocks.VINES)};
 			default:
@@ -84,7 +84,7 @@ public class BlockLogicVines extends BlockLogic implements IBonemealable {
 		if (glowing) {
 			world.setBlockWithNotify(x, y, z, CaveCliffBlocks.VINES.id());
 			world.playSoundAtEntity(player, player, "random.pop", 0.2F, 0.5F);
-			world.dropItem(x, y, z, new ItemStack(CaveCliffItems.foodGlowBerries, world.rand.nextInt(2) + 1));
+			world.dropItem(x, y, z, new ItemStack(CaveCliffItems.FOOD_GLOW_BERRIES, world.rand.nextInt(2) + 1));
 			player.swingItem();
 		}
 		return false;

@@ -24,13 +24,13 @@ public class BlockLogicMossy extends BlockLogicMoss {
 				--itemstack.stackSize;
 			}
 
-			for(int j1 = 0; j1 < 32; ++j1) {
+			for (int j1 = 0; j1 < 32; ++j1) {
 				int k1 = blockX;
 				int l1 = blockY;
 				int i2 = blockZ;
 
 				int blockId;
-				for(blockId = 0; blockId < j1 / 16; ++blockId) {
+				for (blockId = 0; blockId < j1 / 16; ++blockId) {
 					k1 += world.rand.nextInt(3) - 1;
 					l1 += (world.rand.nextInt(3) - 1) * world.rand.nextInt(3) / 2;
 					i2 += world.rand.nextInt(3) - 1;

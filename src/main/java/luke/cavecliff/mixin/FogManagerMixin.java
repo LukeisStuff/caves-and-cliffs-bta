@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(value= FogManager.class,remap=false)
+@Mixin(value = FogManager.class, remap = false)
 public class FogManagerMixin {
 
 	@Unique

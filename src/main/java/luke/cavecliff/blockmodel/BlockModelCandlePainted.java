@@ -1,16 +1,19 @@
 package luke.cavecliff.blockmodel;
 
-import luke.cavecliff.block.BlockCandleColored;
+import luke.cavecliff.block.BlockLogicCandleWaxColored;
 import net.minecraft.client.render.LightmapHelper;
 import net.minecraft.client.render.block.model.BlockModelStandard;
-import net.minecraft.client.render.stitcher.IconCoordinate;
-import net.minecraft.client.render.stitcher.TextureRegistry;
 import net.minecraft.client.render.tessellator.Tessellator;
+import net.minecraft.client.render.texture.stitcher.IconCoordinate;
+import net.minecraft.client.render.texture.stitcher.TextureRegistry;
 import net.minecraft.core.block.Block;
-import net.minecraft.core.item.ItemDye;
+import net.minecraft.core.block.Blocks;
+import net.minecraft.core.util.helper.DyeColor;
 import net.minecraft.core.util.helper.Side;
 
-public class BlockModelCandlePainted<T extends BlockCandleColored> extends BlockModelStandard<T> {
+import java.util.Iterator;
+
+public class BlockModelCandlePainted<T extends BlockLogicCandleWaxColored> extends BlockModelStandard<T> {
 	public static final IconCoordinate[] texCoords = new IconCoordinate[16];
 
 	public BlockModelCandlePainted(Block block) {
@@ -18,7 +21,6 @@ public class BlockModelCandlePainted<T extends BlockCandleColored> extends Block
 	}
 
 	public boolean render(Tessellator tessellator, int x, int y, int z) {
-		this.block.setBlockBoundsBasedOnState(renderBlocks.blockAccess, x, y, z);
 
 		float minX = (float)x + 0.5F - 0.09375F;
 		float minY = (float)y + 0.0F;
@@ -32,7 +34,7 @@ public class BlockModelCandlePainted<T extends BlockCandleColored> extends Block
 			tessellator.setLightmapCoord(this.block.getLightmapCoord(renderBlocks.blockAccess, x, y, z));
 		} else {
 			brightness = this.getBlockBrightness(renderBlocks.blockAccess, x, y, z);
-			if (Block.lightEmission[this.block.id] > 0) {
+			if (Blocks.lightEmission[this.block.id()] > 0) {
 				brightness = 1.0F;
 			}
 		}
@@ -109,8 +111,9 @@ public class BlockModelCandlePainted<T extends BlockCandleColored> extends Block
 	}
 
 	static {
-		for(int i = 0; i < 16; ++i) {
-			texCoords[i] = TextureRegistry.getTexture("cavecliff:block/candle_" + ItemDye.dyeColors[15 - i]);
+		DyeColor c;
+		for(Iterator<DyeColor> var0 = DyeColor.blockOrderedColors().iterator(); var0.hasNext(); texCoords[c.blockMeta] = TextureRegistry.getTexture("cavecliff:block/candle_" + c.colorID)) {
+			c = var0.next();
 		}
 
 	}
