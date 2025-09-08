@@ -77,6 +77,11 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.ROOTS)
 			.setAllTextures(0, "cavecliff:block/roots"));
 
+		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.SAPLING_AZALEA)
+			.setAllTextures(0, "cavecliff:block/azalea"));
+		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.SAPLING_AZALEA_FLOWERING)
+			.setAllTextures(0, "cavecliff:block/azalea_flowering"));
+
 		dispatcher.addDispatch(new BlockModelLadder<>(CaveCliffBlocks.LICHEN)
 			.setAllTextures(0, "cavecliff:block/lichen").setAllTextures(1, "cavecliff:block/lichen_overlay"));
 
@@ -108,7 +113,7 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.ORE_RAW_COPPER, null).setIcon("cavecliff:item/ore_raw_copper"));
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.FOOD_GLOW_BERRIES, null).setIcon("cavecliff:item/glowberries").setFullBright());
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.HORN_GOAT, null).setIcon("cavecliff:item/goat_horn").setFull3D());
-		dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.INKSAC_GLOW, null).setIcon("cavecliff:item/inksac_glow"));
+		dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.INKSAC_GLOW, null).setIcon("cavecliff:item/inksac_glow").setFullBright());
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.RECORD_OTHERSIDE, null).setIcon("cavecliff:item/otherside"));
 
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE.asItem(), null).setIcon("cavecliff:item/candle"));
@@ -116,6 +121,10 @@ public class CaveCliffModels implements ModelEntrypoint {
 
 		dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED.asItem(), null));
 		dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED_LIT.asItem(), null).setFullBright());
+
+		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.VINES_GLOWING.asItem(), null).setFullBright());
+		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.LICHEN.asItem(), null).setFullBright());
+
 
 
 	}
