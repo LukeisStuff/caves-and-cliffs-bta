@@ -227,36 +227,30 @@ public class CaveCliffBlocks {
 			.setLuminance(1)
 			.setTicking(true)
 			.setTickOnLoad()
-			.setBlockItem(ItemBlockAmethystCluster::new)
 			.build("amethyst.cluster.small", "amethyst_cluster_small", blockID("AMETHYST_CLUSTER_SMALL"), block -> new BlockLogicAmethystCluster(block, 0.25f, AMETHYST_CLUSTER_MEDIUM));
 		AMETHYST_CLUSTER_MEDIUM = amethyst
 			.setLuminance(2)
 			.setTicking(true)
 			.setTickOnLoad()
-			.setBlockItem(ItemBlockAmethystCluster::new)
 			.build("amethyst.cluster.medium", "amethyst_cluster_medium", blockID("AMETHYST_CLUSTER_MEDIUM"), block -> new BlockLogicAmethystCluster(block, 0.3f, AMETHYST_CLUSTER_LARGE));
 		AMETHYST_CLUSTER_LARGE = amethyst
 			.setLuminance(4)
 			.setTicking(true)
 			.setTickOnLoad()
-			.setBlockItem(ItemBlockAmethystCluster::new)
 			.build("amethyst.cluster.large", "amethyst_cluster_large", blockID("AMETHYST_CLUSTER_LARGE"), block -> new BlockLogicAmethystCluster(block, 0.35f, AMETHYST_CLUSTER));
 		AMETHYST_CLUSTER = amethyst
 			.setLuminance(5)
 			.setTicking(true)
 			.setTickOnLoad()
-			.setBlockItem(ItemBlockAmethystCluster::new)
 			.build("amethyst.cluster", "amethyst_cluster", blockID("AMETHYST_CLUSTER"), block -> new BlockLogicAmethystCluster(block, 0.4f, null));
 
 		BLOCK_COPPER = metal
 			.setTicking(true)
-			.setBlockItem(ItemBlockCopper::new)
 			.build("block.copper", "block_copper", blockID("BLOCK_COPPER"), BlockLogicCopper::new);
 
 
 		BRICK_COPPER = metal
 			.setTicking(true)
-			.setBlockItem(ItemBlockCopper::new)
 			.build("brick.copper", "brick_copper", blockID("BRICK_COPPER"), BlockLogicCopper::new);
 
 		SLAB_BRICK_COPPER = metal

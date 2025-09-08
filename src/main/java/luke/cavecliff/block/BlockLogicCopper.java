@@ -21,7 +21,11 @@ public class BlockLogicCopper extends BlockLogic {
 	}
 
 	public int getPlacedBlockMetadata(@Nullable Player player, ItemStack stack, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
-		return stack.getMetadata() & 3;
+		return stack.getMetadata();
+	}
+
+	public String getLanguageKey(int meta) {
+		return super.getLanguageKey(meta) + "." + oxidizeStages[getMetadataForOxidation((meta & 3))];
 	}
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {

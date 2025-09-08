@@ -6,10 +6,13 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
+import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.enums.EnumBlockSoundEffectType;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
+import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
@@ -22,6 +25,10 @@ public class BlockLogicAmethystCluster extends BlockLogic {
 		this.size = size;
 		this.nextStage = nextStage;
 		setBlockBoundsForSize();
+	}
+
+	public int getPlacedBlockMetadata(@Nullable Player player, ItemStack stack, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
+		return stack.getMetadata();
 	}
 
 	public void setBlockBoundsForSize() {
