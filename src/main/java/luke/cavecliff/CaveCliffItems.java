@@ -10,16 +10,17 @@ import static luke.cavecliff.CaveCliffMod.MOD_ID;
 
 public class CaveCliffItems {
 
-	public static int itemID =  CaveCliffConfig.blockIDs;
+	public static int itemID = CaveCliffConfig.blockIDs;
 
 	public static int itemID(String itemName) {
 		try {
-			return CaveCliffConfig.cfg.getInt(CaveCliffConfig.ItemIDs+"."+ itemName);
-		}catch (NullPointerException e) {
-			CaveCliffConfig.properties.addEntry(CaveCliffConfig.ItemIDs+"."+ itemName, itemID);
+			return CaveCliffConfig.cfg.getInt(CaveCliffConfig.ItemIDs + "." + itemName);
+		} catch (NullPointerException e) {
+			CaveCliffConfig.properties.addEntry(CaveCliffConfig.ItemIDs + "." + itemName, itemID);
 			return itemID++;
 		}
 	}
+
 	public static Item AMETHYST;
 
 	public static Item INGOT_COPPER;

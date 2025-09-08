@@ -4,6 +4,7 @@
   "package": "luke.cavecliff.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "ChunkDecoratorOverworldMixin",
     "FogManagerMixin",
     "GuiIngameMixin",
     "ItemToolAxeMixin",

@@ -23,7 +23,7 @@ public class ItemBlockLichen<T extends BlockLogic> extends ItemBlock<T> {
 		Side sideForPlacement;
 		int meta;
 		if (clickedBlock == this.block && player != null && !player.isSneaking()) {
-			for(sideForPlacement = lichen.getSideFromMeta(world.getBlockMetadata(x, y, z)); world.getBlock(x, y, z) == this.block && lichen.getSideFromMeta(world.getBlockMetadata(x, y, z)) == sideForPlacement; --y) {
+			for (sideForPlacement = lichen.getSideFromMeta(world.getBlockMetadata(x, y, z)); world.getBlock(x, y, z) == this.block && lichen.getSideFromMeta(world.getBlockMetadata(x, y, z)) == sideForPlacement; --y) {
 			}
 
 			meta = lichen.getMetaForSide(sideForPlacement);
@@ -48,7 +48,7 @@ public class ItemBlockLichen<T extends BlockLogic> extends ItemBlock<T> {
 	public boolean placeBlock(World world, int x, int y, int z, int meta, @Nullable Player player, ItemStack stack, Side side, double xPlaced, double yPlaced) {
 		if (world.canPlaceInsideBlock(x, y, z) && world.canBlockBePlacedAt(this.block.id(), x, y, z, false, side) && stack.consumeItem(player) && world.setBlockAndMetadataWithNotify(x, y, z, this.block.id(), meta)) {
 			this.block.onBlockPlacedByMob(world, x, y, z, side, player, xPlaced, yPlaced);
-			world.playBlockSoundEffect(player, (float)x + 0.5F, (float)y + 0.5F, (float)z + 0.5F, this.block, EnumBlockSoundEffectType.PLACE);
+			world.playBlockSoundEffect(player, (float) x + 0.5F, (float) y + 0.5F, (float) z + 0.5F, this.block, EnumBlockSoundEffectType.PLACE);
 			return true;
 		} else {
 			return false;

@@ -93,6 +93,7 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 
 		RecipeBuilder.initNameSpace(MOD_ID);
 	}
+
 	@Override
 	public void onRecipesReady() {
 		initializeRecipes();
@@ -118,22 +119,22 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 
 		Registries.ITEM_GROUPS.register("cavecliff:block/candles", Registries.stackListOf
 			(CaveCliffBlocks.CANDLE,
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 0),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 1),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 2),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 3),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 4),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 5),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 6),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 7),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 8),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 9),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 10),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 11),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 12),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 13),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 14),
-			new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 15)));
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 0),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 1),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 2),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 3),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 4),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 5),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 6),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 7),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 8),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 9),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 10),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 11),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 12),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 13),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 14),
+				new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, 15)));
 
 
 	}

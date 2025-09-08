@@ -44,14 +44,11 @@ public class MenuInventoryCreativeMixin extends MenuInventory {
 
 			if (item.itemID == CaveCliffBlocks.BLOCK_COPPER.id() && item.getMetadata() == 0) {
 				newCreativeItems.addAll(copperBlockVariants);
-			}
-			else if (item.itemID == CaveCliffBlocks.BRICK_COPPER.id() && item.getMetadata() == 0) {
+			} else if (item.itemID == CaveCliffBlocks.BRICK_COPPER.id() && item.getMetadata() == 0) {
 				newCreativeItems.addAll(copperBrickVariants);
-			}
-			else if (item.itemID == CaveCliffBlocks.STAIRS_BRICK_COPPER.id() && item.getMetadata() == 0) {
+			} else if (item.itemID == CaveCliffBlocks.STAIRS_BRICK_COPPER.id() && item.getMetadata() == 0) {
 				newCreativeItems.addAll(copperStairsVariants);
-			}
-			else if (item.itemID == CaveCliffBlocks.SLAB_BRICK_COPPER.id() && item.getMetadata() == 0) {
+			} else if (item.itemID == CaveCliffBlocks.SLAB_BRICK_COPPER.id() && item.getMetadata() == 0) {
 				newCreativeItems.addAll(copperSlabVariants);
 			}
 		}

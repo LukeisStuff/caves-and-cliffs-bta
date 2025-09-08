@@ -30,6 +30,7 @@ public abstract class GuiIngameMixin extends Gui {
 			this.renderSnowOverlay(mc.resolution.getScaledWidthScreenCoords(), mc.resolution.getScaledHeightScreenCoords());
 		}
 	}
+
 	@Unique
 	public void renderSnowOverlay(int xSize, int ySize) {
 		GL11.glDisable(2929);

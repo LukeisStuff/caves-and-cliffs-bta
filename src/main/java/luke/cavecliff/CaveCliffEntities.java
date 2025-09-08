@@ -12,12 +12,13 @@ public class CaveCliffEntities {
 	public static boolean hasInit = false;
 
 	public static void init() {
-		if(!hasInit){
+		if (!hasInit) {
 			hasInit = true;
 			initializeEntities();
 		}
 
 	}
+
 	public static String entityKey(String string) {
 		return MOD_ID + ".entity." + string;
 	}

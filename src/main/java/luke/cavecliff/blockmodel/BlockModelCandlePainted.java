@@ -22,12 +22,12 @@ public class BlockModelCandlePainted<T extends BlockLogicCandleWaxColored> exten
 
 	public boolean render(Tessellator tessellator, int x, int y, int z) {
 
-		float minX = (float)x + 0.5F - 0.09375F;
-		float minY = (float)y + 0.0F;
-		float minZ = (float)z + 0.5F - 0.09375F;
-		float maxX = (float)x + 0.5F + 0.09375F;
-		float maxY = (float)y + 0.5F;
-		float maxZ = (float)z + 0.5F + 0.09375F;
+		float minX = (float) x + 0.5F - 0.09375F;
+		float minY = (float) y + 0.0F;
+		float minZ = (float) z + 0.5F - 0.09375F;
+		float maxX = (float) x + 0.5F + 0.09375F;
+		float maxY = (float) y + 0.5F;
+		float maxZ = (float) z + 0.5F + 0.09375F;
 		float wickMaxY = maxY + 0.375F;
 		float brightness = 1.0F;
 		if (LightmapHelper.isLightmapEnabled()) {
@@ -47,7 +47,7 @@ public class BlockModelCandlePainted<T extends BlockLogicCandleWaxColored> exten
 
 		double texV = texIndex.getIconVMin();
 		double onePix = 0.0625;
-		double uOffset =  onePix * 3.0;
+		double uOffset = onePix * 3.0;
 		double sideMinU = texIndex.getSubIconU(uOffset);
 		double sideMaxU = texIndex.getSubIconU(uOffset + onePix * 3.0);
 		double sideMinV = texIndex.getSubIconV(onePix * 3.0);
@@ -112,7 +112,7 @@ public class BlockModelCandlePainted<T extends BlockLogicCandleWaxColored> exten
 
 	static {
 		DyeColor c;
-		for(Iterator<DyeColor> var0 = DyeColor.blockOrderedColors().iterator(); var0.hasNext(); texCoords[c.blockMeta] = TextureRegistry.getTexture("cavecliff:block/candle_" + c.colorID)) {
+		for (Iterator<DyeColor> var0 = DyeColor.blockOrderedColors().iterator(); var0.hasNext(); texCoords[c.blockMeta] = TextureRegistry.getTexture("cavecliff:block/candle/" + c.colorID)) {
 			c = var0.next();
 		}
 

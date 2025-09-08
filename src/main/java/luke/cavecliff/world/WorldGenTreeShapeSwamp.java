@@ -73,7 +73,8 @@ public class WorldGenTreeShapeSwamp extends WorldFeature {
 				int l3 = k3 - x;
 				for (int i4 = z - i3; i4 <= z + i3; ++i4) {
 					int j4 = i4 - z;
-					if (Math.abs(l3) == i3 && Math.abs(j4) == i3 && (random.nextInt(2) == 0 || j2 == 0) || Blocks.solid[world.getBlockId(k3, k1, i4)]) continue;
+					if (Math.abs(l3) == i3 && Math.abs(j4) == i3 && (random.nextInt(2) == 0 || j2 == 0) || Blocks.solid[world.getBlockId(k3, k1, i4)])
+						continue;
 					world.setBlockWithNotify(k3, k1, i4, this.leavesID);
 					if (this.treeRand.nextInt(5) != 0) continue;
 					int vineLength = this.treeRand.nextInt(5);
@@ -86,7 +87,8 @@ public class WorldGenTreeShapeSwamp extends WorldFeature {
 		}
 		for (int l1 = 0; l1 < trunkLength + sinkToFloor; ++l1) {
 			int k2 = world.getBlockId(x, y + l1, z);
-			if (k2 != 0 && k2 != this.leavesID && k2 != Blocks.FLUID_WATER_STILL.id() && k2 != Blocks.FLUID_WATER_FLOWING.id()) continue;
+			if (k2 != 0 && k2 != this.leavesID && k2 != Blocks.FLUID_WATER_STILL.id() && k2 != Blocks.FLUID_WATER_FLOWING.id())
+				continue;
 			world.setBlockWithNotify(x, y + l1, z, this.logID);
 		}
 		new WorldFeatureAlgae().place(world, this.treeRand, x, oldY - 1, z);

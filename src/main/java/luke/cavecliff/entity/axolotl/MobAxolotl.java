@@ -12,6 +12,7 @@ public class MobAxolotl extends MobWaterAnimal {
 		this.moveSpeed = 1.1f;
 		this.scoreValue = 500;
 	}
+
 	@Override
 	public String getLivingSound() {
 		return "cavecliff.axolotlidle";

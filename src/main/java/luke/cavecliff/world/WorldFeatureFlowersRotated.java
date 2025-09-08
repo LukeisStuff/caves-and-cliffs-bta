@@ -11,7 +11,7 @@ public class WorldFeatureFlowersRotated
 	extends WorldFeature {
 	public final int plantBlockId;
 
-	@MethodParametersAnnotation(names={"plantBlockId"})
+	@MethodParametersAnnotation(names = {"plantBlockId"})
 	public WorldFeatureFlowersRotated(int plantBlockId) {
 		this.plantBlockId = plantBlockId;
 	}
@@ -22,7 +22,8 @@ public class WorldFeatureFlowersRotated
 			int k1;
 			int j1;
 			int i1 = x + random.nextInt(8) - random.nextInt(8);
-			if (!world.isAirBlock(i1, j1 = y + random.nextInt(4) - random.nextInt(4), k1 = z + random.nextInt(8) - random.nextInt(8)) || !Blocks.blocksList[this.plantBlockId].canBlockStay(world, i1, j1, k1)) continue;
+			if (!world.isAirBlock(i1, j1 = y + random.nextInt(4) - random.nextInt(4), k1 = z + random.nextInt(8) - random.nextInt(8)) || !Blocks.blocksList[this.plantBlockId].canBlockStay(world, i1, j1, k1))
+				continue;
 			world.setBlockAndMetadata(i1, j1, k1, this.plantBlockId, random.nextInt(3));
 		}
 		return true;

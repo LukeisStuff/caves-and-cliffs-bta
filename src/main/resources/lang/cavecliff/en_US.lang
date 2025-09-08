@@ -10,8 +10,8 @@ tile.cavecliff.amethyst.cluster.medium.name=Medium Amethyst Cluster
 tile.cavecliff.amethyst.cluster.medium.desc=Medium sprouting chunks of amethyst crystals.
 tile.cavecliff.amethyst.cluster.large.name=Large Amethyst Cluster
 tile.cavecliff.amethyst.cluster.large.desc=Large sprouting chunks of amethyst crystals.
-tile.cavecliff.amethyst.cluster.cluster.name=Amethyst Cluster
-tile.cavecliff.amethyst.cluster.cluster.desc=Sprouting chunks of amethyst crystals.
+tile.cavecliff.amethyst.cluster.name=Amethyst Cluster
+tile.cavecliff.amethyst.cluster.desc=Sprouting chunks of amethyst crystals.
 
 tile.cavecliff.tuff.name=Tuff
 tile.cavecliff.tuff.desc=A block of solid tuff.
@@ -30,6 +30,9 @@ tile.cavecliff.ore.copper.limestone.desc=Copper nuggets embedded in limestone.
 
 tile.cavecliff.ore.copper.granite.name=Granite Copper Ore
 tile.cavecliff.ore.copper.granite.desc=Copper nuggets embedded in granite.
+
+tile.cavecliff.ore.copper.permafrost.name=Permafrost Copper Ore
+tile.cavecliff.ore.copper.permafrost.desc=Copper nuggets embedded in permafrost.
 
 tile.cavecliff.block.copper.clean.name=Block of Copper
 tile.cavecliff.block.copper.clean.desc=A solid block of copper.
@@ -76,8 +79,8 @@ tile.cavecliff.sapling.azalea.flowering.desc=Plant to grow a flowering azalea tr
 tile.cavecliff.log.azalea.name=Azalea Log
 tile.cavecliff.log.azalea.desc=A log from an azalea tree.
 
-tile.cavecliff.moss.name=Moss
-tile.cavecliff.moss.desc=Large lump of greenery.
+tile.cavecliff.block.moss.name=Moss
+tile.cavecliff.block.moss.desc=Large lump of greenery.
 
 tile.cavecliff.moss.layer.name=Moss Layer
 tile.cavecliff.moss.layer.desc=A flat bedding of moss.
@@ -136,6 +139,8 @@ item.cavecliff.horn.goat.desc=Use it to play a strange sound, has a short cooldo
 item.cavecliff.inksac.glow.name=Glow Sac
 item.cavecliff.inksac.glow.desc=Can be used to create cyan dye and glow lichen.
 
+tile.cavecliff.candle.colored.name=Colored Candle
+tile.cavecliff.candle.colored.desc=A candle, colored.
 tile.cavecliff.candle.colored.white.name=White Candle
 tile.cavecliff.candle.colored.white.desc=A candle, dyed white.
 tile.cavecliff.candle.colored.orange.name=Orange Candle
@@ -203,6 +208,8 @@ tile.cavecliff.candle.colored.lit.black.name=Lit Black Candle
 tile.cavecliff.candle.colored.lit.black.desc=A candle, dyed black. Currently lit.
 
 
+tile.cavecliff.slab.brick.copper.name=Copper Brick Slab
+tile.cavecliff.slab.brick.copper.desc=A slab of copper bricks.
 tile.cavecliff.slab.brick.copper.clean.name=Copper Brick Slab
 tile.cavecliff.slab.brick.copper.clean.desc=A slab of copper bricks.
 tile.cavecliff.slab.brick.copper.oxidized.name=Oxidized Copper Brick Slab
@@ -212,6 +219,8 @@ tile.cavecliff.slab.brick.copper.weathered.desc=A slab of weathered copper brick
 tile.cavecliff.slab.brick.copper.exposed.name=Exposed Copper Brick Slab
 tile.cavecliff.slab.brick.copper.exposed.desc=A slab of exposed copper bricks.
 
+tile.cavecliff.stairs.brick.copper.name=Copper Brick Stairs
+tile.cavecliff.stairs.brick.copper.desc=Copper brick block used for rapid vertical movement.
 tile.cavecliff.stairs.brick.copper.clean.name=Copper Brick Stairs
 tile.cavecliff.stairs.brick.copper.clean.desc=Copper brick block used for rapid vertical movement.
 tile.cavecliff.stairs.brick.copper.exposed.name=Oxidized Copper Brick Stairs

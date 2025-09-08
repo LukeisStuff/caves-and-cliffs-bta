@@ -29,7 +29,7 @@ public class ItemHorn extends Item {
 			Player.swingItem();
 			Player.getHeldItem().damageItem(256, Player);
 		}
-        return itemstack;
-    }
+		return itemstack;
+	}
 
 }

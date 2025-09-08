@@ -17,6 +17,6 @@ public class ItemBlockSlabCopper<T extends BlockLogic> extends ItemBlockSlab<T> 
 	}
 
 	public String getLanguageKey(ItemStack itemstack) {
-		return this.upperMetadata ? super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((itemstack.getMetadata() & 60) >> 4)] : super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation(itemstack.getMetadata())];
+		return this.upperMetadata ? super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((itemstack.getMetadata() & 60) >> 4)] : super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation(itemstack.getMetadata() & 15)];
 	}
 }

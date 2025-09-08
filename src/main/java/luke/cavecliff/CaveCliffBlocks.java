@@ -215,13 +215,12 @@ public class CaveCliffBlocks {
 
 
 		AMETHYST = amethyst
-			.setTags(BlockTags.MINEABLE_BY_PICKAXE, BlockTags.CAVES_CUT_THROUGH, BlockTags.CAVE_GEN_REPLACES_SURFACE)
-			.build("amethyst", "amethyst", blockID("AMETHYST"), b -> new BlockLogic(b, Material.glass));
+			.build("amethyst", "amethyst", blockID("AMETHYST"), b -> new BlockLogic(b, Material.stone));
 
 		AMETHYST_BUDDING = amethyst
 			.setTicking(true)
 			.setTickOnLoad()
-			.build("amethyst.budding", "amethyst_budding", blockID("AMETHYST_BUDDING"), b -> new BlockLogicBuddingAmethyst(b, Material.glass));
+			.build("amethyst.budding", "amethyst_budding", blockID("AMETHYST_BUDDING"), b -> new BlockLogicBuddingAmethyst(b, Material.stone));
 
 
 		AMETHYST_CLUSTER_SMALL = amethyst

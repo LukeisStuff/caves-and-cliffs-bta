@@ -20,7 +20,6 @@ public class ItemBlockStairsCopper<T extends BlockLogic> extends ItemBlock<T> {
 		return stack.getMetadata();
 	}
 
-
 	public String getLanguageKey(ItemStack itemstack) {
 		return super.getKey() + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((itemstack.getMetadata() & 60) >> 4)];
 	}

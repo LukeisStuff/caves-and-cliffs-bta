@@ -30,7 +30,7 @@ public class ItemModelCandleColored
 
 	static {
 		DyeColor c;
-		for(Iterator<DyeColor> var0 = DyeColor.itemOrderedColors().iterator(); var0.hasNext(); dyeIcons[c.itemMeta] = TextureRegistry.getTexture("cavecliff:item/candle_" + c.colorID)) {
+		for (Iterator<DyeColor> var0 = DyeColor.itemOrderedColors().iterator(); var0.hasNext(); dyeIcons[c.itemMeta] = TextureRegistry.getTexture("cavecliff:item/candle_" + c.colorID)) {
 			c = var0.next();
 		}
 
