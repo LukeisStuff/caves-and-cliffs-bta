@@ -6,8 +6,10 @@ import net.minecraft.client.render.camera.CameraUtil;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.world.World;
 import org.lwjgl.opengl.GL11;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Unique;
+import org.spongepowered.asm.mixin.Mutable;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
@@ -15,14 +17,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(value = FogManager.class, remap = false)
 public class FogManagerMixin {
 
-	@Unique
+	@Mutable
+	@Final
+	@Shadow
 	public final Minecraft mc;
 
-	@Unique
+	@Shadow
 	public float fogRed;
-	@Unique
+	@Shadow
 	public float fogGreen;
-	@Unique
+	@Shadow
 	public float fogBlue;
 
 	public FogManagerMixin(Minecraft mc) {

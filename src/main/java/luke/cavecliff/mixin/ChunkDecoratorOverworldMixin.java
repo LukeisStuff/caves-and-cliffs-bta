@@ -4,12 +4,12 @@ import com.llamalad7.mixinextras.sugar.Local;
 import luke.cavecliff.CaveCliffBlocks;
 import luke.cavecliff.block.BlockLogicOreCopper;
 import luke.cavecliff.world.WorldFeatureGeode;
-import luke.cavecliff.world.WorldFeaturePowderSnow;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.chunk.Chunk;
 import net.minecraft.core.world.generate.chunk.perlin.overworld.ChunkDecoratorOverworld;
 import net.minecraft.core.world.generate.feature.WorldFeatureFlowers;
 import net.minecraft.core.world.generate.feature.WorldFeatureOre;
+import net.minecraft.core.world.generate.feature.tree.WorldFeatureTreeFancy;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -65,17 +65,19 @@ public class ChunkDecoratorOverworldMixin {
 			(new WorldFeatureOre(CaveCliffBlocks.BLOCK_MOSS.id(), 32)).place(this.world, rand, xArea, yHeight, zArea);
 		}
 
-		if ((rand.nextInt(8) == 0)) {
-			int xf = x + rand.nextInt(16) + 8;
-			int zf = z + rand.nextInt(16) + 8;
-			int yf = this.world.getHeightValue(x, z);
-			new WorldFeatureFlowers(CaveCliffBlocks.ROOTS.id(), 128, false).place(world, rand, xf, yf, zf);
-		}
-
 		xArea = x + rand.nextInt(16);
 		yHeight = minY + rand.nextInt(rangeY);
 		zArea = z + rand.nextInt(16);
-		(new WorldFeaturePowderSnow()).place(this.world, rand, xArea, yHeight, zArea);
+		new WorldFeatureFlowers(CaveCliffBlocks.ROOTS.id(), 128, false).place(world, rand, xArea, yHeight, zArea);
+
+		xArea = x + rand.nextInt(16);
+		zArea = z + rand.nextInt(16);
+		yHeight = minY + rand.nextInt(rangeY);
+		if (rand.nextInt(2) == 0) {
+			new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1).place(world, rand, xArea, yHeight, zArea);
+		} else {
+			new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA_FLOWERING.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1).place(world, rand, xArea, yHeight, zArea);
+		}
 
 		if ((rand.nextInt(25) == 0)) {
 			xArea = x + rand.nextInt(16);
