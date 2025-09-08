@@ -81,8 +81,9 @@ public class BlockLogicVines extends BlockLogic implements IBonemealable {
 
 
 	public boolean onBlockRightClicked(World world, int x, int y, int z, Player player, Side side, double xHit, double yHit) {
+		int meta = world.getBlockMetadata(x, y, z);
 		if (glowing) {
-			world.setBlockWithNotify(x, y, z, CaveCliffBlocks.VINES.id());
+			world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.VINES.id(), meta);
 			world.playSoundAtEntity(player, player, "random.pop", 0.2F, 0.5F);
 			world.dropItem(x, y, z, new ItemStack(CaveCliffItems.FOOD_GLOW_BERRIES, world.rand.nextInt(2) + 1));
 			player.swingItem();
@@ -92,11 +93,13 @@ public class BlockLogicVines extends BlockLogic implements IBonemealable {
 
 	public void updateTick(World world, int x, int y, int z, Random rand) {
 		super.updateTick(world, x, y, z, rand);
+		int meta = world.getBlockMetadata(x, y, z);
 		int blockBelow = world.getBlockId(x, y - 1, z);
+
 		if (!glowing) {
 			if (rand.nextInt(20) == 0) {
 				if (rand.nextInt(4) == 0) {
-					world.setBlockWithNotify(x, y, z, CaveCliffBlocks.VINES_GLOWING.id());
+					world.setBlockAndMetadataWithNotify(x, y, z, CaveCliffBlocks.VINES_GLOWING.id(), meta);
 				} else {
 					if (blockBelow == 0) {
 						world.setBlockAndMetadataWithNotify(x, y - 1, z, CaveCliffBlocks.VINES.id(), 0);
@@ -107,9 +110,10 @@ public class BlockLogicVines extends BlockLogic implements IBonemealable {
 	}
 
 	public boolean onBonemealUsed(ItemStack itemStack, Player Player, World world, int blockX, int blockY, int blockZ, Side side, double d, double e) {
+		int meta = world.getBlockMetadata(blockX, blockY, blockZ);
 		if (!glowing) {
 			if (!world.isClientSide) {
-				world.setBlockWithNotify(blockX, blockY, blockZ, CaveCliffBlocks.VINES_GLOWING.id());
+				world.setBlockAndMetadataWithNotify(blockX, blockY, blockZ, CaveCliffBlocks.VINES_GLOWING.id(), meta);
 				if (Player.getGamemode().consumeBlocks()) {
 					--itemStack.stackSize;
 				}

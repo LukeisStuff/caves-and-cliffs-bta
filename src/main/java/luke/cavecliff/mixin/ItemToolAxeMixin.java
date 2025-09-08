@@ -16,7 +16,6 @@ import org.spongepowered.asm.mixin.Mixin;
 @Mixin(value = ItemToolAxe.class, remap = false)
 public class ItemToolAxeMixin extends ItemTool {
 
-
 	public ItemToolAxeMixin(String name, String namespaceId, int id, ToolMaterial enumtoolmaterial) {
 		super(name, namespaceId, id, 3, enumtoolmaterial, BlockTags.MINEABLE_BY_AXE);
 	}
@@ -37,9 +36,7 @@ public class ItemToolAxeMixin extends ItemTool {
 					Player.swingItem();
 				}
 			}
-			Player.swingItem();
 		}
-
 
 		//COPPER BRICK
 		if (blockToScrape == CaveCliffBlocks.BRICK_COPPER.id()) {
@@ -52,9 +49,7 @@ public class ItemToolAxeMixin extends ItemTool {
 					Player.swingItem();
 				}
 			}
-			Player.swingItem();
 		}
-
 
 		//COPPER BRICK SLABS
 		if (blockToScrape == CaveCliffBlocks.SLAB_BRICK_COPPER.id()) {
@@ -67,9 +62,7 @@ public class ItemToolAxeMixin extends ItemTool {
 					Player.swingItem();
 				}
 			}
-			Player.swingItem();
 		}
-
 
 		//COPPER BRICK STAIRS
 		if (blockToScrape == CaveCliffBlocks.STAIRS_BRICK_COPPER.id()) {
@@ -82,9 +75,8 @@ public class ItemToolAxeMixin extends ItemTool {
 					Player.swingItem();
 				}
 			}
-			Player.swingItem();
 		}
-
 		return false;
 	}
+
 }

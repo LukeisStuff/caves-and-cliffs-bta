@@ -1,10 +1,7 @@
 package luke.cavecliff;
 
 import luke.cavecliff.block.*;
-import luke.cavecliff.blockmodel.ItemBlockAmethystCluster;
-import luke.cavecliff.blockmodel.ItemBlockCopper;
-import luke.cavecliff.blockmodel.ItemBlockSlabCopper;
-import luke.cavecliff.blockmodel.ItemBlockStairsCopper;
+import luke.cavecliff.blockmodel.*;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
@@ -39,11 +36,11 @@ public class CaveCliffBlocks {
 	public static Block<?> ORE_COPPER_GRANITE;
 	public static Block<?> ORE_COPPER_PERMAFROST;
 
-	public static Block<?> BLOCK_COPPER;
-	public static Block<?> BRICK_COPPER;
+	public static Block<BlockLogicCopper> BLOCK_COPPER;
+	public static Block<BlockLogicCopper> BRICK_COPPER;
 
-	public static Block<?> SLAB_BRICK_COPPER;
-	public static Block<?> STAIRS_BRICK_COPPER;
+	public static Block<BlockLogicSlabCopper> SLAB_BRICK_COPPER;
+	public static Block<BlockLogicStairsCopper> STAIRS_BRICK_COPPER;
 
 	public static Block<?> BLOCK_SNOW_POWDER;
 
@@ -70,10 +67,10 @@ public class CaveCliffBlocks {
 	public static Block<?> BLOCK_GOLD_RAW;
 	public static Block<?> BLOCK_COPPER_RAW;
 
-	public static Block<?> VINES;
-	public static Block<?> VINES_GLOWING;
+	public static Block<BlockLogicVines> VINES;
+	public static Block<BlockLogicVines> VINES_GLOWING;
 
-	public static Block<?> LICHEN;
+	public static Block<BlockLogicLichen> LICHEN;
 
 	public static Block<?> FLOWER_SPORE;
 	public static Block<?> DRIPLEAF_BIG;
@@ -170,7 +167,7 @@ public class CaveCliffBlocks {
 			.build("sapling.azalea", "sapling_azalea", blockID("SAPLING_AZALEA"), b -> new BlockLogicSaplingAzalea(b, LEAVES_AZALEA));
 
 		LEAVES_AZALEA_FLOWERING = leaves
-			.build("leaves.skyroot.flowering", "leaves_skyroot_flowering", blockID("LEAVES_AZALEA_FLOWERING"), b -> new BlockLogicLeavesBase(b, Material.leaves, SAPLING_AZALEA_FLOWERING));
+			.build("leaves.azalea.flowering", "leaves_skyroot_flowering", blockID("LEAVES_AZALEA_FLOWERING"), b -> new BlockLogicLeavesBase(b, Material.leaves, SAPLING_AZALEA_FLOWERING));
 
 		SAPLING_AZALEA_FLOWERING = sapling
 			.build("sapling.azalea.flowering", "sapling_azalea_flowering", blockID("SAPLING_AZALEA_FLOWERING"), b -> new BlockLogicSaplingAzalea(b, LEAVES_AZALEA_FLOWERING));
@@ -232,25 +229,25 @@ public class CaveCliffBlocks {
 			.setTicking(true)
 			.setTickOnLoad()
 			.setBlockItem(ItemBlockAmethystCluster::new)
-			.build("amethyst.cluster.small", "amethyst_cluster_small", blockID("AMETHYST_CLUSTER_SMALL"), block -> new BlockLogicAmethystCluster(block, 0.2f, AMETHYST_CLUSTER_MEDIUM));
+			.build("amethyst.cluster.small", "amethyst_cluster_small", blockID("AMETHYST_CLUSTER_SMALL"), block -> new BlockLogicAmethystCluster(block, 0.25f, AMETHYST_CLUSTER_MEDIUM));
 		AMETHYST_CLUSTER_MEDIUM = amethyst
 			.setLuminance(2)
 			.setTicking(true)
 			.setTickOnLoad()
 			.setBlockItem(ItemBlockAmethystCluster::new)
-			.build("amethyst.cluster.medium", "amethyst_cluster_medium", blockID("AMETHYST_CLUSTER_MEDIUM"), block -> new BlockLogicAmethystCluster(block, 0.25f, AMETHYST_CLUSTER_LARGE));
+			.build("amethyst.cluster.medium", "amethyst_cluster_medium", blockID("AMETHYST_CLUSTER_MEDIUM"), block -> new BlockLogicAmethystCluster(block, 0.3f, AMETHYST_CLUSTER_LARGE));
 		AMETHYST_CLUSTER_LARGE = amethyst
 			.setLuminance(4)
 			.setTicking(true)
 			.setTickOnLoad()
 			.setBlockItem(ItemBlockAmethystCluster::new)
-			.build("amethyst.cluster.large", "amethyst_cluster_large", blockID("AMETHYST_CLUSTER_LARGE"), block -> new BlockLogicAmethystCluster(block, 0.3f, AMETHYST_CLUSTER));
+			.build("amethyst.cluster.large", "amethyst_cluster_large", blockID("AMETHYST_CLUSTER_LARGE"), block -> new BlockLogicAmethystCluster(block, 0.35f, AMETHYST_CLUSTER));
 		AMETHYST_CLUSTER = amethyst
 			.setLuminance(5)
 			.setTicking(true)
 			.setTickOnLoad()
 			.setBlockItem(ItemBlockAmethystCluster::new)
-			.build("amethyst.cluster", "amethyst_cluster", blockID("AMETHYST_CLUSTER"), block -> new BlockLogicAmethystCluster(block, 0.35f, null));
+			.build("amethyst.cluster", "amethyst_cluster", blockID("AMETHYST_CLUSTER"), block -> new BlockLogicAmethystCluster(block, 0.4f, null));
 
 		BLOCK_COPPER = metal
 			.setTicking(true)
@@ -392,8 +389,9 @@ public class CaveCliffBlocks {
 			.setVisualUpdateOnMetadata()
 			.setLuminance(7)
 			.setUseInternalLight()
+			.setBlockItem(ItemBlockLichen::new)
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
-			.build("lichen", "lichen", blockID("LICHEN"), BlockLogicLichen::new);
+			.build("lichen", "lichen", blockID("LICHEN"), block -> new BlockLogicLichen(block, Material.grass));
 
 		LIGHTNING_ROD = metal
 			.setVisualUpdateOnMetadata()

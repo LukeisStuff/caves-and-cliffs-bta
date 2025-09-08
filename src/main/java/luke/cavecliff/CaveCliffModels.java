@@ -80,21 +80,25 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new BlockModelLadder<>(CaveCliffBlocks.LICHEN)
 			.setAllTextures(0, "cavecliff:block/lichen").setAllTextures(1, "cavecliff:block/lichen_overlay"));
 
-		dispatcher.addDispatch(new BlockModelAmethystCluster(CaveCliffBlocks.AMETHYST_CLUSTER_SMALL).setAllTextures(0, "cavecliff:block/amethyst_small"));
-		dispatcher.addDispatch(new BlockModelAmethystCluster(CaveCliffBlocks.AMETHYST_CLUSTER_MEDIUM).setAllTextures(0, "cavecliff:block/amethyst_medium"));
-		dispatcher.addDispatch(new BlockModelAmethystCluster(CaveCliffBlocks.AMETHYST_CLUSTER_LARGE).setAllTextures(0, "cavecliff:block/amethyst_large"));
-		dispatcher.addDispatch(new BlockModelAmethystCluster(CaveCliffBlocks.AMETHYST_CLUSTER).setAllTextures(0, "cavecliff:block/amethyst_cluster"));
+		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_SMALL).setAllTextures(0, "cavecliff:block/amethyst_small"));
+		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_MEDIUM).setAllTextures(0, "cavecliff:block/amethyst_medium"));
+		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_LARGE).setAllTextures(0, "cavecliff:block/amethyst_large"));
+		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER).setAllTextures(0, "cavecliff:block/amethyst_cluster"));
+
+		dispatcher.addDispatch(new BlockModelVines<>(CaveCliffBlocks.VINES));
+		dispatcher.addDispatch(new BlockModelVinesGlowing<>(CaveCliffBlocks.VINES_GLOWING));
+
 
 		dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE));
 		dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE_LIT));
 		dispatcher.addDispatch(new BlockModelCandlePainted<>(CaveCliffBlocks.CANDLE_COLORED));
 		dispatcher.addDispatch(new BlockModelCandlePainted<>(CaveCliffBlocks.CANDLE_COLORED_LIT));
 
-		dispatcher.addDispatch(new BlockModelCopperBlock(CaveCliffBlocks.BLOCK_COPPER));
-		dispatcher.addDispatch(new BlockModelCopperBrick(CaveCliffBlocks.BRICK_COPPER));
+		dispatcher.addDispatch(new BlockModelCopperBlock<>(CaveCliffBlocks.BLOCK_COPPER));
+		dispatcher.addDispatch(new BlockModelCopperBrick<>(CaveCliffBlocks.BRICK_COPPER));
 
-		dispatcher.addDispatch(new BlockModelStairsCopper(CaveCliffBlocks.STAIRS_BRICK_COPPER));
-		dispatcher.addDispatch(new BlockModelSlabCopper(CaveCliffBlocks.SLAB_BRICK_COPPER));
+		dispatcher.addDispatch(new BlockModelStairsCopper<>(CaveCliffBlocks.STAIRS_BRICK_COPPER));
+		dispatcher.addDispatch(new BlockModelSlabCopper<>(CaveCliffBlocks.SLAB_BRICK_COPPER));
 	}
 
 	@Override

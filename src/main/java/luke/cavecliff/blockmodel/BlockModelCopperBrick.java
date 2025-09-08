@@ -1,5 +1,7 @@
 package luke.cavecliff.blockmodel;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.client.render.texture.stitcher.TextureRegistry;
@@ -7,6 +9,7 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.util.helper.Side;
 
+@Environment(EnvType.CLIENT)
 public class BlockModelCopperBrick<T extends BlockLogic> extends BlockModelStandard<T> {
 	public static final IconCoordinate[] oxidizeStageTextures = new IconCoordinate[4];
 
