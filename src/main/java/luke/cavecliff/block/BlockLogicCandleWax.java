@@ -70,11 +70,13 @@ public class BlockLogicCandleWax extends BlockLogic {
 	}
 
 	public void animationTick(World world, int x, int y, int z, Random rand) {
-		double d = (double) x + 0.5;
-		double d1 = (double) y + 0.7;
-		double d2 = (double) z + 0.5;
-		world.spawnParticle("smoke", d, d1, d2, 0.0, 0.0, 0.0, 0);
-		world.spawnParticle("flame", d, d1, d2, 0.0, 0.0, 0.0, 0);
+		if (burning) {
+			double d = (double) x + 0.5;
+			double d1 = (double) y + 0.7;
+			double d2 = (double) z + 0.5;
+			world.spawnParticle("smoke", d, d1, d2, 0.0, 0.0, 0.0, 0);
+			world.spawnParticle("flame", d, d1, d2, 0.0, 0.0, 0.0, 0);
+		}
 	}
 
 	public ItemStack[] getBreakResult(World world, EnumDropCause dropCause, int x, int y, int z, int meta, TileEntity tileEntity) {

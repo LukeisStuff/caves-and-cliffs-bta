@@ -4,23 +4,38 @@ import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicSlab;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.entity.Mob;
+import net.minecraft.core.entity.player.Player;
+import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
 public class BlockLogicSlabCopper extends BlockLogicSlab {
 
-
 	public BlockLogicSlabCopper(Block<?> block, Block<?> modelBlock) {
 		super(block, modelBlock);
+	}
+
+	public int getPlacedBlockMetadata(@Nullable Player player, ItemStack stack, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
+		return stack.getMetadata();
 	}
 
 	public void onBlockPlacedByMob(World world, int x, int y, int z, @NotNull Side side, Mob mob, double xPlaced, double yPlaced) {
 		int meta = mob.getVerticalPlacementDirection(side, yPlaced) == Direction.UP ? 2 : 0;
 		world.setBlockMetadataWithNotify(x, y, z, meta | world.getBlockMetadata(x, y, z) & 60);
+	}
+
+	public void onBlockPlacedOnSide(World world, int x, int y, int z, @NotNull Side side, double xPlaced, double yPlaced) {
+		int meta = side == Side.TOP ? 2 : 0;
+		world.setBlockMetadataWithNotify(x, y, z, meta | world.getBlockMetadata(x, y, z) & 60);
+	}
+
+	public String getLanguageKey(int meta) {
+		return super.getLanguageKey(meta) + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((meta & 60) >> 4)];
 	}
 
 	public void updateTick(World world, int x, int y, int z, Random rand) {
