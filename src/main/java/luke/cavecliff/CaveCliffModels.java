@@ -89,8 +89,8 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new BlockModelVinesGlowing<>(CaveCliffBlocks.VINES_GLOWING));
 
 
-		dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE));
-		dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE_LIT));
+		dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE).setAllTextures(0, "cavecliff:block/candle/candle"));
+		dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE_LIT).setAllTextures(0, "cavecliff:block/candle/candle"));
 		dispatcher.addDispatch(new BlockModelCandlePainted<>(CaveCliffBlocks.CANDLE_COLORED));
 		dispatcher.addDispatch(new BlockModelCandlePainted<>(CaveCliffBlocks.CANDLE_COLORED_LIT));
 
@@ -111,11 +111,11 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.INKSAC_GLOW, null).setIcon("cavecliff:item/inksac_glow"));
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.RECORD_OTHERSIDE, null).setIcon("cavecliff:item/otherside"));
 
-		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE.asItem(), null).setIcon("cavecliff:item/candle").setFullBright());
+		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE.asItem(), null).setIcon("cavecliff:item/candle"));
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE_LIT.asItem(), null).setIcon("cavecliff:item/candle").setFullBright());
 
-		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE_COLORED.asItem(), null).setIcon("bonusblocks:item/candle_soulwax").setFullBright());
-		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE_COLORED_LIT.asItem(), null).setIcon("bonusblocks:item/candle_soulwax").setFullBright());
+		dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED.asItem(), null));
+		dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED_LIT.asItem(), null).setFullBright());
 
 
 	}

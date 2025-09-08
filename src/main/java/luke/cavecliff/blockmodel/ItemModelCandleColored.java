@@ -7,32 +7,26 @@ import net.minecraft.core.entity.Entity;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.DyeColor;
-import net.minecraft.core.util.helper.MathHelper;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
-
-import java.util.Iterator;
 
 public class ItemModelCandleColored
 	extends ItemModelStandard {
 	public static IconCoordinate[] dyeIcons = new IconCoordinate[16];
 
-	public ItemModelCandleColored(Item item) {
-		super(item, null);
+	public ItemModelCandleColored(Item item, String namespace) {
+		super(item, namespace);
 	}
 
-	@Override
-	@NotNull
-	public IconCoordinate getIcon(@Nullable Entity entity, ItemStack itemStack) {
+	public @NotNull IconCoordinate getIcon(Entity entity, ItemStack itemStack) {
 		int meta = itemStack.getMetadata();
-		return dyeIcons[MathHelper.clamp(meta, 0, 15)];
+		return dyeIcons[meta & 15];
 	}
 
 	static {
-		DyeColor c;
-		for (Iterator<DyeColor> var0 = DyeColor.itemOrderedColors().iterator(); var0.hasNext(); dyeIcons[c.itemMeta] = TextureRegistry.getTexture("cavecliff:item/candle_" + c.colorID)) {
-			c = var0.next();
+		DyeColor[] colors = DyeColor.itemOrderedColors().toArray(new DyeColor[0]);
+		for (int i = 0; i < colors.length; i++) {
+			DyeColor c = colors[i];
+			dyeIcons[15 - i] = TextureRegistry.getTexture("cavecliff:item/candle_" + c.colorID);
 		}
-
 	}
 }

@@ -64,7 +64,6 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 		RecipeBuilder.Shaped(MOD_ID, "S", "P", "E")
 			.addInput('S', Items.STRING)
 			.addInput('P', Items.PAPER)
-			.addInput('E', Blocks.LOG_EUCALYPTUS)
 			.create("candle", new ItemStack(CaveCliffBlocks.CANDLE, 4));
 
 		for (int color = 0; color < 16; color++) {

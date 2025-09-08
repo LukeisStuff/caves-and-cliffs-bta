@@ -12,6 +12,7 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.sound.SoundCategory;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class BlockLogicCandleWaxColored extends BlockLogicCandleWax {
 	public boolean burning;
@@ -22,6 +23,9 @@ public class BlockLogicCandleWaxColored extends BlockLogicCandleWax {
 		this.setBlockBounds(0.40625F, 0.0F, 0.40625F, 0.59375F, 0.5F, 0.59375F);
 	}
 
+	public int getPlacedBlockMetadata(@Nullable Player player, ItemStack stack, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
+		return stack.getMetadata() & 15;
+	}
 
 	public boolean onBlockRightClicked(World world, int x, int y, int z, Player player, Side side, double xPlaced, double yPlaced) {
 		ItemStack heldItem = player.getHeldItem();
