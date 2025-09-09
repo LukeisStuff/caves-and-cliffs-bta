@@ -17,6 +17,8 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 		RecipeBuilderShaped templateLogtoPlank = new RecipeBuilderShaped(MOD_ID, "X");
 		templateLogtoPlank.addInput('X', CaveCliffBlocks.LOG_AZALEA).create("logAzaleaToPlanks", new ItemStack(Blocks.PLANKS_OAK_PAINTED, 4, 5));
 
+		templateLogtoPlank.addInput('X', CaveCliffBlocks.BLOCK_MOSS).create("block_of_moss_to_moss_layer", new ItemStack(CaveCliffBlocks.MOSS_LAYER, 8));
+
 		RecipeBuilderShaped templateItemtoBlock = new RecipeBuilderShaped(MOD_ID, "XXX", "XXX", "XXX");
 		templateItemtoBlock.addInput('X', CaveCliffItems.AMETHYST).create("block_of_amethyst", new ItemStack(CaveCliffBlocks.AMETHYST, 1));
 		templateItemtoBlock.addInput('X', CaveCliffItems.ORE_RAW_COPPER).create("block_of_raw_copper", new ItemStack(CaveCliffBlocks.BLOCK_COPPER_RAW, 1));

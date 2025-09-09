@@ -134,7 +134,7 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED_LIT.asItem(), null).setFullBright());
 
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.VINES_GLOWING.asItem(), null).setFullBright());
-		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.LICHEN.asItem(), null).setFullBright());
+		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.LICHEN.asItem(), null).setFullBright().setIcon("cavecliff:block/lichen"));
 
 
 	}
