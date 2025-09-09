@@ -4,6 +4,7 @@ import luke.cavecliff.CaveCliffBlocks;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.BlockLogicFluid;
+import net.minecraft.core.block.IPaintable;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.entity.player.Player;
@@ -11,18 +12,29 @@ import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemFireStriker;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.sound.SoundCategory;
+import net.minecraft.core.util.helper.DyeColor;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
 
 import java.util.Random;
 
-public class BlockLogicCandleWax extends BlockLogic {
+public class BlockLogicCandleWax extends BlockLogic implements IPaintable {
 	public boolean burning;
 
 	public BlockLogicCandleWax(Block<?> block, Material material, boolean burning) {
 		super(block, material);
 		this.burning = burning;
 		this.setBlockBounds(0.40625F, 0.0F, 0.40625F, 0.59375F, 0.5F, 0.59375F);
+	}
+
+	public void setColor(World world, int x, int y, int z, DyeColor color) {
+		if (burning) {
+			world.setBlock(x, y, z, CaveCliffBlocks.CANDLE_COLORED_LIT.id());
+			((BlockLogicCandleWaxColored) CaveCliffBlocks.CANDLE_COLORED_LIT.getLogic()).setColor(world, x, y, z, color);
+		} else {
+			world.setBlock(x, y, z, CaveCliffBlocks.CANDLE_COLORED.id());
+			((BlockLogicCandleWaxColored) CaveCliffBlocks.CANDLE_COLORED.getLogic()).setColor(world, x, y, z, color);
+		}
 	}
 
 	public boolean isSolidRender() {

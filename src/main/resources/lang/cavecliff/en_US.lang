@@ -59,7 +59,9 @@ tile.cavecliff.block.snow.powder.name=Powder Snow
 tile.cavecliff.block.snow.powder.desc=Loose snow packed into a bitterly cold block.
 
 tile.cavecliff.candle.name=Candle
-tile.cavecliff.candle.desc=A burning light source thats made from the wax of a eucalyptus.
+tile.cavecliff.candle.desc=A burning light source that's made from paper wax.
+tile.cavecliff.candle.lit.name=Lit Candle
+tile.cavecliff.candle.lit.desc=A burning light source that's made from paper wax. Currently lit.
 
 tile.cavecliff.dripstone.name=Dripstone
 tile.cavecliff.dripstone.desc=A spiky block that falls when its not supported from above.
@@ -110,7 +112,7 @@ tile.cavecliff.flower.spore.name=Spore Blossom
 tile.cavecliff.flower.spore.desc=A unique flower that releases pollen.
 
 tile.cavecliff.dripleaf.large.name=Big Dripleaf
-tile.cavecliff.dripleaf.large.desc=A stalk plant with a delicate lilypad.
+tile.cavecliff.dripleaf.large.desc=A stalk plant with a delicate lily-pad.
 
 tile.cavecliff.dripleaf.small.name=Small Dripleaf
 tile.cavecliff.dripleaf.small.desc=A stalk plant with 4 clovers.

@@ -19,7 +19,7 @@ public abstract class BiomeForestAzaleaTreeMixin {
 	private void getRandomWorldGenForTrees(Random random, CallbackInfoReturnable<WorldFeature> cir) {
 		WorldFeature original = cir.getReturnValue();
 		if (original instanceof WorldFeatureTree) {
-			if (random.nextInt(15) == 0) {
+			if (random.nextInt(20) == 0) {
 				if (random.nextInt(2) == 0) {
 					cir.setReturnValue(new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1));
 				} else {
