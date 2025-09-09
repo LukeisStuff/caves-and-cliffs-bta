@@ -62,6 +62,9 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.DIRT_ROOTED)
 			.setAllTextures(0, "cavecliff:block/dirt_rooted"));
 
+		dispatcher.addDispatch(new BlockModelSpore<>(CaveCliffBlocks.FLOWER_SPORE)
+			.setTex(0, "cavecliff:block/spore_blossom_root", Side.BOTTOM).setTex(0, "cavecliff:block/spore_blossom_flower", Side.TOP));
+
 		dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.BLOCK_COPPER_RAW)
 			.setAllTextures(0, "cavecliff:block/block_copper_raw"));
 		dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.BLOCK_GOLD_RAW)
@@ -78,9 +81,9 @@ public class CaveCliffModels implements ModelEntrypoint {
 			.setAllTextures(0, "cavecliff:block/roots"));
 
 		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.SAPLING_AZALEA)
-			.setAllTextures(0, "cavecliff:block/azalea"));
+			.setAllTextures(0, "cavecliff:block/sapling/azalea"));
 		dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.SAPLING_AZALEA_FLOWERING)
-			.setAllTextures(0, "cavecliff:block/azalea_flowering"));
+			.setAllTextures(0, "cavecliff:block/sapling/azalea_flowering"));
 
 		dispatcher.addDispatch(new BlockModelLadder<>(CaveCliffBlocks.LICHEN)
 			.setAllTextures(0, "cavecliff:block/lichen").setAllTextures(1, "cavecliff:block/lichen_overlay"));
@@ -92,7 +95,6 @@ public class CaveCliffModels implements ModelEntrypoint {
 
 		dispatcher.addDispatch(new BlockModelVines<>(CaveCliffBlocks.VINES));
 		dispatcher.addDispatch(new BlockModelVinesGlowing<>(CaveCliffBlocks.VINES_GLOWING));
-
 
 		dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE).setAllTextures(0, "cavecliff:block/candle/candle"));
 		dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE_LIT).setAllTextures(0, "cavecliff:block/candle/candle"));

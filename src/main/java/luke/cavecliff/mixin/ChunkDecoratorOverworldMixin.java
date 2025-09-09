@@ -9,7 +9,6 @@ import net.minecraft.core.world.chunk.Chunk;
 import net.minecraft.core.world.generate.chunk.perlin.overworld.ChunkDecoratorOverworld;
 import net.minecraft.core.world.generate.feature.WorldFeatureFlowers;
 import net.minecraft.core.world.generate.feature.WorldFeatureOre;
-import net.minecraft.core.world.generate.feature.tree.WorldFeatureTreeFancy;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -69,15 +68,6 @@ public class ChunkDecoratorOverworldMixin {
 		yHeight = minY + rand.nextInt(rangeY);
 		zArea = z + rand.nextInt(16);
 		new WorldFeatureFlowers(CaveCliffBlocks.ROOTS.id(), 128, false).place(world, rand, xArea, yHeight, zArea);
-
-		xArea = x + rand.nextInt(16);
-		zArea = z + rand.nextInt(16);
-		yHeight = minY + rand.nextInt(rangeY);
-		if (rand.nextInt(2) == 0) {
-			new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1).place(world, rand, xArea, yHeight, zArea);
-		} else {
-			new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA_FLOWERING.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1).place(world, rand, xArea, yHeight, zArea);
-		}
 
 		if ((rand.nextInt(25) == 0)) {
 			xArea = x + rand.nextInt(16);

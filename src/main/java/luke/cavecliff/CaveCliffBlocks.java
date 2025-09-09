@@ -162,7 +162,6 @@ public class CaveCliffBlocks {
 		LEAVES_AZALEA = leaves
 			.build("leaves.azalea", "leaves_azalea", blockID("LEAVES_AZALEA"), b -> new BlockLogicLeavesBase(b, Material.leaves, SAPLING_AZALEA));
 
-
 		SAPLING_AZALEA = sapling
 			.build("sapling.azalea", "sapling_azalea", blockID("SAPLING_AZALEA"), b -> new BlockLogicSaplingAzalea(b, LEAVES_AZALEA));
 
