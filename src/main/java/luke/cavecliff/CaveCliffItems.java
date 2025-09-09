@@ -56,7 +56,7 @@ public class CaveCliffItems {
 
 		RECORD_OTHERSIDE = new ItemBuilder(MOD_ID)
 			.setStackSize(1)
-			.build(new ItemDiscMusic("record.otherside", "cavecliff:item/record_otherside", itemID("RECORD_OTHERSIDE"), "otherside", "Lena Raine"));
+			.build(new ItemDiscMusic("record.otherside", "cavecliff:item/record_otherside", itemID("RECORD_OTHERSIDE"), "cavecliff:otherside", "Lena Raine"));
 
 	}
 }

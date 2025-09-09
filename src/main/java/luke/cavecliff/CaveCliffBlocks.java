@@ -102,6 +102,7 @@ public class CaveCliffBlocks {
 		miningLevels.put(ORE_COPPER_BASALT, 1);
 		miningLevels.put(ORE_COPPER_GRANITE, 1);
 		miningLevels.put(ORE_COPPER_LIMESTONE, 1);
+		miningLevels.put(ORE_COPPER_PERMAFROST, 1);
 
 		miningLevels.put(BLOCK_GOLD_RAW, 2);
 

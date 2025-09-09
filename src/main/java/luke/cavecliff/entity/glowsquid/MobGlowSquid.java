@@ -22,4 +22,8 @@ public class MobGlowSquid extends MobSquid {
 		return this.world.checkIfAABBIsClear(this.bb);
 	}
 
+	public boolean isSpecial() {
+		return "LukeisStuff".equals(this.nickname);
+	}
+
 }

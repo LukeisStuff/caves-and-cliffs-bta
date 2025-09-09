@@ -3,11 +3,8 @@ package luke.cavecliff.mixin;
 import com.llamalad7.mixinextras.sugar.Local;
 import luke.cavecliff.CaveCliffBlocks;
 import luke.cavecliff.block.BlockLogicOreCopper;
-import luke.cavecliff.world.WorldFeatureDripleaf;
 import luke.cavecliff.world.WorldFeatureGeode;
 import net.minecraft.core.world.World;
-import net.minecraft.core.world.biome.Biome;
-import net.minecraft.core.world.biome.Biomes;
 import net.minecraft.core.world.chunk.Chunk;
 import net.minecraft.core.world.generate.chunk.perlin.overworld.ChunkDecoratorOverworld;
 import net.minecraft.core.world.generate.feature.WorldFeatureFlowers;
@@ -71,14 +68,8 @@ public class ChunkDecoratorOverworldMixin {
 		yHeight = minY + rand.nextInt(rangeY);
 		zArea = z + rand.nextInt(16);
 		new WorldFeatureFlowers(CaveCliffBlocks.ROOTS.id(), 128, false).place(world, rand, xArea, yHeight, zArea);
-
-		Biome biome = this.world.getBlockBiome(x + 16, y, z + 16);
-		if (biome == Biomes.OVERWORLD_SWAMPLAND || biome == Biomes.OVERWORLD_SWAMPLAND_MUDDY || biome == Biomes.OVERWORLD_RAINFOREST || biome == Biomes.OVERWORLD_CAATINGA || biome == Biomes.OVERWORLD_CAATINGA_PLAINS) {
-			xArea = x + rand.nextInt(16);
-			yHeight = minY + rand.nextInt(rangeY);
-			zArea = z + rand.nextInt(16);
-			new WorldFeatureDripleaf().place(world, rand, xArea, yHeight, zArea);
-		}
+		new WorldFeatureFlowers(CaveCliffBlocks.DRIPLEAF_SMALL.id(), 128, false).place(world, rand, xArea, yHeight, zArea);
+		new WorldFeatureFlowers(CaveCliffBlocks.FLOWER_SPORE.id(), 64, false).place(world, rand, xArea, yHeight, zArea);
 
 		if ((rand.nextInt(25) == 0)) {
 			xArea = x + rand.nextInt(16);

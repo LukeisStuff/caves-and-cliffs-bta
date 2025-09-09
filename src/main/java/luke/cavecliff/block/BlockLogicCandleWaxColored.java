@@ -1,7 +1,9 @@
 package luke.cavecliff.block;
 
 import luke.cavecliff.CaveCliffBlocks;
-import net.minecraft.core.block.*;
+import net.minecraft.core.block.Block;
+import net.minecraft.core.block.BlockLogicFluid;
+import net.minecraft.core.block.IPainted;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.entity.player.Player;

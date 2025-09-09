@@ -37,17 +37,17 @@ public class MobGoat extends MobAnimal {
 
 	public String getLivingSound() {
 		if (this.random.nextInt(10) == 0) {
-			return "cavecliff.goatscream";
+			return "cavecliff:mob.goat.scream";
 		}
-		return "cavecliff.goatidle";
+		return "cavecliff:mob.goat.idle";
 	}
 
 	public String getHurtSound() {
-		return "cavecliff.goatidle";
+		return "cavecliff:mob.goat.idle";
 	}
 
 	public String getDeathSound() {
-		return "cavecliff.goatdeath";
+		return "cavecliff:mob.goat.death";
 	}
 
 	public void addAdditionalSaveData(@NotNull CompoundTag tag) {

@@ -15,17 +15,17 @@ public class MobAxolotl extends MobWaterAnimal {
 
 	@Override
 	public String getLivingSound() {
-		return "cavecliff.axolotlidle";
+		return "cavecliff:mob.axolotl.idle";
 	}
 
 	@Override
 	public String getHurtSound() {
-		return "cavecliff.axolotlhurt";
+		return "cavecliff:mob.axolotl.hurt";
 	}
 
 	@Override
 	public String getDeathSound() {
-		return "cavecliff.axolotldeath";
+		return "cavecliff:mob.axolotl.death";
 	}
 
 	@Override

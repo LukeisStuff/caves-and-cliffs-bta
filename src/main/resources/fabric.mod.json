@@ -2,38 +2,49 @@
 	"schemaVersion": 1,
 	"id": "cavecliff",
 	"version": "${version}",
-
 	"name": "Caves and Cliffs",
 	"description": "Remaking the 1.17 and 1.18 release updates of minecraft in BTA!",
 	"icon": "icon.png",
-
 	"authors": [
 		"LukeisStuff"
 	],
-
 	"contact": {
 		"homepage": "",
 		"sources": ""
 	},
-
 	"license": "CC0-1.0",
 	"environment": "*",
-
 	"entrypoints": {
-		"main": ["luke.cavecliff.CaveCliffMod"],
-		"beforeGameStart": ["luke.cavecliff.CaveCliffMod"],
-		"afterGameStart": ["luke.cavecliff.CaveCliffMod"],
-		"recipesReady": ["luke.cavecliff.CaveCliffRecipes"],
-		"initModels": ["luke.cavecliff.CaveCliffModels"]
+		"main": [
+			"luke.cavecliff.CaveCliffMod"
+		],
+		"onInitialize": [
+			"luke.cavecliff.CaveCliffMod"
+		],
+		"beforeGameStart": [
+			"luke.cavecliff.CaveCliffMod"
+		],
+		"afterGameStart": [
+			"luke.cavecliff.CaveCliffMod"
+		],
+		"beforeClientStart": [
+			"luke.cavecliff.CaveCliffMod"
+		],
+		"afterClientStart": [
+			"luke.cavecliff.CaveCliffMod"
+		],
+		"recipesReady": [
+			"luke.cavecliff.CaveCliffRecipes"
+		],
+		"initModels": [
+			"luke.cavecliff.CaveCliffModels"
+		]
 	},
-
 	"mixins": [
 		"cavecliff.mixins.json"
 	],
-
 	"depends": {
 		"fabricloader": ">=0.15.5"
 	},
-
 	"suggests": {}
 }

@@ -1,15 +1,16 @@
 package luke.cavecliff;
 
+import luke.cavecliff.entity.ParticleFallingSpore;
+import luke.cavecliff.entity.ParticleFloatingSpore;
 import luke.cavecliff.entity.axolotl.MobAxolotl;
 import luke.cavecliff.entity.glowsquid.MobGlowSquid;
 import luke.cavecliff.entity.goat.MobGoat;
 import net.fabricmc.api.ModInitializer;
+import net.minecraft.client.entity.particle.ParticleDispatcher;
 import net.minecraft.client.gui.guidebook.mobs.MobInfoRegistry;
-import net.minecraft.core.data.registry.Registries;
-import net.minecraft.core.entity.SpawnListEntry;
-import net.minecraft.core.enums.MobCategory;
+import net.minecraft.client.sound.SoundRepository;
 import net.minecraft.core.item.ItemStack;
-import net.minecraft.core.world.biome.Biome;
+import net.minecraft.core.sound.SoundTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
@@ -22,21 +23,17 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 
 	@Override
 	public void onInitialize() {
-		for (Biome b : Registries.BIOMES) {
-			b.getSpawnableList(MobCategory.waterCreature).add(new SpawnListEntry(MobGlowSquid.class, 5));
-			b.getSpawnableList(MobCategory.waterCreature).add(new SpawnListEntry(MobAxolotl.class, 25));
-			b.getSpawnableList(MobCategory.creature).add(new SpawnListEntry(MobGoat.class, 102));
-		}
-
 		LOGGER.info("Caves and Cliffs initialized.");
 	}
 
 	@Override
 	public void beforeGameStart() {
+		SoundTypes.loadSoundsJson(MOD_ID);
 		CaveCliffConfig.Setup();
 		new CaveCliffBlocks().initializeBlocks();
 		new CaveCliffItems().initilizeItems();
 		CaveCliffEntities.init();
+
 	}
 
 	@Override
@@ -56,6 +53,12 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 
 	@Override
 	public void beforeClientStart() {
+		SoundRepository.registerNamespace(MOD_ID);
+
+		ParticleDispatcher dispatcher = ParticleDispatcher.getInstance();
+
+		dispatcher.addDispatch("sporeFall", (world, x, y, z, xa, ya, za, id) -> new ParticleFallingSpore(world, x, y, z, xa, ya, za));
+		dispatcher.addDispatch("sporeFly", (world, x, y, z, xa, ya, za, id) -> new ParticleFloatingSpore(world, x, y, z, xa, ya, za));
 	}
 
 	@Override

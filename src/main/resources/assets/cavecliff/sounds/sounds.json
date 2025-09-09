@@ -22,7 +22,7 @@
     ]
   },
   "goathorn": {
-    "subtitle": "goathorn.zap",
+    "subtitle": "subtitles.goathorn",
     "sounds": [
       "goathorn1.ogg",
       "goathorn2.ogg",
@@ -38,14 +38,14 @@
     ]
   },
   "mob.axolotl.hurt": {
-    "subtitle": "subtitles.mob.goat.hurt",
+    "subtitle": "subtitles.mob.axolotl.hurt",
     "sounds": [
       "mob/axolotl/hurt1.ogg",
       "mob/axolotl/hurt2.ogg"
     ]
   },
   "mob.axolotl.death": {
-    "subtitle": "subtitles.mob.goat.death",
+    "subtitle": "subtitles.mob.axolotl.death",
     "sounds": [
       "mob/axolotl/death1.ogg",
       "mob/axolotl/death2.ogg"

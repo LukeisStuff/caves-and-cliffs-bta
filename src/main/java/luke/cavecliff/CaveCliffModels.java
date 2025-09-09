@@ -137,7 +137,6 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.LICHEN.asItem(), null).setFullBright());
 
 
-
 	}
 
 	@Override
