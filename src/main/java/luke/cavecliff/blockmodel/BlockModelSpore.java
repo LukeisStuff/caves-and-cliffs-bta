@@ -33,6 +33,9 @@ public class BlockModelSpore<T extends BlockLogic> extends BlockModelStandard<T>
 			texIndex = renderBlocks.overrideBlockTexture;
 		}
 
+		tessellator.setColorOpaque_F(255.0F * brightness, 255.0F * brightness, 255.0F * brightness);
+		IconCoordinate tex = this.getBlockTextureFromSideAndMetadata(Side.TOP, renderBlocks.blockAccess.getBlockMetadata(x, y, z));
+
         double minU = texIndex.getIconUMin();
 		double maxU = texIndex.getIconUMax();
 		double minV = texIndex.getIconVMin();
@@ -58,8 +61,6 @@ public class BlockModelSpore<T extends BlockLogic> extends BlockModelStandard<T>
 		tessellator.addVertexWithUV(minX, (double)y + 0.0, maxZ, maxU, maxV);
 		tessellator.addVertexWithUV(minX, (double)y + 1.0 + 0.0, maxZ, maxU, minV);
 
-		tessellator.setColorOpaque_F(255.0F * brightness, 255.0F * brightness, 255.0F * brightness);
-		IconCoordinate tex = this.getBlockTextureFromSideAndMetadata(Side.TOP, renderBlocks.blockAccess.getBlockMetadata(x, y, z));
 		this.renderTopFace(tessellator, bounds, x, (double)y - 0.25, z, tex);
 		this.renderBottomFace(tessellator, bounds, x, y, z, tex);
 		return true;

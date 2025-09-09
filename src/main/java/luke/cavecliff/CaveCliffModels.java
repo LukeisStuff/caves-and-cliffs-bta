@@ -62,8 +62,11 @@ public class CaveCliffModels implements ModelEntrypoint {
 		dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.DIRT_ROOTED)
 			.setAllTextures(0, "cavecliff:block/dirt_rooted"));
 
-		dispatcher.addDispatch(new BlockModelSpore<>(CaveCliffBlocks.FLOWER_SPORE)
+		dispatcher.addDispatch(new BlockModelSpore<>(CaveCliffBlocks.FLOWER_SPORE).setAllTextures(0, "cavecliff:block/spore_blossom_flower")
 			.setTex(0, "cavecliff:block/spore_blossom_root", Side.BOTTOM).setTex(0, "cavecliff:block/spore_blossom_flower", Side.TOP));
+
+		dispatcher.addDispatch(new BlockModelDripleafSmall<>(CaveCliffBlocks.DRIPLEAF_SMALL).setAllTextures(0, "cavecliff:block/dripleaf_small")
+			.setTex(0, "cavecliff:block/dripleaf_large_stem", Side.BOTTOM).setTex(0, "cavecliff:block/dripleaf_small", Side.TOP));
 
 		dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.BLOCK_COPPER_RAW)
 			.setAllTextures(0, "cavecliff:block/block_copper_raw"));
@@ -120,6 +123,9 @@ public class CaveCliffModels implements ModelEntrypoint {
 
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE.asItem(), null).setIcon("cavecliff:item/candle"));
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE_LIT.asItem(), null).setIcon("cavecliff:item/candle").setFullBright());
+
+		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.DRIPLEAF_SMALL.asItem(), null).setIcon("cavecliff:block/dripleaf_small_icon"));
+		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.FLOWER_SPORE.asItem(), null).setIcon("cavecliff:block/spore_blossom_flower"));
 
 		dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED.asItem(), null));
 		dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED_LIT.asItem(), null).setFullBright());
