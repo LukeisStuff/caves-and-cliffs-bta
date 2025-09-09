@@ -16,7 +16,7 @@ import java.util.Random;
 public abstract class BiomeSeasonalForestAzaleaTreeMixin {
 
 	@Inject(method = "getRandomWorldGenForTrees", at = @At("RETURN"), cancellable = true)
-	private void getRandomWorldGenForTrees(Random random, CallbackInfoReturnable<WorldFeature> cir) {
+	public void getRandomWorldGenForTrees(Random random, CallbackInfoReturnable<WorldFeature> cir) {
 		WorldFeature original = cir.getReturnValue();
 		if (original instanceof WorldFeatureTree) {
 			if (random.nextInt(20) == 0) {

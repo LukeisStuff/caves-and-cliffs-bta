@@ -111,8 +111,8 @@ tile.cavecliff.lichen.desc=A glowing pale green algae.
 tile.cavecliff.flower.spore.name=Spore Blossom
 tile.cavecliff.flower.spore.desc=A unique flower that releases pollen.
 
-tile.cavecliff.dripleaf.large.name=Big Dripleaf
-tile.cavecliff.dripleaf.large.desc=A stalk plant with a delicate lily-pad.
+tile.cavecliff.dripleaf.big.name=Big Dripleaf
+tile.cavecliff.dripleaf.big.desc=A stalk plant with a delicate lily-pad.
 
 tile.cavecliff.dripleaf.small.name=Small Dripleaf
 tile.cavecliff.dripleaf.small.desc=A stalk plant with 4 clovers.

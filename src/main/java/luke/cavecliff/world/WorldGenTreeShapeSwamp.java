@@ -66,6 +66,7 @@ public class WorldGenTreeShapeSwamp extends WorldFeature {
 		}
 		WorldFeatureTree.onTreeGrown(world, x, y, z);
 		world.setBlockWithNotify(x, y - 1, z, Blocks.DIRT.id());
+
 		for (int k1 = y - 3 + trunkLength + sinkToFloor; k1 <= y + trunkLength + sinkToFloor; ++k1) {
 			int j2 = k1 - (y + trunkLength + sinkToFloor);
 			int i3 = 2 - j2 / 2;
@@ -75,23 +76,45 @@ public class WorldGenTreeShapeSwamp extends WorldFeature {
 					int j4 = i4 - z;
 					if (Math.abs(l3) == i3 && Math.abs(j4) == i3 && (random.nextInt(2) == 0 || j2 == 0) || Blocks.solid[world.getBlockId(k3, k1, i4)])
 						continue;
-					world.setBlockWithNotify(k3, k1, i4, this.leavesID);
-					if (this.treeRand.nextInt(5) != 0) continue;
-					int vineLength = this.treeRand.nextInt(5);
-					for (int q = 0; q < vineLength; ++q) {
-						if (world.getBlockId(k3, k1 - q, i4) != 0) continue;
-						world.setBlock(k3, k1 - q, i4, CaveCliffBlocks.VINES.id());
+
+					if (world.getBlockId(k3, k1, i4) == 0) {
+						world.setBlockWithNotify(k3, k1, i4, this.leavesID);
+					}
+
+					int maxLength = this.treeRand.nextInt(5) + 1;
+					boolean isVine = false;
+					for (int q = 1; q < maxLength; ++q) {
+						int currentY = k1 - q;
+						if (k3 == x && i4 == z && currentY >= y && currentY < y + trunkLength + sinkToFloor) continue;
+						if (world.getBlockId(k3, currentY, i4) != 0) break;
+
+						if (isVine) {
+							world.setBlock(k3, currentY, i4, CaveCliffBlocks.VINES.id());
+						} else {
+							if (this.treeRand.nextFloat() < 0.3) {
+								world.setBlock(k3, currentY, i4, CaveCliffBlocks.VINES.id());
+								isVine = true;
+							} else {
+								world.setBlockWithNotify(k3, currentY, i4, this.leavesID);
+							}
+						}
 					}
 				}
 			}
 		}
+
 		for (int l1 = 0; l1 < trunkLength + sinkToFloor; ++l1) {
 			int k2 = world.getBlockId(x, y + l1, z);
 			if (k2 != 0 && k2 != this.leavesID && k2 != Blocks.FLUID_WATER_STILL.id() && k2 != Blocks.FLUID_WATER_FLOWING.id())
 				continue;
 			world.setBlockWithNotify(x, y + l1, z, this.logID);
 		}
-		new WorldFeatureAlgae().place(world, this.treeRand, x, oldY - 1, z);
+
+		if (random.nextInt(2) == 0) {
+			new WorldFeatureAlgae().place(world, this.treeRand, x, oldY - 1, z);
+		} else {
+			new WorldFeatureDripleaf().place(world, this.treeRand, x, oldY - 1, z);
+		}
 		return true;
 	}
 }

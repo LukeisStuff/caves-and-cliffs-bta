@@ -7,6 +7,7 @@ import luke.cavecliff.blockmodel.ItemBlockStairsCopper;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
+import net.minecraft.core.item.block.ItemBlockAlgae;
 import net.minecraft.core.sound.BlockSound;
 import turniplabs.halplibe.helper.BlockBuilder;
 
@@ -368,13 +369,14 @@ public class CaveCliffBlocks {
 			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS, BlockTags.PLANTABLE_IN_JAR)
 			.build("dripleaf.small", "dripleaf_small", blockID("DRIPLEAF_SMALL"), BlockLogicDripleafSmall::new);
 
-//		DRIPLEAF_BIG = new BlockBuilder(MOD_ID)
-//			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
-//			.setHardness(0.0f)
-//			.setResistance(0.0f)
-//			.setVisualUpdateOnMetadata()
-//			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
-//			.build(new BlockDripleafLarge("dripleaf.large", blockID("dripleafBig")));
+		DRIPLEAF_BIG = new BlockBuilder(MOD_ID)
+			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))
+			.setHardness(0.0f)
+			.setResistance(0.0f)
+			.setVisualUpdateOnMetadata()
+			.setTags(BlockTags.MINEABLE_BY_SHEARS, BlockTags.SHEARS_DO_SILK_TOUCH, BlockTags.BROKEN_BY_FLUIDS)
+			.setBlockItem(ItemBlockAlgae::new)
+			.build("dripleaf.big", "dripleaf_big", blockID("DRIPLEAF_BIG"), block -> new BlockLogicDripleafBig(block, Material.grass));
 
 		LICHEN = new BlockBuilder(MOD_ID)
 			.setBlockSound(new BlockSound("step.grass", "step.grass", 1.0f, 1.0f))

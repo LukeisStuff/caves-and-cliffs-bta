@@ -66,7 +66,10 @@ public class CaveCliffModels implements ModelEntrypoint {
 			.setTex(0, "cavecliff:block/spore_blossom_root", Side.BOTTOM).setTex(0, "cavecliff:block/spore_blossom_flower", Side.TOP));
 
 		dispatcher.addDispatch(new BlockModelDripleafSmall<>(CaveCliffBlocks.DRIPLEAF_SMALL).setAllTextures(0, "cavecliff:block/dripleaf_small")
-			.setTex(0, "cavecliff:block/dripleaf_large_stem", Side.BOTTOM).setTex(0, "cavecliff:block/dripleaf_small", Side.TOP));
+			.setTex(0, "cavecliff:block/dripleaf_small_stem", Side.BOTTOM).setTex(0, "cavecliff:block/dripleaf_small", Side.TOP));
+
+		dispatcher.addDispatch(new BlockModelDripleafBig<>(CaveCliffBlocks.DRIPLEAF_BIG).setAllTextures(0, "cavecliff:block/dripleaf_big")
+			.setTex(0, "cavecliff:block/dripleaf_big_stem", Side.BOTTOM));
 
 		dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.BLOCK_COPPER_RAW)
 			.setAllTextures(0, "cavecliff:block/block_copper_raw"));

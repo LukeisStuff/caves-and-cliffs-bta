@@ -4,6 +4,7 @@ import luke.cavecliff.CaveCliffBlocks;
 import luke.cavecliff.CaveCliffItems;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
+import net.minecraft.core.block.BlockLogicLeavesBase;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
@@ -17,6 +18,7 @@ import net.minecraft.core.util.phys.AABB;
 import net.minecraft.core.world.World;
 import net.minecraft.core.world.WorldSource;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class BlockLogicVines extends BlockLogic implements IBonemealable {
@@ -28,9 +30,8 @@ public class BlockLogicVines extends BlockLogic implements IBonemealable {
 		this.glowing = glowing;
 	}
 
-
 	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return world.isBlockNormalCube(x, y + 1, z) || Blocks.hasTag(world.getBlockId(x, y + 1, z), BlockTags.CAN_HANG_OFF);
+		return world.isBlockNormalCube(x, y + 1, z) || Blocks.hasTag(world.getBlockId(x, y + 1, z), BlockTags.CAN_HANG_OFF) || Objects.requireNonNull(world.getBlock(x, y + 1, z)).getLogic() instanceof BlockLogicLeavesBase;
 	}
 
 	public boolean isClimbable(World world, int x, int y, int z) {
@@ -45,7 +46,7 @@ public class BlockLogicVines extends BlockLogic implements IBonemealable {
 	}
 
 	public boolean canBlockStay(World world, int x, int y, int z) {
-		return world.isBlockNormalCube(x, y + 1, z) || Blocks.hasTag(world.getBlockId(x, y + 1, z), BlockTags.CAN_HANG_OFF);
+		return world.isBlockNormalCube(x, y + 1, z) || Blocks.hasTag(world.getBlockId(x, y + 1, z), BlockTags.CAN_HANG_OFF) || Objects.requireNonNull(world.getBlock(x, y + 1, z)).getLogic() instanceof BlockLogicLeavesBase;
 	}
 
 	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {

@@ -17,7 +17,7 @@ public class MobGoat extends MobAnimal {
 	public MobGoat(World world) {
 		super(world);
 		this.textureIdentifier = NamespaceID.getPermanent("cavecliff", "goat");
-		this.setSize(0.9F, 1.3F);
+		this.setSize(0.8F, 1.2F);
 		this.mobDrops.add(new WeightedRandomLootObject(CaveCliffItems.HORN_GOAT.getDefaultStack(), 0, 2));
 	}
 
@@ -41,7 +41,6 @@ public class MobGoat extends MobAnimal {
 		}
 		return "cavecliff.goatidle";
 	}
-
 
 	public String getHurtSound() {
 		return "cavecliff.goatidle";

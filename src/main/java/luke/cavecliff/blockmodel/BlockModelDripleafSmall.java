@@ -68,7 +68,7 @@ public class BlockModelDripleafSmall<T extends BlockLogic> extends BlockModelSta
 		return true;
 	}
 
-	private void renderPetal(Tessellator tessellator, int x, double y, int z, IconCoordinate tex, double rotationDegrees) {
+	public void renderPetal(Tessellator tessellator, int x, double y, int z, IconCoordinate tex, double rotationDegrees) {
 		double centerX = x + 0.5;
 		double centerZ = z + 0.5;
 		double size = 0.45;

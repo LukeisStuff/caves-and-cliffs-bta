@@ -16,7 +16,7 @@ public class BlockLogicDripleafSmall extends BlockLogicFlower {
 		this.setBlockBounds(0.5F - f, 0.0, 0.5F - f, 0.5F + f, 0.8, 0.5F + f);
 	}
 
-	protected boolean mayPlaceOn(int blockId) {
+	public boolean mayPlaceOn(int blockId) {
 		Block<?> block = Blocks.getBlock(blockId);
 		return block != null && block.getLogic() instanceof BlockLogicMoss || super.mayPlaceOn(blockId);
 	}
