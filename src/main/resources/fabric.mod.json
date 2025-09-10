@@ -33,6 +33,9 @@
 		"afterClientStart": [
 			"luke.cavecliff.CaveCliffMod"
 		],
+		"afterItemInit": [
+			"luke.cavecliff.CaveCliffMod"
+		],
 		"recipesReady": [
 			"luke.cavecliff.CaveCliffRecipes"
 		],

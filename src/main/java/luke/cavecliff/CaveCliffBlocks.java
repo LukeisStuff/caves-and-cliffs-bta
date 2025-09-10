@@ -53,7 +53,6 @@ public class CaveCliffBlocks {
 	public static Block<?> CANDLE_COLORED_LIT;
 
 	public static Block<?> DRIPSTONE;
-	public static Block<?> DRIPSTONE_POINTED;
 
 	public static Block<?> LEAVES_AZALEA;
 	public static Block<?> LEAVES_AZALEA_FLOWERING;
@@ -89,7 +88,13 @@ public class CaveCliffBlocks {
 
 	public void initializeBlockDetails() {
 		miningLevels.put(DRIPSTONE, 0);
-		miningLevels.put(DRIPSTONE_POINTED, 0);
+
+		miningLevels.put(AMETHYST, 1);
+		miningLevels.put(AMETHYST_BUDDING, 1);
+		miningLevels.put(AMETHYST_CLUSTER_SMALL, 1);
+		miningLevels.put(AMETHYST_CLUSTER_MEDIUM, 1);
+		miningLevels.put(AMETHYST_CLUSTER_LARGE, 1);
+		miningLevels.put(AMETHYST_CLUSTER, 1);
 
 		miningLevels.put(BLOCK_COPPER, 1);
 		miningLevels.put(BRICK_COPPER, 1);
@@ -105,8 +110,6 @@ public class CaveCliffBlocks {
 		miningLevels.put(ORE_COPPER_PERMAFROST, 1);
 
 		miningLevels.put(BLOCK_GOLD_RAW, 2);
-
-
 	}
 
 	public void initializeBlocks() {

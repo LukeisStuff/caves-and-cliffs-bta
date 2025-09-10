@@ -9,15 +9,17 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.entity.particle.ParticleDispatcher;
 import net.minecraft.client.gui.guidebook.mobs.MobInfoRegistry;
 import net.minecraft.client.sound.SoundRepository;
+import net.minecraft.core.crafting.LookupFuelFurnace;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.sound.SoundTypes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import turniplabs.halplibe.util.ClientStartEntrypoint;
 import turniplabs.halplibe.util.GameStartEntrypoint;
+import turniplabs.halplibe.util.ItemInitEntrypoint;
 
 
-public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, GameStartEntrypoint {
+public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, GameStartEntrypoint, ItemInitEntrypoint {
 	public static final String MOD_ID = "cavecliff";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
@@ -64,4 +66,13 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 	@Override
 	public void afterClientStart() {
 	}
+
+	@Override
+	public void afterItemInit() {
+		LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.SAPLING_AZALEA.id(), 100);
+		LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.SAPLING_AZALEA.id(), 100);
+
+		LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.LOG_AZALEA.id(), 300);
+	}
+
 }
