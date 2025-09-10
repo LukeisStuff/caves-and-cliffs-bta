@@ -112,6 +112,8 @@ public class CaveCliffModels implements ModelEntrypoint {
 
 		dispatcher.addDispatch(new BlockModelStairsCopper<>(CaveCliffBlocks.STAIRS_BRICK_COPPER));
 		dispatcher.addDispatch(new BlockModelSlabCopper<>(CaveCliffBlocks.SLAB_BRICK_COPPER));
+
+		dispatcher.addDispatch(new BlockModelLightningRod<>(CaveCliffBlocks.LIGHTNING_ROD).setAllTextures(0, "cavecliff:block/lightning_rod"));
 	}
 
 	@Override
@@ -135,7 +137,6 @@ public class CaveCliffModels implements ModelEntrypoint {
 
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.VINES_GLOWING.asItem(), null).setFullBright());
 		dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.LICHEN.asItem(), null).setFullBright().setIcon("cavecliff:block/lichen"));
-
 
 	}
 
