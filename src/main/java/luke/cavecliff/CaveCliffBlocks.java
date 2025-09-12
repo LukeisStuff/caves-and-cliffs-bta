@@ -6,6 +6,7 @@ import luke.cavecliff.blockmodel.ItemBlockSlabCopper;
 import luke.cavecliff.blockmodel.ItemBlockStairsCopper;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.material.MaterialColor;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.crafting.LookupFuelFurnace;
 import net.minecraft.core.item.block.ItemBlockAlgae;
@@ -13,6 +14,7 @@ import net.minecraft.core.sound.BlockSound;
 import turniplabs.halplibe.helper.BlockBuilder;
 
 import static luke.cavecliff.CaveCliffMod.MOD_ID;
+import static net.minecraft.core.block.material.MaterialColor.registerManualBlockColor;
 import static net.minecraft.core.item.tool.ItemToolPickaxe.miningLevels;
 
 public class CaveCliffBlocks {
@@ -92,6 +94,55 @@ public class CaveCliffBlocks {
 		LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.SAPLING_AZALEA.id(), 100);
 
 		LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.LOG_AZALEA.id(), 300);
+
+
+		registerManualBlockColor(AMETHYST, 0, MaterialColor.paintedPurple);
+		registerManualBlockColor(AMETHYST_BUDDING, 0, MaterialColor.paintedPurple);
+		registerManualBlockColor(DRIPLEAF_SMALL, 0, MaterialColor.paintedPurple);
+		registerManualBlockColor(AMETHYST_CLUSTER_MEDIUM, 0, MaterialColor.paintedPurple);
+		registerManualBlockColor(AMETHYST_CLUSTER_LARGE, 0, MaterialColor.paintedPurple);
+		registerManualBlockColor(AMETHYST_CLUSTER, 0, MaterialColor.paintedPurple);
+
+		registerManualBlockColor(BLOCK_COPPER, 0, MaterialColor.paintedOrange);
+		registerManualBlockColor(BLOCK_COPPER, 1, MaterialColor.granite);
+		registerManualBlockColor(BLOCK_COPPER, 2, MaterialColor.dirt);
+		registerManualBlockColor(BLOCK_COPPER, 3, MaterialColor.diamond);
+
+		registerManualBlockColor(BRICK_COPPER, 0, MaterialColor.paintedOrange);
+		registerManualBlockColor(BRICK_COPPER, 1, MaterialColor.granite);
+		registerManualBlockColor(BRICK_COPPER, 2, MaterialColor.dirt);
+		registerManualBlockColor(BRICK_COPPER, 3, MaterialColor.diamond);
+
+		registerManualBlockColor(SLAB_BRICK_COPPER, 0, MaterialColor.paintedOrange);
+		registerManualBlockColor(SLAB_BRICK_COPPER, 16, MaterialColor.granite);
+		registerManualBlockColor(SLAB_BRICK_COPPER, 32, MaterialColor.dirt);
+		registerManualBlockColor(SLAB_BRICK_COPPER, 48, MaterialColor.diamond);
+
+		for (int i = 0; i < 16; ++i) {
+			registerManualBlockColor(STAIRS_BRICK_COPPER, i, MaterialColor.paintedOrange);
+			registerManualBlockColor(SLAB_BRICK_COPPER, i, MaterialColor.paintedOrange);
+		}
+		for (int i = 16; i < 32; ++i) {
+			registerManualBlockColor(STAIRS_BRICK_COPPER, i, MaterialColor.granite);
+			registerManualBlockColor(SLAB_BRICK_COPPER, i, MaterialColor.granite);
+		}
+		for (int i = 32; i < 48; ++i) {
+			registerManualBlockColor(STAIRS_BRICK_COPPER, i, MaterialColor.dirt);
+			registerManualBlockColor(SLAB_BRICK_COPPER, i, MaterialColor.dirt);
+		}
+		for (int i = 48; i < 64; ++i) {
+			registerManualBlockColor(STAIRS_BRICK_COPPER, i, MaterialColor.diamond);
+			registerManualBlockColor(SLAB_BRICK_COPPER, i, MaterialColor.diamond);
+		}
+
+		registerManualBlockColor(BLOCK_COPPER_RAW, 0, MaterialColor.paintedOrange);
+		registerManualBlockColor(BLOCK_IRON_RAW, 0, MaterialColor.dirt);
+		registerManualBlockColor(BLOCK_GOLD_RAW, 0, MaterialColor.gold);
+
+		registerManualBlockColor(DRIPSTONE, 0, MaterialColor.dirt);
+
+		registerManualBlockColor(TUFF, 0, MaterialColor.paintedGrey);
+		registerManualBlockColor(CALCITE, 0, MaterialColor.paintedWhite);
 
 
 		miningLevels.put(DRIPSTONE, 0);

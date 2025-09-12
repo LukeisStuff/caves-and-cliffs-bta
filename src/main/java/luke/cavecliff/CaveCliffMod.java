@@ -9,6 +9,8 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.entity.particle.ParticleDispatcher;
 import net.minecraft.client.gui.guidebook.mobs.MobInfoRegistry;
 import net.minecraft.client.sound.SoundRepository;
+import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.material.MaterialColor;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.sound.SoundTypes;
 import org.slf4j.Logger;
@@ -20,6 +22,7 @@ import turniplabs.halplibe.util.GameStartEntrypoint;
 public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, GameStartEntrypoint {
 	public static final String MOD_ID = "cavecliff";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static Material copper;
 
 	@Override
 	public void onInitialize() {
@@ -28,6 +31,8 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
 
 	@Override
 	public void beforeGameStart() {
+		copper = (new Material(MaterialColor.paintedOrange)).setConductivity(99999999).setAsMetal().notAlwaysDestroyable();
+
 		SoundTypes.loadSoundsJson(MOD_ID);
 		CaveCliffConfig.Setup();
 		new CaveCliffBlocks().initializeBlocks();
