@@ -7,6 +7,7 @@ import luke.cavecliff.blockmodel.ItemBlockStairsCopper;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
+import net.minecraft.core.crafting.LookupFuelFurnace;
 import net.minecraft.core.item.block.ItemBlockAlgae;
 import net.minecraft.core.sound.BlockSound;
 import turniplabs.halplibe.helper.BlockBuilder;
@@ -87,6 +88,12 @@ public class CaveCliffBlocks {
 
 
 	public void initializeBlockDetails() {
+		LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.SAPLING_AZALEA.id(), 100);
+		LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.SAPLING_AZALEA.id(), 100);
+
+		LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.LOG_AZALEA.id(), 300);
+
+
 		miningLevels.put(DRIPSTONE, 0);
 
 		miningLevels.put(AMETHYST, 1);
@@ -318,7 +325,7 @@ public class CaveCliffBlocks {
 
 		BLOCK_MOSS = grass
 			.setFlammability(100, 30)
-			.build("block.moss", "block_moss", blockID("BLOCK_MOSS"), b -> new BlockLogicMossy(b, BLOCK_MOSS, Material.moss));
+			.build("block.moss", "block_moss", blockID("BLOCK_MOSS"), b -> new BlockLogicMoss(b, b));
 
 
 		MOSS_LAYER = grass
