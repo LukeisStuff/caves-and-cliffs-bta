@@ -16,7 +16,9 @@ public class BlockLogicDripstone extends BlockLogicSand {
 	}
 
 	public void updateTick(World world, int x, int y, int z, Random rand) {
-		this.tryToFall(world, x, y, z);
+		if(world.players.size() > 0) {
+			this.tryToFall(world, x, y, z);
+		}
 	}
 
 	public void tryToFall(World world, int x, int y, int z) {
