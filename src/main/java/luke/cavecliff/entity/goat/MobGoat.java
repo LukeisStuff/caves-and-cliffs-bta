@@ -14,48 +14,55 @@ import net.minecraft.core.world.World;
 import org.jetbrains.annotations.NotNull;
 
 public class MobGoat extends MobAnimal {
-	public MobGoat(World world) {
-		super(world);
-		this.textureIdentifier = NamespaceID.getPermanent("cavecliff", "goat");
-		this.setSize(0.8F, 1.2F);
-		this.mobDrops.add(new WeightedRandomLootObject(CaveCliffItems.HORN_GOAT.getDefaultStack(), 0, 2));
-	}
+    public MobGoat(World world) {
+        super(world);
+        this.textureIdentifier = NamespaceID.getPermanent("cavecliff", "goat");
+        this.setSize(0.8F, 1.2F);
+        this.mobDrops.add(new WeightedRandomLootObject(CaveCliffItems.HORN_GOAT.getDefaultStack(), 0, 2));
+    }
 
-	public boolean interact(@NotNull Player player) {
-		ItemStack itemstack = player.inventory.getCurrentItem();
-		if (itemstack != null && itemstack.itemID == Items.BUCKET.id) {
-			ItemBucketEmpty.useBucket(player, new ItemStack(Items.BUCKET_MILK));
-			return true;
-		} else {
-			return super.interact(player);
-		}
-	}
+    @Override
+    public boolean interact(@NotNull Player player) {
+        ItemStack itemstack = player.inventory.getCurrentItem();
+        if (itemstack != null && itemstack.itemID == Items.BUCKET.id) {
+            ItemBucketEmpty.useBucket(player, new ItemStack(Items.BUCKET_MILK));
+            return true;
+        } else {
+            return super.interact(player);
+        }
+    }
 
-	public boolean isFavouriteItem(ItemStack itemStack) {
-		return itemStack != null && itemStack.getItem().hasTag(ItemTags.COWS_FAVOURITE_ITEM);
-	}
+    @Override
+    public boolean isFavouriteItem(ItemStack itemStack) {
+        return itemStack != null && itemStack.getItem().hasTag(ItemTags.COWS_FAVOURITE_ITEM);
+    }
 
-	public String getLivingSound() {
-		if (this.random.nextInt(10) == 0) {
-			return "cavecliff:mob.goat.scream";
-		}
-		return "cavecliff:mob.goat.idle";
-	}
+    @Override
+    public String getLivingSound() {
+        if (this.random.nextInt(10) == 0) {
+            return "cavecliff:mob.goat.scream";
+        }
+        return "cavecliff:mob.goat.idle";
+    }
 
-	public String getHurtSound() {
-		return "cavecliff:mob.goat.idle";
-	}
+    @Override
+    public String getHurtSound() {
+        return "cavecliff:mob.goat.idle";
+    }
 
-	public String getDeathSound() {
-		return "cavecliff:mob.goat.death";
-	}
+    @Override
+    public String getDeathSound() {
+        return "cavecliff:mob.goat.death";
+    }
 
-	public void addAdditionalSaveData(@NotNull CompoundTag tag) {
-		super.addAdditionalSaveData(tag);
-	}
+    @Override
+    public void addAdditionalSaveData(@NotNull CompoundTag tag) {
+        super.addAdditionalSaveData(tag);
+    }
 
-	public void readAdditionalSaveData(@NotNull CompoundTag tag) {
-		super.readAdditionalSaveData(tag);
-	}
+    @Override
+    public void readAdditionalSaveData(@NotNull CompoundTag tag) {
+        super.readAdditionalSaveData(tag);
+    }
 
 }

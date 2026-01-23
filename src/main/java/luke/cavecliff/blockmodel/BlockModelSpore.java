@@ -14,64 +14,67 @@ import net.minecraft.core.world.WorldSource;
 
 @Environment(EnvType.CLIENT)
 public class BlockModelSpore<T extends BlockLogic> extends BlockModelStandard<T> {
-	public BlockModelSpore(Block<T> block) {
-		super(block);
-	}
+    public BlockModelSpore(Block<T> block) {
+        super(block);
+    }
 
-	public boolean render(Tessellator tessellator, int x, int y, int z) {
-		AABB bounds = this.block.getBlockBoundsFromState(renderBlocks.blockAccess, x, y, z);
-		float brightness = 1.0F;
-		if (!LightmapHelper.isLightmapEnabled()) {
-			brightness = this.getBlockBrightness(renderBlocks.blockAccess, x, y, z);
-		} else {
-			tessellator.setLightmapCoord(this.block.getLightmapCoord(renderBlocks.blockAccess, x, y, z));
-		}
+    @Override
+    public boolean render(Tessellator tessellator, int x, int y, int z) {
+        AABB bounds = this.block.getBlockBoundsFromState(renderBlocks.blockAccess, x, y, z);
+        float brightness = 1.0F;
+        if (!LightmapHelper.isLightmapEnabled()) {
+            brightness = this.getBlockBrightness(renderBlocks.blockAccess, x, y, z);
+        } else {
+            tessellator.setLightmapCoord(this.block.getLightmapCoord(renderBlocks.blockAccess, x, y, z));
+        }
 
-		int metadata = renderBlocks.blockAccess.getBlockMetadata(x, y, z);
-		IconCoordinate texIndex = this.getBlockTextureFromSideAndMetadata(Side.BOTTOM, metadata);
-		if (renderBlocks.overrideBlockTexture != null) {
-			texIndex = renderBlocks.overrideBlockTexture;
-		}
+        int metadata = renderBlocks.blockAccess.getBlockMetadata(x, y, z);
+        IconCoordinate texIndex = this.getBlockTextureFromSideAndMetadata(Side.BOTTOM, metadata);
+        if (renderBlocks.overrideBlockTexture != null) {
+            texIndex = renderBlocks.overrideBlockTexture;
+        }
 
-		tessellator.setColorOpaque_F(255.0F * brightness, 255.0F * brightness, 255.0F * brightness);
-		IconCoordinate tex = this.getBlockTextureFromSideAndMetadata(Side.TOP, renderBlocks.blockAccess.getBlockMetadata(x, y, z));
+        tessellator.setColorOpaque_F(255.0F * brightness, 255.0F * brightness, 255.0F * brightness);
+        IconCoordinate tex = this.getBlockTextureFromSideAndMetadata(Side.TOP, renderBlocks.blockAccess.getBlockMetadata(x, y, z));
 
-		double minU = texIndex.getIconUMin();
-		double maxU = texIndex.getIconUMax();
-		double minV = texIndex.getIconVMin();
-		double maxV = texIndex.getIconVMax();
-		double minX = (double) x + 0.5 - 0.45;
-		double maxX = (double) x + 0.5 + 0.45;
-		double minZ = (double) z + 0.5 - 0.45;
-		double maxZ = (double) z + 0.5 + 0.45;
-		tessellator.addVertexWithUV(minX, (double) y + 1.0 + 0.0, minZ, minU, minV);
-		tessellator.addVertexWithUV(minX, (double) y + 0.0, minZ, minU, maxV);
-		tessellator.addVertexWithUV(maxX, (double) y + 0.0, maxZ, maxU, maxV);
-		tessellator.addVertexWithUV(maxX, (double) y + 1.0 + 0.0, maxZ, maxU, minV);
-		tessellator.addVertexWithUV(maxX, (double) y + 1.0 + 0.0, maxZ, minU, minV);
-		tessellator.addVertexWithUV(maxX, (double) y + 0.0, maxZ, minU, maxV);
-		tessellator.addVertexWithUV(minX, (double) y + 0.0, minZ, maxU, maxV);
-		tessellator.addVertexWithUV(minX, (double) y + 1.0 + 0.0, minZ, maxU, minV);
-		tessellator.addVertexWithUV(minX, (double) y + 1.0 + 0.0, maxZ, minU, minV);
-		tessellator.addVertexWithUV(minX, (double) y + 0.0, maxZ, minU, maxV);
-		tessellator.addVertexWithUV(maxX, (double) y + 0.0, minZ, maxU, maxV);
-		tessellator.addVertexWithUV(maxX, (double) y + 1.0 + 0.0, minZ, maxU, minV);
-		tessellator.addVertexWithUV(maxX, (double) y + 1.0 + 0.0, minZ, minU, minV);
-		tessellator.addVertexWithUV(maxX, (double) y + 0.0, minZ, minU, maxV);
-		tessellator.addVertexWithUV(minX, (double) y + 0.0, maxZ, maxU, maxV);
-		tessellator.addVertexWithUV(minX, (double) y + 1.0 + 0.0, maxZ, maxU, minV);
+        double minU = texIndex.getIconUMin();
+        double maxU = texIndex.getIconUMax();
+        double minV = texIndex.getIconVMin();
+        double maxV = texIndex.getIconVMax();
+        double minX = (double) x + 0.5 - 0.45;
+        double maxX = (double) x + 0.5 + 0.45;
+        double minZ = (double) z + 0.5 - 0.45;
+        double maxZ = (double) z + 0.5 + 0.45;
+        tessellator.addVertexWithUV(minX, (double) y + 1.0 + 0.0, minZ, minU, minV);
+        tessellator.addVertexWithUV(minX, (double) y + 0.0, minZ, minU, maxV);
+        tessellator.addVertexWithUV(maxX, (double) y + 0.0, maxZ, maxU, maxV);
+        tessellator.addVertexWithUV(maxX, (double) y + 1.0 + 0.0, maxZ, maxU, minV);
+        tessellator.addVertexWithUV(maxX, (double) y + 1.0 + 0.0, maxZ, minU, minV);
+        tessellator.addVertexWithUV(maxX, (double) y + 0.0, maxZ, minU, maxV);
+        tessellator.addVertexWithUV(minX, (double) y + 0.0, minZ, maxU, maxV);
+        tessellator.addVertexWithUV(minX, (double) y + 1.0 + 0.0, minZ, maxU, minV);
+        tessellator.addVertexWithUV(minX, (double) y + 1.0 + 0.0, maxZ, minU, minV);
+        tessellator.addVertexWithUV(minX, (double) y + 0.0, maxZ, minU, maxV);
+        tessellator.addVertexWithUV(maxX, (double) y + 0.0, minZ, maxU, maxV);
+        tessellator.addVertexWithUV(maxX, (double) y + 1.0 + 0.0, minZ, maxU, minV);
+        tessellator.addVertexWithUV(maxX, (double) y + 1.0 + 0.0, minZ, minU, minV);
+        tessellator.addVertexWithUV(maxX, (double) y + 0.0, minZ, minU, maxV);
+        tessellator.addVertexWithUV(minX, (double) y + 0.0, maxZ, maxU, maxV);
+        tessellator.addVertexWithUV(minX, (double) y + 1.0 + 0.0, maxZ, maxU, minV);
 
-		this.renderTopFace(tessellator, bounds, x, (double) y - 0.25, z, tex);
-		this.renderBottomFace(tessellator, bounds, x, y, z, tex);
-		return true;
+        this.renderTopFace(tessellator, bounds, x, (double) y - 0.25, z, tex);
+        this.renderBottomFace(tessellator, bounds, x, y, z, tex);
+        return true;
 
-	}
+    }
 
-	public boolean shouldItemRender3d() {
-		return false;
-	}
+    @Override
+    public boolean shouldItemRender3d() {
+        return false;
+    }
 
-	public boolean shouldSideBeRendered(WorldSource blockAccess, AABB bounds, int x, int y, int z, int side) {
-		return side == 1 || super.shouldSideBeRendered(blockAccess, bounds, x, y, z, side);
-	}
+    @Override
+    public boolean shouldSideBeRendered(WorldSource blockAccess, AABB bounds, int x, int y, int z, int side) {
+        return side == 1 || super.shouldSideBeRendered(blockAccess, bounds, x, y, z, side);
+    }
 }

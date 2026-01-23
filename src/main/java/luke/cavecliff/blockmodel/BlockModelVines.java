@@ -11,19 +11,20 @@ import net.minecraft.core.util.helper.Side;
 
 @Environment(EnvType.CLIENT)
 public class BlockModelVines<T extends BlockLogicVines> extends BlockModelCrossedSquares<T> {
-	public static final IconCoordinate[] vineTextures = new IconCoordinate[2];
+    public static final IconCoordinate[] vineTextures = new IconCoordinate[2];
 
-	public BlockModelVines(Block<T> block) {
-		super(block);
-	}
+    public BlockModelVines(Block<T> block) {
+        super(block);
+    }
 
-	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
-		return vineTextures[data & 1];
-	}
+    @Override
+    public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
+        return vineTextures[data & 1];
+    }
 
-	static {
-		vineTextures[0] = TextureRegistry.getTexture("cavecliff:block/cave_vine");
-		vineTextures[1] = TextureRegistry.getTexture("cavecliff:block/cave_vine_short");
-	}
+    static {
+        vineTextures[0] = TextureRegistry.getTexture("cavecliff:block/cave_vine");
+        vineTextures[1] = TextureRegistry.getTexture("cavecliff:block/cave_vine_short");
+    }
 }
 

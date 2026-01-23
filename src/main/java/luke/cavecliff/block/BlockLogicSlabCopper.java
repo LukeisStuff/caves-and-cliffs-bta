@@ -16,40 +16,40 @@ import java.util.Random;
 
 public class BlockLogicSlabCopper extends BlockLogicSlab {
 
-	public BlockLogicSlabCopper(Block<?> block, Block<?> modelBlock) {
-		super(block, modelBlock);
-	}
+    public BlockLogicSlabCopper(Block<?> block, Block<?> modelBlock) {
+        super(block, modelBlock);
+    }
 
-	public int getPlacedBlockMetadata(@Nullable Player player, ItemStack stack, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
-		return stack.getMetadata();
-	}
+    public int getPlacedBlockMetadata(@Nullable Player player, ItemStack stack, World world, int x, int y, int z, Side side, double xPlaced, double yPlaced) {
+        return stack.getMetadata();
+    }
 
-	public void onBlockPlacedByMob(World world, int x, int y, int z, @NotNull Side side, Mob mob, double xPlaced, double yPlaced) {
-		int meta = mob.getVerticalPlacementDirection(side, yPlaced) == Direction.UP ? 2 : 0;
-		world.setBlockMetadataWithNotify(x, y, z, meta | world.getBlockMetadata(x, y, z) & 60);
-	}
+    public void onBlockPlacedByMob(World world, int x, int y, int z, @NotNull Side side, Mob mob, double xPlaced, double yPlaced) {
+        int meta = mob.getVerticalPlacementDirection(side, yPlaced) == Direction.UP ? 2 : 0;
+        world.setBlockMetadataWithNotify(x, y, z, meta | world.getBlockMetadata(x, y, z) & 60);
+    }
 
-	public void onBlockPlacedOnSide(World world, int x, int y, int z, @NotNull Side side, double xPlaced, double yPlaced) {
-		int meta = side == Side.TOP ? 2 : 0;
-		world.setBlockMetadataWithNotify(x, y, z, meta | world.getBlockMetadata(x, y, z) & 60);
-	}
+    public void onBlockPlacedOnSide(World world, int x, int y, int z, @NotNull Side side, double xPlaced, double yPlaced) {
+        int meta = side == Side.TOP ? 2 : 0;
+        world.setBlockMetadataWithNotify(x, y, z, meta | world.getBlockMetadata(x, y, z) & 60);
+    }
 
-	public String getLanguageKey(int meta) {
-		return super.getLanguageKey(meta) + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((meta & 60) >> 4)];
-	}
+    public String getLanguageKey(int meta) {
+        return super.getLanguageKey(meta) + "." + BlockLogicCopper.oxidizeStages[BlockLogicCopper.getMetadataForOxidation((meta & 60) >> 4)];
+    }
 
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		int meta = world.getBlockMetadata(x, y, z);
+    public void updateTick(World world, int x, int y, int z, Random rand) {
+        int meta = world.getBlockMetadata(x, y, z);
 
-		if (rand.nextInt(200) == 0) {
-			if (world.getBlockMaterial(x, y, z - 1) == Material.water ||
-				world.getBlockMaterial(x, y, z + 1) == Material.water ||
-				world.getBlockMaterial(x - 1, y, z) == Material.water ||
-				world.getBlockMaterial(x + 1, y, z) == Material.water ||
-				world.getBlockMaterial(x, y + 1, z) == Material.water ||
-				(world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
-				world.setBlockAndMetadataWithNotify(x, y, z, this.id(), meta + 16);
-			}
-		}
-	}
+        if (rand.nextInt(200) == 0) {
+            if (world.getBlockMaterial(x, y, z - 1) == Material.water ||
+                world.getBlockMaterial(x, y, z + 1) == Material.water ||
+                world.getBlockMaterial(x - 1, y, z) == Material.water ||
+                world.getBlockMaterial(x + 1, y, z) == Material.water ||
+                world.getBlockMaterial(x, y + 1, z) == Material.water ||
+                (world.canBlockBeRainedOn(x, y + 1, z) && world.getCurrentWeather().isPrecipitation)) {
+                world.setBlockAndMetadataWithNotify(x, y, z, this.id(), meta + 16);
+            }
+        }
+    }
 }

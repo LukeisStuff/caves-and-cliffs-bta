@@ -10,26 +10,27 @@ import java.util.Objects;
 
 public class ItemHorn extends Item {
 
+    public ItemHorn(String translationKey, String namespaceId, int id) {
+        super(translationKey, namespaceId, id);
+        this.maxStackSize = 1;
+        this.setMaxDamage(256);
+    }
 
-	public ItemHorn(String translationKey, String namespaceId, int id) {
-		super(translationKey, namespaceId, id);
-		this.maxStackSize = 1;
-		this.setMaxDamage(256);
-	}
+    @Override
+    public void inventoryTick(ItemStack itemstack, World world, Entity entity, int i, boolean flag) {
+        if (itemstack.getMetadata() > 0) {
+            itemstack.damageItem(-1, entity);
+        }
+    }
 
-	public void inventoryTick(ItemStack itemstack, World world, Entity entity, int i, boolean flag) {
-		if (itemstack.getMetadata() > 0) {
-			itemstack.damageItem(-1, entity);
-		}
-	}
-
-	public ItemStack onUseItem(ItemStack itemstack, World world, Player Player) {
-		if (Objects.requireNonNull(Player.getHeldItem()).getMetadata() <= 0) {
-			world.playSoundAtEntity(Player, Player, "cavecliff.goathorn", 1.0F, 1.0f / (itemRand.nextFloat() * 0.4f + 0.8f));
-			Player.swingItem();
-			Player.getHeldItem().damageItem(256, Player);
-		}
-		return itemstack;
-	}
+    @Override
+    public ItemStack onUseItem(ItemStack itemstack, World world, Player player) {
+        if (Objects.requireNonNull(player.getHeldItem()).getMetadata() <= 0) {
+            world.playSoundAtEntity(player, player, "cavecliff.goathorn", 1.0F, 1.0f / (itemRand.nextFloat() * 0.4f + 0.8f));
+            player.swingItem();
+            player.getHeldItem().damageItem(256, player);
+        }
+        return itemstack;
+    }
 
 }

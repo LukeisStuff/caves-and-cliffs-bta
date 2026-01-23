@@ -19,52 +19,52 @@ import static net.minecraft.core.player.inventory.menu.MenuInventoryCreative.cre
 @Mixin(value = MenuInventoryCreative.class, remap = false)
 public class MenuInventoryCreativeMixin extends MenuInventory {
 
-	@Inject(method = "<clinit>", at = @At("TAIL"))
-	private static void injected(CallbackInfo ci) {
-		List<ItemStack> copperBlockVariants = new ArrayList<>();
-		List<ItemStack> copperBrickVariants = new ArrayList<>();
-		List<ItemStack> copperStairsVariants = new ArrayList<>();
-		List<ItemStack> copperSlabVariants = new ArrayList<>();
-		List<ItemStack> candleVariants = new ArrayList<>();
+    @Inject(method = "<clinit>", at = @At("TAIL"))
+    private static void injected(CallbackInfo ci) {
+        List<ItemStack> copperBlockVariants = new ArrayList<>();
+        List<ItemStack> copperBrickVariants = new ArrayList<>();
+        List<ItemStack> copperStairsVariants = new ArrayList<>();
+        List<ItemStack> copperSlabVariants = new ArrayList<>();
+        List<ItemStack> candleVariants = new ArrayList<>();
 
-		for (int i = 1; i <= 3; ++i) {
-			copperBlockVariants.add(new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1, i));
-			copperBrickVariants.add(new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, i));
-		}
+        for (int i = 1; i <= 3; ++i) {
+            copperBlockVariants.add(new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1, i));
+            copperBrickVariants.add(new ItemStack(CaveCliffBlocks.BRICK_COPPER, 1, i));
+        }
 
-		for (int i = 1; i <= 3; ++i) {
-			int meta = i << 4;
-			copperStairsVariants.add(new ItemStack(CaveCliffBlocks.STAIRS_BRICK_COPPER, 1, meta));
-			copperSlabVariants.add(new ItemStack(CaveCliffBlocks.SLAB_BRICK_COPPER, 1, meta));
-		}
+        for (int i = 1; i <= 3; ++i) {
+            int meta = i << 4;
+            copperStairsVariants.add(new ItemStack(CaveCliffBlocks.STAIRS_BRICK_COPPER, 1, meta));
+            copperSlabVariants.add(new ItemStack(CaveCliffBlocks.SLAB_BRICK_COPPER, 1, meta));
+        }
 
-		for (int i = 1; i <= 15; ++i) {
-			candleVariants.add(new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, i));
-		}
+        for (int i = 1; i <= 15; ++i) {
+            candleVariants.add(new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 1, i));
+        }
 
-		List<ItemStack> newCreativeItems = new ArrayList<>();
+        List<ItemStack> newCreativeItems = new ArrayList<>();
 
-		for (ItemStack item : creativeItems) {
-			newCreativeItems.add(item);
+        for (ItemStack item : creativeItems) {
+            newCreativeItems.add(item);
 
-			if (item.itemID == CaveCliffBlocks.BLOCK_COPPER.id() && item.getMetadata() == 0) {
-				newCreativeItems.addAll(copperBlockVariants);
-			} else if (item.itemID == CaveCliffBlocks.BRICK_COPPER.id() && item.getMetadata() == 0) {
-				newCreativeItems.addAll(copperBrickVariants);
-			} else if (item.itemID == CaveCliffBlocks.STAIRS_BRICK_COPPER.id() && item.getMetadata() == 0) {
-				newCreativeItems.addAll(copperStairsVariants);
-			} else if (item.itemID == CaveCliffBlocks.SLAB_BRICK_COPPER.id() && item.getMetadata() == 0) {
-				newCreativeItems.addAll(copperSlabVariants);
-			} else if (item.itemID == CaveCliffBlocks.CANDLE_COLORED.id() && item.getMetadata() == 0) {
-				newCreativeItems.addAll(candleVariants);
-			}
-		}
+            if (item.itemID == CaveCliffBlocks.BLOCK_COPPER.id() && item.getMetadata() == 0) {
+                newCreativeItems.addAll(copperBlockVariants);
+            } else if (item.itemID == CaveCliffBlocks.BRICK_COPPER.id() && item.getMetadata() == 0) {
+                newCreativeItems.addAll(copperBrickVariants);
+            } else if (item.itemID == CaveCliffBlocks.STAIRS_BRICK_COPPER.id() && item.getMetadata() == 0) {
+                newCreativeItems.addAll(copperStairsVariants);
+            } else if (item.itemID == CaveCliffBlocks.SLAB_BRICK_COPPER.id() && item.getMetadata() == 0) {
+                newCreativeItems.addAll(copperSlabVariants);
+            } else if (item.itemID == CaveCliffBlocks.CANDLE_COLORED.id() && item.getMetadata() == 0) {
+                newCreativeItems.addAll(candleVariants);
+            }
+        }
 
-		creativeItems = newCreativeItems;
-		creativeItemsCount = creativeItems.size();
-	}
+        creativeItems = newCreativeItems;
+        creativeItemsCount = creativeItems.size();
+    }
 
-	public MenuInventoryCreativeMixin(ContainerInventory inventory) {
-		super(inventory);
-	}
+    public MenuInventoryCreativeMixin(ContainerInventory inventory) {
+        super(inventory);
+    }
 }

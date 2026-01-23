@@ -1,5 +1,7 @@
 package luke.cavecliff.mixin;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.client.gui.hud.HudIngame;
@@ -15,41 +17,41 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@Environment(EnvType.CLIENT)
 @Mixin(value = HudIngame.class, remap = false)
 public abstract class GuiIngameMixin extends Gui {
 
+    @Shadow
+    protected Minecraft mc;
 
-	@Shadow
-	protected Minecraft mc;
+    @Inject(method = "renderGameOverlay(FZII)V",
+        at = @At(value = "TAIL"))
+    public void renderGameOverlay(float partialTicks, boolean flag, int mouseX, int mouseY, CallbackInfo ci) {
+        World world = this.mc.currentWorld;
+        if (CameraUtil.isUnderLiquid(this.mc.activeCamera, world, Material.topSnow, partialTicks)) {
+            this.renderSnowOverlay(mc.resolution.getScaledWidthScreenCoords(), mc.resolution.getScaledHeightScreenCoords());
+        }
+    }
 
-	@Inject(method = "renderGameOverlay(FZII)V",
-		at = @At(value = "TAIL"))
-	public void renderGameOverlay(float partialTicks, boolean flag, int mouseX, int mouseY, CallbackInfo ci) {
-		World world = this.mc.currentWorld;
-		if (CameraUtil.isUnderLiquid(this.mc.activeCamera, world, Material.topSnow, partialTicks)) {
-			this.renderSnowOverlay(mc.resolution.getScaledWidthScreenCoords(), mc.resolution.getScaledHeightScreenCoords());
-		}
-	}
-
-	@Unique
-	public void renderSnowOverlay(int xSize, int ySize) {
-		GL11.glDisable(2929);
-		GL11.glDepthMask(false);
-		GL11.glBlendFunc(770, 771);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-		GL11.glDisable(3008);
-		GL11.glEnable(GL11.GL_BLEND);
-		this.mc.textureManager.loadTexture("/assets/cavecliff/powdersnowblur.png").bind();
-		Tessellator tessellator = Tessellator.instance;
-		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(0.0, ySize, -90.0, 0.0, 1.0);
-		tessellator.addVertexWithUV(xSize, ySize, -90.0, 1.0, 1.0);
-		tessellator.addVertexWithUV(xSize, 0.0, -90.0, 1.0, 0.0);
-		tessellator.addVertexWithUV(0.0, 0.0, -90.0, 0.0, 0.0);
-		tessellator.draw();
-		GL11.glDepthMask(true);
-		GL11.glEnable(2929);
-		GL11.glEnable(3008);
-		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
-	}
+    @Unique
+    public void renderSnowOverlay(int xSize, int ySize) {
+        GL11.glDisable(2929);
+        GL11.glDepthMask(false);
+        GL11.glBlendFunc(770, 771);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+        GL11.glDisable(3008);
+        GL11.glEnable(GL11.GL_BLEND);
+        this.mc.textureManager.loadTexture("/assets/cavecliff/powdersnowblur.png").bind();
+        Tessellator tessellator = Tessellator.instance;
+        tessellator.startDrawingQuads();
+        tessellator.addVertexWithUV(0.0, ySize, -90.0, 0.0, 1.0);
+        tessellator.addVertexWithUV(xSize, ySize, -90.0, 1.0, 1.0);
+        tessellator.addVertexWithUV(xSize, 0.0, -90.0, 1.0, 0.0);
+        tessellator.addVertexWithUV(0.0, 0.0, -90.0, 0.0, 0.0);
+        tessellator.draw();
+        GL11.glDepthMask(true);
+        GL11.glEnable(2929);
+        GL11.glEnable(3008);
+        GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
+    }
 }

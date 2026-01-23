@@ -1,5 +1,7 @@
 package luke.cavecliff.mixin;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.render.FogManager;
 import net.minecraft.client.render.camera.CameraUtil;
@@ -14,34 +16,35 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+@Environment(EnvType.CLIENT)
 @Mixin(value = FogManager.class, remap = false)
 public class FogManagerMixin {
 
-	@Mutable
-	@Final
-	@Shadow
-	public final Minecraft mc;
+    @Mutable
+    @Final
+    @Shadow
+    public final Minecraft mc;
 
-	@Shadow
-	public float fogRed;
-	@Shadow
-	public float fogGreen;
-	@Shadow
-	public float fogBlue;
+    @Shadow
+    public float fogRed;
+    @Shadow
+    public float fogGreen;
+    @Shadow
+    public float fogBlue;
 
-	public FogManagerMixin(Minecraft mc) {
-		this.mc = mc;
-	}
+    public FogManagerMixin(Minecraft mc) {
+        this.mc = mc;
+    }
 
-	@Inject(method = "updateFogColor", at = @At(value = "TAIL", target = "Lnet/minecraft/client/render/FogManager;updateFogColor(F)V"), cancellable = true)
-	public void updateFogColor(float partialTick, CallbackInfo ci) {
-		World world = this.mc.currentWorld;
-		if (CameraUtil.isUnderLiquid(this.mc.activeCamera, world, Material.topSnow, partialTick)) {
-			this.fogRed = 0.9f;
-			this.fogGreen = 0.9f;
-			this.fogBlue = 1.0f;
-		}
-		ci.cancel();
-		GL11.glClearColor(this.fogRed, this.fogGreen, this.fogBlue, 0.0f);
-	}
+    @Inject(method = "updateFogColor", at = @At(value = "TAIL", target = "Lnet/minecraft/client/render/FogManager;updateFogColor(F)V"), cancellable = true)
+    public void updateFogColor(float partialTick, CallbackInfo ci) {
+        World world = this.mc.currentWorld;
+        if (CameraUtil.isUnderLiquid(this.mc.activeCamera, world, Material.topSnow, partialTick)) {
+            this.fogRed = 0.9f;
+            this.fogGreen = 0.9f;
+            this.fogBlue = 1.0f;
+        }
+        ci.cancel();
+        GL11.glClearColor(this.fogRed, this.fogGreen, this.fogBlue, 0.0f);
+    }
 }

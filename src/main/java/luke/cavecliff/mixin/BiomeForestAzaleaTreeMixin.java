@@ -15,17 +15,15 @@ import java.util.Random;
 @Mixin(value = BiomeForest.class, remap = false)
 public abstract class BiomeForestAzaleaTreeMixin {
 
-	@Inject(method = "getRandomWorldGenForTrees", at = @At("RETURN"), cancellable = true)
-	public void getRandomWorldGenForTrees(Random random, CallbackInfoReturnable<WorldFeature> cir) {
-		WorldFeature original = cir.getReturnValue();
-		if (original instanceof WorldFeatureTree) {
-			if (random.nextInt(20) == 0) {
-				if (random.nextInt(2) == 0) {
-					cir.setReturnValue(new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1));
-				} else {
-					cir.setReturnValue(new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA_FLOWERING.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1));
-				}
-			}
-		}
-	}
+    @Inject(method = "getRandomWorldGenForTrees", at = @At("RETURN"), cancellable = true)
+    public void getRandomWorldGenForTrees(Random random, CallbackInfoReturnable<WorldFeature> cir) {
+        WorldFeature original = cir.getReturnValue();
+        if (original instanceof WorldFeatureTree && random.nextInt(20) == 0) {
+            if (random.nextInt(2) == 0) {
+                cir.setReturnValue(new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1));
+            } else {
+                cir.setReturnValue(new WorldFeatureTreeFancy(CaveCliffBlocks.LEAVES_AZALEA_FLOWERING.id(), CaveCliffBlocks.LOG_AZALEA.id(), 1));
+            }
+        }
+    }
 }

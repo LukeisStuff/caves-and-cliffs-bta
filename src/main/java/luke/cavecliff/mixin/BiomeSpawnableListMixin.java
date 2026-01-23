@@ -15,15 +15,15 @@ import java.util.List;
 
 @Mixin(value = Biome.class, remap = false)
 public class BiomeSpawnableListMixin {
-	@Shadow
-	protected List<SpawnListEntry> spawnableWaterCreatureList;
-	@Shadow
-	protected List<SpawnListEntry> spawnableCreatureList;
+    @Shadow
+    protected List<SpawnListEntry> spawnableWaterCreatureList;
+    @Shadow
+    protected List<SpawnListEntry> spawnableCreatureList;
 
-	@Inject(method = "<init>", at = @At("TAIL"))
-	public void injectMethod(String key, CallbackInfo ci) {
-		this.spawnableWaterCreatureList.add(new SpawnListEntry(MobGlowSquid.class, 5));
-		this.spawnableWaterCreatureList.add(new SpawnListEntry(MobAxolotl.class, 1));
-		this.spawnableCreatureList.add(new SpawnListEntry(MobGoat.class, 102));
-	}
+    @Inject(method = "<init>", at = @At("TAIL"))
+    public void injectMethod(String key, CallbackInfo ci) {
+        this.spawnableWaterCreatureList.add(new SpawnListEntry(MobGlowSquid.class, 5));
+        this.spawnableWaterCreatureList.add(new SpawnListEntry(MobAxolotl.class, 1));
+        this.spawnableCreatureList.add(new SpawnListEntry(MobGoat.class, 102));
+    }
 }

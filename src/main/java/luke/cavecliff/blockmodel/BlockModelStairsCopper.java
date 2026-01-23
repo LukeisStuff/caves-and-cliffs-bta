@@ -11,18 +11,18 @@ import net.minecraft.core.world.WorldSource;
 
 @Environment(EnvType.CLIENT)
 public class BlockModelStairsCopper<T extends BlockLogicStairs> extends BlockModelStairs<T> {
-	public BlockModelStairsCopper(Block<T> block) {
-		super(block);
-	}
+    public BlockModelStairsCopper(Block<T> block) {
+        super(block);
+    }
 
-	@Override
-	public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int meta) {
-		int oxidationStage = meta >> 4;
-		return BlockModelCopperBrick.oxidizeStageTextures[oxidationStage & 3];
-	}
+    @Override
+    public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int meta) {
+        int oxidationStage = meta >> 4;
+        return BlockModelCopperBrick.oxidizeStageTextures[oxidationStage & 3];
+    }
 
-	@Override
-	public IconCoordinate getBlockTexture(WorldSource blockAccess, int x, int y, int z, Side side) {
-		return this.getBlockTextureFromSideAndMetadata(side, blockAccess.getBlockMetadata(x, y, z));
-	}
+    @Override
+    public IconCoordinate getBlockTexture(WorldSource blockAccess, int x, int y, int z, Side side) {
+        return this.getBlockTextureFromSideAndMetadata(side, blockAccess.getBlockMetadata(x, y, z));
+    }
 }

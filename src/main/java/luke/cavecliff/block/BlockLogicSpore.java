@@ -14,58 +14,58 @@ import java.util.Random;
 
 public class BlockLogicSpore extends BlockLogic {
 
-	public BlockLogicSpore(Block<?> block) {
-		super(block, Material.grass);
-		this.setBlockBounds(0.0625f, 0.75f, 0.0625f, 0.9375f, 1.0f, 0.9375f);
-	}
+    public BlockLogicSpore(Block<?> block) {
+        super(block, Material.grass);
+        this.setBlockBounds(0.0625f, 0.75f, 0.0625f, 0.9375f, 1.0f, 0.9375f);
+    }
 
-	public void animationTick(World world, int x, int y, int z, Random rand) {
-		double random = (rand.nextInt(1) - Math.random());
-		double randomLarge = (rand.nextInt(8) - Math.random());
+    public void animationTick(World world, int x, int y, int z, Random rand) {
+        double random = (rand.nextInt(1) - Math.random());
+        double randomLarge = (rand.nextInt(8) - Math.random());
 
-		if (rand.nextInt(5) == 0) {
-			world.spawnParticle("sporeFall", x + 0.5, (double) y + 0.85, z + 0.5, 0.0, 0.0, 0.0, 0);
-		}
-		if (rand.nextInt(10) == 0) {
-			world.spawnParticle("sporeFly", x + randomLarge, (double) y - random, z + randomLarge, 0.0, 0.0, 0.0, 0);
-		}
-		if (rand.nextInt(10) == 0) {
-			world.spawnParticle("sporeFly", x - randomLarge, (double) y - random, z + randomLarge, 0.0, 0.0, 0.0, 0);
-		}
-		if (rand.nextInt(10) == 0) {
-			world.spawnParticle("sporeFly", x + randomLarge, (double) y - random, z - randomLarge, 0.0, 0.0, 0.0, 0);
-		}
-		if (rand.nextInt(10) == 0) {
-			world.spawnParticle("sporeFly", x - randomLarge, (double) y - random, z - randomLarge, 0.0, 0.0, 0.0, 0);
-		}
-	}
+        if (rand.nextInt(5) == 0) {
+            world.spawnParticle("sporeFall", x + 0.5, (double) y + 0.85, z + 0.5, 0.0, 0.0, 0.0, 0);
+        }
+        if (rand.nextInt(10) == 0) {
+            world.spawnParticle("sporeFly", x + randomLarge, (double) y - random, z + randomLarge, 0.0, 0.0, 0.0, 0);
+        }
+        if (rand.nextInt(10) == 0) {
+            world.spawnParticle("sporeFly", x - randomLarge, (double) y - random, z + randomLarge, 0.0, 0.0, 0.0, 0);
+        }
+        if (rand.nextInt(10) == 0) {
+            world.spawnParticle("sporeFly", x + randomLarge, (double) y - random, z - randomLarge, 0.0, 0.0, 0.0, 0);
+        }
+        if (rand.nextInt(10) == 0) {
+            world.spawnParticle("sporeFly", x - randomLarge, (double) y - random, z - randomLarge, 0.0, 0.0, 0.0, 0);
+        }
+    }
 
-	public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
-		return null;
-	}
+    public AABB getCollisionBoundingBoxFromPool(WorldSource world, int x, int y, int z) {
+        return null;
+    }
 
-	public boolean isSolidRender() {
-		return false;
-	}
+    public boolean isSolidRender() {
+        return false;
+    }
 
-	public boolean isCubeShaped() {
-		return false;
-	}
+    public boolean isCubeShaped() {
+        return false;
+    }
 
-	public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-		return world.isBlockNormalCube(x, y + 1, z) || Blocks.hasTag(world.getBlockId(x, y + 1, z), BlockTags.CAN_HANG_OFF) || world.canPlaceOnSurfaceOfBlock(x, y + 1, z) || (world.getBlockMaterial(x, y + 1, z)) == Material.leaves;
-	}
+    public boolean canPlaceBlockAt(World world, int x, int y, int z) {
+        return world.isBlockNormalCube(x, y + 1, z) || Blocks.hasTag(world.getBlockId(x, y + 1, z), BlockTags.CAN_HANG_OFF) || world.canPlaceOnSurfaceOfBlock(x, y + 1, z) || (world.getBlockMaterial(x, y + 1, z)) == Material.leaves;
+    }
 
-	public void onNeighborBlockChange(World world, int x, int y, int z, int blockId) {
-		if (!this.canBlockStay(world, x, y, z)) {
-			this.dropBlockWithCause(world, EnumDropCause.WORLD, x, y, z, world.getBlockMetadata(x, y, z), null, null);
-			world.setBlockWithNotify(x, y, z, 0);
-		}
+    public void onNeighborBlockChange(World world, int x, int y, int z, int blockId) {
+        if (!this.canBlockStay(world, x, y, z)) {
+            this.dropBlockWithCause(world, EnumDropCause.WORLD, x, y, z, world.getBlockMetadata(x, y, z), null, null);
+            world.setBlockWithNotify(x, y, z, 0);
+        }
 
-	}
+    }
 
-	public boolean canBlockStay(World world, int x, int y, int z) {
-		return world.isBlockNormalCube(x, y + 1, z) || Blocks.hasTag(world.getBlockId(x, y + 1, z), BlockTags.CAN_HANG_OFF) || world.canPlaceOnSurfaceOfBlock(x, y + 1, z) || (world.getBlockMaterial(x, y + 1, z)) == Material.leaves;
-	}
+    public boolean canBlockStay(World world, int x, int y, int z) {
+        return world.isBlockNormalCube(x, y + 1, z) || Blocks.hasTag(world.getBlockId(x, y + 1, z), BlockTags.CAN_HANG_OFF) || world.canPlaceOnSurfaceOfBlock(x, y + 1, z) || (world.getBlockMaterial(x, y + 1, z)) == Material.leaves;
+    }
 
 }

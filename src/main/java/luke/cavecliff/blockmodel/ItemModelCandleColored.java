@@ -1,5 +1,7 @@
 package luke.cavecliff.blockmodel;
 
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.render.item.model.ItemModelStandard;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
 import net.minecraft.client.render.texture.stitcher.TextureRegistry;
@@ -9,24 +11,25 @@ import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.DyeColor;
 import org.jetbrains.annotations.NotNull;
 
-public class ItemModelCandleColored
-	extends ItemModelStandard {
-	public static IconCoordinate[] dyeIcons = new IconCoordinate[16];
+@Environment(EnvType.CLIENT)
+public class ItemModelCandleColored extends ItemModelStandard {
+    public static IconCoordinate[] dyeIcons = new IconCoordinate[16];
 
-	public ItemModelCandleColored(Item item, String namespace) {
-		super(item, namespace);
-	}
+    public ItemModelCandleColored(Item item, String namespace) {
+        super(item, namespace);
+    }
 
-	public @NotNull IconCoordinate getIcon(Entity entity, ItemStack itemStack) {
-		int meta = itemStack.getMetadata();
-		return dyeIcons[meta & 15];
-	}
+    @Override
+    public @NotNull IconCoordinate getIcon(Entity entity, ItemStack itemStack) {
+        int meta = itemStack.getMetadata();
+        return dyeIcons[meta & 15];
+    }
 
-	static {
-		DyeColor[] colors = DyeColor.itemOrderedColors().toArray(new DyeColor[0]);
-		for (int i = 0; i < colors.length; i++) {
-			DyeColor c = colors[i];
-			dyeIcons[15 - i] = TextureRegistry.getTexture("cavecliff:item/candle_" + c.colorID);
-		}
-	}
+    static {
+        DyeColor[] colors = DyeColor.itemOrderedColors().toArray(new DyeColor[0]);
+        for (int i = 0; i < colors.length; i++) {
+            DyeColor c = colors[i];
+            dyeIcons[15 - i] = TextureRegistry.getTexture("cavecliff:item/candle_" + c.colorID);
+        }
+    }
 }
