@@ -90,14 +90,17 @@ tile.cavecliff.moss.layer.desc=A flat bedding of moss.
 tile.cavecliff.dirt.rooted.name=Rooted Dirt
 tile.cavecliff.dirt.rooted.desc=Dirt that has been overgrown with roots.
 
-tile.cavecliff.block.raw.iron.name=Block of Raw Iron
-tile.cavecliff.block.raw.iron.desc=A solid block of raw iron.
+tile.cavecliff.block.iron.raw.name=Block of Raw Iron
+tile.cavecliff.block.iron.raw.desc=A solid block of raw iron.
 
-tile.cavecliff.block.raw.gold.name=Block of Raw Gold
-tile.cavecliff.block.raw.gold.desc=A solid block of raw gold.
+tile.cavecliff.block.gold.raw.name=Block of Raw Gold
+tile.cavecliff.block.gold.raw.desc=A solid block of raw gold.
 
-tile.cavecliff.block.raw.copper.name=Block of Raw Copper
-tile.cavecliff.block.raw.copper.desc=A solid block of raw copper.
+tile.cavecliff.block.copper.raw.name=Block of Raw Copper
+tile.cavecliff.block.copper.raw.desc=A solid block of raw copper.
+
+tile.cavecliff.block.gravitite.raw.name=Block of Raw Gravitite
+tile.cavecliff.block.gravitite.raw.desc=A solid block of raw gravitite.
 
 tile.cavecliff.vines.name=Vines
 tile.cavecliff.vines.desc=A long, creeping vine that can be climbed, grows glowing berries.

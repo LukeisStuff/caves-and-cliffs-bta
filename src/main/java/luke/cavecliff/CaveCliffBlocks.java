@@ -344,11 +344,11 @@ public class CaveCliffBlocks {
 
 
         BLOCK_IRON_RAW = metal
-            .build("block.raw.iron", "block_raw_iron", blockID("BLOCK_IRON_RAW"), b -> new BlockLogic(b, Material.metal));
+            .build("block.iron.raw", "block_iron_raw", blockID("BLOCK_IRON_RAW"), b -> new BlockLogic(b, Material.metal));
         BLOCK_GOLD_RAW = metal
-            .build("block.raw.gold", "block_raw_gold", blockID("BLOCK_GOLD_RAW"), b -> new BlockLogic(b, Material.metal));
+            .build("block.gold.raw", "block_gold_raw", blockID("BLOCK_GOLD_RAW"), b -> new BlockLogic(b, Material.metal));
         BLOCK_COPPER_RAW = metal
-            .build("block.raw.copper", "block_raw_copper", blockID("BLOCK_COPPER_RAW"), b -> new BlockLogic(b, Material.metal));
+            .build("block.copper.raw", "block_copper_raw", blockID("BLOCK_COPPER_RAW"), b -> new BlockLogic(b, Material.metal));
 
 
         DIRT_ROOTED = new BlockBuilder(MOD_ID)

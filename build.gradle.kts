@@ -65,7 +65,7 @@ dependencies {
 	implementation(libs.btwaila)
 	compileOnly(libs.commandly)
 
-	compileOnly(libs.aether)
+    implementation(libs.aether)
 
 	runtimeOnly(libs.clientJar)
 	implementation(libs.loader)
