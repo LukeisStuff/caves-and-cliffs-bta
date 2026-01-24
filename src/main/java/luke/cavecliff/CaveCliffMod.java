@@ -60,7 +60,7 @@ public class CaveCliffMod implements ModInitializer, ClientStartEntrypoint, Game
     @Override
     public void afterClientStart() {
 
-        MobInfoRegistry.register(MobGoat.class, "guidebook.section.mob.goat.name", "guidebook.section.mob.goat.desc",
+        MobInfoRegistry.register(MobGoat.class, "guidebook.section.mob.goat.mountain.name", "guidebook.section.mob.goat.mountain.desc",
             10, 10, new MobInfoRegistry.MobDrop[]{new MobInfoRegistry.MobDrop(new ItemStack(CaveCliffItems.HORN_GOAT), 1.0f, 0, 2)});
 
         MobInfoRegistry.register(MobGlowSquid.class, "guidebook.section.mob.squid.glow.name", "guidebook.section.mob.squid.glow.desc",

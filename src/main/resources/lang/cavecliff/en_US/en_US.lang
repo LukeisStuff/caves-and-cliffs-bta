@@ -238,9 +238,8 @@ tile.cavecliff.stairs.brick.copper.oxidized.name=Exposed Copper Brick Stairs
 tile.cavecliff.stairs.brick.copper.oxidized.desc=Exposed copper brick block used for rapid vertical movement.
 
 
-cavecliff.entity.goat=Goat
-guidebook.section.mob.goat.name=Goat
-guidebook.section.mob.goat.desc=Goats are the only source of horns, which can be used to create sounds.\nThey can be found in mountain biomes.
+guidebook.section.mob.goat.mountain.name=Mountain Goat
+guidebook.section.mob.goat.mountain.desc=Mountain goats are the only source of horns, which can be used to create sounds.\nThey can be found in mountain biomes.
 subtitles.mob.goat.scream=Goat scream
 subtitles.mob.goat.idle=Goat bleats
 subtitles.mob.goat.hurt=Goat hurt
@@ -248,11 +247,9 @@ subtitles.mob.goat.death=Goat death
 
 subtitles.goathorn=Goat horn
 
-cavecliff.entity.glowsquid=Glow Squid
 guidebook.section.mob.squid.glow.name=Glow Squid
 guidebook.section.mob.squid.glow.desc=Glow squids are a source of ink sacs, which can be used to dye wool.\nThey can be found in lakes and oceans.
 
-cavecliff.entity.axolotl=Axolotl
 guidebook.section.mob.axolotl.name=Axolotl
 guidebook.section.mob.axolotl.desc=Axolotls can become a great water companion if fed fish.\nThey can be found in lakes and oceans.
 subtitles.mob.axolotl.idle=Axolotl chirp

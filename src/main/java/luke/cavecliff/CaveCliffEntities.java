@@ -16,16 +16,11 @@ public class CaveCliffEntities {
             hasInit = true;
             initializeEntities();
         }
-
-    }
-
-    public static String entityKey(String string) {
-        return MOD_ID + ".entity." + string;
     }
 
     public static void initializeEntities() {
-        EntityHelper.createEntity(MobGlowSquid.class, NamespaceID.getPermanent(MOD_ID, "glowsquid"), entityKey("glowsquid"));
-        EntityHelper.createEntity(MobGoat.class, NamespaceID.getPermanent(MOD_ID, "goat"), entityKey("goat"));
-        EntityHelper.createEntity(MobAxolotl.class, NamespaceID.getPermanent(MOD_ID, "axolotl"), entityKey("axolotl"));
+        EntityHelper.createEntity(MobGlowSquid.class, NamespaceID.getPermanent(MOD_ID, "glowsquid"), "guidebook.section.mob.glowsquid.name");
+        EntityHelper.createEntity(MobGoat.class, NamespaceID.getPermanent(MOD_ID, "goat_mountain"), "guidebook.section.mob.goat.mountain.name");
+        EntityHelper.createEntity(MobAxolotl.class, NamespaceID.getPermanent(MOD_ID, "axolotl"), "guidebook.section.mob.axolotl.name");
     }
 }

@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 public class MobGoat extends MobAnimal {
     public MobGoat(World world) {
         super(world);
-        this.textureIdentifier = NamespaceID.getPermanent("cavecliff", "goat");
+        this.textureIdentifier = NamespaceID.getPermanent("cavecliff", "goat_mountain");
         this.setSize(0.8F, 1.2F);
         this.mobDrops.add(new WeightedRandomLootObject(CaveCliffItems.HORN_GOAT.getDefaultStack(), 0, 2));
     }
