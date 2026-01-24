@@ -1,8 +1,6 @@
 package luke.cavecliff.compat.aether;
 
 import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockLogic;
-import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.sound.BlockSound;
 import turniplabs.halplibe.helper.BlockBuilder;
@@ -30,6 +28,6 @@ public class CaveCliffAetherBlocks {
             .setTags(BlockTags.MINEABLE_BY_PICKAXE);
 
         BLOCK_GRAVITITE_RAW = metal
-            .build("block.gravitite.raw", "block_gravitite_raw", blockID("BLOCK_GRAVITITE_RAW"), b -> new BlockLogic(b, Material.metal));
+            .build("block.gravitite.raw", "block_gravitite_raw", blockID("BLOCK_GRAVITITE_RAW"), BlockLogicRawOreGravitite::new);
     }
 }

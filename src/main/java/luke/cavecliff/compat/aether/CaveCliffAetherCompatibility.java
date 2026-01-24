@@ -7,9 +7,12 @@ import net.minecraft.client.render.TileEntityRenderDispatcher;
 import net.minecraft.client.render.block.color.BlockColorDispatcher;
 import net.minecraft.client.render.block.model.BlockModelDispatcher;
 import net.minecraft.client.render.item.model.ItemModelDispatcher;
+import net.minecraft.core.block.material.MaterialColor;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.ModelEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
+
+import static net.minecraft.core.block.material.MaterialColor.registerManualBlockColor;
 
 public class CaveCliffAetherCompatibility implements PreLaunchEntrypoint, GameStartEntrypoint, ModelEntrypoint, RecipeEntrypoint {
 
@@ -62,6 +65,7 @@ public class CaveCliffAetherCompatibility implements PreLaunchEntrypoint, GameSt
 
     @Override
     public void afterGameStart() {
+        registerManualBlockColor(CaveCliffAetherBlocks.BLOCK_GRAVITITE_RAW, 0, MaterialColor.paintedPink);
     }
 
     @Override

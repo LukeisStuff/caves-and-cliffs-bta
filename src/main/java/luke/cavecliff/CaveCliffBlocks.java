@@ -87,16 +87,43 @@ public class CaveCliffBlocks {
         }
     }
 
-    public void initializeBlockDetails() {
-        LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.SAPLING_AZALEA.id(), 100);
-        LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.SAPLING_AZALEA.id(), 100);
+    private static final MaterialColor[] PAINTED_COLORS = {
+        MaterialColor.paintedWhite,
+        MaterialColor.paintedOrange,
+        MaterialColor.paintedMagenta,
+        MaterialColor.paintedLightblue,
+        MaterialColor.paintedYellow,
+        MaterialColor.paintedLime,
+        MaterialColor.paintedPink,
+        MaterialColor.paintedGrey,
+        MaterialColor.paintedSilver,
+        MaterialColor.paintedCyan,
+        MaterialColor.paintedPurple,
+        MaterialColor.paintedBlue,
+        MaterialColor.paintedBrown,
+        MaterialColor.paintedGreen,
+        MaterialColor.paintedRed,
+        MaterialColor.paintedBlack
+    };
 
-        LookupFuelFurnace.instance.addFuelEntry(CaveCliffBlocks.LOG_AZALEA.id(), 300);
+    public void initializeBlockDetails() {
+        LookupFuelFurnace.instance.addFuelEntry(SAPLING_AZALEA.id(), 100);
+        LookupFuelFurnace.instance.addFuelEntry(SAPLING_AZALEA.id(), 100);
+
+        LookupFuelFurnace.instance.addFuelEntry(LOG_AZALEA.id(), 300);
+
+        for (int i = 0; i < 256; ++i) {
+            int colorIndex = i % 16;
+            registerManualBlockColor(CANDLE_COLORED, i, PAINTED_COLORS[colorIndex]);
+            registerManualBlockColor(CANDLE_COLORED_LIT, i, PAINTED_COLORS[colorIndex]);
+        }
+
+        registerManualBlockColor(CANDLE, 0, MaterialColor.wood);
+        registerManualBlockColor(CANDLE_LIT, 0, MaterialColor.wood);
 
 
         registerManualBlockColor(AMETHYST, 0, MaterialColor.paintedPurple);
         registerManualBlockColor(AMETHYST_BUDDING, 0, MaterialColor.paintedPurple);
-        registerManualBlockColor(DRIPLEAF_SMALL, 0, MaterialColor.paintedPurple);
         registerManualBlockColor(AMETHYST_CLUSTER_MEDIUM, 0, MaterialColor.paintedPurple);
         registerManualBlockColor(AMETHYST_CLUSTER_LARGE, 0, MaterialColor.paintedPurple);
         registerManualBlockColor(AMETHYST_CLUSTER, 0, MaterialColor.paintedPurple);
@@ -138,6 +165,8 @@ public class CaveCliffBlocks {
         registerManualBlockColor(BLOCK_GOLD_RAW, 0, MaterialColor.gold);
 
         registerManualBlockColor(DRIPSTONE, 0, MaterialColor.dirt);
+
+        registerManualBlockColor(LICHEN, 3, MaterialColor.diamond);
 
         registerManualBlockColor(TUFF, 0, MaterialColor.paintedGrey);
         registerManualBlockColor(CALCITE, 0, MaterialColor.paintedWhite);
