@@ -1,6 +1,5 @@
 package luke.cavecliff.block;
 
-import luke.cavecliff.CaveCliffBlocks;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicFluid;
 import net.minecraft.core.block.IPainted;

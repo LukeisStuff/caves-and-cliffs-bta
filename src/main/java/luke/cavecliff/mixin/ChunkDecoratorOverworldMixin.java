@@ -1,7 +1,7 @@
 package luke.cavecliff.mixin;
 
 import com.llamalad7.mixinextras.sugar.Local;
-import luke.cavecliff.CaveCliffBlocks;
+import luke.cavecliff.block.CaveCliffBlocks;
 import luke.cavecliff.block.BlockLogicOreCopper;
 import luke.cavecliff.world.WorldFeatureGeode;
 import luke.cavecliff.world.WorldFeaturePowderSnow;

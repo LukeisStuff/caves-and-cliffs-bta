@@ -1,7 +1,6 @@
-package luke.cavecliff;
+package luke.cavecliff.model;
 
-import luke.cavecliff.blockmodel.*;
-import luke.cavecliff.blockmodel.BlockModelCandle;
+import luke.cavecliff.block.CaveCliffBlocks;
 import luke.cavecliff.entity.axolotl.MobAxolotl;
 import luke.cavecliff.entity.axolotl.MobRendererAxolotl;
 import luke.cavecliff.entity.axolotl.ModelAxolotl;
@@ -10,6 +9,7 @@ import luke.cavecliff.entity.glowsquid.MobRendererGlowSquid;
 import luke.cavecliff.entity.goat.MobGoat;
 import luke.cavecliff.entity.goat.MobRendererGoat;
 import luke.cavecliff.entity.goat.ModelGoat;
+import luke.cavecliff.item.CaveCliffItems;
 import net.minecraft.client.render.EntityRenderDispatcher;
 import net.minecraft.client.render.TileEntityRenderDispatcher;
 import net.minecraft.client.render.block.color.BlockColorDispatcher;
@@ -22,6 +22,7 @@ import turniplabs.halplibe.helper.ModelHelper;
 import turniplabs.halplibe.util.ModelEntrypoint;
 
 public class CaveCliffModels implements ModelEntrypoint {
+
     @Override
     public void initBlockModels(BlockModelDispatcher dispatcher) {
         dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.AMETHYST)
@@ -30,7 +31,8 @@ public class CaveCliffModels implements ModelEntrypoint {
             .setAllTextures(0, "cavecliff:block/amethyst_budding"));
 
         dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.ORE_COPPER_STONE)
-            .setAllTextures(0, "cavecliff:block/ore/copper/stone").setAllTextures(2, "cavecliff:block/ore/copper/stone_retro"));
+            .setAllTextures(0, "cavecliff:block/ore/copper/stone")
+            .setAllTextures(2, "cavecliff:block/ore/copper/stone_retro"));
         dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.ORE_COPPER_BASALT)
             .setAllTextures(0, "cavecliff:block/ore/copper/basalt"));
         dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.ORE_COPPER_GRANITE)
@@ -62,13 +64,18 @@ public class CaveCliffModels implements ModelEntrypoint {
         dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.DIRT_ROOTED)
             .setAllTextures(0, "cavecliff:block/dirt_rooted"));
 
-        dispatcher.addDispatch(new BlockModelSpore<>(CaveCliffBlocks.FLOWER_SPORE).setAllTextures(0, "cavecliff:block/spore_blossom_flower")
-            .setTex(0, "cavecliff:block/spore_blossom_root", Side.BOTTOM).setTex(0, "cavecliff:block/spore_blossom_flower", Side.TOP));
+        dispatcher.addDispatch(new BlockModelSpore<>(CaveCliffBlocks.FLOWER_SPORE)
+            .setAllTextures(0, "cavecliff:block/spore_blossom_flower")
+            .setTex(0, "cavecliff:block/spore_blossom_root", Side.BOTTOM)
+            .setTex(0, "cavecliff:block/spore_blossom_flower", Side.TOP));
 
-        dispatcher.addDispatch(new BlockModelDripleafSmall<>(CaveCliffBlocks.DRIPLEAF_SMALL).setAllTextures(0, "cavecliff:block/dripleaf_small")
-            .setTex(0, "cavecliff:block/dripleaf_small_stem", Side.BOTTOM).setTex(0, "cavecliff:block/dripleaf_small", Side.TOP));
+        dispatcher.addDispatch(new BlockModelDripleafSmall<>(CaveCliffBlocks.DRIPLEAF_SMALL)
+            .setAllTextures(0, "cavecliff:block/dripleaf_small")
+            .setTex(0, "cavecliff:block/dripleaf_small_stem", Side.BOTTOM)
+            .setTex(0, "cavecliff:block/dripleaf_small", Side.TOP));
 
-        dispatcher.addDispatch(new BlockModelDripleafBig<>(CaveCliffBlocks.DRIPLEAF_BIG).setAllTextures(0, "cavecliff:block/dripleaf_big")
+        dispatcher.addDispatch(new BlockModelDripleafBig<>(CaveCliffBlocks.DRIPLEAF_BIG)
+            .setAllTextures(0, "cavecliff:block/dripleaf_big")
             .setTex(0, "cavecliff:block/dripleaf_big_stem", Side.BOTTOM));
 
         dispatcher.addDispatch(new BlockModelStandard<>(CaveCliffBlocks.BLOCK_COPPER_RAW)
@@ -94,16 +101,22 @@ public class CaveCliffModels implements ModelEntrypoint {
         dispatcher.addDispatch(new BlockModelLadder<>(CaveCliffBlocks.LICHEN)
             .setAllTextures(0, "cavecliff:block/lichen").setAllTextures(1, "cavecliff:block/lichen_overlay"));
 
-        dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_SMALL).setAllTextures(0, "cavecliff:block/amethyst_small"));
-        dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_MEDIUM).setAllTextures(0, "cavecliff:block/amethyst_medium"));
-        dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_LARGE).setAllTextures(0, "cavecliff:block/amethyst_large"));
-        dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER).setAllTextures(0, "cavecliff:block/amethyst_cluster"));
+        dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_SMALL)
+            .setAllTextures(0, "cavecliff:block/amethyst_small"));
+        dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_MEDIUM)
+            .setAllTextures(0, "cavecliff:block/amethyst_medium"));
+        dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER_LARGE)
+            .setAllTextures(0, "cavecliff:block/amethyst_large"));
+        dispatcher.addDispatch(new BlockModelCrossedSquares<>(CaveCliffBlocks.AMETHYST_CLUSTER)
+            .setAllTextures(0, "cavecliff:block/amethyst_cluster"));
 
         dispatcher.addDispatch(new BlockModelVines<>(CaveCliffBlocks.VINES));
         dispatcher.addDispatch(new BlockModelVinesGlowing<>(CaveCliffBlocks.VINES_GLOWING));
 
-        dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE).setAllTextures(0, "cavecliff:block/candle/candle"));
-        dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE_LIT).setAllTextures(0, "cavecliff:block/candle/candle"));
+        dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE)
+            .setAllTextures(0, "cavecliff:block/candle/candle"));
+        dispatcher.addDispatch(new BlockModelCandle<>(CaveCliffBlocks.CANDLE_LIT)
+            .setAllTextures(0, "cavecliff:block/candle/candle"));
         dispatcher.addDispatch(new BlockModelCandlePainted<>(CaveCliffBlocks.CANDLE_COLORED));
         dispatcher.addDispatch(new BlockModelCandlePainted<>(CaveCliffBlocks.CANDLE_COLORED_LIT));
 
@@ -113,30 +126,55 @@ public class CaveCliffModels implements ModelEntrypoint {
         dispatcher.addDispatch(new BlockModelStairsCopper<>(CaveCliffBlocks.STAIRS_BRICK_COPPER));
         dispatcher.addDispatch(new BlockModelSlabCopper<>(CaveCliffBlocks.SLAB_BRICK_COPPER));
 
-        dispatcher.addDispatch(new BlockModelLightningRod<>(CaveCliffBlocks.LIGHTNING_ROD).setAllTextures(0, "cavecliff:block/lightning_rod"));
+        dispatcher.addDispatch(new BlockModelLightningRod<>(CaveCliffBlocks.LIGHTNING_ROD)
+            .setAllTextures(0, "cavecliff:block/lightning_rod"));
     }
 
     @Override
     public void initItemModels(ItemModelDispatcher dispatcher) {
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.AMETHYST, null).setIcon("cavecliff:item/amethyst"));
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.INGOT_COPPER, null).setIcon("cavecliff:item/ingot_copper"));
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.ORE_RAW_COPPER, null).setIcon("cavecliff:item/ore_raw_copper"));
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.FOOD_GLOW_BERRIES, null).setIcon("cavecliff:item/glowberries").setFullBright());
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.HORN_GOAT, null).setIcon("cavecliff:item/goat_horn").setFull3D());
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.INKSAC_GLOW, null).setIcon("cavecliff:item/inksac_glow").setFullBright());
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.RECORD_OTHERSIDE, null).setIcon("cavecliff:item/otherside"));
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.AMETHYST, null)
+            .setIcon("cavecliff:item/amethyst"));
 
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE.asItem(), null).setIcon("cavecliff:item/candle"));
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE_LIT.asItem(), null).setIcon("cavecliff:item/candle").setFullBright());
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.INGOT_COPPER, null)
+            .setIcon("cavecliff:item/ingot_copper"));
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.ORE_RAW_COPPER, null)
+            .setIcon("cavecliff:item/ore_raw_copper"));
 
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.DRIPLEAF_SMALL.asItem(), null).setIcon("cavecliff:block/dripleaf_small_icon"));
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.FLOWER_SPORE.asItem(), null).setIcon("cavecliff:block/spore_blossom_flower"));
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.FOOD_GLOW_BERRIES, null)
+            .setIcon("cavecliff:item/glowberries")
+            .setFullBright());
+
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.HORN_GOAT, null)
+            .setIcon("cavecliff:item/goat_horn")
+            .setFull3D());
+
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.INKSAC_GLOW, null)
+            .setIcon("cavecliff:item/inksac_glow")
+            .setFullBright());
+
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.RECORD_OTHERSIDE, null)
+            .setIcon("cavecliff:item/otherside"));
+
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE.asItem(), null)
+            .setIcon("cavecliff:item/candle"));
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE_LIT.asItem(), null)
+            .setIcon("cavecliff:item/candle")
+            .setFullBright());
+
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.DRIPLEAF_SMALL.asItem(), null)
+            .setIcon("cavecliff:block/dripleaf_small_icon"));
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.FLOWER_SPORE.asItem(), null)
+            .setIcon("cavecliff:block/spore_blossom_flower"));
 
         dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED.asItem(), null));
-        dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED_LIT.asItem(), null).setFullBright());
+        dispatcher.addDispatch(new ItemModelCandleColored(CaveCliffBlocks.CANDLE_COLORED_LIT.asItem(), null)
+            .setFullBright());
 
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.VINES_GLOWING.asItem(), null).setFullBright());
-        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.LICHEN.asItem(), null).setFullBright().setIcon("cavecliff:block/lichen"));
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.VINES_GLOWING.asItem(), null)
+            .setFullBright());
+        dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.LICHEN.asItem(), null)
+            .setFullBright()
+            .setIcon("cavecliff:block/lichen"));
 
     }
 

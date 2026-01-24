@@ -24,8 +24,7 @@ public abstract class GuiIngameMixin extends Gui {
     @Shadow
     protected Minecraft mc;
 
-    @Inject(method = "renderGameOverlay(FZII)V",
-        at = @At(value = "TAIL"))
+    @Inject(method = "renderGameOverlay(FZII)V", at = @At(value = "TAIL"))
     public void renderGameOverlay(float partialTicks, boolean flag, int mouseX, int mouseY, CallbackInfo ci) {
         World world = this.mc.currentWorld;
         if (CameraUtil.isUnderLiquid(this.mc.activeCamera, world, Material.topSnow, partialTicks)) {

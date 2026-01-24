@@ -1,6 +1,6 @@
 package luke.cavecliff.mixin;
 
-import luke.cavecliff.CaveCliffBlocks;
+import luke.cavecliff.block.CaveCliffBlocks;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogicMoss;
 import net.minecraft.core.block.Blocks;

@@ -21,30 +21,33 @@
     "onInitialize": [
       "luke.cavecliff.CaveCliffMod"
     ],
+    "onInitializeClient": [
+      "luke.cavecliff.CaveCliffClient"
+    ],
     "beforeGameStart": [
       "luke.cavecliff.CaveCliffMod",
-      "luke.cavecliff.compat.aether.CaveCliffAetherCompatibility"
+      "luke.cavecliff.compat.aether.CaveCliffAetherMod"
     ],
     "afterGameStart": [
       "luke.cavecliff.CaveCliffMod",
-      "luke.cavecliff.compat.aether.CaveCliffAetherCompatibility"
+      "luke.cavecliff.compat.aether.CaveCliffAetherMod"
     ],
     "beforeClientStart": [
-      "luke.cavecliff.CaveCliffMod"
+      "luke.cavecliff.CaveCliffClient"
     ],
     "afterClientStart": [
-      "luke.cavecliff.CaveCliffMod"
+      "luke.cavecliff.CaveCliffClient"
     ],
     "recipesReady": [
       "luke.cavecliff.CaveCliffRecipes",
-      "luke.cavecliff.compat.aether.CaveCliffAetherCompatibility"
+      "luke.cavecliff.compat.aether.CaveCliffAetherMod"
     ],
     "initModels": [
-      "luke.cavecliff.CaveCliffModels",
-      "luke.cavecliff.compat.aether.CaveCliffAetherCompatibility"
+      "luke.cavecliff.model.CaveCliffModels",
+      "luke.cavecliff.compat.aether.CaveCliffAetherClient"
     ],
     "preLaunch": [
-      "luke.cavecliff.compat.aether.CaveCliffAetherCompatibility"
+      "luke.cavecliff.compat.aether.CaveCliffAetherMod"
     ]
   },
   "mixins": [

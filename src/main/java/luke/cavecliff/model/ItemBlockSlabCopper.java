@@ -1,14 +1,11 @@
-package luke.cavecliff.blockmodel;
+package luke.cavecliff.model;
 
 import luke.cavecliff.block.BlockLogicCopper;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.block.ItemBlockSlab;
 
-@Environment(EnvType.CLIENT)
 public class ItemBlockSlabCopper<T extends BlockLogic> extends ItemBlockSlab<T> {
     public final boolean upperMetadata;
 

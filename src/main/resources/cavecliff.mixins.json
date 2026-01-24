@@ -11,13 +11,13 @@
     "BiomeSpawnableListMixin",
     "BlockLogicMossyMixin",
     "ChunkDecoratorOverworldMixin",
-    "FogManagerMixin",
-    "GuiIngameMixin",
     "ItemToolAxeMixin",
     "MenuInventoryCreativeMixin",
     "SwampBiomeVinesMixin"
   ],
   "client": [
+    "FogManagerMixin",
+    "GuiIngameMixin"
   ],
   "injectors": {
     "defaultRequire": 1

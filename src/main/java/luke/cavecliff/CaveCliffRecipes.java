@@ -1,5 +1,7 @@
 package luke.cavecliff;
 
+import luke.cavecliff.block.CaveCliffBlocks;
+import luke.cavecliff.item.CaveCliffItems;
 import net.minecraft.core.block.Blocks;
 import net.minecraft.core.data.registry.Registries;
 import net.minecraft.core.item.ItemStack;
@@ -46,9 +48,9 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
 
         RecipeBuilderShaped templateBlockToItem = new RecipeBuilderShaped(MOD_ID, "X");
         templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER, 1)).create("copper_block_to_ingot", new ItemStack(CaveCliffItems.INGOT_COPPER, 4));
-        templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER_RAW, 1)).create("copper_block_to_ingot", new ItemStack(CaveCliffItems.ORE_RAW_COPPER, 9));
-        templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_GOLD_RAW, 1)).create("copper_block_to_ingot", new ItemStack(Items.ORE_RAW_GOLD, 9));
-        templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_IRON_RAW, 1)).create("copper_block_to_ingot", new ItemStack(Items.ORE_RAW_IRON, 9));
+        templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_COPPER_RAW, 1)).create("block_of_raw_copper_to_raw_copper", new ItemStack(CaveCliffItems.ORE_RAW_COPPER, 9));
+        templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_GOLD_RAW, 1)).create("block_of_raw_gold_to_raw_gold", new ItemStack(Items.ORE_RAW_GOLD, 9));
+        templateBlockToItem.addInput('X', new ItemStack(CaveCliffBlocks.BLOCK_IRON_RAW, 1)).create("block_of_raw_iron_to_raw_iron", new ItemStack(Items.ORE_RAW_IRON, 9));
 
         RecipeBuilder.Shapeless(MOD_ID)
             .addInput(new ItemStack(CaveCliffItems.INKSAC_GLOW, 1))

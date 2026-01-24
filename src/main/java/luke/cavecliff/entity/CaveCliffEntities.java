@@ -1,4 +1,4 @@
-package luke.cavecliff;
+package luke.cavecliff.entity;
 
 import luke.cavecliff.entity.axolotl.MobAxolotl;
 import luke.cavecliff.entity.glowsquid.MobGlowSquid;

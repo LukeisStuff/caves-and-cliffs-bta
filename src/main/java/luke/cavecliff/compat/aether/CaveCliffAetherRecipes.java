@@ -14,6 +14,9 @@ public class CaveCliffAetherRecipes implements RecipeEntrypoint {
     public void onRecipesReady() {
         RecipeBuilderShaped templateItemtoBlock = new RecipeBuilderShaped(MOD_ID, "XXX", "XXX", "XXX");
         templateItemtoBlock.addInput('X', AetherItems.ORE_RAW_GRAVITITE).create("block_of_raw_gravitite", new ItemStack(CaveCliffAetherBlocks.BLOCK_GRAVITITE_RAW, 1));
+
+        RecipeBuilderShaped templateBlockToItem = new RecipeBuilderShaped(MOD_ID, "X");
+        templateBlockToItem.addInput('X', new ItemStack(CaveCliffAetherBlocks.BLOCK_GRAVITITE_RAW, 1)).create("block_of_raw_gravitite_to_raw_gravitite", new ItemStack(AetherItems.ORE_RAW_GRAVITITE, 9));
     }
 
     @Override

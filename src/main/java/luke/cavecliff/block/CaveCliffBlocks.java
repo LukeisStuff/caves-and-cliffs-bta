@@ -1,8 +1,5 @@
-package luke.cavecliff;
+package luke.cavecliff.block;
 
-import luke.cavecliff.block.*;
-import luke.cavecliff.blockmodel.ItemBlockSlabCopper;
-import luke.cavecliff.blockmodel.ItemBlockStairsCopper;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.material.MaterialColor;
@@ -348,14 +345,12 @@ public class CaveCliffBlocks {
             .setUseInternalLight()
             .setVisualUpdateOnMetadata()
             .setTicking(true)
-            .setBlockItem(ItemBlockSlabCopper::new)
             .build("slab.brick.copper", "slab_brick_copper", blockID("SLAB_BRICK_COPPER"), b -> new BlockLogicSlabCopper(b, BRICK_COPPER));
 
         STAIRS_BRICK_COPPER = metal
             .setUseInternalLight()
             .setVisualUpdateOnMetadata()
             .setTicking(true)
-            .setBlockItem(ItemBlockStairsCopper::new)
             .build("stairs.brick.copper", "stairs_brick_copper", blockID("STAIRS_BRICK_COPPER"), b -> new BlockLogicStairsCopper(b, BRICK_COPPER));
 
 

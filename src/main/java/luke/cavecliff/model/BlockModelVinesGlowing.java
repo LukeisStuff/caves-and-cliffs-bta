@@ -1,4 +1,4 @@
-package luke.cavecliff.blockmodel;
+package luke.cavecliff.model;
 
 import luke.cavecliff.block.BlockLogicVines;
 import net.fabricmc.api.EnvType;

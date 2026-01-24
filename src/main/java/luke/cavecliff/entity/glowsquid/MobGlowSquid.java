@@ -1,6 +1,6 @@
 package luke.cavecliff.entity.glowsquid;
 
-import luke.cavecliff.CaveCliffItems;
+import luke.cavecliff.item.CaveCliffItems;
 import net.minecraft.core.WeightedRandomLootObject;
 import net.minecraft.core.entity.animal.MobSquid;
 import net.minecraft.core.util.collection.NamespaceID;

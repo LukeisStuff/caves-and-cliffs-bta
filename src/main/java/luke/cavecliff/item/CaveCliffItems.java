@@ -1,6 +1,5 @@
-package luke.cavecliff;
+package luke.cavecliff.item;
 
-import luke.cavecliff.item.ItemHorn;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemDiscMusic;
 import net.minecraft.core.item.ItemFood;

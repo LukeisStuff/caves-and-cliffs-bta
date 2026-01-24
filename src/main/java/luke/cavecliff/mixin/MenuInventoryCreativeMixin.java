@@ -1,6 +1,6 @@
 package luke.cavecliff.mixin;
 
-import luke.cavecliff.CaveCliffBlocks;
+import luke.cavecliff.block.CaveCliffBlocks;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.player.inventory.container.ContainerInventory;
 import net.minecraft.core.player.inventory.menu.MenuInventory;

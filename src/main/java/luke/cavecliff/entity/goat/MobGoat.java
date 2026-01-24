@@ -1,7 +1,7 @@
 package luke.cavecliff.entity.goat;
 
 import com.mojang.nbt.tags.CompoundTag;
-import luke.cavecliff.CaveCliffItems;
+import luke.cavecliff.item.CaveCliffItems;
 import net.minecraft.core.WeightedRandomLootObject;
 import net.minecraft.core.entity.animal.MobAnimal;
 import net.minecraft.core.entity.player.Player;

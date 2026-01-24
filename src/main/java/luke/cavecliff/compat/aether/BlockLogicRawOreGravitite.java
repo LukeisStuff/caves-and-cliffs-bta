@@ -35,13 +35,13 @@ public class BlockLogicRawOreGravitite extends BlockLogic {
         if (canFallAbove(world, x, y + 1, z) && y < 256) {
             byte byte0 = 32;
             if (world.areBlocksLoaded(x - byte0, y - byte0, z - byte0, x + byte0, y + byte0, z + byte0)) {
-                EntityFloatingBlock entityFloatingBlock = new EntityFloatingBlock(world, (double)x + (double)0.5F, (double)y + (double)0.5F, (double)z + (double)0.5F, this.block.id(), 0, (TileEntity)null);
+                EntityFloatingBlock entityFloatingBlock = new EntityFloatingBlock(world, (double) x + (double) 0.5F, (double) y + (double) 0.5F, (double) z + (double) 0.5F, this.block.id(), 0, (TileEntity) null);
                 world.entityJoinedWorld(entityFloatingBlock);
                 world.setBlockWithNotify(x, y, z, 0);
             } else {
                 world.setBlockWithNotify(x, y, z, 0);
 
-                while(canFallAbove(world, x, y + 1, z) && y < 256) {
+                while (canFallAbove(world, x, y + 1, z) && y < 256) {
                     ++y;
                 }
 

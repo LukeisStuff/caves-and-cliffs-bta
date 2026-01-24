@@ -1,6 +1,6 @@
 package luke.cavecliff.mixin;
 
-import luke.cavecliff.CaveCliffBlocks;
+import luke.cavecliff.block.CaveCliffBlocks;
 import net.minecraft.core.world.biome.BiomeForest;
 import net.minecraft.core.world.generate.feature.WorldFeature;
 import net.minecraft.core.world.generate.feature.tree.WorldFeatureTree;

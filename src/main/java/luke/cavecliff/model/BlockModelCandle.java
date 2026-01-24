@@ -1,4 +1,4 @@
-package luke.cavecliff.blockmodel;
+package luke.cavecliff.model;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -6,26 +6,19 @@ import net.minecraft.client.render.LightmapHelper;
 import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.client.render.tessellator.Tessellator;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
-import net.minecraft.client.render.texture.stitcher.TextureRegistry;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.block.Blocks;
-import net.minecraft.core.util.helper.DyeColor;
 import net.minecraft.core.util.helper.Side;
 
-import java.util.Iterator;
-
 @Environment(EnvType.CLIENT)
-public class BlockModelCandlePainted<T extends BlockLogic> extends BlockModelStandard<T> {
-    public static final IconCoordinate[] texCoords = new IconCoordinate[16];
-
-    public BlockModelCandlePainted(Block<T> block) {
+public class BlockModelCandle<T extends BlockLogic> extends BlockModelStandard<T> {
+    public BlockModelCandle(Block<T> block) {
         super(block);
     }
 
     @Override
     public boolean render(Tessellator tessellator, int x, int y, int z) {
-
         float minX = (float) x + 0.5F - 0.09375F;
         float minY = (float) y + 0.0F;
         float minZ = (float) z + 0.5F - 0.09375F;
@@ -43,10 +36,9 @@ public class BlockModelCandlePainted<T extends BlockLogic> extends BlockModelSta
             }
         }
         tessellator.setColorOpaque_F(brightness, brightness, brightness);
-        int metadata = BlockModelCandlePainted.renderBlocks.blockAccess.getBlockMetadata(x, y, z);
-        IconCoordinate texIndex = this.getBlockTextureFromSideAndMetadata(Side.BOTTOM, metadata);
-        if (BlockModelCandlePainted.renderBlocks.overrideBlockTexture != null) {
-            texIndex = BlockModelCandlePainted.renderBlocks.overrideBlockTexture;
+        IconCoordinate texIndex = this.getParticleTexture(Side.TOP, 0);
+        if (renderBlocks.overrideBlockTexture != null) {
+            texIndex = renderBlocks.overrideBlockTexture;
         }
 
         double texV = texIndex.getIconVMin();
@@ -108,19 +100,6 @@ public class BlockModelCandlePainted<T extends BlockLogic> extends BlockModelSta
         tessellator.addVertexWithUV(maxX, maxY, minZ, wickMinU, wickMaxV);
         tessellator.addVertexWithUV(minX, maxY, maxZ, wickMaxU, wickMaxV);
         return true;
-    }
-
-    @Override
-    public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int meta) {
-        return texCoords[meta & 15];
-    }
-
-    static {
-        DyeColor c;
-        for (Iterator<DyeColor> var0 = DyeColor.blockOrderedColors().iterator(); var0.hasNext(); texCoords[c.blockMeta] = TextureRegistry.getTexture("cavecliff:block/candle/" + c.colorID)) {
-            c = var0.next();
-        }
-
     }
 
     @Override
