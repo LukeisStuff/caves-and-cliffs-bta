@@ -26,7 +26,7 @@ public class ItemHorn extends Item {
     @Override
     public ItemStack onUseItem(ItemStack itemstack, World world, Player player) {
         if (Objects.requireNonNull(player.getHeldItem()).getMetadata() <= 0) {
-            world.playSoundAtEntity(player, player, "cavecliff.goathorn", 1.0F, 1.0f / (itemRand.nextFloat() * 0.4f + 0.8f));
+            world.playSoundAtEntity(player, player, "cavecliff:goathorn", 1.0F, 1.0f / (itemRand.nextFloat() * 0.4f + 0.8f));
             player.swingItem();
             player.getHeldItem().damageItem(256, player);
         }
