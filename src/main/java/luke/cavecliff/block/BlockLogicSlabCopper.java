@@ -51,11 +51,11 @@ public class BlockLogicSlabCopper extends BlockLogicSlab {
 
         if (rand.nextInt(200) == 0 &&
             (world.getBlockMaterial(x, y, z - 1) == Material.water ||
-            world.getBlockMaterial(x, y, z + 1) == Material.water ||
-            world.getBlockMaterial(x - 1, y, z) == Material.water ||
-            world.getBlockMaterial(x + 1, y, z) == Material.water ||
-            world.getBlockMaterial(x, y + 1, z) == Material.water ||
-            (world.canBlockBeRainedOn(x, y + 1, z) && Objects.requireNonNull(world.getCurrentWeather()).isPrecipitation))) {
+                world.getBlockMaterial(x, y, z + 1) == Material.water ||
+                world.getBlockMaterial(x - 1, y, z) == Material.water ||
+                world.getBlockMaterial(x + 1, y, z) == Material.water ||
+                world.getBlockMaterial(x, y + 1, z) == Material.water ||
+                (world.canBlockBeRainedOn(x, y + 1, z) && Objects.requireNonNull(world.getCurrentWeather()).isPrecipitation))) {
             world.setBlockAndMetadataWithNotify(x, y, z, this.id(), meta + 16);
         }
     }

@@ -1,29 +1,31 @@
-package luke.cavecliff.mixin;
+package luke.cavecliff.compat.aether.mixin;
 
 import luke.cavecliff.block.CaveCliffBlocks;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.entity.TileEntityActivator;
-import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.enums.EnumBlockSoundEffectType;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.item.material.ToolMaterial;
 import net.minecraft.core.item.tool.ItemTool;
-import net.minecraft.core.item.tool.ItemToolAxe;
 import net.minecraft.core.util.helper.Direction;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Pseudo;
 import org.spongepowered.asm.mixin.Unique;
+import teamport.aether.block.AetherBlockTags;
+import teamport.aether.item.item_tool.ItemToolAxeAether;
 
 import java.util.Random;
 
-@Mixin(value = ItemToolAxe.class, remap = false)
-public class ItemToolAxeMixin extends ItemTool {
+@Pseudo
+@Mixin(value = ItemToolAxeAether.class, remap = false)
+public class ItemToolAxeAetherMixin extends ItemTool {
 
-    public ItemToolAxeMixin(String name, String namespaceId, int id, ToolMaterial enumtoolmaterial) {
-        super(name, namespaceId, id, 3, enumtoolmaterial, BlockTags.MINEABLE_BY_AXE);
+    protected ItemToolAxeAetherMixin(String name, String namespaceId, int id, ToolMaterial enumtoolmaterial) {
+        super(name, namespaceId, id, 3, enumtoolmaterial, AetherBlockTags.MINEABLE_BY_AETHER_AXE);
     }
 
     @Override

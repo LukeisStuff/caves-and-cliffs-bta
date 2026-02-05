@@ -126,8 +126,14 @@ public class CaveCliffModels implements ModelEntrypoint {
         dispatcher.addDispatch(new BlockModelStairsCopper<>(CaveCliffBlocks.STAIRS_BRICK_COPPER));
         dispatcher.addDispatch(new BlockModelSlabCopper<>(CaveCliffBlocks.SLAB_BRICK_COPPER));
 
-        dispatcher.addDispatch(new BlockModelLightningRod<>(CaveCliffBlocks.LIGHTNING_ROD)
-            .setAllTextures(0, "cavecliff:block/lightning_rod"));
+        dispatcher.addDispatch(new BlockModelLightningRod<>(CaveCliffBlocks.LIGHTNING_ROD));
+
+        dispatcher.addDispatch(new BlockModelDoorCopper<>(CaveCliffBlocks.DOOR_COPPER_BOTTOM));
+        dispatcher.addDispatch(new BlockModelDoorCopper<>(CaveCliffBlocks.DOOR_COPPER_TOP));
+
+        dispatcher.addDispatch(new BlockModelTrapDoorCopper<>(CaveCliffBlocks.TRAPDOOR_COPPER));
+
+        dispatcher.addDispatch(new BlockModelFenceThinCopper<>(CaveCliffBlocks.FENCE_COPPER));
     }
 
     @Override
@@ -154,6 +160,8 @@ public class CaveCliffModels implements ModelEntrypoint {
 
         dispatcher.addDispatch(new ItemModelStandard(CaveCliffItems.RECORD_OTHERSIDE, null)
             .setIcon("cavecliff:item/otherside"));
+
+        dispatcher.addDispatch(new ItemModelDoorCopper(CaveCliffItems.DOOR_COPPER, null));
 
         dispatcher.addDispatch(new ItemModelStandard(CaveCliffBlocks.CANDLE.asItem(), null)
             .setIcon("cavecliff:item/candle"));

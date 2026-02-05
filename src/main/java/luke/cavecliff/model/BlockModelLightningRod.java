@@ -6,14 +6,28 @@ import net.minecraft.client.render.LightmapHelper;
 import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.client.render.tessellator.Tessellator;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
+import net.minecraft.client.render.texture.stitcher.TextureRegistry;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.util.helper.Side;
 
 @Environment(EnvType.CLIENT)
 public class BlockModelLightningRod<T extends BlockLogic> extends BlockModelStandard<T> {
+    public static final IconCoordinate[] oxidizeStageTextures = new IconCoordinate[4];
     public BlockModelLightningRod(Block<T> block) {
         super(block);
+    }
+
+    @Override
+    public IconCoordinate getBlockTextureFromSideAndMetadata(Side side, int data) {
+        return oxidizeStageTextures[data & 3];
+    }
+
+    static {
+        oxidizeStageTextures[0] = TextureRegistry.getTexture("cavecliff:block/lightning_rod");
+        oxidizeStageTextures[1] = TextureRegistry.getTexture("cavecliff:block/lightning_rod_exposed");
+        oxidizeStageTextures[2] = TextureRegistry.getTexture("cavecliff:block/lightning_rod_weathered");
+        oxidizeStageTextures[3] = TextureRegistry.getTexture("cavecliff:block/lightning_rod_oxidized");
     }
 
     @Override
@@ -35,7 +49,9 @@ public class BlockModelLightningRod<T extends BlockLogic> extends BlockModelStan
     }
 
     private void renderLightningRod(Tessellator tessellator, double x, double y, double z) {
-        IconCoordinate texture = this.getBlockTextureFromSideAndMetadata(Side.TOP, 0);
+        int metadata = renderBlocks.blockAccess.getBlockMetadata((int) x, (int) y, (int) z);
+        IconCoordinate texture = this.getBlockTextureFromSideAndMetadata(Side.TOP, metadata);
+
         if (renderBlocks.overrideBlockTexture != null) {
             texture = renderBlocks.overrideBlockTexture;
         }

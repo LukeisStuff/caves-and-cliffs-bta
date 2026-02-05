@@ -1,5 +1,9 @@
 package luke.cavecliff.block;
 
+import luke.cavecliff.CaveCliffMod;
+import luke.cavecliff.item.CaveCliffItems;
+import luke.cavecliff.model.ItemBlockCopper;
+import luke.cavecliff.model.ItemBlockSlabCopper;
 import net.minecraft.core.block.*;
 import net.minecraft.core.block.material.Material;
 import net.minecraft.core.block.material.MaterialColor;
@@ -74,6 +78,13 @@ public class CaveCliffBlocks {
 
     public static Block<?> TUFF;
     public static Block<?> CALCITE;
+
+    public static Block<BlockLogicDoorCopper> DOOR_COPPER_BOTTOM;
+    public static Block<BlockLogicDoorCopper> DOOR_COPPER_TOP;
+
+    public static Block<?> TRAPDOOR_COPPER;
+
+    public static Block<BlockLogicFenceCopper> FENCE_COPPER;
 
     private static boolean hasInit = false;
 
@@ -334,23 +345,27 @@ public class CaveCliffBlocks {
 
         BLOCK_COPPER = metal
             .setTicking(true)
+            .setBlockItem(b -> new ItemBlockCopper<>(b, false))
             .build("block.copper", "block_copper", blockID("BLOCK_COPPER"), BlockLogicCopper::new);
 
 
         BRICK_COPPER = metal
             .setTicking(true)
+            .setBlockItem(b -> new ItemBlockCopper<>(b, false))
             .build("brick.copper", "brick_copper", blockID("BRICK_COPPER"), BlockLogicCopper::new);
 
         SLAB_BRICK_COPPER = metal
             .setUseInternalLight()
             .setVisualUpdateOnMetadata()
             .setTicking(true)
+            .setBlockItem(ItemBlockSlabCopper::new)
             .build("slab.brick.copper", "slab_brick_copper", blockID("SLAB_BRICK_COPPER"), b -> new BlockLogicSlabCopper(b, BRICK_COPPER));
 
         STAIRS_BRICK_COPPER = metal
             .setUseInternalLight()
             .setVisualUpdateOnMetadata()
             .setTicking(true)
+            .setBlockItem(b -> new ItemBlockCopper<>(b, true))
             .build("stairs.brick.copper", "stairs_brick_copper", blockID("STAIRS_BRICK_COPPER"), b -> new BlockLogicStairsCopper(b, BRICK_COPPER));
 
 
@@ -475,6 +490,7 @@ public class CaveCliffBlocks {
 
         LIGHTNING_ROD = metal
             .setVisualUpdateOnMetadata()
+            .setBlockItem(b -> new ItemBlockCopper<>(b, false))
             .build("lightning.rod", "lightning_rod", blockID("LIGHTNING_ROD"), BlockLogicLightningRod::new);
 
 
@@ -486,6 +502,33 @@ public class CaveCliffBlocks {
             .setHardness(0.75f)
             .setResistance(0.75f)
             .build("calcite", "calcite", blockID("CALCITE"), b -> new BlockLogic(b, Material.marble));
+
+        DOOR_COPPER_BOTTOM = metal
+            .addTags(BlockTags.NOT_IN_CREATIVE_MENU)
+            .setVisualUpdateOnMetadata()
+            .setTicking(true)
+            .setBlockItem(b -> new ItemBlockCopper<>(b, true))
+            .build("door.copper.bottom", "door_copper_bottom", blockID("DOOR_COPPER_BOTTOM"), b -> new BlockLogicDoorCopper(b, CaveCliffMod.copper, false, true, () -> CaveCliffItems.DOOR_COPPER));
+
+        DOOR_COPPER_TOP = metal
+            .addTags(BlockTags.NOT_IN_CREATIVE_MENU)
+            .setVisualUpdateOnMetadata()
+            .setTicking(true)
+            .setBlockItem(b -> new ItemBlockCopper<>(b, true))
+            .build("door.copper.top", "door_copper_top", blockID("DOOR_COPPER_TOP"), b -> new BlockLogicDoorCopper(b, CaveCliffMod.copper, true, true, () -> CaveCliffItems.DOOR_COPPER));
+
+
+        TRAPDOOR_COPPER = metal
+            .setVisualUpdateOnMetadata()
+            .setTicking(true)
+            .setBlockItem(b -> new ItemBlockCopper<>(b, true))
+            .build("trapdoor.copper", "trapdoor_copper", blockID("TRAPDOOR_COPPER"), b -> new BlockLogicTrapDoorCopper(b, CaveCliffMod.copper));
+
+        FENCE_COPPER = metal
+            .setVisualUpdateOnMetadata()
+            .setTicking(true)
+            .setBlockItem(b -> new ItemBlockCopper<>(b, false))
+            .build("fence.copper", "fence_copper", blockID("FENCE_COPPER"), b -> new BlockLogicFenceCopper(b, CaveCliffMod.copper));
 
     }
 

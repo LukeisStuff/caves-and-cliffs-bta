@@ -1,24 +1,23 @@
 package luke.cavecliff.block;
 
-import luke.cavecliff.CaveCliffMod;
 import net.minecraft.core.block.Block;
-import net.minecraft.core.block.BlockLogic;
+import net.minecraft.core.block.BlockLogicFenceThin;
 import net.minecraft.core.block.entity.TileEntity;
 import net.minecraft.core.block.material.Material;
+import net.minecraft.core.block.tag.BlockTags;
 import net.minecraft.core.entity.player.Player;
 import net.minecraft.core.enums.EnumDropCause;
 import net.minecraft.core.item.ItemStack;
 import net.minecraft.core.util.helper.Side;
 import net.minecraft.core.world.World;
+import net.minecraft.core.world.WorldSource;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Random;
 
-public class BlockLogicCopper extends BlockLogic {
-    public static final String[] oxidizeStages = new String[]{"oxidized", "weathered", "exposed", "clean"};
-
-    public BlockLogicCopper(Block<?> block) {
-        super(block, CaveCliffMod.copper);
+public class BlockLogicFenceCopper extends BlockLogicFenceThin {
+    public BlockLogicFenceCopper(Block<?> block, Material material) {
+        super(block, material);
     }
 
     @Override
@@ -31,8 +30,9 @@ public class BlockLogicCopper extends BlockLogic {
         return new ItemStack[]{new ItemStack(this, 1, meta)};
     }
 
-    public static int getMetadataForOxidation(int blockMeta) {
-        return ~blockMeta & 3;
+    public boolean canConnectTo(WorldSource world, int x, int y, int z) {
+        Block<?> block = world.getBlock(x, y, z);
+        return BlockTags.CHAINLINK_FENCES_CONNECT.appliesTo(block) || block != null && (block.getMaterial().isStone() || block.getMaterial().isMetal());
     }
 
     @Override

@@ -2,18 +2,21 @@
   "schemaVersion": 1,
   "id": "cavecliff",
   "version": "${version}",
+
   "name": "Caves and Cliffs",
   "description": "Remaking the 1.17 and 1.18 release updates of minecraft in BTA!",
   "icon": "icon.png",
   "authors": [
     "LukeisStuff"
   ],
+
   "contact": {
     "homepage": "",
     "sources": ""
   },
   "license": "CC0-1.0",
   "environment": "*",
+
   "entrypoints": {
     "main": [
       "luke.cavecliff.CaveCliffMod"
@@ -50,9 +53,11 @@
       "luke.cavecliff.compat.aether.CaveCliffAetherMod"
     ]
   },
+
   "mixins": [
     "cavecliff.mixins.json"
   ],
+
   "depends": {
     "fabricloader": ">=${fabricloader}",
     "halplibe": ">=${halplibe}",

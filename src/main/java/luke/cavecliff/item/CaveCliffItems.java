@@ -1,5 +1,6 @@
 package luke.cavecliff.item;
 
+import luke.cavecliff.block.CaveCliffBlocks;
 import net.minecraft.core.item.Item;
 import net.minecraft.core.item.ItemDiscMusic;
 import net.minecraft.core.item.ItemFood;
@@ -22,6 +23,8 @@ public class CaveCliffItems {
     public static Item INKSAC_GLOW;
 
     public static Item RECORD_OTHERSIDE;
+
+    public static Item DOOR_COPPER;
 
     private static boolean hasInit = false;
 
@@ -59,6 +62,9 @@ public class CaveCliffItems {
         RECORD_OTHERSIDE = new ItemBuilder(MOD_ID)
             .setStackSize(1)
             .build(new ItemDiscMusic("record.otherside", itemKey("record_otherside"), itemID("RECORD_OTHERSIDE"), "cavecliff:otherside", "Lena Raine"));
+
+        DOOR_COPPER = new ItemBuilder(MOD_ID)
+            .build(new ItemDoorCopper("door.copper", itemKey("door_copper"), itemID("DOOR_COPPER"), CaveCliffBlocks.DOOR_COPPER_BOTTOM, CaveCliffBlocks.DOOR_COPPER_TOP));
 
     }
 }

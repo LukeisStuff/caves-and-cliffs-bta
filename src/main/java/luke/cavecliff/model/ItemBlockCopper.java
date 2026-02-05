@@ -4,16 +4,16 @@ import luke.cavecliff.block.BlockLogicCopper;
 import net.minecraft.core.block.Block;
 import net.minecraft.core.block.BlockLogic;
 import net.minecraft.core.item.ItemStack;
-import net.minecraft.core.item.block.ItemBlockSlab;
+import net.minecraft.core.item.block.ItemBlock;
 
-public class ItemBlockSlabCopper<T extends BlockLogic> extends ItemBlockSlab<T> {
-    public final boolean upperMetadata;
+public class ItemBlockCopper<T extends BlockLogic> extends ItemBlock<T> {
+    private final boolean upperMetadata;
 
-    public ItemBlockSlabCopper(Block<T> block) {
+    public ItemBlockCopper(Block<T> block, boolean upperMetadata) {
         super(block);
         this.setMaxDamage(0);
         this.setHasSubtypes(true);
-        this.upperMetadata = true;
+        this.upperMetadata = upperMetadata;
     }
 
     @Override

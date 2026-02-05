@@ -52,8 +52,49 @@ tile.cavecliff.brick.copper.weathered.desc=Stacked bricks of weathered copper.
 tile.cavecliff.brick.copper.oxidized.name=Oxidized Copper Brick
 tile.cavecliff.brick.copper.oxidized.desc=Stacked bricks of oxidized copper.
 
-tile.cavecliff.lightning.rod.name=Lightning Rod
-tile.cavecliff.lightning.rod.desc=A copper pole used to attract lightning.
+tile.cavecliff.door.copper.top.clean.name=Top Copper Door
+tile.cavecliff.door.copper.top.clean.desc=Missing its bottom.
+tile.cavecliff.door.copper.bottom.clean.name=Bottom Copper Door
+tile.cavecliff.door.copper.bottom.clean.desc=Missing its top.
+tile.cavecliff.door.copper.top.exposed.name=Top Exposed Copper Door
+tile.cavecliff.door.copper.top.exposed.desc=Missing its bottom.
+tile.cavecliff.door.copper.bottom.exposed.name=Bottom Exposed Copper Door
+tile.cavecliff.door.copper.bottom.exposed.desc=Missing its top.
+tile.cavecliff.door.copper.top.weathered.name=Top Weathered Copper Door
+tile.cavecliff.door.copper.top.weathered.desc=Missing its bottom.
+tile.cavecliff.door.copper.bottom.weathered.name=Bottom Weathered Copper Door
+tile.cavecliff.door.copper.bottom.weathered.desc=Missing its top.
+tile.cavecliff.door.copper.top.oxidized.name=Top Oxidized Copper Door
+tile.cavecliff.door.copper.top.oxidized.desc=Missing its bottom.
+tile.cavecliff.door.copper.bottom.oxidized.name=Bottom Oxidized Copper Door
+tile.cavecliff.door.copper.bottom.oxidized.desc=Missing its top.
+
+tile.cavecliff.trapdoor.copper.clean.name=Copper Trapdoor
+tile.cavecliff.trapdoor.copper.clean.desc=Like a door, but flat and made of copper.
+tile.cavecliff.trapdoor.copper.exposed.name=Exposed Copper Trapdoor
+tile.cavecliff.trapdoor.copper.exposed.desc=Like a door, but flat and made of exposed copper.
+tile.cavecliff.trapdoor.copper.weathered.name=Weathered Copper Trapdoor
+tile.cavecliff.trapdoor.copper.weathered.desc=Like a door, but flat and made of weathered copper.
+tile.cavecliff.trapdoor.copper.oxidized.name=Oxidized Copper Trapdoor
+tile.cavecliff.trapdoor.copper.oxidized.desc=Like a door, but flat and made of oxidized copper.
+
+tile.cavecliff.fence.copper.clean.name=Copper Fence
+tile.cavecliff.fence.copper.clean.desc=A fence made of copper. Industrial!
+tile.cavecliff.fence.copper.exposed.name=Exposed Copper Fence
+tile.cavecliff.fence.copper.exposed.desc=A fence made of exposed copper. Industrial!
+tile.cavecliff.fence.copper.weathered.name=Weathered Copper Fence
+tile.cavecliff.fence.copper.weathered.desc=A fence made of weathered copper. Industrial!
+tile.cavecliff.fence.copper.oxidized.name=Oxidized Copper Fence
+tile.cavecliff.fence.copper.oxidized.desc=A fence made of oxidized copper. Industrial!
+
+tile.cavecliff.lightning.rod.clean.name=Lightning Rod
+tile.cavecliff.lightning.rod.clean.desc=A copper pole used to attract lightning.
+tile.cavecliff.lightning.rod.exposed.name=Exposed Lightning Rod
+tile.cavecliff.lightning.rod.exposed.desc=An exposed copper pole used to attract lightning.
+tile.cavecliff.lightning.rod.weathered.name=Weathered Lightning Rod
+tile.cavecliff.lightning.rod.weathered.desc=A weathered copper pole used to attract lightning.
+tile.cavecliff.lightning.rod.oxidized.name=Oxidized Lightning Rod
+tile.cavecliff.lightning.rod.oxidized.desc=An oxidized copper pole used to attract lightning.
 
 tile.cavecliff.block.snow.powder.name=Powder Snow
 tile.cavecliff.block.snow.powder.desc=Loose snow packed into a bitterly cold block.
@@ -131,6 +172,15 @@ item.cavecliff.ingot.copper.desc=A metal bar of iron used to make blocks.
 
 item.cavecliff.ore.raw.copper.name=Raw Copper Ore
 item.cavecliff.ore.raw.copper.desc=A chunk of unprocessed copper. Can be smelted into a copper ingot.
+
+item.cavecliff.door.copper.clean.name=Copper Door
+item.cavecliff.door.copper.clean.desc=Every factory needs one.
+item.cavecliff.door.copper.exposed.name=Exposed Copper Door
+item.cavecliff.door.copper.exposed.desc=Every factory needs one.
+item.cavecliff.door.copper.weathered.name=Weathered Copper Door
+item.cavecliff.door.copper.weathered.desc=Every factory needs one.
+item.cavecliff.door.copper.oxidized.name=Oxidized Copper Door
+item.cavecliff.door.copper.oxidized.desc=Every factory needs one.
 
 item.cavecliff.food.berries.name=Glow Berries
 item.cavecliff.food.berries.desc=Yellow glowing berries that come in pairs.
@@ -215,8 +265,6 @@ tile.cavecliff.candle.colored.lit.black.name=Lit Black Candle
 tile.cavecliff.candle.colored.lit.black.desc=A candle, dyed black. Currently lit.
 
 
-tile.cavecliff.slab.brick.copper.name=Copper Brick Slab
-tile.cavecliff.slab.brick.copper.desc=A slab of copper bricks.
 tile.cavecliff.slab.brick.copper.clean.name=Copper Brick Slab
 tile.cavecliff.slab.brick.copper.clean.desc=A slab of copper bricks.
 tile.cavecliff.slab.brick.copper.oxidized.name=Oxidized Copper Brick Slab
@@ -226,16 +274,14 @@ tile.cavecliff.slab.brick.copper.weathered.desc=A slab of weathered copper brick
 tile.cavecliff.slab.brick.copper.exposed.name=Exposed Copper Brick Slab
 tile.cavecliff.slab.brick.copper.exposed.desc=A slab of exposed copper bricks.
 
-tile.cavecliff.stairs.brick.copper.name=Copper Brick Stairs
-tile.cavecliff.stairs.brick.copper.desc=Copper brick block used for rapid vertical movement.
 tile.cavecliff.stairs.brick.copper.clean.name=Copper Brick Stairs
 tile.cavecliff.stairs.brick.copper.clean.desc=Copper brick block used for rapid vertical movement.
-tile.cavecliff.stairs.brick.copper.exposed.name=Oxidized Copper Brick Stairs
-tile.cavecliff.stairs.brick.copper.exposed.desc=Oxidized copper brick block used for rapid vertical movement.
+tile.cavecliff.stairs.brick.copper.exposed.name=Exposed Copper Brick Stairs
+tile.cavecliff.stairs.brick.copper.exposed.desc=Exposed copper brick block used for rapid vertical movement.
 tile.cavecliff.stairs.brick.copper.weathered.name=Weathered Copper Brick Stairs
 tile.cavecliff.stairs.brick.copper.weathered.desc=Weathered copper brick block used for rapid vertical movement.
-tile.cavecliff.stairs.brick.copper.oxidized.name=Exposed Copper Brick Stairs
-tile.cavecliff.stairs.brick.copper.oxidized.desc=Exposed copper brick block used for rapid vertical movement.
+tile.cavecliff.stairs.brick.copper.oxidized.name=Oxidized Copper Brick Stairs
+tile.cavecliff.stairs.brick.copper.oxidized.desc=Oxidized copper brick block used for rapid vertical movement.
 
 
 guidebook.section.mob.goat.mountain.name=Mountain Goat

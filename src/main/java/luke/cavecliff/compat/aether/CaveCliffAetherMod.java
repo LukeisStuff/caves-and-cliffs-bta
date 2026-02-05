@@ -3,6 +3,7 @@ package luke.cavecliff.compat.aether;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
 import net.minecraft.core.block.material.MaterialColor;
+import org.spongepowered.asm.mixin.Mixins;
 import turniplabs.halplibe.util.GameStartEntrypoint;
 import turniplabs.halplibe.util.RecipeEntrypoint;
 
@@ -15,10 +16,10 @@ public class CaveCliffAetherMod implements PreLaunchEntrypoint, GameStartEntrypo
     @Override
     public void onPreLaunch() {
         FabricLoader loader = FabricLoader.getInstance();
-
         IS_AETHER_LOADED = loader.isModLoaded("aether");
 
         if (IS_AETHER_LOADED) {
+            Mixins.addConfiguration("compat/cavecliff/aether/aether.mixins.json");
 
             try {
 

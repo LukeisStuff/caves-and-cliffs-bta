@@ -77,6 +77,18 @@ public class CaveCliffRecipes implements RecipeEntrypoint {
                 .create("dyed_candle_dye", new ItemStack(CaveCliffBlocks.CANDLE_COLORED, 8, color));
         }
 
+        RecipeBuilder.Shaped(MOD_ID, "CC", "CC", "CC")
+            .addInput('C', CaveCliffItems.INGOT_COPPER)
+            .create("copper_door", new ItemStack(CaveCliffItems.DOOR_COPPER, 2));
+
+        RecipeBuilder.Shaped(MOD_ID, "CCC", "CCC")
+            .addInput('C', CaveCliffItems.INGOT_COPPER)
+            .create("copper_trapdoor", new ItemStack(CaveCliffBlocks.TRAPDOOR_COPPER, 6));
+
+        RecipeBuilder.Shaped(MOD_ID, "BCB", "BCB")
+            .addInput('C', CaveCliffItems.INGOT_COPPER)
+            .addInput('B', CaveCliffBlocks.BLOCK_COPPER)
+            .create("copper_fence", new ItemStack(CaveCliffBlocks.FENCE_COPPER, 32));
 
         RecipeBuilder.Furnace(MOD_ID)
             .setInput(CaveCliffItems.ORE_RAW_COPPER)
