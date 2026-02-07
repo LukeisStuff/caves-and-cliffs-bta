@@ -47,12 +47,27 @@ public class BlockModelDoorCopper<T extends BlockLogicDoor> extends BlockModelDo
             return VARIANT_TEXTURES[oxidation][TEX_FRAME_TOP];
         }
 
-        boolean isTopHalf = this.block.getLogic().isTop;
+        int rotation = this.block.getLogic().getRotation(meta);
+        boolean isFrontFace;
 
-        if (isTopHalf) {
-            return VARIANT_TEXTURES[oxidation][TEX_TOP];
+        switch (rotation) {
+            case 0:
+            case 2:
+                isFrontFace = (side == Side.NORTH || side == Side.SOUTH);
+                break;
+            case 1:
+            case 3:
+                isFrontFace = (side == Side.EAST || side == Side.WEST);
+                break;
+            default:
+                isFrontFace = false;
+        }
+
+        if (isFrontFace) {
+            boolean isTopHalf = this.block.getLogic().isTop;
+            return isTopHalf ? VARIANT_TEXTURES[oxidation][TEX_TOP] : VARIANT_TEXTURES[oxidation][TEX_BOTTOM];
         } else {
-            return VARIANT_TEXTURES[oxidation][TEX_BOTTOM];
+            return VARIANT_TEXTURES[oxidation][TEX_FRAME_TOP];
         }
     }
 
