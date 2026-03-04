@@ -4,6 +4,7 @@ package luke.cavecliff.model;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.render.LightmapHelper;
+import net.minecraft.client.render.block.color.BlockColorDispatcher;
 import net.minecraft.client.render.block.model.BlockModelStandard;
 import net.minecraft.client.render.tessellator.Tessellator;
 import net.minecraft.client.render.texture.stitcher.IconCoordinate;
@@ -31,11 +32,15 @@ public class BlockModelDripleafBig<T extends BlockLogic> extends BlockModelStand
             tessellator.setLightmapCoord(this.block.getLightmapCoord(renderBlocks.blockAccess, x, y, z));
         }
 
-        tessellator.setColorOpaque_F(255.0F * brightness, 255.0F * brightness, 255.0F * brightness);
-        IconCoordinate tex = this.getBlockTextureFromSideAndMetadata(Side.TOP, renderBlocks.blockAccess.getBlockMetadata(x, y, z));
+        int color = BlockColorDispatcher.getInstance().getDispatch(this.block).getWorldColor(renderBlocks.blockAccess, x, y, z);
+        float r = (float)(color >> 16 & 255) / 255.0F;
+        float g = (float)(color >> 8 & 255) / 255.0F;
+        float b = (float)(color & 255) / 255.0F;
+        tessellator.setColorOpaque_F(brightness * r, brightness * g, brightness * b);
 
         int metadata = renderBlocks.blockAccess.getBlockMetadata(x, y, z);
         IconCoordinate texIndex = this.getBlockTextureFromSideAndMetadata(Side.BOTTOM, metadata);
+        IconCoordinate tex = this.getBlockTextureFromSideAndMetadata(Side.TOP, metadata);
         if (renderBlocks.overrideBlockTexture != null) {
             texIndex = renderBlocks.overrideBlockTexture;
         }
